@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mgr munka</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/osszes.css">
+
+
+</head>
+<body>
+    
+    <h1>Rúdvágás</h1>
+    <p>feladat leírása: Adott egy n hüvelyk hosszúságú rúd és egy ártömb, amely tartalmazza az n-nél kisebb méretű darabok árait. Határozza meg a rúd feldarabolásával és a darabok eladásával elérhető maximális értéket. Például, ha a rúd hossza 8, és a különböző darabok értékei a következők, akkor a maximálisan elérhető érték 22 (két 2 és 6 hosszúságú darab feldarabolásával)
+        <br>length| 1   2   3   4   5   6   7   8  
+<br>--------------------------------------------
+<br>price| 1   5   8   9  10  17  17  20 </p>
+    
+    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
+    
+<!-- Button trigger modal -->
+
+<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
+    C kód</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <pre class="line-numbers">
+                <code class="language-clike">
+
+                </code>
+             </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    
+    <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
+    <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
+    <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
+    <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
+
+    <div class="example_b">
+        <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
+      </div>
+
+        <pre class="line-numbers">
+  <code class="language-clike">
+    C kod es a forras: https://www.geeksforgeeks.org/cutting-a-rod-dp-13/
+
+    // C program for above approach
+    #include &lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;
+     
+    int max(int a, int b)
+    {
+      return (a &gt; b) ? a : b;
+    }
+     
+    // Global Array for the
+    // purpose of memoization.
+    int t[9][9];
+     
+    // A recursive program, using ,
+    // memoization, to implement the
+    // rod cutting problem(Top-Down).
+    int un_kp(int price[], int length[],
+                         int Max_len, int n)
+    {
+     
+        // The maximum price will be zero,
+        // when either the length of the rod
+        // is zero or price is zero.
+        if (n == 0 || Max_len == 0)
+        {
+            return 0;
+        }
+     
+        // If the length of the rod is less
+        // than the maximum length, Max_lene
+        // will consider it.Now depending
+        // upon the profit,
+        // either Max_lene  we will take it
+        // or discard it.
+        if (length[n - 1] &lt;= Max_len)
+        {
+            t[n][Max_len]
+                = max(price[n - 1]
+                          + un_kp(price, length,
+                                  Max_len - length[n - 1], n),
+                      un_kp(price, length, Max_len, n - 1));
+        }
+     
+        // If the length of the rod is greater
+        // than the permitted size, Max_len
+        // we will  not consider it.
+        else
+        {
+            t[n][Max_len]
+                = un_kp(price, length,
+                                 Max_len, n - 1);
+        }
+     
+        // Max_lene Max_lenill return
+        // the maximum value obtained,
+        // Max_lenhich is present at the
+        // nth roMax_len and Max_lenth column.
+        return t[n][Max_len];
+    }
+     
+    /* Driver program to test above functions */
+    int main()
+    {
+        int price[] = { 1, 5, 8, 9, 10, 17, 17, 20 };
+        int n = sizeof(price) / sizeof(price[0]);
+        int length[n];
+        for (int i = 0; i &lt; n; i++)
+        {
+            length[i] = i + 1;
+        }
+        int Max_len = n;
+     
+        // Function Call
+        printf("Maximum obtained value  is %d \n",
+               un_kp(price, length, n, Max_len));
+    }
+  </code>
+</pre>
+
+    <script src="javaScript/demo.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

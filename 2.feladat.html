@@ -15,7 +15,9 @@
     <h1>Nyolckirálynő-probléma</h1>
     <p>A nyolckirálynő-probléma egy sakkfeladvány, lényege a következő: hogyan illetve hányféleképpen lehet 8 királynőt (vezért) úgy elhelyezni egy 8×8-as sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
 
-        <br>A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen lehet lerakni n darab királynőt egy n×n-es táblán.</p>
+        <br>A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen lehet lerakni n darab királynőt egy n×n-es táblán.
+    <br><br> forras: https://www.codesdope.com/blog/article/backtracking-explanation-and-n-queens-problem/ 
+         <br> a C kod a c kod-ra kattintva elerheto   </p>
     
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
@@ -37,100 +39,93 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-// C program for Knight Tour problem
 #include &lt;stdio.h&gt;
-#define N 8
- 
-int solveKTUtil(int x, int y, int movei, int sol[N][N],
-                int xMove[], int yMove[]);
- 
-/* A utility function to check if i,j are valid indexes
-   for N*N chessboard */
-int isSafe(int x, int y, int sol[N][N])
+
+//Number of queens
+int N;
+
+//chessboard
+int board[100][100];
+
+//function to check if the cell is attacked or not
+int is_attack(int i,int j)
 {
-    return (x &gt;= 0 &amp;&amp; x &lt; N &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; N
-            &amp;&amp; sol[x][y] == -1);
-}
- 
-/* A utility function to print solution matrix sol[N][N] */
-void printSolution(int sol[N][N])
-{
-    for (int x = 0; x &lt; N; x++) {
-        for (int y = 0; y &lt; N; y++)
-            printf(" %2d ", sol[x][y]);
-        printf("\n");
+    int k,l;
+    //checking if there is a queen in row or column
+    for(k=0;k&lt;N;k++)
+    {
+        if((board[i][k] == 1) || (board[k][j] == 1))
+            return 1;
     }
-}
- 
-/* This function solves the Knight Tour problem using
-   Backtracking.  This function mainly uses solveKTUtil()
-   to solve the problem. It returns false if no complete
-   tour is possible, otherwise return true and prints the
-   tour.
-   Please note that there may be more than one solutions,
-   this function prints one of the feasible solutions.  */
-int solveKT()
-{
-    int sol[N][N];
- 
-    /* Initialization of solution matrix */
-    for (int x = 0; x &lt; N; x++)
-        for (int y = 0; y &lt; N; y++)
-            sol[x][y] = -1;
- 
-    /* xMove[] and yMove[] define next move of Knight.
-       xMove[] is for next value of x coordinate
-       yMove[] is for next value of y coordinate */
-    int xMove[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
-    int yMove[8] = { 1, 2, 2, 1, -1, -2, -2, -1 };
- 
-    // Since the Knight is initially at the first block
-    sol[0][0] = 0;
- 
-    /* Start from 0,0 and explore all tours using
-       solveKTUtil() */
-    if (solveKTUtil(0, 0, 1, sol, xMove, yMove) == 0) {
-        printf("Solution does not exist");
-        return 0;
-    }
-    else
-        printSolution(sol);
- 
-    return 1;
-}
- 
-/* A recursive utility function to solve Knight Tour
-   problem */
-int solveKTUtil(int x, int y, int movei, int sol[N][N],
-                int xMove[N], int yMove[N])
-{
-    int k, next_x, next_y;
-    if (movei == N * N)
-        return 1;
- 
-    /* Try all next moves from the current coordinate x, y
-     */
-    for (k = 0; k &lt; 8; k++) {
-        next_x = x + xMove[k];
-        next_y = y + yMove[k];
-        if (isSafe(next_x, next_y, sol)) {
-            sol[next_x][next_y] = movei;
-            if (solveKTUtil(next_x, next_y, movei + 1, sol,
-                            xMove, yMove)
-                == 1)
-                return 1;
-            else
-                sol[next_x][next_y] = -1; // backtracking
+    //checking for diagonals
+    for(k=0;k&lt;N;k++)
+    {
+        for(l=0;l&lt;N;l++)
+        {
+            if(((k+l) == (i+j)) || ((k-l) == (i-j)))
+            {
+                if(board[k][l] == 1)
+                    return 1;
+            }
         }
     }
     return 0;
 }
-/* Driver Code */
-int main()
-{  
-      // Function Call
-    solveKT();
+
+int N_queen(int n)
+{
+    int i,j;
+    //if n is 0, solution found
+    if(n==0)
+        return 1;
+    for(i=0;i&lt;N;i++)
+    {
+        for(j=0;j&lt;N;j++)
+        {
+            //checking if we can place a queen here or not
+            //queen will not be placed if the place is being attacked
+            //or already occupied
+            if((!is_attack(i,j)) &amp;&amp; (board[i][j]!=1))
+            {
+                board[i][j] = 1;
+                //recursion
+                //wether we can put the next queen with this arrangment or not
+                if(N_queen(n-1)==1)
+                {
+                    return 1;
+                }
+                board[i][j] = 0;
+            }
+        }
+    }
     return 0;
+}
+
+int main()
+{
+    //taking the value of N
+    printf("Enter the value of N for NxN chessboard\n");
+    scanf("%d",&amp;N);
+
+    int i,j;
+    //setting all elements to 0
+    for(i=0;i&lt;N;i++)
+    {
+        for(j=0;j&lt;N;j++)
+        {
+            board[i][j]=0;
+        }
+    }
+    //calling the function
+    N_queen(N);
+    //printing the matix
+    for(i=0;i&lt;N;i++)
+    {
+        for(j=0;j&lt;N;j++)
+            printf("%d\t",board[i][j]);
+        printf("\n");
+    }
+
 }
                 </code>
              </pre>

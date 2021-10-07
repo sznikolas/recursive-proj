@@ -20,11 +20,11 @@ let yasd = [0,90,180,270] ;
 let buttonState = "START";
 
 
-const player = {
+/* const player = {
     width:90,
     height:90,
  
-};
+}; */
 
 let isAllowed = false;
 const knight = new Image();
