@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mgr munka</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/osszes.css">
+
+
+</head>
+<body>
+    
+    <h1>Bubble sort</h1><br>
+    <p><b>Feladat leírása:</b> A buborékrendezés (angolul: Bubble sort) egy naiv algoritmus, amellyel egy véges (nem feltétlenül numerikus) sorozat – vagy számítástechnikai szóhasználattal élve egy tömb – elemei sorba rendezhetők [(n-1)n]/2 összehasonlítás elvégzésével, ahol n a sorozat elemeinek számát jelenti.</p>
+    
+    <p><b>C kód forrása:</b> https://www.techiedelight.com/bubble-sort-iterative-recursive/
+      <a href="https://www.techiedelight.com/bubble-sort-iterative-recursive/" target="_blank">C kód forrása</a> </p>
+
+    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
+    
+<!-- Button trigger modal -->
+
+<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
+    C kód</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <pre class="line-numbers">
+                <code class="language-clike">
+
+                </code>
+             </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    
+    <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
+    <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
+    <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
+    <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
+
+    <div class="example_b">
+        <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
+      </div>
+
+        <pre class="line-numbers">
+  <code class="language-clike">
+    C kód:
+
+    #include &lt;stdio.h&gt;
+ 
+    // Utility function to swap values at two indices in an array
+    void swap(int arr[], int i, int j)
+    {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+     
+    // Function to print `n` elements of array `arr`
+    void printArray(int arr[], int n)
+    {
+        for (int i = 0; i &lt; n; i++) {
+            printf("%d ", arr[i]);
+        }
+    }
+     
+    // Recursive function to perform bubble sort on subarray `arr[i…n]`
+    void bubbleSort(int arr[], int n)
+    {
+        for (int i = 0; i &lt; n - 1; i++)
+        {
+            if (arr[i] &gt; arr[i + 1]) {
+                swap(arr, i, i + 1);
+            }
+        }
+     
+        if (n - 1 &gt; 1) {
+            bubbleSort(arr, n - 1);
+        }
+    }
+     
+    int main(void)
+    {
+        int arr[] = { 3, 5, 8, 4, 1, 9, -2 };
+        int n = sizeof(arr) / sizeof(arr[0]);
+     
+        bubbleSort(arr, n);
+        printArray(arr, n);
+     
+        return 0;
+    }
+  </code>
+</pre>
+
+    <script src="javaScript/demo.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

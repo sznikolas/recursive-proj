@@ -12,9 +12,12 @@
 </head>
 <body>
     
-    <h1>Lineáris keresés rekurzívan</h1>
-    <p>feladat leírása:  A lineáris keresés rekurzív változata. </p>
+    <h1>Lineáris keresés rekurzióval</h1><br>
+    <p><b>Feladat leírása:</b> Írjon programot C nyelven lineáris keresésre rekurzióval.</p>
     
+    <p><b>C kód forrása:</b> https://www.sanfoundry.com/c-program-linear-search-using-recursion/
+      <a href="https://www.sanfoundry.com/c-program-linear-search-using-recursion/" target="_blank">C kód forrása</a> </p>
+
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -56,17 +59,58 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kod es a forras: https://github.com/JakDet/Recursive_stuff/blob/main/recursive.c
-    
-    int linearSearchRecursive(int *v, int key, int size)
+    C kód:
+
+    #include &lt;stdio.h&gt;
+    int RecursiveLS(int arr[], int value, int index, int n)
     {
-        size--;
-    
-        if (v[size] == key || size == -1)
-            return size;
+        int pos = 0;
+     
+        if(index &gt;= n)
+        {
+            return 0;
+        }
+     
+        else if (arr[index] == value)
+        {
+            pos = index + 1;
+            return pos;
+        }
+     
         else
-            return linearSearchRecursive(v, key, size);
+        {
+            return RecursiveLS(arr, value, index+1, n);
+        }
+        return pos;
     }
+     
+    int main()
+    {
+        int n, value, pos, m = 0, arr[100];
+        printf("Enter the total elements in the array  ");
+        scanf("%d", &amp;n);
+     
+        printf("Enter the array elements\n");
+        for (int i = 0; i &lt; n; i++)
+        {
+            scanf("%d", &amp;arr[i]);
+        }
+     
+        printf("Enter the element to search  ");
+        scanf("%d", &amp;value);
+     
+        pos =  RecursiveLS(arr, value, 0, n);
+        if (pos != 0)
+        {
+            printf("Element found at pos %d ", pos);
+        }
+        else
+        {
+            printf("Element not found");
+        }
+        return 0;
+    }
+    
   </code>
 </pre>
 

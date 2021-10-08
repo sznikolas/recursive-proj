@@ -12,9 +12,12 @@
 </head>
 <body>
     
-    <h1>Tömb páros számainak összeadása és páratlanok szorzása</h1>
-    <p>feladat leírása: Egy tömb esetén ez a függvény a páros számok összegzésére és a páratlan számok szorzására szolgál.</p>
+    <h1>Decimális szám binárisra alakítása</h1><br>
+    <p><b>Feladat leírása:</b> Írjon programot C nyelven egy decimális szám binárisra való átalakítására rekurzió segítségével.</p>
     
+    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-11.php
+      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-11.php" target="_blank">C kód forrása</a> </p>
+
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -56,29 +59,39 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kod es a forras: https://github.com/JakDet/Recursive_stuff/blob/main/recursive.c
+    C kód:
 
-    void sumEvenMultiplyOdds(int *v, int *sum, int *prod, int dim)
-    {
-        static int i = 0;
-        if (dim &lt;= 0)
-        {
-            return; // caso base
-        }
-        else
-        {
-            if ((v[i] % 2) == 0)
-            {
-                *sum += v[i];
-            }
-            else
-            {
-                *prod *= v[i];
-            }
+    #include&lt;stdio.h&gt;
+
+    long convertBinary(int);
     
-            i++;
-            sumEvenMultiplyOdds(v, sum, prod, --dim);
+    int main()
+    {
+        long biNo;
+        int decNo;
+      
+      printf("\n\n Recursion : Convert decimal number to binary :\n");
+      printf("---------------------------------------------------\n");
+    
+        printf(" Input any decimal number : ");
+        scanf("%d",&amp;decNo);
+    
+        biNo = convertBinary(decNo);//call the function convertBinary
+        printf(" The Binary value of decimal no. %d is : %ld\n\n",decNo,biNo);
+        return 0;
+    }
+    long convertBinary(int decNo)
+    {
+        static long biNo,r,fctor = 1;
+    
+        if(decNo != 0)
+        {
+             r = decNo % 2;
+             biNo = biNo + r * fctor;
+             fctor = fctor * 10;
+             convertBinary(decNo / 2);//calling the function convertBinary itself recursively
         }
+        return biNo;
     }
     
   </code>

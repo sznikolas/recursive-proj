@@ -12,9 +12,12 @@
 </head>
 <body>
     
-    <h1>Bináris keresés rekurzívan</h1>
-    <p>feladat leírása:  A bináris keresés rekurzív változata: adott egy tömb, annak alsó és felső határai és a keresendő érték, az algoritmus az elemet az alábbiak szerint keresi meg. a keresési intervallum ismételt felezésével.</p>
+    <h1>Bináris keresés rekurzióval</h1><br>
+    <p><b>Feladat leírása:</b> Írjon programot C nyelven bináris keresésre rekurzióval.</p>
     
+    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-21.php
+      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-21.php" target="_blank">C kód forrása</a> </p>
+
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -56,29 +59,58 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kod es a forras: https://github.com/JakDet/Recursive_stuff/blob/main/recursive.c
-    
-    int binarySearchRecursive(int *v, int key, int low, int high)
+    C kód:
+
+
+    #include &lt;stdio.h&gt;
+    int binarySearch(int*, int, int, int, int);
+
+    int main()
     {
-        if (low &lt;= high)
-        {
-    
-            int middle = (low + high) / 2;
-    
-            if (v[middle] == key)
-                return middle;
-    
-            if (key &lt; v[middle])
-                return binarySearchRecursive(v, key, low, middle - 1);
-    
-            if (key &gt; v[middle])
-                return binarySearchRecursive(v, key, middle + 1, high);
-        }
-        else
-        {
-            return -1;
-        }
+      int arr1[10], i, n, md, c, low, hg;
+
+      printf("\n\n Recursion : Binary searching :\n");
+      printf("-----------------------------------\n");
+      printf(" Input the number of elements to store in the array :");
+      scanf("%d", &amp;n);
+      printf(" Input %d numbers of elements in the array in ascending order :\n", n);
+      for (i = 0; i &lt; n; i++) 
+      {
+          printf(" element - %d : ", i);
+          scanf("%d", &amp;arr1[i]);
+      }
+      printf(" Input the number to search : ");
+      scanf("%d", &amp;md);
+      low = 0, hg = n - 1;
+      c = binarySearch(arr1, n, md, low, hg);
+      if (c == 0)
+          printf(" The search number not exists in the array.\n\n");
+      else
+          printf(" The search number found in the array.\n\n");
+      return 0;
     }
+
+    int binarySearch(int arr1[], int n, int md, int low, int hg)
+    {
+      int mid, c = 0;
+      if (low &lt;= hg) 
+      {
+          mid = (low + hg) / 2;
+          if (md == arr1[mid]) 
+          {
+              c = 1;
+          }
+          else if (md &lt; arr1[mid]) 
+          {
+              return binarySearch(arr1, n, md, low, mid - 1);
+          }
+          else
+              return binarySearch(arr1, n, md, mid + 1, hg);
+      }
+      else
+          return c;
+    }
+    
   </code>
 </pre>
 

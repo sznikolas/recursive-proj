@@ -15,8 +15,8 @@ let alrdyY = [0];
 
 
 let tombCounter = 0;
-let xasd = [0,90,180,270] ;
-let yasd = [0,90,180,270] ;
+//let xasd = [0,90,180,270] ;
+//let yasd = [0,90,180,270] ;
 let buttonState = "START";
 
 
@@ -31,7 +31,7 @@ const knight = new Image();
 knight.src = "images/knight7.png";
 let myAnim;
 function animate(){
-    if(tombCounter >= xasd.length  && tombCounter >= yasd.length ){tombCounter = 0}
+    //if(tombCounter >= xasd.length  && tombCounter >= yasd.length ){tombCounter = 0}
     c.beginPath();
     c.fillStyle = "rgba(255, 255, 0, .11)";
     c.fillRect(corX[counter-1],corY[counter-1],90, 90);
@@ -39,8 +39,8 @@ function animate(){
     c.closePath();
     c.drawImage(knight,corX[counter],corY[counter]);
     myAnim = requestAnimationFrame(animate); 
-    
 }
+
 myAnim = requestAnimationFrame(animate);
 animate();
 
@@ -64,9 +64,7 @@ document.getElementById('resetAnim').onclick = function(){
     counter = 0;
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
-    buttonState="START";
-  
-    
+    buttonState="START";  
 }
 
 const startAnim = async () => {
@@ -94,7 +92,6 @@ document.getElementById('startAnim').onclick = function(){
     if(buttonState === "STOP"){isAllowed=false}
     startAnim();
     change()
-
 }
     
 
@@ -102,7 +99,7 @@ change = function(){
     let elem = document.getElementById("startAnim");
     if (elem.value=="Stop") {elem.value = "Start";buttonState="START"}
     else {elem.value = "Stop";buttonState="STOP"}
-    }
+}
 
 $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')

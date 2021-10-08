@@ -12,9 +12,13 @@
 </head>
 <body>
     
-    <h1>Faktoriális</h1>
-    <p>feladat leírása: Egy szám faktoriálisának kiszámítására szolgáló függvény.</p>
+    <h1>Faktoriális</h1><br>
+    <p><b>Feladat leírása:</b> Egy szám faktoriálisának kiszámítására szolgáló függvény.</p>
     
+    <p><b>C kód forrása:</b> https://www.tutorialspoint.com/data_structures_algorithms/fibonacci_recursive_program_in_c.htm
+      <a href="https://www.tutorialspoint.com/data_structures_algorithms/fibonacci_recursive_program_in_c.htm" target="_blank">C kód forrása1</a> <br>
+      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-10.php" target="_blank">C kód forrása2</a> </p>
+
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -56,24 +60,24 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kod es a forras: https://www.tutorialspoint.com/data_structures_algorithms/fibonacci_recursive_program_in_c.htm
+    C kód:
 
-#include &lt;stdio.h&gt;
+  #include &lt;stdio.h&gt;
 
-int factorial(int n) {
-   //base case
-   if(n == 0) {
-      return 1;
-   } else {
-      return n * factorial(n-1);
-   }
-}
+  int factorial(int n) {
+    //base case
+    if(n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n-1);
+    }
+  }
 
-int main() {
-   int n = 5;
-   int i;
-   printf("Factorial of %d: %d\n" , n , factorial(n));
-}
+  int main() {
+    int n = 5;
+    int i;
+    printf("Factorial of %d: %d\n" , n , factorial(n));
+  }
   </code>
 </pre>
 

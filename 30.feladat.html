@@ -12,9 +12,12 @@
 </head>
 <body>
     
-    <h1>Copy - paste</h1>
-    <p>feladat leírása: Ez a függvény egy karakterlánc másolására szolgál egy másik karakterláncba. </p>
+    <h1>Collatz-sorozat</h1><br>
+    <p><b>Feladat leírása:</b> Írjon programot C nyelven egy adott szám Collatz-sorozatának megkeresésére 1-ig.</p>
     
+    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-18.php
+      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-18.php" target="_blank">C kód forrása</a> </p>
+
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -56,21 +59,68 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kod es a forras: https://github.com/JakDet/Recursive_stuff/blob/main/recursive.c
+    C kód:
 
-    #include "libs/recursive.h"
-    void copyStringRecursive(char *source, char *dest, int dim)
-{
-    if (dim &lt; 0)
+    #include &lt;stdio.h&gt;
+ 
+    // function to generate next number
+       int getNextValue(int aNum)
+       {
+          int i = aNum;
+          if (i % 2 == 0)
+          {
+             i = i/2;
+          }
+          else 
+          { 
+             i = 3 * i + 1;
+          }
+          return (i);// returning the value of next number to the called function
+       }
+    // function to generate Hailstone number
+       void getHailstone(int aNum)
+       {
+          int hlSe = aNum;  
+          if (hlSe == 1)
+          {
+             printf("%i ", hlSe);
+          }
+          else
+          {
+             printf(" %i ", hlSe);
+             getHailstone(getNextValue(hlSe));// calling the function itself recursively
+          }
+       }
+    // Function to count the length of the Hailstone sequence
+       int countLength(int aNum)
+       {
+          int hlSe = aNum;  
+          if(hlSe == 1)
+          {
+             return 1;
+          }
+          else
+          {
+             return 1+countLength(getNextValue(hlSe));// calling the function itself recursively
+          }
+    
+       }
+    
+    int main(int argu)
     {
-        return;
+       int aNum;
+        printf("\n\n Recursion : Hailstone Sequence of a given number upto 1 :\n");
+      printf("--------------------------------------------------------------\n");  
+       printf(" Input any number (positive) to start for Hailstone Sequence : ");
+       scanf("%i", &amp;aNum);
+    
+       printf("\n The hailstone sequence starting at %i is : \n", aNum);
+       getHailstone(aNum);
+       printf("\n\n");
+       printf(" The length of the sequence is %i. \n\n", countLength(aNum));
+          return 0;
     }
-    else
-    {
-        dest[dim] = source[dim];
-        copyStringRecursive(source, dest, --dim);
-    }
-}
+    
   </code>
 </pre>
 

@@ -12,11 +12,11 @@
 </head>
 <body>
     
-    <h1>Legnagyobb közös osztó megkeresése</h1><br>
-    <p><b>Feladat leírása:</b> Írj programot C nyelven két szám legnagyobb közös osztójának megkeresésére rekurzió segítségével.</p>
+    <h1>Másolás és beillesztés rekurzióval</h1><br>
+    <p><b>Feladat leírása:</b> Írj programot C nyelven, amely rekurzióval másol át egy karakterláncot egy másikba.</p>
     
-    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-7.php
-      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-7.php" target="_blank">C kód forrása</a> </p>
+    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-19.php
+      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-19.php" target="_blank">C kód forrása</a> </p>
 
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
@@ -61,35 +61,33 @@
   <code class="language-clike">
     C kód:
 
-    #include&lt;stdio.h&gt;
-
-    int findGCD(int num1,int num2);
+    #include &lt;stdio.h&gt;
+ 
+    void copyString(char [], char [], int);
+     
     int main()
     {
-      int num1,num2,gcd;
-      printf("\n\n Recursion : Find GCD of two numbers :\n");
-      printf("------------------------------------------\n");  
-      printf(" Input 1st number: ");
-      scanf("%d",&amp;num1);
-      printf(" Input 2nd number: ");
-      scanf("%d",&amp;num2);
-      
-      gcd = findGCD(num1,num2);
-      printf("\n The GCD of %d and %d is: %d\n\n",num1,num2,gcd);
-      return 0;
+        char stng1[20], stng2[20];
+        printf("\n\n Recursion : Copy One string to another :\n");
+        printf("---------------------------------------------\n"); 	
+     
+        printf(" Input the  string to copy : ");
+        scanf("%s", stng1);
+        copyString(stng1, stng2, 0);
+        printf("\n The string successfully copied.\n\n");
+        printf(" The first string is : %s\n", stng1);
+        printf(" The copied string is : %s\n\n", stng2);
+        return 0;
+    }
+     
+    void copyString(char stng1[], char stng2[], int ctr)
+    {
+        stng2[ctr] = stng1[ctr];
+        if (stng1[ctr] == '\0')
+            return;
+        copyString(stng1, stng2, ctr + 1);
     }
     
-    int findGCD(int a,int b)
-    {
-         while(a!=b)
-         {
-              if(a&gt;b)
-                  return findGCD(a-b,b);
-              else
-                 return findGCD(a,b-a);
-         }
-         return a;
-    }
   </code>
 </pre>
 

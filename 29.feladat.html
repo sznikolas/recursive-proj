@@ -12,9 +12,12 @@
 </head>
 <body>
     
-    <h1>Invert string</h1>
-    <p>feladat leírása: Ez a függvény egy karakterlánc invertálására szolgál </p>
+    <h1>Hatványozás</h1><br>
+    <p><b>Feladat leírása:</b> Írj programot C nyelven bármely szám hatványának kiszámítására rekurzió segítségével.</p>
     
+    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-17.php
+      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-17.php" target="_blank">C kód forrása</a> </p>
+
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -56,21 +59,36 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kod es a forras: https://github.com/JakDet/Recursive_stuff/blob/main/recursive.c
+    C kód:
 
-    void invertStringRecursive(char *source, char *dest, int l, int h)
+    #include &lt;stdio.h&gt;
+ 
+    long int CalcuOfPower(int x,int y)
     {
-        if (h &lt; 0)
-        {
-            dest[strlen(source)] = '\0';
-            return;
-        }
-        else
-        {
-            dest[l] = source[h];
-            invertStringRecursive(source, dest, ++l, --h);
-        }
+        long int result=1;
+        if(y == 0) return result;
+        result=x*(CalcuOfPower(x,y-1));  //calling the  function CalcuOfPower itself recursively
     }
+    int main()
+    {
+        int bNum,pwr;
+        long int result;
+        printf("\n\n Recursion : Calculate the power of any number :\n");
+      printf("----------------------------------------------------\n");	
+         
+        printf(" Input the base  value : ");
+        scanf("%d",&amp;bNum);
+         
+        printf(" Input the value of power : ");
+        scanf("%d",&amp;pwr);
+         
+        result=CalcuOfPower(bNum,pwr);//called the function CalcuOfPower
+         
+        printf(" The value of %d to the power of %d is : %ld\n\n",bNum,pwr,result);
+         
+        return 0;
+    }
+    
   </code>
 </pre>
 

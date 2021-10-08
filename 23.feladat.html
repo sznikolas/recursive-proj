@@ -12,9 +12,12 @@
 </head>
 <body>
     
-    <h1>Bubble sort rekurzívan</h1>
-    <p>feladat leírása: Bubble sort rekurzív megoldással</p>
+    <h1>Legkisebb közös többszörös megkeresése</h1><br>
+    <p><b>Feladat leírása:</b> Írj programot C nyelven két szám legkisebb közös többszörösének megkeresésére rekurzió segítségével.</p>
     
+    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-13.php
+      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-13.php" target="_blank">C kód forrása</a> </p>
+
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -56,26 +59,42 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kod es a forras: https://github.com/JakDet/Recursive_stuff/blob/main/recursive.c
-    
-    void bubbleSortRecursive(int *v, int size)
+    C kód:
+
+    #include &lt;stdio.h&gt;
+    int lcmCalculate(int a, int b);
+     
+    int main()
     {
-        size--;
-    
-        if (size == 1)
-            return;
-    
-        for (int i = 0; i &lt; size - 1; i++)
+        int n1, n2, lcmOf;
+      printf("\n\n Recursion : Find the LCM of two numbers :\n");
+      printf("----------------------------------------------\n");
+        printf(" Input 1st number for LCM : ");
+        scanf("%d", &amp;n1);
+        printf(" Input 2nd number for LCM : ");
+        scanf("%d", &amp;n2);
+    // Ensures that first parameter of lcm must be smaller than 2nd
+        if(n1 &gt;  n2)
+            lcmOf = lcmCalculate(n2, n1);//call the function lcmCalculate for lcm calculation
+        else
+            lcmOf = lcmCalculate(n1, n2);//call the function lcmCalculate for lcm calculation
+        printf(" The LCM of %d and %d :  %d\n\n", n1, n2, lcmOf);
+        return 0;
+    }
+    int lcmCalculate(int a, int b)//the value of n1 and n2 is passing through a and b
+    {
+        static int m = 0;
+        //Increments m by adding max value to it
+        m += b;
+    //  If found a common multiple then return the m.
+        if((m % a == 0) &amp;&amp; (m % b == 0))
         {
-            if (v[i] &gt; v[i + 1]) 
-            {
-                int temp = v[i];
-                v[i] = v[i + 1];
-                v[i + 1] = temp;
-            }
+            return m;
         }
-    
-        return bubbleSortRecursive(v, size);
+        else
+        {
+            lcmCalculate(a, b);//calling the function lcmCalculate itself
+        }
     }
     
   </code>

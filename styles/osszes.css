@@ -32,16 +32,11 @@ html,body{
     width: 850px;
 }
 
-.button{
-
-  
-  }
-
   .example_b {
 	color: #fff !important;
 	text-transform: lowercase;
 	text-decoration: none;
-    text-align: center;
+  text-align: center;
 	background: #093344;
 	padding: 8px;
 	border-radius: 10px;
@@ -51,7 +46,7 @@ html,body{
     margin-top: 10px;
     margin-right: -10px;
 
-	border: none;
+	/* border: none; */
 	transition: all 0.4s ease 0s;
 }
 

@@ -12,9 +12,13 @@
 </head>
 <body>
     
-    <h1>Minimum egész szám keresése</h1>
-    <p>feladat leírása: Ez a függvény arra szolgál, hogy megtalálja a minimumot egy egész szám tömbön belül.</p>
+    <h1>Páros és páratlan számok</h1><br>
+    <p><b>Feladat leírása:</b> Írjon programot C nyelven a páros és páratlan számok kiíratására adott intervallumon belül, rekurzió segítségével.</p>
     
+    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-14.php
+      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-14.php" target="_blank">C kód forrása</a>
+      <br>https://github.com/JakDet/Recursive_stuff/blob/main/recursive.c - Min. egész szám keresése </p>
+
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -56,28 +60,37 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kod es a forras: https://github.com/JakDet/Recursive_stuff/blob/main/recursive.c
+    C kód:
 
-    int minRecursive(int *v, int dim, int currentMin)
-{
-    static int i = 1;
-
-    if (i == dim)
+    #include &lt;stdio.h&gt;
+    void EvenAndOdd(int stVal, int n);
+     
+    int main()
     {
-        return currentMin;
+        int n;
+      printf("\n\n Recursion : Print even or odd numbers in a given range :\n");
+      printf("-------------------------------------------------------------\n");	
+         
+        printf(" Input the range to print starting from 1 : ");
+        scanf("%d", &amp;n);
+         
+        printf("\n All even numbers from 1 to %d are : ", n);
+        EvenAndOdd(2, n);//call the function EvenAndOdd for even numbers 
+         
+        printf("\n\n All odd numbers from 1 to %d are : ", n);
+        EvenAndOdd(1, n);// call the function EvenAndOdd for odd numbers
+        printf("\n\n");
+         
+        return 0;
     }
-    else if (v[i] &lt; currentMin)
+    void EvenAndOdd(int stVal, int n)
     {
-        currentMin = v[i];
-        i++;
-        return minRecursive(v, dim, currentMin);
+        if(stVal &gt; n)
+            return;
+        printf("%d  ", stVal);
+        EvenAndOdd(stVal+2, n);//calling the function EvenAndOdd itself recursively
     }
-    else
-    {
-        i++;
-        return minRecursive(v, dim, currentMin);
-    }
-}
+    
   </code>
 </pre>
 

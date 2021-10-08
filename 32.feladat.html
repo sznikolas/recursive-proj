@@ -12,11 +12,11 @@
 </head>
 <body>
     
-    <h1>Legnagyobb közös osztó megkeresése</h1><br>
-    <p><b>Feladat leírása:</b> Írj programot C nyelven két szám legnagyobb közös osztójának megkeresésére rekurzió segítségével.</p>
+    <h1>Első nagybetű a karakterláncban</h1><br>
+    <p><b>Feladat leírása:</b> Írj programot C nyelven, amely rekurzió segítségével megkeresi az első nagybetűt egy karakterláncban.</p>
     
-    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-7.php
-      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-7.php" target="_blank">C kód forrása</a> </p>
+    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-20.php
+      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-20.php" target="_blank">C kód forrása</a> </p>
 
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
@@ -61,35 +61,49 @@
   <code class="language-clike">
     C kód:
 
-    #include&lt;stdio.h&gt;
-
-    int findGCD(int num1,int num2);
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    #include &lt;ctype.h&gt; 
+     
+    char checkCapital(char *);
+     
     int main()
     {
-      int num1,num2,gcd;
-      printf("\n\n Recursion : Find GCD of two numbers :\n");
-      printf("------------------------------------------\n");  
-      printf(" Input 1st number: ");
-      scanf("%d",&amp;num1);
-      printf(" Input 2nd number: ");
-      scanf("%d",&amp;num2);
-      
-      gcd = findGCD(num1,num2);
-      printf("\n The GCD of %d and %d is: %d\n\n",num1,num2,gcd);
-      return 0;
-    }
+        char str1[20], singLet;
+       
+        printf("\n\n Recursion : Find the first capital letter in a string :\n");
+       printf("------------------------------------------------------------\n"); 	
+     
+        printf(" Input a string to including one or more capital letters : ");
+        scanf("%s", str1);
+        singLet = checkCapital(str1);
+        if (singLet == 0)
+        {
+            printf(" There is no capital letter in the string :  %s.\n", str1);
+        }
+        else
+        {
+            printf(" The first capital letter appears in the string %s is %c.\n\n", str1, singLet);    }
+            return 0;
+        }
+        char checkCapital(char *str2)
+        {
+            static int i = 0;
+            if (i &lt; strlen(str2))
+            {
+                if (isupper(str2[i]))
+                {
+                    return str2[i];
+                }
+                else
+                {
+                    i = i + 1;
+                    return checkCapital(str2);
+                }
+            }
+            else return 0;
+        }
     
-    int findGCD(int a,int b)
-    {
-         while(a!=b)
-         {
-              if(a&gt;b)
-                  return findGCD(a-b,b);
-              else
-                 return findGCD(a,b-a);
-         }
-         return a;
-    }
   </code>
 </pre>
 
