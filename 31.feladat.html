@@ -11,14 +11,19 @@
 
 </head>
 <body>
+  <div class="bigContainer">
+    
+    <div class="box02">
 
-<button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>    
-<h1>31. feladat: Másolás és beillesztés rekurzióval</h1>
-<p><b>Feladat leírása:</b> Írj programot C nyelven, amely rekurzióval másol át egy karakterláncot egy másikba.</p>
+<button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>   
+
+<div class="smallContainer">
+<h2>31. feladat: Másolás és beillesztés rekurzióval</h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben, amely rekurzióval másol át egy karakterláncot egy másikba.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable">
     C kód</button>
   
   <!-- Modal -->
@@ -43,15 +48,15 @@ void copyString(char [], char [], int);
 int main()
 {
     char stng1[20], stng2[20];
-    printf("\n\n Recursion : Copy One string to another :\n");
+    printf("\n\n Rekurzió: Egy karakterlánc másolása egy másikba: \n");
     printf("---------------------------------------------\n"); 	
   
-    printf(" Input the  string to copy : ");
+    printf(" Adja meg a másolandó karakterláncot: ");
     scanf("%s", stng1);
     copyString(stng1, stng2, 0);
-    printf("\n The string successfully copied.\n\n");
-    printf(" The first string is : %s\n", stng1);
-    printf(" The copied string is : %s\n\n", stng2);
+    printf("\n A karakterlánc sikeresen másolva.\n\n");
+    printf(" Az első karakterlánc: %s\n", stng1);
+    printf(" A másolt karakterlánc: %s\n\n", stng2);
     return 0;
 }
   
@@ -70,14 +75,16 @@ void copyString(char stng1[], char stng2[], int ctr)
       </div>
     </div>
   </div>
+</div>
 
 
-<h1>32. feladat: Első nagybetű a karakterláncban</h1>
-<p><b>Feladat leírása:</b> Írj programot C nyelven, amely rekurzió segítségével megkeresi az első nagybetűt egy karakterláncban.</p>
+<div class="smallContainer">
+<h2>32. feladat: Első nagybetű a karakterláncban</h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben, amely rekurzió segítségével megkeresi az első nagybetűt egy karakterláncban.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable2">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable2">
   C kód</button>
 
 <!-- Modal -->
@@ -105,19 +112,19 @@ int main()
 {
     char str1[20], singLet;
     
-    printf("\n\n Recursion : Find the first capital letter in a string :\n");
+    printf("\n\n Rekurzió: Keresse meg az első nagybetűt egy karakterláncban\n");
     printf("------------------------------------------------------------\n"); 	
   
-    printf(" Input a string to including one or more capital letters : ");
+    printf(" Egy vagy több nagybetűt tartalmazó karakterlánc megadása: ");
     scanf("%s", str1);
     singLet = checkCapital(str1);
     if (singLet == 0)
     {
-        printf(" There is no capital letter in the string :  %s.\n", str1);
+        printf(" A karakterláncban nincs nagybetű:   %s.\n", str1);
     }
     else
     {
-        printf(" The first capital letter appears in the string %s is %c.\n\n", str1, singLet);
+        printf(" Az első nagybetű ami megjelenik a karakterláncban %s a %c.\n\n", str1, singLet);
     }
         return 0;
     }
@@ -146,8 +153,11 @@ int main()
     </div>
   </div>
 </div>
+</div>
 
 
+</div>
+</div>
     <script src="javaScript/demo.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

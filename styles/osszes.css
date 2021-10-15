@@ -121,13 +121,13 @@
 
 html,body{
     display: block;
-    height: 80%;
+    height: 100%;
     place-items: center;
-    background: #aca9ad;
+    background: rgb(41, 41, 41);
   }
 
 
-
+/* Az oldalaknál a gombok kinezete*/
   .example_b {
 	color: #fff !important;
 	text-transform: lowercase;
@@ -154,6 +154,36 @@ html,body{
 }
 
 
+/* A sok feladatok oldalaknál a gomb kozepre helyezese*/
+.example_c {
+	color: #fff !important;
+	text-transform: lowercase;
+	text-decoration: none;
+  text-align: center;
+	background: #093344;
+	padding: 8px;
+	border-radius: 10px;
+  margin-bottom: 10px;
+
+  margin: 0px;
+  position: relative;
+ 
+  left: 50%;
+  -ms-transform: translate(-50% -50%);
+  transform: translate(-60%, -15%);
+
+	transition: all 0.4s ease 0s;
+}
+
+.example_c:hover {
+	text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+
+
 h1 { color: black; 
   font-family: 'Trocchi', serif; 
   font-size: 45px; 
@@ -163,15 +193,42 @@ h1 { color: black;
   text-align: center;
 }
 
-p{color: black; 
+h2 { color: black; 
+  font-family: 'Trocchi', serif; 
+  font-size: 25px; 
+  font-weight: bold; 
+  line-height: 48px; 
+  margin: 15px; 
+  text-align: center;
+}
+
+p{color: rgb(255, 255, 255); 
   font-family: 'Trocchi', serif; 
   font-size: 20px; 
   font-weight: normal; 
   line-height: 20px;     
   margin-left: 70px;
   margin-right: 70px;
+
+
 }
 
+/* A sok feladatok oldalaknál a feladat leírás */
+.p2{
+  color: rgb(0, 0, 0); 
+  font-family: 'Trocchi', serif; 
+  font-size: 20px; 
+  font-weight: normal; 
+  line-height: 20px;     
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-bottom: 20px;
+  text-align: center;
+ 
+}
+
+
+/*Az 1.1 feladatnál az output*/
 output{
   /* display: inline-flex; */
   display: initial;
@@ -181,7 +238,7 @@ output{
   font-weight: bolder;
  
 }
-
+/*Az 1.1 feladatnál a label*/
   label{
   font-size: 18px; 
   font-weight: normal;
@@ -189,6 +246,8 @@ output{
   margin-left: 0px;
 }
 
+
+/*Az 1.1 feladatnál a kék container*/
 .container2{
   justify-content:space-between;
   align-items:center;
@@ -199,6 +258,9 @@ output{
 
 }
 
+
+
+/*Az 1.1 feladatnál a kék container*/
 .container2 .box{
   width: 850px;
   height: 500px;
@@ -208,6 +270,32 @@ output{
   border-radius: 5px;
 }
 
-.box {
-  text-align: left;
+
+
+/* A sok feladatok oldalaknál a nagy container */
+.bigContainer{
+  padding: 20px;
+
 }
+/* A sok feladatok oldalaknál a nagy container */
+.bigContainer .box02{
+ /*  width: calc(100% 10px);
+  height: calc(100% -10px); */
+  max-width: 1300px;
+  margin: 0 auto;
+  background: rgb(0, 0, 0);
+  border-radius: 20px;
+  padding: 20px;
+
+}
+
+/* A sok feladatok oldalaknál a kis container */
+.smallContainer{
+  width: auto;
+  background: rgb(191, 194, 193);
+  border-radius: 20px;
+  margin: 20px;
+  
+}
+
+

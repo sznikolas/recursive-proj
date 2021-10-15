@@ -11,14 +11,22 @@
 
 </head>
 <body>
+
+  <div class="bigContainer">
+    
+    <div class="box02">
+
+
   <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
 
-    <h1>21. feladat: Decimális szám binárissá alakítása</h1>
-    <p><b>Feladat leírása:</b> Írjon programot C nyelven egy decimális szám binárisra való átalakítására rekurzió segítségével.</p>
+
+  <div class="smallContainer">
+    <h2>21. feladat: Decimális szám binárissá alakítása</h2>
+    <div class="p2"><b></b> Írjon programot C programozási nyelvben egy decimális szám binárisra való átalakítására rekurzió segítségével.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable">
     C kód</button>
   
   <!-- Modal -->
@@ -45,14 +53,14 @@ int main()
     long biNo;
     int decNo;
   
-  printf("\n\n Recursion : Convert decimal number to binary :\n");
+  printf("\n\n Rekurzió : Decimális szám átalakítása binárisra :\n");
   printf("---------------------------------------------------\n");
 
-    printf(" Input any decimal number : ");
+    printf(" Adjon meg bármilyen decimális számot: ");
     scanf("%d",&amp;decNo);
 
-    biNo = convertBinary(decNo);//call the function convertBinary
-    printf(" The Binary value of decimal no. %d is : %ld\n\n",decNo,biNo);
+    biNo = convertBinary(decNo);//hívja a convertBinary függvényt
+    printf(" A %d decimális szám bináris értéke a következő : %ld\n\n",decNo,biNo);
     return 0;
 }
 long convertBinary(int decNo)
@@ -64,7 +72,7 @@ long convertBinary(int decNo)
           r = decNo % 2;
           biNo = biNo + r * fctor;
           fctor = fctor * 10;
-          convertBinary(decNo / 2);//calling the function convertBinary itself recursively
+          convertBinary(decNo / 2);//a convertBinary függvény hívja öngmagát rekurzívan
     }
     return biNo;
 }
@@ -76,13 +84,16 @@ long convertBinary(int decNo)
       </div>
     </div>
   </div>
+</div>
 
-<h1>22. feladat: Prímszám ellenőrzése</h1>
-<p><b>Feladat leírása:</b> Írj egy programot C nyelven, amely rekurzió segítségével ellenőrzi, hogy egy szám prímszám-e vagy sem.</p>
+
+<div class="smallContainer">
+<h2>22. feladat: Prímszám ellenőrzése</h2>
+<div class="p2"><b></b> Írjon egy programot C programozási nyelvben, amely rekurzió segítségével ellenőrzi, hogy egy szám prímszám-e vagy sem.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable2">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable2">
   C kód</button>
 
 <!-- Modal -->
@@ -110,20 +121,20 @@ int main()
 
     int n1,primeNo;
 
-  printf("\n\n Recursion : Check a number is prime number or not :\n");
+  printf("\n\n Rekurzió : Egy szám ellenőrzése, hogy prímszám-e vagy sem :\n");
   printf("--------------------------------------------------------\n");
   
-    printf(" Input any positive number : ");
+    printf(" Adjon meg bármilyen pozitív számot : ");
     scanf("%d",&amp;n1);
     
     i = n1/2;
 
-    primeNo = checkForPrime(n1);//call the function checkForPrime
+    primeNo = checkForPrime(n1);//a checkForPrime függvény hívása
 
     if(primeNo==1)
-        printf(" The number %d is a prime number. \n\n",n1);
+        printf(" A %d szám prímszám. \n\n",n1);
     else
-      printf(" The number %d is not a prime number. \nn",n1);
+      printf(" A %d szám nem prímszám. \n",n1);
     return 0;
 }
 
@@ -140,7 +151,7 @@ int checkForPrime(int n1)
     else
         {
           i = i -1; 
-          checkForPrime(n1);//calling the function checkForPrime itself recursively
+          checkForPrime(n1);//a checkForPrime hívja öngmagát rekurzívan
       }
 }
 <br>
@@ -151,14 +162,15 @@ int checkForPrime(int n1)
     </div>
   </div>
 </div>
+</div>
 
-
-<h1>23. feladat: Legkisebb közös többszörös megkeresése</h1>
-<p><b>Feladat leírása:</b> Írj programot C nyelven két szám legkisebb közös többszörösének megkeresésére rekurzió segítségével.</p>
+<div class="smallContainer">
+<h2>23. feladat: Legkisebb közös többszörös megkeresése</h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben két szám legkisebb közös többszörösének megkeresésére rekurzió segítségével.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable3">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable3">
   C kód</button>
 
 <!-- Modal -->
@@ -182,33 +194,33 @@ int lcmCalculate(int a, int b);
 int main()
 {
     int n1, n2, lcmOf;
-  printf("\n\n Recursion : Find the LCM of two numbers :\n");
+  printf("\n\n Rekurzió : Két szám LKT-ének megkeresése :\n");
   printf("----------------------------------------------\n");
-    printf(" Input 1st number for LCM : ");
+    printf(" Első szám: ");
     scanf("%d", &amp;n1);
-    printf(" Input 2nd number for LCM : ");
+    printf(" Második szám: ");
     scanf("%d", &amp;n2);
-// Ensures that first parameter of lcm must be smaller than 2nd
+// Biztosítja, hogy a LKT első paraméterének kisebbnek kell lennie, mint a másodiknak.
     if(n1 &gt;  n2)
-        lcmOf = lcmCalculate(n2, n1);//call the function lcmCalculate for lcm calculation
+        lcmOf = lcmCalculate(n2, n1);//az lcmCalculate függvény hívása az LKT számításhoz
     else
-        lcmOf = lcmCalculate(n1, n2);//call the function lcmCalculate for lcm calculation
-    printf(" The LCM of %d and %d :  %d\n\n", n1, n2, lcmOf);
+        lcmOf = lcmCalculate(n1, n2);//az lcmCalculate függvény hívása az LKT számításhoz
+    printf(" Az LKT-ja a %d és %d számnak :  %d\n\n", n1, n2, lcmOf);
     return 0;
 }
-int lcmCalculate(int a, int b)//the value of n1 and n2 is passing through a and b
+int lcmCalculate(int a, int b)//az n1 és n2 értéke átadódik a és b értéknek
 {
     static int m = 0;
-    //Increments m by adding max value to it
+    //Max érték hozzáadásával növeli m értékét
     m += b;
-//  If found a common multiple then return the m.
+//  Ha talált egy közös többszöröst, akkor adja vissza a m-et
     if((m % a == 0) &amp;&amp; (m % b == 0))
     {
         return m;
     }
     else
     {
-        lcmCalculate(a, b);//calling the function lcmCalculate itself
+        lcmCalculate(a, b);//az lcmCalculate hívja önmagát
     }
 }
 <br>
@@ -219,13 +231,15 @@ int lcmCalculate(int a, int b)//the value of n1 and n2 is passing through a and 
     </div>
   </div>
 </div>
+</div>
 
-<h1>24. feladat: Lineáris keresés rekurzióval</h1>
-<p><b>Feladat leírása:</b> Írjon programot C nyelven lineáris keresésre rekurzióval.</p>
+<div class="smallContainer">
+<h2>24. feladat: Lineáris keresés rekurzióval</h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben lineáris keresésre rekurzióval.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable4">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable4">
   C kód</button>
 
 <!-- Modal -->
@@ -269,26 +283,26 @@ int RecursiveLS(int arr[], int value, int index, int n)
 int main()
 {
     int n, value, pos, m = 0, arr[100];
-    printf("Enter the total elements in the array  ");
+    printf("Adja meg hány elemből álljön a tömb: ");
     scanf("%d", &amp;n);
   
-    printf("Enter the array elements\n");
+    printf("Adja meg a tömb elemeit: \n");
     for (int i = 0; i &lt; n; i++)
     {
         scanf("%d", &amp;arr[i]);
     }
   
-    printf("Enter the element to search  ");
+    printf("Írja be a keresni kívánt elemet: ");
     scanf("%d", &amp;value);
   
     pos =  RecursiveLS(arr, value, 0, n);
     if (pos != 0)
     {
-        printf("Element found at pos %d ", pos);
+        printf("Az elem megtalálható a %d helyen.", pos);
     }
     else
     {
-        printf("Element not found");
+        printf("Az elem nem található.");
     }
     return 0;
 }
@@ -300,13 +314,15 @@ int main()
     </div>
   </div>
 </div>
+</div>
 
-<h1>25. feladat: Bináris keresés rekurzióval</h1>
-<p><b>Feladat leírása:</b> Írjon programot C nyelven bináris keresésre rekurzióval.</p>
+<div class="smallContainer">
+<h2>25. feladat: Bináris keresés rekurzióval</h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben bináris keresésre rekurzióval.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable5">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable5">
   C kód</button>
 
 <!-- Modal -->
@@ -331,24 +347,24 @@ int main()
 {
   int arr1[10], i, n, md, c, low, hg;
 
-  printf("\n\n Recursion : Binary searching :\n");
+  printf("\n\n Rekurzió : Bináris keresés :\n");
   printf("-----------------------------------\n");
-  printf(" Input the number of elements to store in the array :");
+  printf(" A tömbben tárolandó elemek számának megadása: ");
   scanf("%d", &amp;n);
-  printf(" Input %d numbers of elements in the array in ascending order :\n", n);
+  printf(" Adja meg a %d elemet a tömbbe növekvő sorrendben :\n", n);
   for (i = 0; i &lt; n; i++) 
   {
-      printf(" element - %d : ", i);
+      printf(" elem - %d : ", i);
       scanf("%d", &amp;arr1[i]);
   }
-  printf(" Input the number to search : ");
+  printf(" Adja meg a keresendő számot : ");
   scanf("%d", &amp;md);
   low = 0, hg = n - 1;
   c = binarySearch(arr1, n, md, low, hg);
   if (c == 0)
-      printf(" The search number not exists in the array.\n\n");
+      printf(" A keresett szám nem létezik a tömbben.\n\n");
   else
-      printf(" The search number found in the array.\n\n");
+      printf(" A keresett szám létezik a tömbben.\n\n");
   return 0;
 }
 
@@ -380,8 +396,11 @@ int binarySearch(int arr1[], int n, int md, int low, int hg)
     </div>
   </div>
 </div>
+</div>
 
 
+</div>
+</div>
     <script src="javaScript/demo.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

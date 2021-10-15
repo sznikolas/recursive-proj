@@ -15,7 +15,128 @@
 <br>
 <p class="p_settings"><b>Leírás:</b> Ide írni, hogy 5x5nek mennyi a megoldása és ez egy közülük, stb..</p>
    
-    <button onclick="location.href='index.html'" type="button" class="example_b">feladatok</button><br>
+    <button onclick="location.href='index.html'" type="button" class="example_b">feladatok</button>
+
+    
+ <!-- Button trigger modal -->
+ <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
+    C kód</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Huszárvándorlás-probléma megoldása C nyelvben</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <pre class="line-numbers">
+                <code class="language-clike">
+// <b>C program a Huszárvándorlás problémára</b>
+#include &lt;stdio.h&gt;
+#define N 8
+ 
+int solveKTUtil(int x, int y, int movei, int sol[N][N],
+                int xMove[], int yMove[]);
+ 
+/*<b> Segédfüggvény annak ellenőrzésére, hogy i,j érvényes indexek-e az N*N sakktáblához</b> */
+int isSafe(int x, int y, int sol[N][N])
+{
+    return (x &gt;= 0 &amp;&amp; x &lt; N &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; N
+            &amp;&amp; sol[x][y] == -1);
+}
+ 
+/*<b> Segédfüggvény a sol[N][N] megoldási mátrix kiírására.</b> */
+void printSolution(int sol[N][N])
+{
+    for (int x = 0; x &lt; N; x++) {
+        for (int y = 0; y &lt; N; y++)
+            printf(" %2d ", sol[x][y]);
+        printf("\n");
+    }
+}
+ 
+/* <b>Ez a funkció a Huszárvándorlás problémát oldja meg Backtracking segítségével. 
+Ez a függvény elsősorban a solveKTUtil() segítségével oldja meg a problémát. 
+Hamis értéket ad vissza, ha nincs lehetőség teljes túrára, ellenkező esetben igazat ad vissza,
+és kiírja a túrát. Felhívjuk a figyelmet arra, hogy több megoldás is létezhet, 
+ez a függvény csak az egyik megvalósítható megoldást írja ki. </b> */
+int solveKT()
+{
+    int sol[N][N];
+ 
+    /* <b>A megoldási mátrix inicializálása</b>> */
+    for (int x = 0; x &lt; N; x++)
+        for (int y = 0; y &lt; N; y++)
+            sol[x][y] = -1;
+ 
+    /* <b>xMove[] és yMove[] határozza meg a lovag következő lépését.
+        xMove[] az x koordináta következő értékére vonatkozik.
+        yMove[] az y koordináta következő értékére vonatkozik.</b>>*/
+    int xMove[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
+    int yMove[8] = { 1, 2, 2, 1, -1, -2, -2, -1 };
+ 
+    // <b>A lovag kezdetben az első blokkban van.</b>>
+    sol[0][0] = 0;
+ 
+    /* <b>Kezdjük 0,0-ról és fedezzük fel az összes túrát a következővel
+        solveKTUtil() </b> */
+    if (solveKTUtil(0, 0, 1, sol, xMove, yMove) == 0) {
+        printf("Megoldás nem létezik");
+        return 0;
+    }
+    else
+        printSolution(sol);
+ 
+    return 1;
+}
+ 
+/* <b>Rekurzív segédfüggvény a Huszárvándorlás probléma megoldására </b>>*/
+int solveKTUtil(int x, int y, int movei, int sol[N][N],
+                int xMove[N], int yMove[N])
+{
+    int k, next_x, next_y;
+    if (movei == N * N)
+        return 1;
+ 
+    /* <b>Próbálja ki az összes következő mozdulatot az aktuális koordinátától x, y</b>
+     */
+    for (k = 0; k &lt; 8; k++) {
+        next_x = x + xMove[k];
+        next_y = y + yMove[k];
+        if (isSafe(next_x, next_y, sol)) {
+            sol[next_x][next_y] = movei;
+            if (solveKTUtil(next_x, next_y, movei + 1, sol,
+                            xMove, yMove)
+                == 1)
+                return 1;
+            else
+                sol[next_x][next_y] = -1; // <b>BACKTRACKING - VISSZAKÖVETÉS</b>
+        }
+    }
+    return 0;
+}
+
+int main()
+{  
+    // <b>Függvényhívás</b>
+    solveKT();
+    return 0;
+}
+<br>
+<a href="https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/" target="_blank">Forrás</a> </p>
+                </code>
+             </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
     <p>Az első backtracking a 23. lépésnél kezdődik</p>
 
     <div class="container2">  

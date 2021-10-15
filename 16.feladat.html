@@ -11,13 +11,19 @@
 
 </head>
 <body>
+  <div class="bigContainer">
+    <div class="box02">
+
+
   <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
-    <h1>16. feladat: Legnagyobb közös osztó megkeresése</h1>
-    <p><b>Feladat leírása:</b> Írj programot C nyelven két szám legnagyobb közös osztójának megkeresésére rekurzió segítségével.</p>
+
+  <div class="smallContainer">
+    <h2>16. feladat: Legnagyobb közös osztó megkeresése </h2>
+    <div class="p2"><b></b> Írjon programot C programozási nyelvben két szám legnagyobb közös osztójának megkeresésére rekurzió segítségével.</div>
   
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable">
     C kód</button>
   
   <!-- Modal -->
@@ -41,15 +47,15 @@ int findGCD(int num1,int num2);
 int main()
 {
   int num1,num2,gcd;
-  printf("\n\n Recursion : Find GCD of two numbers :\n");
+  printf("\n\n Rekurzió : Két szám LKO-jának megtalálása :\n");
   printf("------------------------------------------\n");  
-  printf(" Input 1st number: ");
+  printf(" Első szám: ");
   scanf("%d",&amp;num1);
-  printf(" Input 2nd number: ");
+  printf(" Második szám: ");
   scanf("%d",&amp;num2);
   
   gcd = findGCD(num1,num2);
-  printf("\n The GCD of %d and %d is: %d\n\n",num1,num2,gcd);
+  printf("\n Az LKO-ja a %d és %d-nek: %d\n\n",num1,num2,gcd);
   return 0;
 }
 
@@ -72,14 +78,16 @@ int findGCD(int a,int b)
       </div>
     </div>
   </div>
+</div>
 
 
-  <h1>17. feladat: Tömb legnagyobb eleme</h1>
-  <p><b>Feladat leírása:</b> Írj programot C nyelven egy tömb legnagyobb elemének kinyerésére rekurzió segítségével.</p>
+<div class="smallContainer">
+  <h2>17. feladat: Tömb legnagyobb eleme </h2>
+  <div class="p2"><b></b> Írjon programot C programozási nyelvben egy tömb legnagyobb elemének kinyerésére rekurzió segítségével.</div>
   
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable2">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable2">
   C kód</button>
 
 <!-- Modal -->
@@ -106,20 +114,20 @@ int n;
 int main()
 {
   int arr1[MAX],hstno,i;
-  printf("\n\n Recursion : Get the largest element of an array :\n");
+  printf("\n\n Rekurzió : Egy tömb legnagyobb elemének megkeresése:\n");
   printf("------------------------------------------------------\n");
 
-      printf(" Input the number of elements to be stored in the array :");
+      printf(" A tömbben tárolandó elemek száma: ");
         scanf("%d",&amp;n);
     
-        printf(" Input %d elements in the array :\n",n);
+        printf(" Bemeneti elemek a tömbben %d :\n",n);
         for(i=0;i&lt;n;i++)
         {
-        printf(" element - %d : ",i);
+        printf(" elem - %d : ",i);
         scanf("%d",&amp;arr1[i]);
       }	
-    hstno=MaxElem(arr1);//call the function MaxElem to return the largest element
-    printf(" Largest element of the array is: %d\n\n",hstno);
+    hstno=MaxElem(arr1);//hívja a MaxElem függvényt a legnagyobb elem visszaadásához
+    printf(" A tömb legnagyobb eleme: %d\n\n",hstno);
     return 0;
 }
 int MaxElem(int arr1[])
@@ -130,7 +138,7 @@ int MaxElem(int arr1[])
           if(hstno&lt;arr1[i])
             hstno=arr1[i];
       i++;
-      MaxElem(arr1);//calling the function MaxElem itself to compare with further element
+      MaxElem(arr1);//a MaxElem függvény meghívja önmagát a további elemekkel való összehasonlításhoz
     }
     return hstno;
 }
@@ -141,14 +149,16 @@ int MaxElem(int arr1[])
       </div>
     </div>
   </div>
-</div>  
+  </div>  
+</div>
 
-<h1>18. feladat: Karakterlánc reverzének kiíratása rekurzió segítségével</h1>
-<p><b>Feladat leírása:</b> Írj programot C nyelven egy karakterlánc visszafordítására rekurzió segítségével.</p>
+<div class="smallContainer">
+ <h2>18. feladat: Karakterlánc reverzének kiíratása rekurzió segítségével </h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben egy karakterlánc visszafordítására rekurzió segítségével.</div>
    
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable3">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable3">
   C kód</button>
 
 <!-- Modal -->
@@ -174,15 +184,15 @@ int main()
 {
 
   char str1[MAX],*revstr;
-  printf("\n\n Recursion : Get reverse of a string :\n");
+  printf("\n\n Rekurzió : Egy karakterlánc fordítottjának megtalálása:\n");
   printf("------------------------------------------\n");	
 
-    printf(" Input any string: ");
+    printf(" Adjon meg egy karakterláncot: ");
     scanf("%s",str1);
 
-    revstr = ReverseOfString(str1);//call the function ReverseOfString
+    revstr = ReverseOfString(str1);//a ReverseOfString függvény hívása
 
-    printf(" The reversed string is: %s\n\n",revstr);
+    printf(" A fordított karakterlánc: %s\n\n",revstr);
     return 0;
 }
 char* ReverseOfString(char str1[])
@@ -191,7 +201,7 @@ char* ReverseOfString(char str1[])
     static char revstr[MAX];
     if(*str1)
     {
-          ReverseOfString(str1+1);//calling the function ReverseOfString itself
+          ReverseOfString(str1+1);//a ReverseOfString függvény hívja öngmagát
           revstr[i++] = *str1;
     }
     return revstr;
@@ -204,13 +214,15 @@ char* ReverseOfString(char str1[])
     </div>
   </div>
 </div>  
+</div>
 
-<h1>19. feladat: Fibonacci-sorozat</h1>
-<p><b>Feladat leírása:</b> Függvény a fibonacci-sorozat kiszámítására</p>
+<div class="smallContainer">
+ <h2>19. feladat: Fibonacci-sorozat </h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben a fibonacci-sorozat kiszámítására rekurzió segítségével.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable4">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable4">
   C kód</button>
 
 <!-- Modal -->
@@ -241,10 +253,10 @@ int fibbonacci(int n) {
 }
 
 int main() {
-    int n = 8;
+    int n = 8;// a kívánt szám megadása
     int i;
 
-    printf("Fibbonacci of %d: " , n);
+    printf("A %d szám fibonacci sorozata: " , n);
   
     for(i = 0;i&lt;n;i++) {
       printf("%d ",fibbonacci(i));            
@@ -259,14 +271,16 @@ int main() {
     </div>
   </div>
 </div>  
+</div>
 
 
-<h1>20. feladat: Faktoriális</h1>
-<p><b>Feladat leírása:</b> Egy szám faktoriálisának kiszámítására szolgáló függvény.</p>
+<div class="smallContainer">
+ <h2>20. feladat: Faktoriális </h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben egy szám faktoriálisának kiszámítására rekurzió segítségével.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable5">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable5">
   C kód</button>
 
 <!-- Modal -->
@@ -287,7 +301,7 @@ C kód:
 #include &lt;stdio.h&gt;
 
 int factorial(int n) {
-  //base case
+  //alapeset
   if(n == 0) {
       return 1;
   } else {
@@ -296,9 +310,9 @@ int factorial(int n) {
 }
 
 int main() {
-  int n = 5;
+  int n = 5;//a kívánt szám megadása
   int i;
-  printf("Factorial of %d: %d\n" , n , factorial(n));
+  printf("A %d szám faktoriálisa: %d\n" , n , factorial(n));
 }
 <br>
 <a href="https://www.tutorialspoint.com/data_structures_algorithms/fibonacci_recursive_program_in_c.htm" target="_blank">Forrás</a> <br>
@@ -309,8 +323,10 @@ int main() {
     </div>
   </div>
 </div>  
+</div>
 
-
+</div>
+  </div>
     <script src="javaScript/demo.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

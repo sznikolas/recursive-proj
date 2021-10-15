@@ -11,15 +11,20 @@
 
 </head>
 <body>
-<button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>  
-<h1>26. feladat: Páros és páratlan számok</h1>
-<p><b>Feladat leírása:</b> Írjon programot C nyelven a páros és páratlan számok kiíratására adott intervallumon belül, rekurzió segítségével.</p>
 
-<p>https://github.com/JakDet/Recursive_stuff/blob/main/recursive.c - <b>Min. egész szám keresése</b> </p>
-   
+  <div class="bigContainer">
+    
+    <div class="box02">
+
+<button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>  
+
+<div class="smallContainer">
+<h2>26. feladat: Páros és páratlan számok</h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben a páros és páratlan számok kiíratására adott intervallumon belül, rekurzió segítségével.</div>
+ 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable">
     C kód</button>
   
   <!-- Modal -->
@@ -43,17 +48,17 @@ void EvenAndOdd(int stVal, int n);
 int main()
 {
     int n;
-  printf("\n\n Recursion : Print even or odd numbers in a given range :\n");
+  printf("\n\n Rekurzió : Páros vagy páratlan számok kiíratása egy adott tartományban \n");
   printf("-------------------------------------------------------------\n");	
       
-    printf(" Input the range to print starting from 1 : ");
+    printf(" Adja meg a kiírandó tartományt 1-től kezdődően: ");
     scanf("%d", &amp;n);
       
-    printf("\n All even numbers from 1 to %d are : ", n);
-    EvenAndOdd(2, n);//call the function EvenAndOdd for even numbers 
+    printf("\n Minden páros szám 1-től %d-ig: ", n);
+    EvenAndOdd(2, n);//az EvenAndOdd függvény meghívása páros számok esetén 
       
-    printf("\n\n All odd numbers from 1 to %d are : ", n);
-    EvenAndOdd(1, n);// call the function EvenAndOdd for odd numbers
+    printf("\n\n Minden páratlan szám 1-től %d-ig: ", n);
+    EvenAndOdd(1, n);//hívja a EvenAndOdd függvényt páratlan számok esetén
     printf("\n\n");
       
     return 0;
@@ -63,23 +68,27 @@ void EvenAndOdd(int stVal, int n)
     if(stVal &gt; n)
         return;
     printf("%d  ", stVal);
-    EvenAndOdd(stVal+2, n);//calling the function EvenAndOdd itself recursively
+    EvenAndOdd(stVal+2, n);//az EvenAndOdd függvény hívja önmagát rekurzívan
 }
 <br>
-<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-14.php" target="_blank">Forrás</a> 
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-14.php" target="_blank">Forrás</a><br> 
+<a href="https://github.com/JakDet/Recursive_stuff/blob/main/recursive.c" target="_blank">Min. egész szám keresése</a> 
                 </code>
              </pre>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-<h1>27. feladat: Két mátrix összeszorzása</h1>
-<p><b>Feladat leírása:</b> Írj programot C nyelven két mátrix szorzására rekurzió segítségével.</p>
+
+<div class="smallContainer">
+<h2>27. feladat: Két mátrix összeszorzása</h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben két mátrix szorzására szolgáló programot rekurzió segítségével.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable2">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable2">
   C kód</button>
 
 <!-- Modal -->
@@ -109,40 +118,40 @@ int main()
     
     int arm[MAX][MAX],brm[MAX][MAX],i,j,k;
   
-      printf("\n\n Multiplication of two Matrices :\n");
+      printf("\n\n Két mátrix szorzása: \n");
         printf("----------------------------------\n");  
 
-    printf(" Input number of rows for the first matrix : ");
+    printf(" Az első mátrix sorainak száma: ");
     scanf("%d",&amp;rone);
-    printf(" Input number of columns for the first matrix : ");
+    printf(" Az első mátrix oszlopainak száma: ");
     scanf("%d",&amp;cone);	
   
-    printf(" Input number of rows for the second matrix : ");
+    printf(" A második mátrix sorainak száma: ");
     scanf("%d",&amp;rtwo);
-    printf(" Input number of columns for the second matrix : ");
+    printf(" A második mátrix oszlopainak száma: ");
     scanf("%d",&amp;ctwo);	
 
     if(cone!=rtwo)
     {
-          printf("\n Check col. of first and row of second matrix.");
-          printf("\n They are different. Try again.\n");
+          printf("\n Ellenőrizze az első mátrix oszlopát és a második mátrix sorát.");
+          printf("\n Nem egyforma nagyságúak, próbálkozzon újra.\n");
     }
   else
   {
 
-      printf("\n Input elements in the first matrix :\n");
+      printf("\n Az első mátrix bemeneti elemei: \n");
       for(i=0;i&lt;rone;i++){
       for(j=0;j&lt;cone;j++){
-          printf(" element - [%d],[%d] : ",i,j);
+          printf(" elem - [%d],[%d] : ",i,j);
             scanf("%d",&amp;arm[i][j]);}}
 
-      printf(" Input elements in the second matrix :\n");
+      printf("A második mátrix bemeneti elemei: \n");
       for(i=0;i&lt;rtwo;i++){
       for(j=0;j&lt;ctwo;j++){
-        printf(" element - [%d],[%d] : ",i,j);
+        printf(" elem - [%d],[%d] : ",i,j);
             scanf("%d",&amp;brm[i][j]);}}
 
-      printf("\n Here is the elements of First matrix : \n");
+      printf("\n Az első mátrix elemei:  \n");
       for(i=0;i&lt;rone;i++)
       {
       printf("\n");
@@ -152,7 +161,7 @@ int main()
       }
       }
 
-      printf("\n Here is the elements of Second matrix : \n");
+      printf("\n Az második mátrix elemei:  \n");
       for(i=0;i&lt;rtwo;i++)
       {
       printf("\n");
@@ -164,7 +173,7 @@ int main()
       multiplyMatrix(arm,brm);
   }
 
-  printf("\n The multiplication of two matrix is : \n");
+  printf("\n Két mátrix szorzata: \n");
   for(i=0;i&lt;rone;i++)
   {
       printf("\n");
@@ -184,9 +193,9 @@ void multiplyMatrix(int arm[MAX][MAX],int brm[MAX][MAX])
     static int sum,i=0,j=0,k=0;
 
     if(i&lt;rone)
-    { //row of first matrix
+    { //az első mátrix sora
     if(j&lt;ctwo)
-    {  //column of second matrix
+    {  //a második mátrix oszlopa
           if(k&lt;cone)
           {
               sum=sum+arm[i][k]*brm[k][j];
@@ -212,14 +221,16 @@ void multiplyMatrix(int arm[MAX][MAX],int brm[MAX][MAX])
     </div>
   </div>
 </div>
+</div>
 
 
-<h1>28. feladat: Palindrom</h1>
-<p><b>Feladat leírása:</b> Írjon programot C nyelven annak ellenőrzésére, hogy egy adott karakterlánc palindrom-e vagy sem.</p>
+<div class="smallContainer">
+<h2>28. feladat: Palindrom</h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben annak ellenőrzésére, hogy egy adott karakterlánc palindrom-e vagy sem.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable3">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable3">
   C kód</button>
 
 <!-- Modal -->
@@ -245,12 +256,12 @@ void checkPalindrome(char [], int);
 int main()
 {
     char wordPal[25];
-    printf("\n\n Recursion : Check a given string is Palindrome or not :\n");
+    printf("\n\n Rekurzió : Ellenőrizze, hogy egy adott karakterlánc palindrom-e vagy sem: \n");
   printf("----------------------------------------------------------\n");	
   
-    printf(" Input  a word to check for palindrome : ");
+    printf(" Adjon meg egy szót, hogy ellenőrizze a palindromát: ");
     scanf("%s", wordPal);
-    checkPalindrome(wordPal, 0);//call the function for checking Palindorem
+    checkPalindrome(wordPal, 0);//a Palindrom ellenőrzésére szolgáló függvény hívása
   
     return 0;
 }
@@ -262,14 +273,14 @@ void checkPalindrome(char wordPal[], int index)
     {
         if (index + 1 == len || index == len)
         {
-            printf(" The entered word is a palindrome.\n\n");
+            printf(" A beírt szó palindrom.\n\n");
             return;
         }
-        checkPalindrome(wordPal, index + 1);//calling the function itself recursively
+        checkPalindrome(wordPal, index + 1);//a függvény önmagát hívja rekurzívan
     }
     else
     {
-        printf(" The entered word is not a palindrome.\n\n");
+        printf("A beírt szó nem palindrom.\n\n");
     }
 }
 <br>
@@ -280,14 +291,16 @@ void checkPalindrome(char wordPal[], int index)
     </div>
   </div>
 </div>
+</div>
 
 
-<h1>29. feladat: Hatványozás</h1>
-<p><b>Feladat leírása:</b> Írj programot C nyelven bármely szám hatványának kiszámítására rekurzió segítségével.</p>
+<div class="smallContainer">
+<h2>29. feladat: Hatványozás</h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben bármely szám hatványának kiszámítására rekurzió segítségével.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable4">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable4">
   C kód</button>
 
 <!-- Modal -->
@@ -311,24 +324,24 @@ long int CalcuOfPower(int x,int y)
 {
     long int result=1;
     if(y == 0) return result;
-    result=x*(CalcuOfPower(x,y-1));  //calling the  function CalcuOfPower itself recursively
+    result=x*(CalcuOfPower(x,y-1));  //a CalcuOfPower függvény hívja öngmagát rekurzívan 
 }
 int main()
 {
     int bNum,pwr;
     long int result;
-    printf("\n\n Recursion : Calculate the power of any number :\n");
+    printf("\n\n Rekurzió: Bármely szám hatványának kiszámítása: \n");
   printf("----------------------------------------------------\n");	
       
-    printf(" Input the base  value : ");
+    printf(" Adja meg az alapértéket: ");
     scanf("%d",&amp;bNum);
       
-    printf(" Input the value of power : ");
+    printf("Adja meg a hatvány értékét: ");
     scanf("%d",&amp;pwr);
       
-    result=CalcuOfPower(bNum,pwr);//called the function CalcuOfPower
+    result=CalcuOfPower(bNum,pwr);//a CalcuOfPower függvényt hívtuk
       
-    printf(" The value of %d to the power of %d is : %ld\n\n",bNum,pwr,result);
+    printf(" A %d szám a %d hatványon: %ld\n\n",bNum,pwr,result);
       
     return 0;
 }
@@ -340,14 +353,16 @@ int main()
     </div>
   </div>
 </div>
+</div>
 
 
-<h1>30. feladat: Collatz-sorozat</h1>
-<p><b>Feladat leírása:</b> Írjon programot C nyelven egy adott szám Collatz-sorozatának megkeresésére 1-ig.</p>
+<div class="smallContainer">
+<h2>30. feladat: Collatz-sorozat</h2>
+<div class="p2"><b></b> Írjon programot C programozási nyelvben egy adott szám Collatz-sorozatának megkeresésére 1-ig.</div>
 
 <!-- Button trigger modal -->
 
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable5">
+<button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable5">
   C kód</button>
 
 <!-- Modal -->
@@ -367,7 +382,7 @@ C kód:
 
 #include &lt;stdio.h&gt;
 
-// function to generate next number
+// függvény a következő szám generálásához
    int getNextValue(int aNum)
    {
       int i = aNum;
@@ -379,9 +394,9 @@ C kód:
       { 
          i = 3 * i + 1;
       }
-      return (i);// returning the value of next number to the called function
+      return (i);// a következő szám értékének visszaadása a hívott függvénynek
    }
-// function to generate Hailstone number
+//funkció a Hailstone szám generálásához
    void getHailstone(int aNum)
    {
       int hlSe = aNum;  
@@ -392,10 +407,10 @@ C kód:
       else
       {
          printf(" %i ", hlSe);
-         getHailstone(getNextValue(hlSe));// calling the function itself recursively
+         getHailstone(getNextValue(hlSe));//a függvény rekurzív hívása
       }
    }
-// Function to count the length of the Hailstone sequence
+//A Hailstone sorozat hosszának megszámlálására szolgáló függvény
    int countLength(int aNum)
    {
       int hlSe = aNum;  
@@ -405,7 +420,7 @@ C kód:
       }
       else
       {
-         return 1+countLength(getNextValue(hlSe));// calling the function itself recursively
+         return 1+countLength(getNextValue(hlSe));//a függvény rekurzív hívása
       }
 
    }
@@ -413,15 +428,15 @@ C kód:
 int main(int argu)
 {
    int aNum;
-   printf("\n\n Recursion : Hailstone Sequence of a given number upto 1 :\n");
+   printf("\n\n Rekurzió : Collatz-sorozat egy adott számtól 1-ig: \n");
 printf("--------------------------------------------------------------\n");  
-   printf(" Input any number (positive) to start for Hailstone Sequence : ");
+   printf(" Adjon meg egy tetszőleges (pozitív) számot a Collatz sorozat indításához: ");
    scanf("%i", &amp;aNum);
 
-   printf("\n The hailstone sequence starting at %i is : \n", aNum);
+   printf("\n A Collatz sorozat a %i számtól kezdődően: \n", aNum);
    getHailstone(aNum);
    printf("\n\n");
-   printf(" The length of the sequence is %i. \n\n", countLength(aNum));
+   printf(" A sorozat hossza %i. \n\n", countLength(aNum));
       return 0;
 }
 <br>
@@ -432,8 +447,11 @@ printf("--------------------------------------------------------------\n");
     </div>
   </div>
 </div>
+</div>
 
 
+  </div>
+</div>
 
     <script src="javaScript/demo.js"></script>
 
