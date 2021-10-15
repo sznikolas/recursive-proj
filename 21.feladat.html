@@ -11,15 +11,11 @@
 
 </head>
 <body>
-    
-    <h1>Decimális szám binárisra alakítása</h1><br>
-    <p><b>Feladat leírása:</b> Írjon programot C nyelven egy decimális szám binárisra való átalakítására rekurzió segítségével.</p>
-    
-    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-11.php
-      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-11.php" target="_blank">C kód forrása</a> </p>
+  <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
 
-    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
-    
+    <h1>21. feladat: Decimális szám binárissá alakítása</h1>
+    <p><b>Feladat leírása:</b> Írjon programot C nyelven egy decimális szám binárisra való átalakítására rekurzió segítségével.</p>
+
 <!-- Button trigger modal -->
 
 <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
@@ -27,10 +23,10 @@
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Decimális szám binárissá alakítása C nyelvben</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -38,7 +34,42 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
+C kód:
 
+#include&lt;stdio.h&gt;
+
+long convertBinary(int);
+
+int main()
+{
+    long biNo;
+    int decNo;
+  
+  printf("\n\n Recursion : Convert decimal number to binary :\n");
+  printf("---------------------------------------------------\n");
+
+    printf(" Input any decimal number : ");
+    scanf("%d",&amp;decNo);
+
+    biNo = convertBinary(decNo);//call the function convertBinary
+    printf(" The Binary value of decimal no. %d is : %ld\n\n",decNo,biNo);
+    return 0;
+}
+long convertBinary(int decNo)
+{
+    static long biNo,r,fctor = 1;
+
+    if(decNo != 0)
+    {
+          r = decNo % 2;
+          biNo = biNo + r * fctor;
+          fctor = fctor * 10;
+          convertBinary(decNo / 2);//calling the function convertBinary itself recursively
+    }
+    return biNo;
+}
+<br>
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-11.php" target="_blank">Forrás</a>
                 </code>
              </pre>
         </div>
@@ -46,56 +77,310 @@
     </div>
   </div>
 
+<h1>22. feladat: Prímszám ellenőrzése</h1>
+<p><b>Feladat leírása:</b> Írj egy programot C nyelven, amely rekurzió segítségével ellenőrzi, hogy egy szám prímszám-e vagy sem.</p>
 
-    
-    <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-    <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
-    <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
-    <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
+<!-- Button trigger modal -->
 
-    <div class="example_b">
-        <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
+<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable2">
+  C kód</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable2" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Prímszám ellenőrzése C nyelvben</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+          <pre class="line-numbers">
+              <code class="language-clike">
+C kód:
 
-        <pre class="line-numbers">
-  <code class="language-clike">
-    C kód:
+#include &lt;stdio.h&gt;
 
-    #include&lt;stdio.h&gt;
+int checkForPrime(int);
+int i;
 
-    long convertBinary(int);
+int main()
+{
+
+    int n1,primeNo;
+
+  printf("\n\n Recursion : Check a number is prime number or not :\n");
+  printf("--------------------------------------------------------\n");
+  
+    printf(" Input any positive number : ");
+    scanf("%d",&amp;n1);
     
-    int main()
+    i = n1/2;
+
+    primeNo = checkForPrime(n1);//call the function checkForPrime
+
+    if(primeNo==1)
+        printf(" The number %d is a prime number. \n\n",n1);
+    else
+      printf(" The number %d is not a prime number. \nn",n1);
+    return 0;
+}
+
+int checkForPrime(int n1)
+{
+    if(i==1)
     {
-        long biNo;
-        int decNo;
-      
-      printf("\n\n Recursion : Convert decimal number to binary :\n");
-      printf("---------------------------------------------------\n");
-    
-        printf(" Input any decimal number : ");
-        scanf("%d",&amp;decNo);
-    
-        biNo = convertBinary(decNo);//call the function convertBinary
-        printf(" The Binary value of decimal no. %d is : %ld\n\n",decNo,biNo);
+        return 1;
+    }
+    else if(n1 %i==0)
+    {
+          return 0;
+    }     
+    else
+        {
+          i = i -1; 
+          checkForPrime(n1);//calling the function checkForPrime itself recursively
+      }
+}
+<br>
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-12.php" target="_blank">Forrás</a>
+              </code>
+           </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h1>23. feladat: Legkisebb közös többszörös megkeresése</h1>
+<p><b>Feladat leírása:</b> Írj programot C nyelven két szám legkisebb közös többszörösének megkeresésére rekurzió segítségével.</p>
+
+<!-- Button trigger modal -->
+
+<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable3">
+  C kód</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable3" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Legkisebb közös többszörös keresése C nyelvben</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <pre class="line-numbers">
+              <code class="language-clike">
+C kód:
+
+#include &lt;stdio.h&gt;
+int lcmCalculate(int a, int b);
+  
+int main()
+{
+    int n1, n2, lcmOf;
+  printf("\n\n Recursion : Find the LCM of two numbers :\n");
+  printf("----------------------------------------------\n");
+    printf(" Input 1st number for LCM : ");
+    scanf("%d", &amp;n1);
+    printf(" Input 2nd number for LCM : ");
+    scanf("%d", &amp;n2);
+// Ensures that first parameter of lcm must be smaller than 2nd
+    if(n1 &gt;  n2)
+        lcmOf = lcmCalculate(n2, n1);//call the function lcmCalculate for lcm calculation
+    else
+        lcmOf = lcmCalculate(n1, n2);//call the function lcmCalculate for lcm calculation
+    printf(" The LCM of %d and %d :  %d\n\n", n1, n2, lcmOf);
+    return 0;
+}
+int lcmCalculate(int a, int b)//the value of n1 and n2 is passing through a and b
+{
+    static int m = 0;
+    //Increments m by adding max value to it
+    m += b;
+//  If found a common multiple then return the m.
+    if((m % a == 0) &amp;&amp; (m % b == 0))
+    {
+        return m;
+    }
+    else
+    {
+        lcmCalculate(a, b);//calling the function lcmCalculate itself
+    }
+}
+<br>
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-13.php" target="_blank">Forrás</a>
+              </code>
+           </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1>24. feladat: Lineáris keresés rekurzióval</h1>
+<p><b>Feladat leírása:</b> Írjon programot C nyelven lineáris keresésre rekurzióval.</p>
+
+<!-- Button trigger modal -->
+
+<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable4">
+  C kód</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable4" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Lineáris keresés rekurzióval C nyelvben</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <pre class="line-numbers">
+              <code class="language-clike">
+C kód:
+
+#include &lt;stdio.h&gt;
+int RecursiveLS(int arr[], int value, int index, int n)
+{
+    int pos = 0;
+  
+    if(index &gt;= n)
+    {
         return 0;
     }
-    long convertBinary(int decNo)
+  
+    else if (arr[index] == value)
     {
-        static long biNo,r,fctor = 1;
-    
-        if(decNo != 0)
-        {
-             r = decNo % 2;
-             biNo = biNo + r * fctor;
-             fctor = fctor * 10;
-             convertBinary(decNo / 2);//calling the function convertBinary itself recursively
-        }
-        return biNo;
+        pos = index + 1;
+        return pos;
     }
-    
-  </code>
-</pre>
+  
+    else
+    {
+        return RecursiveLS(arr, value, index+1, n);
+    }
+    return pos;
+}
+  
+int main()
+{
+    int n, value, pos, m = 0, arr[100];
+    printf("Enter the total elements in the array  ");
+    scanf("%d", &amp;n);
+  
+    printf("Enter the array elements\n");
+    for (int i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+  
+    printf("Enter the element to search  ");
+    scanf("%d", &amp;value);
+  
+    pos =  RecursiveLS(arr, value, 0, n);
+    if (pos != 0)
+    {
+        printf("Element found at pos %d ", pos);
+    }
+    else
+    {
+        printf("Element not found");
+    }
+    return 0;
+}
+<br>
+<a href="https://www.sanfoundry.com/c-program-linear-search-using-recursion/" target="_blank">Forrás</a>  
+              </code>
+           </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1>25. feladat: Bináris keresés rekurzióval</h1>
+<p><b>Feladat leírása:</b> Írjon programot C nyelven bináris keresésre rekurzióval.</p>
+
+<!-- Button trigger modal -->
+
+<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable5">
+  C kód</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable5" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Bináris keresés rekurzióval C nyelvben</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <pre class="line-numbers">
+              <code class="language-clike">
+C kód:
+
+#include &lt;stdio.h&gt;
+int binarySearch(int*, int, int, int, int);
+
+int main()
+{
+  int arr1[10], i, n, md, c, low, hg;
+
+  printf("\n\n Recursion : Binary searching :\n");
+  printf("-----------------------------------\n");
+  printf(" Input the number of elements to store in the array :");
+  scanf("%d", &amp;n);
+  printf(" Input %d numbers of elements in the array in ascending order :\n", n);
+  for (i = 0; i &lt; n; i++) 
+  {
+      printf(" element - %d : ", i);
+      scanf("%d", &amp;arr1[i]);
+  }
+  printf(" Input the number to search : ");
+  scanf("%d", &amp;md);
+  low = 0, hg = n - 1;
+  c = binarySearch(arr1, n, md, low, hg);
+  if (c == 0)
+      printf(" The search number not exists in the array.\n\n");
+  else
+      printf(" The search number found in the array.\n\n");
+  return 0;
+}
+
+int binarySearch(int arr1[], int n, int md, int low, int hg)
+{
+  int mid, c = 0;
+  if (low &lt;= hg) 
+  {
+      mid = (low + hg) / 2;
+      if (md == arr1[mid]) 
+      {
+          c = 1;
+      }
+      else if (md &lt; arr1[mid]) 
+      {
+          return binarySearch(arr1, n, md, low, mid - 1);
+      }
+      else
+          return binarySearch(arr1, n, md, mid + 1, hg);
+  }
+  else
+      return c;
+}
+<br>
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-21.php" target="_blank">Forrás</a>
+              </code>
+           </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <script src="javaScript/demo.js"></script>
 

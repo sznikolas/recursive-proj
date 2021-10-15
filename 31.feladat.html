@@ -11,15 +11,11 @@
 
 </head>
 <body>
-    
-    <h1>Másolás és beillesztés rekurzióval</h1><br>
-    <p><b>Feladat leírása:</b> Írj programot C nyelven, amely rekurzióval másol át egy karakterláncot egy másikba.</p>
-    
-    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-19.php
-      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-19.php" target="_blank">C kód forrása</a> </p>
 
-    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
-    
+<button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>    
+<h1>31. feladat: Másolás és beillesztés rekurzióval</h1>
+<p><b>Feladat leírása:</b> Írj programot C nyelven, amely rekurzióval másol át egy karakterláncot egy másikba.</p>
+
 <!-- Button trigger modal -->
 
 <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
@@ -27,10 +23,10 @@
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Másolás és beillesztés megoldása C nyelvben</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -38,7 +34,36 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
+C kód:
 
+#include &lt;stdio.h&gt;
+
+void copyString(char [], char [], int);
+  
+int main()
+{
+    char stng1[20], stng2[20];
+    printf("\n\n Recursion : Copy One string to another :\n");
+    printf("---------------------------------------------\n"); 	
+  
+    printf(" Input the  string to copy : ");
+    scanf("%s", stng1);
+    copyString(stng1, stng2, 0);
+    printf("\n The string successfully copied.\n\n");
+    printf(" The first string is : %s\n", stng1);
+    printf(" The copied string is : %s\n\n", stng2);
+    return 0;
+}
+  
+void copyString(char stng1[], char stng2[], int ctr)
+{
+    stng2[ctr] = stng1[ctr];
+    if (stng1[ctr] == '\0')
+        return;
+    copyString(stng1, stng2, ctr + 1);
+}
+<br>
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-19.php" target="_blank">Forrás</a> 
                 </code>
              </pre>
         </div>
@@ -47,49 +72,81 @@
   </div>
 
 
-    
-    <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-    <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
-    <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
-    <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
+<h1>32. feladat: Első nagybetű a karakterláncban</h1>
+<p><b>Feladat leírása:</b> Írj programot C nyelven, amely rekurzió segítségével megkeresi az első nagybetűt egy karakterláncban.</p>
 
-    <div class="example_b">
-        <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
+<!-- Button trigger modal -->
+
+<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable2">
+  C kód</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable2" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Első nagybetű megtalálása a karakterláncban C nyelvben</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+          <pre class="line-numbers">
+              <code class="language-clike">
+C kód:
 
-        <pre class="line-numbers">
-  <code class="language-clike">
-    C kód:
-
-    #include &lt;stdio.h&gt;
- 
-    void copyString(char [], char [], int);
-     
-    int main()
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt; 
+  
+char checkCapital(char *);
+  
+int main()
+{
+    char str1[20], singLet;
+    
+    printf("\n\n Recursion : Find the first capital letter in a string :\n");
+    printf("------------------------------------------------------------\n"); 	
+  
+    printf(" Input a string to including one or more capital letters : ");
+    scanf("%s", str1);
+    singLet = checkCapital(str1);
+    if (singLet == 0)
     {
-        char stng1[20], stng2[20];
-        printf("\n\n Recursion : Copy One string to another :\n");
-        printf("---------------------------------------------\n"); 	
-     
-        printf(" Input the  string to copy : ");
-        scanf("%s", stng1);
-        copyString(stng1, stng2, 0);
-        printf("\n The string successfully copied.\n\n");
-        printf(" The first string is : %s\n", stng1);
-        printf(" The copied string is : %s\n\n", stng2);
+        printf(" There is no capital letter in the string :  %s.\n", str1);
+    }
+    else
+    {
+        printf(" The first capital letter appears in the string %s is %c.\n\n", str1, singLet);
+    }
         return 0;
     }
-     
-    void copyString(char stng1[], char stng2[], int ctr)
+    char checkCapital(char *str2)
     {
-        stng2[ctr] = stng1[ctr];
-        if (stng1[ctr] == '\0')
-            return;
-        copyString(stng1, stng2, ctr + 1);
+        static int i = 0;
+        if (i &lt; strlen(str2))
+        {
+            if (isupper(str2[i]))
+            {
+                return str2[i];
+            }
+            else
+            {
+                i = i + 1;
+                return checkCapital(str2);
+            }
+        }
+        else return 0;
     }
-    
-  </code>
-</pre>
+<br>
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-20.php" target="_blank">Forrás</a>
+              </code>
+           </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <script src="javaScript/demo.js"></script>
 

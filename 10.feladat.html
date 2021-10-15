@@ -14,9 +14,6 @@
     
     <h1>Insertion sort</h1><br>
     <p><b>Feladat leírása:</b> Legegyszerűbb formája az egyenes beszúrásos rendezési algoritmus egy tömb elemeinek sorba rendezésére. Az algoritmus k-adik lépése előtt az első k-1 elem már rendezett; a lépés során a k-adik elemet beszúrjuk az első k-1 elem közé az őt nagyság szerint megillető helyre, és a nála nagyobbakat eggyel eltoljuk. </p>
-    
-    <p><b>C kód forrása:</b> https://www.tutorialspoint.com/c-program-for-recursive-insertion-sort
-      <a href="https://www.tutorialspoint.com/c-program-for-recursive-insertion-sort" target="_blank">C kód forrása</a> </p>
 
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
@@ -27,7 +24,7 @@
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
@@ -38,7 +35,35 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
+C kód:
 
+#include &lt;stdio.h&gt;
+void recursiveInsertionSort(int arr[], int n){
+    if (n &lt;= 1)
+      return;
+    recursiveInsertionSort( arr, n-1 );
+    int nth = arr[n-1];
+    int j = n-2;
+    while (j &gt;= 0 &amp;&amp; arr[j] &gt; nth){
+      arr[j+1] = arr[j];
+      j--;
+    }
+    arr[j+1] = nth;
+}
+int main(){
+    int array[] = {34, 7, 12, 90, 51};
+    int n = sizeof(array)/sizeof(array[0]);
+    printf("Unsorted Array:\t");
+      for (int i=0; i &lt; n; i++)
+    printf("%d ",array[i]);
+      recursiveInsertionSort(array, n);
+    printf("\nSorted Array:\t");
+    for (int i=0; i &lt; n; i++)
+      printf("%d ",array[i]);
+    return 0;
+}
+<br>
+<a href="https://www.tutorialspoint.com/c-program-for-recursive-insertion-sort" target="_blank">Forrás</a>
                 </code>
              </pre>
         </div>
@@ -47,7 +72,7 @@
   </div>
 
 
-    
+  <canvas id="canvas10"></canvas>
     <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
     <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
     <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
@@ -57,39 +82,7 @@
         <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
       </div>
 
-        <pre class="line-numbers">
-  <code class="language-clike">
-    C kód:
-
-    #include &lt;stdio.h&gt;
-    void recursiveInsertionSort(int arr[], int n){
-       if (n &lt;= 1)
-          return;
-       recursiveInsertionSort( arr, n-1 );
-       int nth = arr[n-1];
-       int j = n-2;
-       while (j &gt;= 0 &amp;&amp; arr[j] &gt; nth){
-          arr[j+1] = arr[j];
-          j--;
-       }
-       arr[j+1] = nth;
-    }
-    int main(){
-       int array[] = {34, 7, 12, 90, 51};
-       int n = sizeof(array)/sizeof(array[0]);
-       printf("Unsorted Array:\t");
-          for (int i=0; i &lt; n; i++)
-       printf("%d ",array[i]);
-          recursiveInsertionSort(array, n);
-       printf("\nSorted Array:\t");
-       for (int i=0; i &lt; n; i++)
-          printf("%d ",array[i]);
-       return 0;
-    }
-  </code>
-</pre>
-
-    <script src="javaScript/demo.js"></script>
+    <script src="javaScript/10.feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

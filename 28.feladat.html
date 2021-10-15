@@ -12,13 +12,13 @@
 </head>
 <body>
     
-    <h1>Palindrom</h1><br>
-    <p><b>Feladat leírása:</b> Írjon programot C nyelven annak ellenőrzésére, hogy egy adott karakterlánc palindrom-e vagy sem.</p>
-    
-    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-16.php
-      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-16.php" target="_blank">C kód forrása</a> </p>
+<h1>Palindrom</h1><br>
+<p><b>Feladat leírása:</b> Írjon programot C nyelven annak ellenőrzésére, hogy egy adott karakterlánc palindrom-e vagy sem.</p>
 
-    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
+<p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-16.php
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-16.php" target="_blank">C kód forrása</a> </p>
+
+<button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
 
@@ -59,44 +59,43 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kód:
+C kód:
 
-    #include &lt;stdio.h&gt;
-    #include &lt;string.h&gt;
-     
-    void checkPalindrome(char [], int);
-     
-    int main()
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+  
+void checkPalindrome(char [], int);
+  
+int main()
+{
+    char wordPal[25];
+    printf("\n\n Recursion : Check a given string is Palindrome or not :\n");
+  printf("----------------------------------------------------------\n");	
+  
+    printf(" Input  a word to check for palindrome : ");
+    scanf("%s", wordPal);
+    checkPalindrome(wordPal, 0);//call the function for checking Palindorem
+  
+    return 0;
+}
+  
+void checkPalindrome(char wordPal[], int index)
+{
+    int len = strlen(wordPal) - (index + 1);
+    if (wordPal[index] == wordPal[len])
     {
-        char wordPal[25];
-        printf("\n\n Recursion : Check a given string is Palindrome or not :\n");
-      printf("----------------------------------------------------------\n");	
-     
-        printf(" Input  a word to check for palindrome : ");
-        scanf("%s", wordPal);
-        checkPalindrome(wordPal, 0);//call the function for checking Palindorem
-     
-        return 0;
+        if (index + 1 == len || index == len)
+        {
+            printf(" The entered word is a palindrome.\n\n");
+            return;
+        }
+        checkPalindrome(wordPal, index + 1);//calling the function itself recursively
     }
-     
-    void checkPalindrome(char wordPal[], int index)
+    else
     {
-        int len = strlen(wordPal) - (index + 1);
-        if (wordPal[index] == wordPal[len])
-        {
-            if (index + 1 == len || index == len)
-            {
-                printf(" The entered word is a palindrome.\n\n");
-                return;
-            }
-            checkPalindrome(wordPal, index + 1);//calling the function itself recursively
-        }
-        else
-        {
-            printf(" The entered word is not a palindrome.\n\n");
-        }
+        printf(" The entered word is not a palindrome.\n\n");
     }
-    
+}
   </code>
 </pre>
 

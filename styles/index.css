@@ -20,7 +20,7 @@ html,body{
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 10px;
+  padding: 20px;
   
 }
 .container .box{
@@ -94,6 +94,11 @@ html,body{
   background: #093344;
   margin-right: 5px;
 }
+.btns button:last-child{
+  /* gombok beallitasai */
+    background: #093344;
+    margin-right: 5px;
+  }
 
 /* meretek igazitasa */
 @media (max-width:1045px){

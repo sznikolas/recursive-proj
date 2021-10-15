@@ -12,13 +12,13 @@
 </head>
 <body>
     
-    <h1>Bináris keresés rekurzióval</h1><br>
-    <p><b>Feladat leírása:</b> Írjon programot C nyelven bináris keresésre rekurzióval.</p>
-    
-    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-21.php
-      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-21.php" target="_blank">C kód forrása</a> </p>
+<h1>Bináris keresés rekurzióval</h1><br>
+<p><b>Feladat leírása:</b> Írjon programot C nyelven bináris keresésre rekurzióval.</p>
 
-    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
+<p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-21.php
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-21.php" target="_blank">C kód forrása</a> </p>
+
+<button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
 
@@ -30,7 +30,7 @@
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Bináris keresés rekurzióval C nyelvben</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -59,58 +59,56 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kód:
+C kód:
 
+#include &lt;stdio.h&gt;
+int binarySearch(int*, int, int, int, int);
 
-    #include &lt;stdio.h&gt;
-    int binarySearch(int*, int, int, int, int);
+int main()
+{
+  int arr1[10], i, n, md, c, low, hg;
 
-    int main()
-    {
-      int arr1[10], i, n, md, c, low, hg;
+  printf("\n\n Recursion : Binary searching :\n");
+  printf("-----------------------------------\n");
+  printf(" Input the number of elements to store in the array :");
+  scanf("%d", &amp;n);
+  printf(" Input %d numbers of elements in the array in ascending order :\n", n);
+  for (i = 0; i &lt; n; i++) 
+  {
+      printf(" element - %d : ", i);
+      scanf("%d", &amp;arr1[i]);
+  }
+  printf(" Input the number to search : ");
+  scanf("%d", &amp;md);
+  low = 0, hg = n - 1;
+  c = binarySearch(arr1, n, md, low, hg);
+  if (c == 0)
+      printf(" The search number not exists in the array.\n\n");
+  else
+      printf(" The search number found in the array.\n\n");
+  return 0;
+}
 
-      printf("\n\n Recursion : Binary searching :\n");
-      printf("-----------------------------------\n");
-      printf(" Input the number of elements to store in the array :");
-      scanf("%d", &amp;n);
-      printf(" Input %d numbers of elements in the array in ascending order :\n", n);
-      for (i = 0; i &lt; n; i++) 
+int binarySearch(int arr1[], int n, int md, int low, int hg)
+{
+  int mid, c = 0;
+  if (low &lt;= hg) 
+  {
+      mid = (low + hg) / 2;
+      if (md == arr1[mid]) 
       {
-          printf(" element - %d : ", i);
-          scanf("%d", &amp;arr1[i]);
+          c = 1;
       }
-      printf(" Input the number to search : ");
-      scanf("%d", &amp;md);
-      low = 0, hg = n - 1;
-      c = binarySearch(arr1, n, md, low, hg);
-      if (c == 0)
-          printf(" The search number not exists in the array.\n\n");
-      else
-          printf(" The search number found in the array.\n\n");
-      return 0;
-    }
-
-    int binarySearch(int arr1[], int n, int md, int low, int hg)
-    {
-      int mid, c = 0;
-      if (low &lt;= hg) 
+      else if (md &lt; arr1[mid]) 
       {
-          mid = (low + hg) / 2;
-          if (md == arr1[mid]) 
-          {
-              c = 1;
-          }
-          else if (md &lt; arr1[mid]) 
-          {
-              return binarySearch(arr1, n, md, low, mid - 1);
-          }
-          else
-              return binarySearch(arr1, n, md, mid + 1, hg);
+          return binarySearch(arr1, n, md, low, mid - 1);
       }
       else
-          return c;
-    }
-    
+          return binarySearch(arr1, n, md, mid + 1, hg);
+  }
+  else
+      return c;
+}
   </code>
 </pre>
 

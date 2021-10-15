@@ -12,13 +12,13 @@
 </head>
 <body>
     
-    <h1>Prímszám ellenőrzése</h1><br>
-    <p><b>Feladat leírása:</b> Írj egy programot C nyelven, amely rekurzió segítségével ellenőrzi, hogy egy szám prímszám-e vagy sem.</p>
-    
-    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-12.php
-      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-12.php" target="_blank">C kód forrása</a> </p>
+<h1>Prímszám ellenőrzése</h1><br>
+<p><b>Feladat leírása:</b> Írj egy programot C nyelven, amely rekurzió segítségével ellenőrzi, hogy egy szám prímszám-e vagy sem.</p>
 
-    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
+<p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-12.php
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-12.php" target="_blank">C kód forrása</a> </p>
+
+<button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
 
@@ -59,51 +59,51 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kód:
+C kód:
 
-    #include &lt;stdio.h&gt;
+#include &lt;stdio.h&gt;
 
-    int checkForPrime(int);
-    int i;
+int checkForPrime(int);
+int i;
+
+int main()
+{
+
+    int n1,primeNo;
+
+  printf("\n\n Recursion : Check a number is prime number or not :\n");
+  printf("--------------------------------------------------------\n");
+  
+    printf(" Input any positive number : ");
+    scanf("%d",&amp;n1);
     
-    int main()
+    i = n1/2;
+
+    primeNo = checkForPrime(n1);//call the function checkForPrime
+
+    if(primeNo==1)
+        printf(" The number %d is a prime number. \n\n",n1);
+    else
+      printf(" The number %d is not a prime number. \nn",n1);
+    return 0;
+}
+
+int checkForPrime(int n1)
+{
+    if(i==1)
     {
-    
-        int n1,primeNo;
-    
-      printf("\n\n Recursion : Check a number is prime number or not :\n");
-      printf("--------------------------------------------------------\n");
-      
-        printf(" Input any positive number : ");
-        scanf("%d",&amp;n1);
-        
-        i = n1/2;
-    
-        primeNo = checkForPrime(n1);//call the function checkForPrime
-    
-       if(primeNo==1)
-            printf(" The number %d is a prime number. \n\n",n1);
-       else
-          printf(" The number %d is not a prime number. \nn",n1);
-       return 0;
+        return 1;
     }
-    
-    int checkForPrime(int n1)
+    else if(n1 %i==0)
     {
-        if(i==1)
+          return 0;
+    }     
+    else
         {
-            return 1;
-        }
-        else if(n1 %i==0)
-        {
-             return 0;
-        }     
-        else
-           {
-             i = i -1; 
-             checkForPrime(n1);//calling the function checkForPrime itself recursively
-          }
-    }
+          i = i -1; 
+          checkForPrime(n1);//calling the function checkForPrime itself recursively
+      }
+}
     
   </code>
 </pre>

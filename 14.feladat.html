@@ -59,37 +59,37 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kód:
+C kód:
 
-    #include&lt;stdio.h&gt;
+#include&lt;stdio.h&gt;
 
-    int noOfDigits(int n1);
-    int main()
-    {
-      int n1,ctr;
-        printf("\n\n count the digits of a given number :\n");
-        printf("-----------------------------------------\n");
-        printf(" Input  a number : ");
-        scanf("%d",&amp;n1);
-    
-        ctr = noOfDigits(n1);
-    
-        printf(" The number of digits in the number is :  %d \n\n",ctr);
-        return 0;
+int noOfDigits(int n1);
+int main()
+{
+  int n1,ctr;
+    printf("\n\n count the digits of a given number :\n");
+    printf("-----------------------------------------\n");
+    printf(" Input  a number : ");
+    scanf("%d",&amp;n1);
+
+    ctr = noOfDigits(n1);
+
+    printf(" The number of digits in the number is :  %d \n\n",ctr);
+    return 0;
+}
+
+int noOfDigits(int n1)
+{
+    static int ctr=0;
+
+      if(n1!=0)
+      {
+          ctr++;
+          noOfDigits(n1/10);
     }
-    
-    int noOfDigits(int n1)
-    {
-        static int ctr=0;
-    
-         if(n1!=0)
-         {
-              ctr++;
-             noOfDigits(n1/10);
-        }
-    
-        return ctr;
-    }
+
+    return ctr;
+}
   </code>
 </pre>
 

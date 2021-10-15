@@ -1,4 +1,4 @@
-let canvas = document.getElementById('canvas1');
+let canvas = document.getElementById('canvas10');
 let c = canvas.getContext('2d');
 canvas.width = 720;
 canvas.height  = 720;

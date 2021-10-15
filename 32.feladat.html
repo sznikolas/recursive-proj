@@ -12,13 +12,13 @@
 </head>
 <body>
     
-    <h1>Első nagybetű a karakterláncban</h1><br>
-    <p><b>Feladat leírása:</b> Írj programot C nyelven, amely rekurzió segítségével megkeresi az első nagybetűt egy karakterláncban.</p>
-    
-    <p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-20.php
-      <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-20.php" target="_blank">C kód forrása</a> </p>
+<h1>Első nagybetű a karakterláncban</h1><br>
+<p><b>Feladat leírása:</b> Írj programot C nyelven, amely rekurzió segítségével megkeresi az első nagybetűt egy karakterláncban.</p>
 
-    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
+<p><b>C kód forrása:</b> https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-20.php
+<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-20.php" target="_blank">C kód forrása</a> </p>
+
+<button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
 
@@ -46,8 +46,6 @@
     </div>
   </div>
 
-
-    
     <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
     <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
     <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
@@ -59,51 +57,50 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kód:
+C kód:
 
-    #include &lt;stdio.h&gt;
-    #include &lt;string.h&gt;
-    #include &lt;ctype.h&gt; 
-     
-    char checkCapital(char *);
-     
-    int main()
-    {
-        char str1[20], singLet;
-       
-        printf("\n\n Recursion : Find the first capital letter in a string :\n");
-       printf("------------------------------------------------------------\n"); 	
-     
-        printf(" Input a string to including one or more capital letters : ");
-        scanf("%s", str1);
-        singLet = checkCapital(str1);
-        if (singLet == 0)
-        {
-            printf(" There is no capital letter in the string :  %s.\n", str1);
-        }
-        else
-        {
-            printf(" The first capital letter appears in the string %s is %c.\n\n", str1, singLet);    }
-            return 0;
-        }
-        char checkCapital(char *str2)
-        {
-            static int i = 0;
-            if (i &lt; strlen(str2))
-            {
-                if (isupper(str2[i]))
-                {
-                    return str2[i];
-                }
-                else
-                {
-                    i = i + 1;
-                    return checkCapital(str2);
-                }
-            }
-            else return 0;
-        }
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt; 
+  
+char checkCapital(char *);
+  
+int main()
+{
+    char str1[20], singLet;
     
+    printf("\n\n Recursion : Find the first capital letter in a string :\n");
+    printf("------------------------------------------------------------\n"); 	
+  
+    printf(" Input a string to including one or more capital letters : ");
+    scanf("%s", str1);
+    singLet = checkCapital(str1);
+    if (singLet == 0)
+    {
+        printf(" There is no capital letter in the string :  %s.\n", str1);
+    }
+    else
+    {
+        printf(" The first capital letter appears in the string %s is %c.\n\n", str1, singLet);    }
+        return 0;
+    }
+    char checkCapital(char *str2)
+    {
+        static int i = 0;
+        if (i &lt; strlen(str2))
+        {
+            if (isupper(str2[i]))
+            {
+                return str2[i];
+            }
+            else
+            {
+                i = i + 1;
+                return checkCapital(str2);
+            }
+        }
+        else return 0;
+    }
   </code>
 </pre>
 

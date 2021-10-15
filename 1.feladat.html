@@ -11,26 +11,21 @@
 </head>
 <body>
 
-    <h1>Huszárvándorlás probléma - The Knights tour problem</h1>
-    <br>
-    <p class="p_settings"><b>Feladat leírása:</b> A huszárvándorlás-probléma, huszárkörút vagy sakktábla bejárása huszárral egy huszár lépéssorozata a sakktáblán, amely alatt a huszár a tábla minden mezőjét pontosan egyszer érinti. Ha az utolsó mező megegyezik a kiinduló mezővel, a körút zárt, másképp a körút nyitott.
-    <br>A sakktábla bejárása huszárral matematikai probléma. Olyan algoritmus létrehozása, mely megkeresi ezt a bejárást, ismert számítástechnikai feladat. A huszárkörút problémája különböző méretű sakktáblákon fennáll, nemcsak a 8×8-ason, sőt a szabálytalan (nem téglalap) alakú táblákon is.</p>
-    
-    <p><b>C kód forrása:</b>  https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/
-    <a href="https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/" target="_blank">C kód forrása</a> </p>
-    <p>a C kód a <I>c kód</I> gombra kattintva elérhető   </p>
-    
-    
+<h1>Huszárvándorlás probléma - The Knights tour problem</h1>
+<br>
+<p class="p_settings"><b>Feladat leírása:</b> A huszárvándorlás-probléma, huszárkörút vagy sakktábla bejárása huszárral egy huszár lépéssorozata a sakktáblán, amely alatt a huszár a tábla minden mezőjét pontosan <b>egyszer</b> érinti. Ha az utolsó mező megegyezik a kiinduló mezővel, a körút zárt, másképp a körút nyitott.
+<br>A sakktábla bejárása huszárral matematikai probléma. Olyan algoritmus létrehozása, mely megkeresi ezt a bejárást, ismert számítástechnikai feladat. A huszárkörút problémája különböző méretű sakktáblákon fennáll, nemcsak a 8×8-ason, sőt a szabálytalan (nem téglalap) alakú táblákon is.
+<br><br>Az alábbiakban látható egy 8x8-as sakktábla nyitott körútú bejárásának egyik megoldása, melyhez C nyelvben írt forráskódot is találunk. Egy 8x8-as táblán, nyitott körúttal a megoldások száma: 19 591 828 170 979 904. Erre a problémára több megoldási lehetőség is van, köztük brute force-algoritmusok, "oszd meg és uralkodj" módszerek, neurális hálózatok is, mi pedig rekurzív függvénymeghívással és backtrackinggel foglalkozunk.</p>
+<div class="container2">  
     <button onclick="location.href='index.html'" type="button" class="example_b">feladatok</button>
 
     <!-- Button trigger modal -->
-
 <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
     C kód</button>
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalScrollableTitle">Huszárvándorlás-probléma megoldása C nyelvben</h5>
@@ -41,22 +36,21 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-// C program for Knight Tour problem
+// <b>C program a Huszárvándorlás problémára</b>
 #include &lt;stdio.h&gt;
 #define N 8
  
 int solveKTUtil(int x, int y, int movei, int sol[N][N],
                 int xMove[], int yMove[]);
  
-/* A utility function to check if i,j are valid indexes
-   for N*N chessboard */
+/*<b> Segédfüggvény annak ellenőrzésére, hogy i,j érvényes indexek-e az N*N sakktáblához</b> */
 int isSafe(int x, int y, int sol[N][N])
 {
     return (x &gt;= 0 &amp;&amp; x &lt; N &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; N
             &amp;&amp; sol[x][y] == -1);
 }
  
-/* A utility function to print solution matrix sol[N][N] */
+/*<b> Segédfüggvény a sol[N][N] megoldási mátrix kiírására.</b> */
 void printSolution(int sol[N][N])
 {
     for (int x = 0; x &lt; N; x++) {
@@ -66,35 +60,33 @@ void printSolution(int sol[N][N])
     }
 }
  
-/* This function solves the Knight Tour problem using
-   Backtracking.  This function mainly uses solveKTUtil()
-   to solve the problem. It returns false if no complete
-   tour is possible, otherwise return true and prints the
-   tour.
-   Please note that there may be more than one solutions,
-   this function prints one of the feasible solutions.  */
+/* <b>Ez a funkció a Huszárvándorlás problémát oldja meg Backtracking segítségével. 
+Ez a függvény elsősorban a solveKTUtil() segítségével oldja meg a problémát. 
+Hamis értéket ad vissza, ha nincs lehetőség teljes túrára, ellenkező esetben igazat ad vissza,
+és kiírja a túrát. Felhívjuk a figyelmet arra, hogy több megoldás is létezhet, 
+ez a függvény csak az egyik megvalósítható megoldást írja ki. </b> */
 int solveKT()
 {
     int sol[N][N];
  
-    /* Initialization of solution matrix */
+    /* <b>A megoldási mátrix inicializálása</b>> */
     for (int x = 0; x &lt; N; x++)
         for (int y = 0; y &lt; N; y++)
             sol[x][y] = -1;
  
-    /* xMove[] and yMove[] define next move of Knight.
-       xMove[] is for next value of x coordinate
-       yMove[] is for next value of y coordinate */
+    /* <b>xMove[] és yMove[] határozza meg a lovag következő lépését.
+        xMove[] az x koordináta következő értékére vonatkozik.
+        yMove[] az y koordináta következő értékére vonatkozik.</b>>*/
     int xMove[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
     int yMove[8] = { 1, 2, 2, 1, -1, -2, -2, -1 };
  
-    // Since the Knight is initially at the first block
+    // <b>A lovag kezdetben az első blokkban van.</b>>
     sol[0][0] = 0;
  
-    /* Start from 0,0 and explore all tours using
-       solveKTUtil() */
+    /* <b>Kezdjük 0,0-ról és fedezzük fel az összes túrát a következővel
+        solveKTUtil() </b> */
     if (solveKTUtil(0, 0, 1, sol, xMove, yMove) == 0) {
-        printf("Solution does not exist");
+        printf("Megoldás nem létezik");
         return 0;
     }
     else
@@ -103,8 +95,7 @@ int solveKT()
     return 1;
 }
  
-/* A recursive utility function to solve Knight Tour
-   problem */
+/* <b>Rekurzív segédfüggvény a Huszárvándorlás probléma megoldására </b>>*/
 int solveKTUtil(int x, int y, int movei, int sol[N][N],
                 int xMove[N], int yMove[N])
 {
@@ -112,7 +103,7 @@ int solveKTUtil(int x, int y, int movei, int sol[N][N],
     if (movei == N * N)
         return 1;
  
-    /* Try all next moves from the current coordinate x, y
+    /* <b>Próbálja ki az összes következő mozdulatot az aktuális koordinátától x, y</b>
      */
     for (k = 0; k &lt; 8; k++) {
         next_x = x + xMove[k];
@@ -124,26 +115,26 @@ int solveKTUtil(int x, int y, int movei, int sol[N][N],
                 == 1)
                 return 1;
             else
-                sol[next_x][next_y] = -1; // backtracking
+                sol[next_x][next_y] = -1; // <b>BACKTRACKING - VISSZAKÖVETÉS</b>
         }
     }
     return 0;
 }
-/* Driver Code */
+
 int main()
 {  
-      // Function Call
+    // <b>Függvényhívás</b>
     solveKT();
     return 0;
 }
+<br>
+<a href="https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/" target="_blank">Forrás</a> </p>
                 </code>
              </pre>
         </div>
       </div>
     </div>
   </div>
-
-    
 
     <canvas id="canvas1" style="background: url(images/chessBoard.png)"></canvas>
     
@@ -154,8 +145,8 @@ int main()
     <div class="example_b">
         <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
       </div>
-
-    <script src="javaScript/KnightsTour.js"></script>
+</div>
+    <script src="javaScript/1.feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

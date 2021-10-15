@@ -60,24 +60,24 @@
 
         <pre class="line-numbers">
   <code class="language-clike">
-    C kód:
+C kód:
 
-  #include &lt;stdio.h&gt;
+#include &lt;stdio.h&gt;
 
-  int factorial(int n) {
-    //base case
-    if(n == 0) {
-        return 1;
-    } else {
-        return n * factorial(n-1);
-    }
+int factorial(int n) {
+  //base case
+  if(n == 0) {
+      return 1;
+  } else {
+      return n * factorial(n-1);
   }
+}
 
-  int main() {
-    int n = 5;
-    int i;
-    printf("Factorial of %d: %d\n" , n , factorial(n));
-  }
+int main() {
+  int n = 5;
+  int i;
+  printf("Factorial of %d: %d\n" , n , factorial(n));
+}
   </code>
 </pre>
 

@@ -13,10 +13,9 @@
 <body>
     
     <h1>Hanoi tornyai</h1><br>
-    <p><b>Feladat leírása:</b> A hanoi torony egy matematikai rejtvény. Háromrúdból és különböző méretű korongokból áll, amelyek bármelyik rúdra csúszhatnak. A rejtvény úgy kezdődik, hogy a korongok méretük szerint növekvő sorrendben, rendezett halomban vannak az egyik rúdon, a legkisebb a tetején. Ugyanezt a halmazt kell a harmadik rúdra is felrakni. </p>
-    
-    <p><b>C kód forrása:</b> https://www.sanfoundry.com/c-program-tower-of-hanoi-using-recursion/
-      <a href="https://www.sanfoundry.com/c-program-tower-of-hanoi-using-recursion/" target="_blank">C kód forrása</a> </p>
+    <p><b>Feladat leírása:</b> A hanoi torony egy matematikai rejtvény. Háromrúdból és különböző méretű korongokból áll, amelyek bármelyik rúdra csúszhatnak. 
+      A rejtvény úgy kezdődik, hogy a korongok méretük szerint növekvő sorrendben, rendezett halomban vannak az egyik rúdon, a legkisebb a tetején. Ugyanezt a halmazt kell
+       a harmadik rúdra is felrakni. </p>
 
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
@@ -27,7 +26,7 @@
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
@@ -38,7 +37,36 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
+C kód:
 
+/** C program for Tower of Hanoi using Recursion**/
+#include &lt;stdio.h&gt;
+
+void towers(int, char, char, char);
+
+int main()
+{
+    int num;
+
+    printf("Enter the number of disks : ");
+    scanf("%d", &amp;num);
+    printf("The sequence of moves involved in the Tower of Hanoi are :\n");
+    towers(num, 'A', 'C', 'B');
+    return 0;
+}
+void towers(int num, char frompeg, char topeg, char auxpeg)
+{
+    if (num == 1)
+    {
+        printf("\n Move disk 1 from peg %c to peg %c", frompeg, topeg);
+        return;
+    }
+    towers(num - 1, frompeg, auxpeg, topeg);
+    printf("\n Move disk %d from peg %c to peg %c", num, frompeg, topeg);
+    towers(num - 1, auxpeg, topeg, frompeg);
+}
+<br>
+<a href="https://www.sanfoundry.com/c-program-tower-of-hanoi-using-recursion/" target="_blank">Forrás</a>
                 </code>
              </pre>
         </div>
@@ -47,7 +75,7 @@
   </div>
 
 
-    
+  <canvas id="canvas5"></canvas>
     <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
     <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
     <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
@@ -57,42 +85,7 @@
         <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
       </div>
 
-        <pre class="line-numbers">
-  <code class="language-clike">
-    C kód:
-
-    /*
-    * C program for Tower of Hanoi using Recursion
-    */
-   #include &lt;stdio.h&gt;
-    
-   void towers(int, char, char, char);
-    
-   int main()
-   {
-       int num;
-    
-       printf("Enter the number of disks : ");
-       scanf("%d", &amp;num);
-       printf("The sequence of moves involved in the Tower of Hanoi are :\n");
-       towers(num, 'A', 'C', 'B');
-       return 0;
-   }
-   void towers(int num, char frompeg, char topeg, char auxpeg)
-   {
-       if (num == 1)
-       {
-           printf("\n Move disk 1 from peg %c to peg %c", frompeg, topeg);
-           return;
-       }
-       towers(num - 1, frompeg, auxpeg, topeg);
-       printf("\n Move disk %d from peg %c to peg %c", num, frompeg, topeg);
-       towers(num - 1, auxpeg, topeg, frompeg);
-   }
-  </code>
-</pre>
-
-    <script src="javaScript/demo.js"></script>
+    <script src="javaScript/5.feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

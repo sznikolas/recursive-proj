@@ -15,9 +15,6 @@
     <h1>Quick sort</h1><br>
     <p><b>Feladat leírása:</b> A Quicksort egy olyan rendezési algoritmus, amely az oszd meg és uralkodj megközelítésen alapul, ahol
         Egy tömböt altömbökre osztunk egy pivot elem (a tömbből kiválasztott elem) kiválasztásával.</p>
-
-        <p><b>C kód forrása:</b> https://www.programiz.com/dsa/quick-sort
-          <a href="https://www.programiz.com/dsa/quick-sort" target="_blank">C kód forrása</a> </p>
     
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
@@ -28,7 +25,7 @@
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
@@ -39,7 +36,90 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
+C kód:
 
+// Quick sort in C
+
+#include &lt;stdio.h&gt;
+
+// function to swap elements
+void swap(int *a, int *b) {
+  int t = *a;
+  *a = *b;
+  *b = t;
+}
+
+// function to find the partition position
+int partition(int array[], int low, int high) {
+  
+  // select the rightmost element as pivot
+  int pivot = array[high];
+  
+  // pointer for greater element
+  int i = (low - 1);
+
+  // traverse each element of the array
+  // compare them with the pivot
+  for (int j = low; j &lt; high; j++) {
+    if (array[j] &lt;= pivot) {
+        
+      // if element smaller than pivot is found
+      // swap it with the greater element pointed by i
+      i++;
+      
+      // swap element at i with element at j
+      swap(&amp;array[i], &amp;array[j]);
+    }
+  }
+
+  // swap the pivot element with the greater element at i
+  swap(&amp;array[i + 1], &amp;array[high]);
+  
+  // return the partition point
+  return (i + 1);
+}
+
+void quickSort(int array[], int low, int high) {
+  if (low &lt; high) {
+    
+    // find the pivot element such that
+    // elements smaller than pivot are on left of pivot
+    // elements greater than pivot are on right of pivot
+    int pi = partition(array, low, high);
+    
+    // recursive call on the left of pivot
+    quickSort(array, low, pi - 1);
+    
+    // recursive call on the right of pivot
+    quickSort(array, pi + 1, high);
+  }
+}
+
+// function to print array elements
+void printArray(int array[], int size) {
+  for (int i = 0; i &lt; size; ++i) {
+    printf("%d  ", array[i]);
+  }
+  printf("\n");
+}
+
+// main function
+int main() {
+  int data[] = {8, 7, 2, 1, 0, 9, 6};
+  
+  int n = sizeof(data) / sizeof(data[0]);
+  
+  printf("Unsorted Array\n");
+  printArray(data, n);
+  
+  // perform quicksort on data
+  quickSort(data, 0, n - 1);
+  
+  printf("Sorted array in ascending order: \n");
+  printArray(data, n);
+}
+<br> 
+<a href="https://www.programiz.com/dsa/quick-sort" target="_blank">Forrás</a>
                 </code>
              </pre>
         </div>
@@ -48,7 +128,7 @@
   </div>
 
 
-    
+  <canvas id="canvas7"></canvas>
     <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
     <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
     <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
@@ -58,95 +138,7 @@
         <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
       </div>
 
-        <pre class="line-numbers">
-  <code class="language-clike">
-    C kód:
-
-    // Quick sort in C
-
-    #include &lt;stdio.h&gt;
-    
-    // function to swap elements
-    void swap(int *a, int *b) {
-      int t = *a;
-      *a = *b;
-      *b = t;
-    }
-    
-    // function to find the partition position
-    int partition(int array[], int low, int high) {
-      
-      // select the rightmost element as pivot
-      int pivot = array[high];
-      
-      // pointer for greater element
-      int i = (low - 1);
-    
-      // traverse each element of the array
-      // compare them with the pivot
-      for (int j = low; j &lt; high; j++) {
-        if (array[j] &lt;= pivot) {
-            
-          // if element smaller than pivot is found
-          // swap it with the greater element pointed by i
-          i++;
-          
-          // swap element at i with element at j
-          swap(&amp;array[i], &amp;array[j]);
-        }
-      }
-    
-      // swap the pivot element with the greater element at i
-      swap(&amp;array[i + 1], &amp;array[high]);
-      
-      // return the partition point
-      return (i + 1);
-    }
-    
-    void quickSort(int array[], int low, int high) {
-      if (low &lt; high) {
-        
-        // find the pivot element such that
-        // elements smaller than pivot are on left of pivot
-        // elements greater than pivot are on right of pivot
-        int pi = partition(array, low, high);
-        
-        // recursive call on the left of pivot
-        quickSort(array, low, pi - 1);
-        
-        // recursive call on the right of pivot
-        quickSort(array, pi + 1, high);
-      }
-    }
-    
-    // function to print array elements
-    void printArray(int array[], int size) {
-      for (int i = 0; i &lt; size; ++i) {
-        printf("%d  ", array[i]);
-      }
-      printf("\n");
-    }
-    
-    // main function
-    int main() {
-      int data[] = {8, 7, 2, 1, 0, 9, 6};
-      
-      int n = sizeof(data) / sizeof(data[0]);
-      
-      printf("Unsorted Array\n");
-      printArray(data, n);
-      
-      // perform quicksort on data
-      quickSort(data, 0, n - 1);
-      
-      printf("Sorted array in ascending order: \n");
-      printArray(data, n);
-    }
-    
-  </code>
-</pre>
-
-    <script src="javaScript/demo.js"></script>
+    <script src="javaScript/7.feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

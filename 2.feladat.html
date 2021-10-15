@@ -15,13 +15,8 @@
     <h1>Nyolckirálynő-probléma</h1><br>
     <p><b>Feladat leírása:</b> A nyolckirálynő-probléma egy sakkfeladvány, lényege a következő: hogyan illetve hányféleképpen lehet 8 királynőt (vezért) úgy elhelyezni egy 8×8-as sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
     Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
-    <br>A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen lehet lerakni n darab királynőt egy n×n-es táblán.
-    <br>
-    <p><b>C kód forrása:</b> https://www.codesdope.com/blog/article/backtracking-explanation-and-n-queens-problem/
-    <a href="https://www.codesdope.com/blog/article/backtracking-explanation-and-n-queens-problem/" target="_blank">C kód forrása</a> </p>
-    
-    <p>a C kód a <I>c kód</I> gombra kattintva elérhető   </p>
-         
+    <br>A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen lehet lerakni n darab királynőt egy n×n-es táblán.</p>
+        
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -31,7 +26,7 @@
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalScrollableTitle">Nyolckirálynő-probléma megoldása C nyelvben</h5>
@@ -128,8 +123,9 @@ int main()
             printf("%d\t",board[i][j]);
         printf("\n");
     }
-
 }
+<br>
+<a href="https://www.codesdope.com/blog/article/backtracking-explanation-and-n-queens-problem/" target="_blank">Forrás</a> 
                 </code>
              </pre>
         </div>
@@ -138,7 +134,7 @@ int main()
   </div>
 
 
-    <canvas id="canvas2"></canvas>
+    <canvas id="canvas2"style="background: url(images/chessBoard.png)"></canvas>
     <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
     <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
     <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
@@ -148,7 +144,7 @@ int main()
         <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
       </div>
 
-    <script src="javaScript/demo.js"></script>
+    <script src="javaScript/2.feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
