@@ -37,25 +37,27 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
+
+<b>// C program a Huszárvándorlás problémára</b>
 #include &lt;stdio.h&gt;
 
-//Number of queens
+<b>//A királynők száma</b>
 int N;
 
-//chessboard
+<b>//Sakktábla</b>
 int board[100][100];
 
-//function to check if the cell is attacked or not
+<b>//Funkció annak ellenőrzésére, hogy a cellát megtámadták-e vagy sem</b>
 int is_attack(int i,int j)
 {
     int k,l;
-    //checking if there is a queen in row or column
+    <b>//Ellenőrzés, hogy van-e királynő a sorban vagy oszlopban</b>
     for(k=0;k&lt;N;k++)
     {
         if((board[i][k] == 1) || (board[k][j] == 1))
             return 1;
     }
-    //checking for diagonals
+    <b>//Átlók ellenőrzése</b>
     for(k=0;k&lt;N;k++)
     {
         for(l=0;l&lt;N;l++)
@@ -73,21 +75,22 @@ int is_attack(int i,int j)
 int N_queen(int n)
 {
     int i,j;
-    //if n is 0, solution found
+    <b>//ha n=0, megoldást találtunk</b>
     if(n==0)
         return 1;
     for(i=0;i&lt;N;i++)
     {
         for(j=0;j&lt;N;j++)
         {
-            //checking if we can place a queen here or not
-            //queen will not be placed if the place is being attacked
-            //or already occupied
+            /*<b>Ellenőrzés, hogy elhelyezhetünk-e ide egy királynőt vagy sem,
+            ha a helyet megtámadják, akkor a királynő nem kerül elhelyezésre 
+            ,vagy már foglalt</b>*/
             if((!is_attack(i,j)) &amp;&amp; (board[i][j]!=1))
             {
                 board[i][j] = 1;
-                //recursion
-                //wether we can put the next queen with this arrangment or not
+                //<b>Rekurzió</b>
+                /*<b>A következő királynőt ezzel az 
+                    elrendezéssel tudjuk elhelyezni, vagy nem</b>*/
                 if(N_queen(n-1)==1)
                 {
                     return 1;
@@ -101,12 +104,12 @@ int N_queen(int n)
 
 int main()
 {
-    //taking the value of N
-    printf("Enter the value of N for NxN chessboard\n");
+    //<b>Az N értékének megadása</b>
+    printf("Adja meg az N értékét NxN sakktábla esetén\n");
     scanf("%d",&amp;N);
 
     int i,j;
-    //setting all elements to 0
+    //<b>Minden elem 0-ra állítása</b>
     for(i=0;i&lt;N;i++)
     {
         for(j=0;j&lt;N;j++)
@@ -114,9 +117,9 @@ int main()
             board[i][j]=0;
         }
     }
-    //calling the function
+    //<b>A függvény hívása</b>
     N_queen(N);
-    //printing the matix
+    //<b>A mátrix kiíratása</b>
     for(i=0;i&lt;N;i++)
     {
         for(j=0;j&lt;N;j++)
