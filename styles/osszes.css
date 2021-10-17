@@ -184,7 +184,7 @@ html,body{
 
 
 
-h1 { color: black; 
+h1 { color: rgb(255, 255, 255); 
   font-family: 'Trocchi', serif; 
   font-size: 45px; 
   font-weight: bold; 
@@ -258,6 +258,13 @@ output{
 
 }
 
+.container3{
+display: flex;
+align-items: center;
+ justify-content: center;
+
+}
+
 
 
 /*Az 1.1 feladatnál a kék container*/
@@ -297,5 +304,3 @@ output{
   margin: 20px;
   
 }
-
-
