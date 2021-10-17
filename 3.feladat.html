@@ -11,9 +11,35 @@
 
 </head>
 <body>
-    
-    <h1>Backtracking to solve a rat in a maze</h1><br>
-    <p><b>Feladat leírása:</b> A labirintus egy 2D-s mátrix, amelyben egyes cellák blokkolva vannak. Az egyik cella a forráscella, ahonnan indulnunk kell. Egy másik pedig a célcella, ahová el kell jutnunk. Meg kell találnunk az utat a forrástól a célállomásig anélkül, hogy a blokkolt cellák egyikébe sem lépnénk be.  </p>
+    <div class="bigContainer">
+ 
+        <div class="box02">
+
+    <h1>Egér az útvesztőben - Rat in a maze</h1><br>
+
+    <div class="smallContainer"><br>
+    <p><b>Feladat leírása:</b> A labirintus egy 2D-s mátrix, amelyben egyes cellák blokkolva vannak. Az egyik cella a forráscella, 
+        ahonnan indulnunk kell. Egy másik pedig a célcella, ahová el kell jutnunk. Meg kell találnunk az utat a forrástól a célállomásig 
+        anélkül, hogy a blokkolt cellák egyikébe sem lépnénk be.</p>
+        <br>
+    </div>
+
+    <div class="smallContainer"><br>
+    <p><b>A kód magyarázata</b><br><br>
+
+    <b>printsolution</b> → Ez a függvény csak a megoldási mátrixot nyomtatja ki.<br><br>
+
+    <b>solvemaze</b> → Ez a tényleges függvény, ahol a backtracking algoritmust implementáljuk. 
+    Először is ellenőrizzük, hogy a mi cellánk a célcella-e vagy sem, <b>if (r==SIZE-1) and (c==SIZE-1)</b>. 
+    Ha ez a célcella, akkor a rejtvényünk már megoldódott.<br><br>
+    Ha nem, akkor azt ellenőrizzük, hogy ez egy érvényes cella-e 
+    a mozgatáshoz vagy sem. Egy érvényes cellának a mátrixban kell lennie, azaz az indexeknek 
+    <b>0 to SIZE-1 r>=0 && c>=0 && r&lt;SIZE</b>, nem lehet blokkolva <b>maze >[r][c] == 0</b> és nem lehet az útvonalon <b>solution[r][c] == 0.</b><br><br> 
+    Ha ez egy érvényes lépés, akkor szabadon elvihetjük és a következő cellára léphetünk. Először a lefelé irányuló cellát 
+    próbáljuk ki <b>if(solveMaze(r+1, c)).</b> Ha ez nem ad megoldást, akkor a jobb oldali cellára lépünk, és hasonlóképpen a felfelé és 
+    a bal oldali cellára. Ha az összes cella nem ad megoldást, akkor elhagyjuk a <b>solution[r][c] = 0</b> cellát, és egy másik cellába megyünk.</p>
+<br>
+    </div>
 
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
@@ -27,7 +53,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Egér az útvesztőben megoldása C nyelvben</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -35,13 +61,13 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-C kód:
+// <b>C program az egér az útvesztőben megoldására</b>
 
 #include &lt;stdio.h&gt;
 
 #define SIZE 5
 
-//the maze problem
+//<b>Az útvesztő probléma</b>
 int maze[SIZE][SIZE] = {
     {0,1,0,1,1},
     {0,0,0,0,0},
@@ -50,10 +76,10 @@ int maze[SIZE][SIZE] = {
     {1,0,0,1,0}
 };
 
-//matrix to store the solution
+//<b>Mátrix a megoldás tárolására</b>
 int solution[SIZE][SIZE];
 
-//function to print the solution matrix
+//<b>Függvény a megoldás mátrixának kiíratására</b>
 void printsolution()
 {
     int i,j;
@@ -67,38 +93,40 @@ void printsolution()
     }
 }
 
-//function to solve the maze
-//using backtracking
+//<b>Függvény az útvesztő megoldására</b>
+//<b>BACKTRACKING - visszalépés használata</b>
 int solvemaze(int r, int c)
 {
-    //if destination is reached, maze is solved
-    //destination is the last cell(maze[SIZE-1][SIZE-1])
+    /*<b>ha elértük a célt, a labirintus megoldódott,
+    a cél az utolsó cella(labirintus[SIZE-1][SIZE-1])</b>*/
     if((r==SIZE-1) &amp;&amp; (c==SIZE-1))
     {
         solution[r][c] = 1;
         return 1;
     }
-    //checking if we can visit in this cell or not
-    //the indices of the cell must be in (0,SIZE-1)
-    //and solution[r][c] == 0 is making sure that the cell is not already visited
-    //maze[r][c] == 0 is making sure that the cell is not blocked
+
+    /* <b>annak ellenőrzése, hogy meglátogathatjuk-e ezt a cellát vagy sem a 
+        cella indexeinek a (0,SIZE-1) tartományban kell lenniük 
+    és solution[r][c] == 0 biztosítja, hogy a cellát még nem látogattuk meg. 
+    maze[r][c] == 0 biztosítja, hogy a cella nincs blokkolva.</b>*/
+
     if(r&gt;=0 &amp;&amp; c&gt;=0 &amp;&amp; r&lt;SIZE &amp;&amp; c&lt;SIZE &amp;&amp; solution[r][c] == 0 &amp;&amp; maze[r][c] == 0)
     {
-        //if safe to visit then visit the cell
+        //<b>ha biztonságos a látogatás, akkor látogasson el a cellába</b>
         solution[r][c] = 1;
-        //going down
+        //<b>lépjen lefelé</b>>
         if(solvemaze(r+1, c))
             return 1;
-        //going right
+        //<b>lépjen jobbra</b>>
         if(solvemaze(r, c+1))
             return 1;
-        //going up
+        //<b>lépjen felfelé</b>>
         if(solvemaze(r-1, c))
             return 1;
-        //going left
+        //<b>lépjen balra</b>>
         if(solvemaze(r, c-1))
             return 1;
-        //backtracking
+        //<b>BACKTRACKING - VISSZALÉPÉS</b>>
         solution[r][c] = 0;
         return 0;
     }
@@ -108,7 +136,7 @@ int solvemaze(int r, int c)
 
 int main()
 {
-    //making all elements of the solution matrix 0
+    //<b>a megoldási mátrix minden eleméT 0-ra</b>
     int i,j;
     for(i=0; i&lt;SIZE; i++)
     {
@@ -120,7 +148,7 @@ int main()
     if (solvemaze(0,0))
         printsolution();
     else
-        printf("No solution\n");
+        printf("Nincs megoldás\n");
     return 0;
 }
 <br>
@@ -143,6 +171,9 @@ int main()
         <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
       </div>
 
+
+    </div>
+</div>
 
     <script src="javaScript/3.feladat.js"></script>
 

@@ -11,12 +11,40 @@
 
 </head>
 <body>
+    <div class="bigContainer">
+ 
+        <div class="box02">
     
-    <h1>Nyolckirálynő-probléma</h1><br>
-    <p><b>Feladat leírása:</b> A nyolckirálynő-probléma egy sakkfeladvány, lényege a következő: hogyan illetve hányféleképpen lehet 8 királynőt (vezért) úgy elhelyezni egy 8×8-as sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
+    <h1>N királynő probléma - N Queen Problem</h1><br>
+    <div class="smallContainer"><br>
+    <p><b>Feladat leírása:</b> A nyolckirálynő-probléma egy sakkfeladvány, lényege a következő: hogyan illetve hányféleképpen lehet 8 királynőt (vezért) 
+    úgy elhelyezni egy 8×8-as sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
     Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
-    <br>A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen lehet lerakni n darab királynőt egy n×n-es táblán.</p>
-        
+    <br>A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
+    lehet lerakni n darab királynőt egy n×n-es táblán.</p>
+    <br>
+</div>
+
+    <div class="smallContainer"><p><br>
+    <b>A kód magyarázata</b><br><br>
+<b>is_attack(int i,int j)</b> → Ez egy olyan függvény, amely ellenőrzi, hogy az (i,j) cellát megtámadta-e valamelyik másik dáma vagy sem. 
+Csak azt ellenőrizzük, hogy az 'i' sorban vagy a 'j' oszlopban van-e másik királynő. Ezután azt ellenőrizzük, hogy van-e az (i,j) cella átlós 
+celláin bármilyen királynő vagy sem. Bármelyik (k,l) cella átlós lesz az (i,j) cellához képest, ha k+l egyenlő i+j-vel vagy k-l egyenlő i-j-vel.<br><br>
+
+<b>N_queen</b> → Ez az a függvény, ahol valójában a backtracking algoritmust valósítjuk meg.<br><br>
+
+<b>if(n==0)</b> → Ha nem maradt királynő, akkor ez azt jelenti, hogy az összes királynőt elhelyeztük, és megvan a megoldás.<br><br>
+
+<b>if(((!is_attack(i,j)) && (board[i][j]!=1))</b> → Csak azt ellenőrizzük, hogy a cellában van-e lehetőség királynő elhelyezésére vagy sem. 
+Az is_attack függvény ellenőrzi, hogy a cellát nem támadja-e más királynő, és a board[i][j]!=1 biztosítja, hogy a cellában nincs királynő. 
+Ha ezek a feltételek teljesülnek, akkor királynőt tehetünk a cellába - board[i][j] = 1.<br><br>
+
+<b>if(N_queen(n-1)==1)</b> → Most újra meghívjuk a függvényt, hogy elhelyezzük a maradék királynőket, és itt végezzük a visszalépést. 
+Ha ez a függvény (a maradék királynő elhelyezésére) nem igaz, akkor csak az aktuális lépésünket változtatjuk meg - board[i][j] = 0 és a ciklus 
+ezúttal a királynőt valamilyen más pozícióba helyezi.</p>
+<br>
+</div>
+
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -29,7 +57,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Nyolckirálynő-probléma megoldása C nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">N királynő probléma megoldása C nyelvben</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -37,8 +65,8 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
+<b>// C program az N királynő problémára</b>
 
-<b>// C program a Huszárvándorlás problémára</b>
 #include &lt;stdio.h&gt;
 
 <b>//A királynők száma</b>
@@ -146,6 +174,9 @@ int main()
     <div class="example_b">
         <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
       </div>
+
+    </div>
+</div>
 
     <script src="javaScript/2.feladat.js"></script>
 

@@ -11,11 +11,25 @@
 
 </head>
 <body>
+  <div class="bigContainer">
+ 
+    <div class="box02">
     
-    <h1>Hanoi tornyai</h1><br>
+    <h1>Hanoi tornyai - Tower of Hanoi</h1><br>
+
+    <div class="smallContainer"><br>
     <p><b>Feladat leírása:</b> A hanoi torony egy matematikai rejtvény. Háromrúdból és különböző méretű korongokból áll, amelyek bármelyik rúdra csúszhatnak. 
       A rejtvény úgy kezdődik, hogy a korongok méretük szerint növekvő sorrendben, rendezett halomban vannak az egyik rúdon, a legkisebb a tetején. Ugyanezt a halmazt kell
-       a harmadik rúdra is felrakni. </p>
+       a harmadik rúdra is felrakni.</p>
+       <br>
+      </div>
+
+      <div class="smallContainer"><br>
+        <p><b>Az algoritmus leírása:</b><br><br>
+          blabla</p>
+           <br>
+          </div>
+
 
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
@@ -29,7 +43,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Hanoi tornyok megoldása C nyelvben</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -37,33 +51,34 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-C kód:
+//<b>C program a Hanoi tornyok megoldására</b>
 
-/** C program for Tower of Hanoi using Recursion**/
 #include &lt;stdio.h&gt;
 
-void towers(int, char, char, char);
+void towerOfHanoi(int, char, char, char);
 
 int main()
 {
+    //<b>Lemezek száma</b>
     int num;
 
-    printf("Enter the number of disks : ");
+    printf("Adja meg a lemezek számát: ");
     scanf("%d", &amp;num);
-    printf("The sequence of moves involved in the Tower of Hanoi are :\n");
-    towers(num, 'A', 'C', 'B');
+    printf("A Hanoi-toronyban szereplő lépések sorrendje a következő: \n");
+    //<b>A, B, C az oszlopok nevei</b>
+    towerOfHanoi(num, 'A', 'C', 'B');
     return 0;
 }
-void towers(int num, char frompeg, char topeg, char auxpeg)
+void towerOfHanoi(int num, char A_rod, char C_rod, char B_rod)
 {
     if (num == 1)
     {
-        printf("\n Move disk 1 from peg %c to peg %c", frompeg, topeg);
+        printf("\n 1. lemez áthelyezése %c oszlopról %c oszlopra", A_rod, C_rod);
         return;
     }
-    towers(num - 1, frompeg, auxpeg, topeg);
-    printf("\n Move disk %d from peg %c to peg %c", num, frompeg, topeg);
-    towers(num - 1, auxpeg, topeg, frompeg);
+    towerOfHanoi(num - 1, A_rod, B_rod, C_rod);
+    printf("\n %d. lemez áthelyezése %c oszlopról %c oszlopra", num, A_rod, C_rod);
+    towerOfHanoi(num - 1, B_rod, C_rod, A_rod);
 }
 <br>
 <a href="https://www.sanfoundry.com/c-program-tower-of-hanoi-using-recursion/" target="_blank">Forrás</a>
@@ -84,7 +99,9 @@ void towers(int num, char frompeg, char topeg, char auxpeg)
     <div class="example_b">
         <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
       </div>
-
+    
+    </div>
+  </div>
     <script src="javaScript/5.feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

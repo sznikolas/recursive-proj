@@ -110,7 +110,7 @@
 
 #canvas10 {
   border: 2px solid black;
-  background-color: #df1818;
+  background-color: #838383;
   display: block;
   position: relative;
   top: 0px;
@@ -202,7 +202,7 @@ h2 { color: black;
   text-align: center;
 }
 
-p{color: rgb(255, 255, 255); 
+p{color: rgb(0, 0, 0); 
   font-family: 'Trocchi', serif; 
   font-size: 20px; 
   font-weight: normal; 

@@ -21,14 +21,27 @@
 <h1>Huszárvándorlás probléma - The Knights tour problem</h1>
 <br>
 
-<div class="smallContainer">
-<p class="p2"><br> <b>Feladat leírása:</b> A huszárvándorlás-probléma, huszárkörút vagy sakktábla bejárása huszárral egy huszár lépéssorozata a sakktáblán, 
-    amely alatt a huszár a tábla minden mezőjét pontosan <b>egyszer</b> érinti. Ha az utolsó mező megegyezik a kiinduló mezővel, a körút zárt, másképp a körút nyitott.
+<div class="smallContainer"><p><br> 
+<b>Feladat leírása:</b> A huszárvándorlás-probléma, huszárkörút vagy sakktábla bejárása huszárral egy huszár lépéssorozata a sakktáblán, 
+amely alatt a huszár a tábla minden mezőjét pontosan <b>egyszer</b> érinti. Ha az utolsó mező megegyezik a kiinduló mezővel, a körút zárt, másképp a körút nyitott.
 <br>A sakktábla bejárása huszárral matematikai probléma. Olyan algoritmus létrehozása, mely megkeresi ezt a bejárást, ismert számítástechnikai feladat. 
 A huszárkörút problémája különböző méretű sakktáblákon fennáll, nemcsak a 8×8-ason, sőt a szabálytalan (nem téglalap) alakú táblákon is.
 <br><br>Az alábbiakban látható egy 8x8-as sakktábla nyitott körútú bejárásának egyik megoldása, melyhez C nyelvben írt forráskódot is találunk. 
 Egy 8x8-as táblán, nyitott körúttal a megoldások száma: 19 591 828 170 979 904. Erre a problémára több megoldási lehetőség is van, köztük brute force-algoritmusok,
- "oszd meg és uralkodj" módszerek, neurális hálózatok is, mi pedig rekurzív függvénymeghívással és backtrackinggel foglalkozunk.</p><br>
+ "oszd meg és uralkodj" módszerek, neurális hálózatok is, mi pedig rekurzív függvénymeghívással és backtrackinggel foglalkozunk.</p>
+ <br>
+</div>
+
+<div class="smallContainer"><p><br>
+ <b>Az algoritmus leírása:</b><br><br>Ha minden négyzetet meglátogattunk, akkor írjuk ki a megoldást
+ <br><br>Máskülönben(else)
+ <br><br>Adjuk hozzá a következő lépések egyikét a megoldási vektorhoz, és rekurzívan ellenőrizzük, hogy ez a lépés megoldáshoz vezet-e. 
+ (Egy huszár legfeljebb nyolc lépést tehet. Ebben a lépésben a 8 lépés közül választunk egyet).
+ <br><br>Ha a fenti lépésben kiválasztott lépés nem vezet megoldáshoz, akkor távolítsuk el ezt a lépést a megoldási vektorból, 
+ és próbálkozzunk más alternatív lépésekkel.
+ <br><br>Ha egyik alternatíva sem működik, akkor adjuk vissza a false-t (A false visszaadása eltávolítja a rekurzióban korábban 
+ hozzáadott elemet, és ha a rekurzió kezdeti hívása false-t ad vissza, akkor "nincs megoldás").</p>
+ <br>
 </div>
 
 <div class="smallContainer">
@@ -44,7 +57,7 @@ Egy 8x8-as táblán, nyitott körúttal a megoldások száma: 19 591 828 170 979
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Huszárvándorlás-probléma megoldása C nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Huszárvándorlás probléma megoldása C nyelvben</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -52,7 +65,7 @@ Egy 8x8-as táblán, nyitott körúttal a megoldások száma: 19 591 828 170 979
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-<b>// C program a Huszárvándorlás problémára</b>
+//<b>C program a Huszárvándorlás problémára</b>
 #include &lt;stdio.h&gt;
 #define N 8
  

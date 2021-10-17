@@ -11,9 +11,45 @@
 
 </head>
 <body>
-    
-    <h1>Solving Sudoku with Backtracking</h1><br>
-    <p><b>Feladat leírása:</b> A sudoku egy 9x9-es mátrix, amely 1-től 9-ig terjedő számokkal van kitöltve oly módon, hogy minden sorban, oszlopban és almátrixban (3x3) minden egyes számjegy 1-től 9-ig szerepel. Kapunk egy részben kitöltött 9x9-es mátrixot, és minden megmaradt cellát ki kell töltenünk benne.   </p>
+    <div class="bigContainer">
+ 
+        <div class="box02">
+
+    <h1>Szúdoku - Sudoku</h1><br>
+
+    <div class="smallContainer"><br>
+    <p><b>Feladat leírása:</b> A sudoku egy 9x9-es mátrix, amely 1-től 9-ig terjedő számokkal van kitöltve oly módon, 
+        hogy minden sorban, oszlopban és almátrixban (3x3) minden egyes számjegy 1-től 9-ig szerepel. Kapunk egy részben 
+        kitöltött 9x9-es mátrixot, és minden megmaradt cellát ki kell töltenünk benne.</p>
+<br>
+</div>
+
+<div class="smallContainer"><br>
+    <p><b>A kód magyarázata</b><br>
+        Kezdetben csak egy mátrixot készítünk a Sudoku számára, és a ki nem osztott celláit 0-val töltjük fel. 
+        Így a mátrix tartalmazza a Sudoku feladatot, és a 0 értékű cellák üres cellák.<br><br>
+        <b>print_sudoku()</b> → Ez csak egy függvény a mátrix kiíratására.<br><br>
+        <b>number_unassigned</b> → Ez a függvény megkeres egy üres cellát, és a 'row' és 'col' változókat az adott cella indexeivel teszi egyenlővé. 
+        C-ben mutatókat használtunk az ehhez a függvényhez átadott változók (row, col) értékének megváltoztatására (pass by reference). 
+        Tehát ez a függvény megmondja nekünk, hogy van-e ki nem osztott cella vagy nincs. És ha van ki nem osztott cella, 
+        akkor ez a függvény megadja a cella indexeit is.<br><br>
+        <b>is_safe(int n, int r, int c)</b> → Ez a függvény ellenőrzi, hogy az 'n' értéket betehetjük-e az (r, c) cellába vagy sem. 
+        Ezt úgy tesszük, hogy először azt ellenőrizzük, hogy az 'r' sorban van-e olyan cella, amelynek értéke 'n' vagy sem - if(mátrix[r][i] == n). 
+        Ezután ellenőrizzük, hogy a 'c' oszlopban van-e 'n' értékű cella vagy sem - if(mátrix[i][c] == n). 
+        Végül pedig ellenőrizzük az almátrixot. (r/3)*3 megadja az r sor kezdőindexét. Például, ha az 'r' értéke 2, akkor az almátrixban van, 
+        amely a (0, 0)-tól kezdődik. Hasonlóképpen, a kezdő oszlop értékét (c/3)*3 segítségével kapjuk meg. Így ha egy cella értéke (2,2), 
+        akkor ez a cella egy olyan almátrixban lesz, amely (0,0)-ból indul, és ezt az értéket (c/3)*3 és (r/3)*3 segítségével kapjuk meg. 
+        Miután megkaptuk a kezdőindexeket, könnyedén végig tudunk iterálni az almátrixon, hogy ellenőrizzük, hogy az "n" értéket elhelyezhetjük-e 
+        az almátrixban vagy sem.<br><br>
+        <b>solve_sudoku()</b> → Ez a tényleges függvény, amely megoldja a Sudokut, és visszalépést(backtracking) használ. Először a number_unassigned függvény 
+        segítségével ellenőrizzük, hogy van-e ki nem rendelt cella, és ha nincs ki nem rendelt cella, akkor a Sudoku megoldódott. 
+        number_unassigned függvény megadja az üres cellák indexeit is. Így ha van üres cella, akkor megpróbáljuk kitölteni ezt a cellát egy 
+        1 és 9 közötti értékkel. Az is_safe segítségével pedig ellenőrizni fogjuk, hogy egy adott értéket be tudunk-e tölteni az adott cellába vagy sem. 
+        Miután megtaláltuk az értéket, megpróbáljuk megoldani a Sudoku többi részét -> solve_sudoku. Ha ezzel az értékkel nem sikerül megoldani a többit, 
+        akkor visszatérünk, és megpróbálunk egy másik értéket erre a cellára mátrix[row][col]=0;. A ciklus megpróbálja a cella más értékeit is. 
+    </p>
+<br>
+</div>
 
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
@@ -27,7 +63,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">... megoldása C nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Szúdoku megoldása C nyelvben</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -35,13 +71,13 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-C kód:
+//<b>C program a Szúdoku megoldására</b>
 
 #include &lt;stdio.h&gt;
 
 #define SIZE 9
 
-//sudoku problem
+//<b>Sudoku probléma</b>
 int matrix[9][9] = {
     {6,5,0,8,7,3,0,9,0},
     {0,0,3,2,5,0,0,0,8},
@@ -54,7 +90,7 @@ int matrix[9][9] = {
     {0,9,0,6,2,5,0,8,1}
 };
 
-//function to print sudoku
+//<b>Függvény a sudoku kiíratására</b>
 void print_sudoku()
 {
     int i,j;
@@ -68,10 +104,10 @@ void print_sudoku()
     }
 }
 
-//function to check if all cells are assigned or not
-//if there is any unassigned cell
-//then this function will change the values of
-//row and col accordingly
+
+/*<b>funkció annak ellenőrzésére, hogy minden cella ki van-e jelölve vagy sem.
+Ha van nem hozzárendelt cella, akkor ez a függvény megváltoztatja a cellák értékeit
+(sorok és oszlopok értékeit) ennek megfelelően</b>*/
 int number_unassigned(int *row, int *col)
 {
     int num_unassign = 0;
@@ -80,13 +116,13 @@ int number_unassigned(int *row, int *col)
     {
         for(j=0;j&lt;SIZE;j++)
         {
-            //cell is unassigned
+            //<b>a cella nem hozzárendelt</b>
             if(matrix[i][j] == 0)
             {
-                //changing the values of row and col
+                //<b>a sorok és oszlopok értékek megváltoztatása</b>
                 *row = i;
                 *col = j;
-                //there is one or more unassigned cells
+                //<b>létezik egy vagy több nem hozzárendelt cella</b>
                 num_unassign = 1;
                 return num_unassign;
             }
@@ -95,26 +131,26 @@ int number_unassigned(int *row, int *col)
     return num_unassign;
 }
 
-//function to check if we can put a
-//value in a paticular cell or not
+/*<b>funkció, amely ellenőrzi, hogy tudunk-e tenni
+egy értéket egy adott cellába vagy sem</b>*/
 int is_safe(int n, int r, int c)
 {
     int i,j;
-    //checking in row
+    //<b>sorok ellenőrzése</b>
     for(i=0;i&lt;SIZE;i++)
     {
-        //there is a cell with same value
+        //<b>van egy cella ugyanazzal az értékkel</b>
         if(matrix[r][i] == n)
             return 0;
     }
-    //checking column
+    //<b>oszlopok ellenőrzése</b>
     for(i=0;i&lt;SIZE;i++)
     {
-        //there is a cell with the value equal to i
+        //<b>van egy cella, amelynek értéke egyenlő i-vel</b>
         if(matrix[i][c] == n)
             return 0;
     }
-    //checking sub matrix
+    //<b>almátrix ellenőrzése</b>
     int row_start = (r/3)*3;
     int col_start = (c/3)*3;
     for(i=row_start;i&lt;row_start+3;i++)
@@ -128,30 +164,28 @@ int is_safe(int n, int r, int c)
     return 1;
 }
 
-//function to solve sudoku
-//using backtracking
+//<b>függvény a sudoku megoldásához backtracking használatával</b>
 int solve_sudoku()
 {
     int row;
     int col;
-    //if all cells are assigned then the sudoku is already solved
-    //pass by reference because number_unassigned will change the values of row and col
+    //<b>ha minden cellát kiosztottunk, akkor a sudoku már megoldódott és</b>
+    //<b>hivatkozással adjuk át, mert a number_unassigned megváltoztatja a sor és az oszlop értékét.</b>
     if(number_unassigned(&amp;row, &amp;col) == 0)
         return 1;
     int n,i;
-    //number between 1 to 9
+    //<b>1 és 9 közötti szám</b>
     for(i=1;i&lt;=SIZE;i++)
     {
-        //if we can assign i to the cell or not
-        //the cell is matrix[row][col]
+        //<b>hozzárendelhetjük i-t a cellához vagy sem</b>
+        //<b>a cella mátrix[row][col]</b>
         if(is_safe(i, row, col))
         {
             matrix[row][col] = i;
-            //backtracking
+            //<b>backtracking</b>
             if(solve_sudoku())
                 return 1;
-            //if we can't proceed with this solution
-            //reassign the cell
+            //<b>ha nem tudunk ezzel a megoldással haladni rendezzük át a cellát</b>
             matrix[row][col]=0;
         }
     }
@@ -163,7 +197,7 @@ int main()
     if (solve_sudoku())
         print_sudoku();
     else
-        printf("No solution\n");
+        printf("Nincs megoldás\n");
     return 0;
 }
 <br>
@@ -186,6 +220,8 @@ int main()
         <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
       </div>
 
+    </div>
+</div>
     <script src="javaScript/4.feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
