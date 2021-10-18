@@ -54,7 +54,7 @@
 
 #include &lt;stdio.h&gt;
 
-// Utility function to swap values at two indices in an array
+//<b>Segédfüggvény értékek cseréjére egy tömb két indexében</b>
 void swap(int arr[], int i, int j)
 {
     int temp = arr[i];
@@ -62,15 +62,16 @@ void swap(int arr[], int i, int j)
     arr[j] = temp;
 }
   
-// Function to print `n` elements of array `arr`
+//<b>Funkció az `arr` tömb `n` elemének kiírására</b>
 void printArray(int arr[], int n)
 {
     for (int i = 0; i &lt; n; i++) {
         printf("%d ", arr[i]);
+        
     }
 }
   
-// Recursive function to perform bubble sort on subarray `arr[i…n]`
+//<b>Rekurzív függvény az `arr[i...n]` résztömbbön buborékrendezéshez</b>
 void bubbleSort(int arr[], int n)
 {
     for (int i = 0; i &lt; n - 1; i++)
@@ -87,7 +88,9 @@ void bubbleSort(int arr[], int n)
   
 int main(void)
 {
+    //<b>Rendezetlen tömbb megadása</b>
     int arr[] = { 3, 5, 8, 4, 1, 9, -2 };
+    printf("A rendezett tömbb: ",arr);
     int n = sizeof(arr) / sizeof(arr[0]);
   
     bubbleSort(arr, n);

@@ -56,7 +56,6 @@
                 <code class="language-clike">
 //<b>C program a rúdvágás problémára</b>
 
-// C program for above approach
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
   
@@ -65,31 +64,26 @@ int max(int a, int b)
   return (a &gt; b) ? a : b;
 }
   
-// Global Array for the
-// purpose of memoization.
+//<b>Globális tömb a memoizálás céljából</b>
 int t[9][9];
   
-// A recursive program, using ,
-// memoization, to implement the
-// rod cutting problem(Top-Down).
+/*<b>Egy rekurzív program, amely a memoizálás 
+segítségével valósítja meg a rúdvágási 
+problémát (Top-Down)</b>*/
 int un_kp(int price[], int length[],
                       int Max_len, int n)
 {
   
-    // The maximum price will be zero,
-    // when either the length of the rod
-    // is zero or price is zero.
+    /*<b>a maximális ár nulla lesz, ha vagy 
+      a rúd hossza nulla, vagy az ár nulla</b>*/
     if (n == 0 || Max_len == 0)
     {
         return 0;
     }
   
-    // If the length of the rod is less
-    // than the maximum length, Max_lene
-    // will consider it.Now depending
-    // upon the profit,
-    // either Max_lene  we will take it
-    // or discard it.
+    /*<b>Ha a rúd hossza kisebb, mint a maximális hossz, 
+      a Max_len figyelembe veszi.Most a nyereségtől 
+      függően a Max_len vagy elfogadja, vagy elveti.</b>*/
     if (length[n - 1] &lt;= Max_len)
     {
         t[n][Max_len]
@@ -99,9 +93,8 @@ int un_kp(int price[], int length[],
                   un_kp(price, length, Max_len, n - 1));
     }
   
-    // If the length of the rod is greater
-    // than the permitted size, Max_len
-    // we will  not consider it.
+    /*<b>Ha a rúd hossza nagyobb, mint a megengedett méret,
+      Max_len, akkor nem vesszük figyelembe.</b>*/
     else
     {
         t[n][Max_len]
@@ -109,14 +102,12 @@ int un_kp(int price[], int length[],
                               Max_len, n - 1);
     }
   
-    // Max_lene Max_lenill return
-    // the maximum value obtained,
-    // Max_lenhich is present at the
-    // nth roMax_len and Max_lenth column.
+    /*<b>A Max_len a kapott maximális értéket adja vissza, 
+      Max_len, amely a Max_len oszlopban található.</b>*/
     return t[n][Max_len];
 }
   
-/* Driver program to test above functions */
+/*<b>program a fenti funkciók tesztelésére</b>*/
 int main()
 {
     int price[] = { 1, 5, 8, 9, 10, 17, 17, 20 };
@@ -128,8 +119,8 @@ int main()
     }
     int Max_len = n;
   
-    // Function Call
-    printf("Maximum obtained value  is %d \n",
+    //<b>Függvény hívás</b>
+    printf("A maximális kapott érték %d \n",
             un_kp(price, length, n, Max_len));
 }
 <br>

@@ -26,7 +26,11 @@
 
       <div class="smallContainer"><br>
         <p><b>Az algoritmus leírása:</b><br><br>
-          blabla</p>
+A Quicksort egy olyan rendezési algoritmus, amely az oszd meg és uralkodj megközelítésen alapul, ahol<br><br>
+1.)Egy tömböt altömbökre osztunk egy pivot elem (a tömbből kiválasztott elem) kiválasztásával.
+A tömb felosztása során a pivot elemet úgy kell elhelyezni, hogy a pivotnál kisebb elemek a bal oldalon, a pivotnál nagyobb elemek pedig a pivot jobb oldalán maradjanak.<br><br>
+2.)A bal és jobb oldali altömböket is ugyanezzel a módszerrel osztjuk fel rekurzívan. Ez a folyamat addig folytatódik, amíg minden altábla egyetlen elemet nem tartalmaz.<br><br>
+3.)Ekkor az elemek már rendezettek. Végül az elemek egyesítésével egy rendezett tömb jön létre.</p>
            <br>
           </div>
     
@@ -52,64 +56,62 @@
                 <code class="language-clike">
 //<b>C program a gyorsrendezés megoldására</b>
 
-// Quick sort in C
-
 #include &lt;stdio.h&gt;
 
-// function to swap elements
+//<b>függvény az elemek cseréjéhez</b>
 void swap(int *a, int *b) {
   int t = *a;
   *a = *b;
   *b = t;
 }
 
-// function to find the partition position
+//<b> függvény a partíció pozíciójának megtalálásához</b>
 int partition(int array[], int low, int high) {
   
-  // select the rightmost element as pivot
+  //<b>válassza ki a jobb szélső elemet pivotként</b>
   int pivot = array[high];
   
-  // pointer for greater element
+  //<b>mutató a nagyobb elemre</b>
   int i = (low - 1);
 
-  // traverse each element of the array
-  // compare them with the pivot
+  /*<b>a tömb minden egyes elemén végigmegyünk, 
+    összehasonlítjuk őket a pivottal</b>*/
   for (int j = low; j &lt; high; j++) {
     if (array[j] &lt;= pivot) {
         
-      // if element smaller than pivot is found
-      // swap it with the greater element pointed by i
+      /*<b>ha a pivotnál kisebb elemet találunk, 
+      cseréljük ki az i által mutatott nagyobb elemmel</b>*/
       i++;
       
-      // swap element at i with element at j
+      //<b>cserélje ki az i elemet a j elemmel</b>
       swap(&amp;array[i], &amp;array[j]);
     }
   }
 
-  // swap the pivot element with the greater element at i
+  //<b>cserélje ki a pivot elemet az i-nél található nagyobb elemmel</b>
   swap(&amp;array[i + 1], &amp;array[high]);
   
-  // return the partition point
+  //<b>visszaadja a partíciós pontot</b>
   return (i + 1);
 }
 
 void quickSort(int array[], int low, int high) {
   if (low &lt; high) {
     
-    // find the pivot element such that
-    // elements smaller than pivot are on left of pivot
-    // elements greater than pivot are on right of pivot
+    //<b>keressük meg azt a pivot elemet, amely</b>
+    //<b>a pivotnál kisebb elemek és a pivottól balra helyezkednek el</b>
+    //<b>a pivotnál nagyobb elemek és a pivottól jobbra helyezkednek el</b>
     int pi = partition(array, low, high);
     
-    // recursive call on the left of pivot
+    //<b>rekurzív hívás a pivot bal oldalán</b>
     quickSort(array, low, pi - 1);
     
-    // recursive call on the right of pivot
+    //<b>rekurzív hívás a pivot jobb oldalán</b>
     quickSort(array, pi + 1, high);
   }
 }
 
-// function to print array elements
+//<b>függvény a tömb elemeinek kiíratására</b>
 void printArray(int array[], int size) {
   for (int i = 0; i &lt; size; ++i) {
     printf("%d  ", array[i]);
@@ -117,19 +119,19 @@ void printArray(int array[], int size) {
   printf("\n");
 }
 
-// main function
+//<b>main függvény</b>
 int main() {
   int data[] = {8, 7, 2, 1, 0, 9, 6};
   
   int n = sizeof(data) / sizeof(data[0]);
   
-  printf("Unsorted Array\n");
+  printf("Rendezetlen tömb\n");
   printArray(data, n);
   
-  // perform quicksort on data
+  //<b>quicksort elvégzése az adatokon</b>
   quickSort(data, 0, n - 1);
   
-  printf("Sorted array in ascending order: \n");
+  printf("Rendezett tömb növekvő sorrendben: \n");
   printArray(data, n);
 }
 <br> 

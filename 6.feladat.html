@@ -27,7 +27,24 @@
 
 <div class="smallContainer"><br>
     <p><b>Az algoritmus leírása:</b><br><br>
-      blabla</p>
+        MergeSort(arr[], l, r)<br><br>
+        Ha r > l<br><br>
+             1. Keressük meg a középső pontot, hogy a tömböt két részre osszuk:  <br>
+                     middle m = l+ (r-l)/2<br><br>
+             2. Hívjuk a mergeSort programot az első felére:   <br>
+                     call mergeSort(arr, l, m)<br><br>
+             3. Hívjuk a mergeSortot a második felére:<br>
+                     call mergeSort(arr, m+1, r)<br><br>
+             4. Egyesítse a 2. és 3. lépésben rendezett két felet:<br>
+                     call merge(arr, l, m, r)<br><br>
+                     
+                     
+        A tömböt rekurzívan két részre osztjuk addig, amíg a mérete 1 nem lesz. 
+        Amint a méret 1 lesz, az egyesítési folyamatok működésbe lépnek, és elkezdik a tömbök összeolvasztását, 
+        amíg a teljes tömb össze nem áll.
+                    
+                    
+                    </p>
        <br>
       </div>
 
@@ -53,32 +70,31 @@
                 <code class="language-clike">
 //<b>C program a összefésülő rendezés megoldására</b>
 
-/* C program for Merge Sort */
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
-// Merges two subarrays of arr[].
-// First subarray is arr[l..m]
-// Second subarray is arr[m+1..r]
+/*<b>Összefésüli az arr[] két résztömbjét
+Az első résztömb: arr[l..m]
+A második résztömb: arr[m+1..r]</b>*/
 void merge(int arr[], int l, int m, int r)
 {
     int i, j, k;
     int n1 = m - l + 1;
     int n2 = r - m;
 
-    /* create temp arrays */
+    //<b>ideiglenes tömbök létrehozása </b>
     int L[n1], R[n2];
 
-    /* Copy data to temp arrays L[] and R[] */
+    //<b>Adatok másolása az ideiglenes tömbökbe: L[] és R[]</b>
     for (i = 0; i &lt; n1; i++)
         L[i] = arr[l + i];
     for (j = 0; j &lt; n2; j++)
         R[j] = arr[m + 1 + j];
 
-    /* Merge the temp arrays back into arr[l..r]*/
-    i = 0; // Initial index of first subarray
-    j = 0; // Initial index of second subarray
-    k = l; // Initial index of merged subarray
+    //<b>Az ideiglenes tömbök összemergelése az arr[l..r] tömbbel</b>
+    i = 0; //<b>Az első résztömb kezdeti indexe</b>
+    j = 0; //<b>A második résztömb kezdeti indexe</b>
+    k = l; //<b>Az összefésült résztömb kezdeti indexe</b>
     while (i &lt; n1 &amp;&amp; j &lt; n2) {
         if (L[i] &lt;= R[j]) {
             arr[k] = L[i];
@@ -91,16 +107,14 @@ void merge(int arr[], int l, int m, int r)
         k++;
     }
 
-    /* Copy the remaining elements of L[], if there
-    are any */
+    //<b>A fennmaradó elemek másolása L[], ha vannak ilyenek.</b>
     while (i &lt; n1) {
         arr[k] = L[i];
         i++;
         k++;
     }
 
-    /* Copy the remaining elements of R[], if there
-    are any */
+    //<b>A fennmaradó elemek másolása R[], ha vannak ilyenek.</b>
     while (j &lt; n2) {
         arr[k] = R[j];
         j++;
@@ -108,16 +122,16 @@ void merge(int arr[], int l, int m, int r)
     }
 }
 
-/* l is for left index and r is right index of the
-sub-array of arr to be sorted */
+/*<b>l a bal oldali index és r a rendezni kívánt
+    arr résztömb jobb oldali indexe</b>*/
 void mergeSort(int arr[], int l, int r)
 {
     if (l &lt; r) {
-        // Same as (l+r)/2, but avoids overflow for
-        // large l and h
+        /*<b>Ugyanaz, mint (l+r)/2, de nagy l és r esetén 
+            elkerülhető a túlcsordulás</b>*/
         int m = l + (r - l) / 2;
 
-        // Sort first and second halves
+        //<b>Rendezi az első és második felét</b>
         mergeSort(arr, l, m);
         mergeSort(arr, m + 1, r);
 
@@ -125,8 +139,8 @@ void mergeSort(int arr[], int l, int r)
     }
 }
 
-/* UTILITY FUNCTIONS */
-/* Function to print an array */
+/*<b>Haszonossági függvények</b>*/
+/*<b>függvény tömb kiíratására</b> */
 void printArray(int A[], int size)
 {
     int i;
@@ -135,18 +149,18 @@ void printArray(int A[], int size)
     printf("\n");
 }
 
-/* Driver code */
+/*<b>fő kód</b>*/
 int main()
 {
     int arr[] = { 12, 11, 13, 5, 6, 7 };
     int arr_size = sizeof(arr) / sizeof(arr[0]);
 
-    printf("Given array is \n");
+    printf("A megadott tömb: \n");
     printArray(arr, arr_size);
 
     mergeSort(arr, 0, arr_size - 1);
 
-    printf("\nSorted array is \n");
+    printf("\nA rendezett tömb: \n");
     printArray(arr, arr_size);
     return 0;
 }
