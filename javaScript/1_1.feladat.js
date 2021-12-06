@@ -1,3 +1,4 @@
+//első canvas
 let canvas = document.getElementById('canvas1_1');
 let c = canvas.getContext('2d');
 canvas.width = 450;
@@ -15,9 +16,6 @@ let parapa = ["", "2. lépés: előre", "3. lépés: előre", "4. lépés: előr
 "32. lépés: backtracking, megtaláltuk az elágazást","33. lépés: előre","34. lépés: nincs bejárható megoldás, ezért BACKTRACKING az előző elágazásig","35. lépés: backtracking",
 "36. lépés: backtracking",
 
-
-
-
 "37. lépés: backtracking, megtaláltuk az elágazást","38. lépés: előre",
 "39. lépés: előre","40. lépés: előre",
 "41. lépés: nincs bejárható megoldás, ezért BACKTRACKING az előző elágazásig, ami még nem volt","42. lépés: backtracking, megtaláltuk az elágazást","43. lépés: előre",
@@ -27,14 +25,35 @@ let parapa = ["", "2. lépés: előre", "3. lépés: előre", "4. lépés: előr
 "53. lépés: előre","54. lépés: előre","55. lépés: előre","56. lépés: előre","57. lépés: a huszár körbejárta a pályát!"];
 
 
+
+//második canvas
+let canvas2 = document.getElementById('canvas1_2');
+let c2 = canvas2.getContext('2d');
+canvas2.width = 450;
+canvas2.height  = 450;
+
+let counter2 = 0;
+let alrdyCounter=0;
+let corX = [0,90,180,360,270,   90,180,0,90,270,    360,270,90,0,180,   360,270,90,0,180,   360,270,360,180,0];
+let corY = [0,180,360,270,90,   0,180,270,90,0,     180,360,270,90,0,   90,270,360,180,90,  0,180,360,270,360];
+
+let alrdyX = [0+5,90+5,180+5,360+5,270+5,   90+5,180+5,0+5,90+5,270+5,    360+5,270+5,90+5,0+5,180+5,   360+5,270+5,90+5,0+5,180+5,   360+5,270+5,360+5,180+5,]; 
+let alrdY = [0+5,180+5,360+5,270+5,90+5,   0+5,180+5,270+5,90+5,0+5,     180+5,360+5,270+5,90+5,0+5,   90+5,270+5,360+5,180+5,90+5,  0+5,180+5,360+5,270+5,];
+
+
 let buttonState = "START";
-
-
+let buttonState2 = "START";
 let isAllowed = false;
+let isAllowed2 = false;
 const knight = new Image();
 knight.src = "images/knight8.png";
-let myAnim;
 
+//canvas1
+let myAnim;
+//canvas2
+let myAnim2;
+
+//canvas1
 function animate(){
     c.fillStyle = 'rgb(62, 96, 150)';
 
@@ -406,10 +425,26 @@ function animate(){
     //c.drawImage(knight,corX[counter],corY[counter]);
     myAnim = requestAnimationFrame(animate); 
 }
-
 myAnim = requestAnimationFrame(animate);
 animate();
 
+
+//canvas2
+function animate2(){
+    c2.beginPath();
+    c2.fillStyle = "rgb(62, 96, 150)";
+    c2.fillRect(alrdyX[alrdyCounter-1],alrdY[alrdyCounter-1],80, 80);
+    c2.stroke();
+    c2.closePath();
+    c2.drawImage(knight,corX[counter2],corY[counter2]);
+    myAnim2 = requestAnimationFrame(animate2); 
+}
+myAnim2 = requestAnimationFrame(animate2);
+animate2();
+
+
+
+//Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
     szoveg.innerText = parapa[counter];   
@@ -419,10 +454,19 @@ document.getElementById('stepFrwd').onclick = function(){
     }
 }
 
+//Előrelépések 2-es canvason
+document.getElementById('stepFrwd2').onclick = function(){
+    counter2++; 
+    alrdyCounter++;
+    myAnim2 = requestAnimationFrame(animate2);
+}
+
 /* document.getElementById('stepPrev').onclick = function(){
     counter--;
 } */
 
+
+//Canvas 1 reset
 document.getElementById('resetAnim').onclick = function(){
     isAllowed = false;
     c.clearRect(0,0,canvas.width, canvas.height);
@@ -430,12 +474,26 @@ document.getElementById('resetAnim').onclick = function(){
     counter = 1;
     //label resetelese
     document.getElementById("label1").innerHTML = "1. lépés: előre";
-
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
     buttonState="START";  
 }
 
+//Canvas 2 reset
+document.getElementById('resetAnim2').onclick = function(){
+    isAllowed2 = false;
+    c2.clearRect(0,0,canvas2.width, canvas2.height);
+    c2.drawImage(knight,corX[0],corY[0]);
+    counter2 = 0;
+    alrdyCounter=0;
+    let idk2 = document.getElementById("startAnim2");
+    idk2.value = "Start"
+    buttonState2="START";  
+}
+
+
+
+//canvas 1 lejatszas
 const startAnim = async () => {
     // A lépések automatikus lejátszása várakozással (startAnim)
     let slider = document.getElementById('myRange');
@@ -454,27 +512,62 @@ const startAnim = async () => {
             }  
         }
     }
-    
 // A várakozáshoz szükséges constans
-const sleep = (delay) => new Promise((resolve) => setTimeout(resolve,delay))
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve,delay))   
+
+
+
+//canvas 2 lejatszas
+const startAnim2 = async () => {
+    // A lépések automatikus lejátszása várakozással (startAnim)
+    let slider = document.getElementById('myRange2');
+        for(var x = 0; x<corX.length; x++){
+            if(isAllowed2){
+                c2.drawImage(knight,corX[counter2],corY[counter2]);
+                counter2++;
+                //uj a sarga kockakhoz
+                alrdyCounter++;
+                await sleep2(1000/slider.value);       
+            }  
+            if(counter2 >=24){
+                counter2=24;
+            } 
+        }
+    }
+const sleep2 = (delay2) => new Promise((resolve2) => setTimeout(resolve2,delay2))
+
+
 
 /* document.getElementById('stopBtn').onclick = function(){
     isAllowed = false;
 } */
 
-
+//Canvas1-hez
 document.getElementById('startAnim').onclick = function(){
     if(buttonState === "START"){isAllowed=true}
     if(buttonState === "STOP"){isAllowed=false}
     startAnim();
     change()
 }
-    
-
 change = function(){
     let elem = document.getElementById("startAnim");
     if (elem.value=="Stop") {elem.value = "Start";buttonState="START"}
     else {elem.value = "Stop";buttonState="STOP"}
+}
+
+//Canvas2-hez
+document.getElementById('startAnim2').onclick = function(){
+    if(buttonState2 === "START"){isAllowed2=true}
+    if(buttonState2 === "STOP"){isAllowed2=false}
+    startAnim2();
+    change2()
+}
+    
+
+change2 = function(){
+    let elem2 = document.getElementById("startAnim2");
+    if (elem2.value=="Stop") {elem2.value = "Start";buttonState2="START"}
+    else {elem2.value = "Stop";buttonState2="STOP"}
 }
 
 $('#myModal').on('shown.bs.modal', function () {

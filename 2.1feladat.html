@@ -15,7 +15,7 @@
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="styles/osszes.css" />
+  <link rel="stylesheet" href="styles/2.feladat.css" />
 
 </head>
 <body>
@@ -25,17 +25,36 @@
     
     <h1>N királynő probléma - N Queen Problem</h1><br>
     <div class="smallContainer"><br>
-    <p><b>Feladat leírása:</b> A nyolckirálynő-probléma egy sakkfeladvány, lényege a következő: hogyan illetve hányféleképpen lehet N királynőt (vezért) 
-    úgy elhelyezni egy n×n-as sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
+    <p><b>Feladat leírása:</b> A nyolckirálynő-probléma egy sakkfeladvány, lényege a következő: hogyan illetve hányféleképpen lehet 8 királynőt (vezért) 
+    úgy elhelyezni egy 8×8-as sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
     Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
     <br>A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
     lehet lerakni n darab királynőt egy n×n-es táblán.</p>
     <br>
 </div>
 
-<div class="smallContainer">
+    <div class="smallContainer"><p><br>
+    <b>A kód magyarázata</b><br><br>
+<b>is_attack(int i,int j)</b> → Ez egy olyan függvény, amely ellenőrzi, hogy az (i,j) cellát megtámadta-e valamelyik másik dáma vagy sem. 
+Csak azt ellenőrizzük, hogy az 'i' sorban vagy a 'j' oszlopban van-e másik királynő. Ezután azt ellenőrizzük, hogy van-e az (i,j) cella átlós 
+celláin bármilyen királynő vagy sem. Bármelyik (k,l) cella átlós lesz az (i,j) cellához képest, ha k+l egyenlő i+j-vel vagy k-l egyenlő i-j-vel.<br><br>
+
+<b>N_queen</b> → Ez az a függvény, ahol valójában a backtracking algoritmust valósítjuk meg.<br><br>
+
+<b>if(n==0)</b> → Ha nem maradt királynő, akkor ez azt jelenti, hogy az összes királynőt elhelyeztük, és megvan a megoldás.<br><br>
+
+<b>if(((!is_attack(i,j)) && (board[i][j]!=1))</b> → Csak azt ellenőrizzük, hogy a cellában van-e lehetőség királynő elhelyezésére vagy sem. 
+Az is_attack függvény ellenőrzi, hogy a cellát nem támadja-e más királynő, és a board[i][j]!=1 biztosítja, hogy a cellában nincs királynő. 
+Ha ezek a feltételek teljesülnek, akkor királynőt tehetünk a cellába - board[i][j] = 1.<br><br>
+
+<b>if(N_queen(n-1)==1)</b> → Most újra meghívjuk a függvényt, hogy elhelyezzük a maradék királynőket, és itt végezzük a visszalépést. 
+Ha ez a függvény (a maradék királynő elhelyezésére) nem igaz, akkor csak az aktuális lépésünket változtatjuk meg - board[i][j] = 0 és a ciklus 
+ezúttal a királynőt valamilyen más pozícióba helyezi.</p>
+<br>
+</div>
+
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
-    <div class="container3">
+    
 <!-- Button trigger modal -->
 
 <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
@@ -152,68 +171,63 @@ int main()
       </div>
     </div>
   </div>
-</div>
-  <div class="container3">
-    <canvas id="canvas2" style="background: url(images/chessBoard.png)"></canvas>
+
+
+  <div class="spinner__container" id="spinner">
+    <div class="spinner-border text-primary" style="z-index: 6" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div class="progress" style="height: 3px">
+    <div class="progress-bar" role="progressbar" id="progress"></div>
+  </div>
+  <div class="container py-3">
+    <div class="px-5 mb-5 g-3 row justify-content-center">
+      <div class="col-12 row g-3 justify-content-center">
+        <label class="col-xs-12 col-md-auto col-form-label" for="nInput"
+          >No of Queens :</label
+        >
+        <div class="col-xs-12 col-md-3">
+          <input
+            class="form-control"
+            type="number"
+            min="4"
+            max="9"
+            id="nInput"
+          />
+        </div>
+        <button id="solveBtn" class="btn btn-primary col-xs-4 col-md-auto">
+          Solve
+        </button>
+        <button id="resetBtn" class="btn btn-primary col-xs-4 col-md-auto">
+          Reset
+        </button>
+      </div>
+      <div class="col-xs-12 col-sm-6 mt-3 px-md-5 row align-items-end">
+        <div class="col-12">
+          <label for="speed" class="form-label">Speed</label>
+          <input
+            type="range"
+            class="form-range"
+            value="5"
+            min="0"
+            max="5"
+            step="1"
+            id="speed"
+          />
+        </div>
+      </div>
     </div>
 
-    <div class="container3">
-        <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-        <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
-        <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
-        <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
-        <div class="example_b">
-            <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
-          </div>
-        </div>
-        <div class="container3">
-        <p> <output id="proba1">Lépések:</output>
-         <label id="label1">1. lépés: előre</label></p>
-        </div>
-
-
-</div><!-- smallcontainer -->
-
-
-    <div class="smallContainer"><br>
-    <details>
-       <summary>
-            
-    <b>A kód magyarázata</b><br><br>
-        </summary>
-    <p>    
-<b>is_attack(int i,int j)</b> → Ez egy olyan függvény, amely ellenőrzi, hogy az (i,j) cellát megtámadta-e valamelyik másik dáma vagy sem. 
-Csak azt ellenőrizzük, hogy az 'i' sorban vagy a 'j' oszlopban van-e másik királynő. Ezután azt ellenőrizzük, hogy van-e az (i,j) cella átlós 
-celláin bármilyen királynő vagy sem. Bármelyik (k,l) cella átlós lesz az (i,j) cellához képest, ha k+l egyenlő i+j-vel vagy k-l egyenlő i-j-vel.<br><br>
-
-<b>N_queen</b> → Ez az a függvény, ahol valójában a backtracking algoritmust valósítjuk meg.<br><br>
-
-<b>if(n==0)</b> → Ha nem maradt királynő, akkor ez azt jelenti, hogy az összes királynőt elhelyeztük, és megvan a megoldás.<br><br>
-
-<b>if(((!is_attack(i,j)) && (board[i][j]!=1))</b> → Csak azt ellenőrizzük, hogy a cellában van-e lehetőség királynő elhelyezésére vagy sem. 
-Az is_attack függvény ellenőrzi, hogy a cellát nem támadja-e más királynő, és a board[i][j]!=1 biztosítja, hogy a cellában nincs királynő. 
-Ha ezek a feltételek teljesülnek, akkor királynőt tehetünk a cellába - board[i][j] = 1.<br><br>
-
-<b>if(N_queen(n-1)==1)</b> → Most újra meghívjuk a függvényt, hogy elhelyezzük a maradék királynőket, és itt végezzük a visszalépést. 
-Ha ez a függvény (a maradék királynő elhelyezésére) nem igaz, akkor csak az aktuális lépésünket változtatjuk meg - board[i][j] = 0 és a ciklus 
-ezúttal a királynőt valamilyen más pozícióba helyezi.</p>
-
-</p>
-<div class="container3">
-    <img src="images/nQueenLepesek.png">
-</div>
-<br>
-</details>
-
-</div>
-
-
-
+    <div class="row justify-content-center">
+      <div id="gameBoard" class="w-auto"></div>
+    </div>
+  </div>
 
     </div>
 </div>
 
-    <script src="javaScript/2.feladat.js"></script>
+    <script src="javaScript/2.1feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

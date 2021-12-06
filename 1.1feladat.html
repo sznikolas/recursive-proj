@@ -11,23 +11,37 @@
 </head>
 <body>
 
-<h1>Huszárvándorlás probléma 5x5-ös sakktáblán a backtracking könnyebb megértéséhez</h1>
-<br>
-<p class="p_settings"><b>Leírás:</b> Ide írni, hogy 5x5nek mennyi a megoldása és ez egy közülük, stb..</p>
-   
-    <button onclick="location.href='index.html'" type="button" class="example_b">feladatok</button>
+    <div class="bigContainer">
+        <div class="box02">
 
+<h1>Huszárvándorlás probléma - The Knights tour problem</h1>
+<br>
+
+<div class="smallContainer"><p><br> 
+    <b>Feladat leírása:</b> A huszárvándorlás-probléma, huszárkörút vagy sakktábla bejárása huszárral egy huszár lépéssorozata a sakktáblán, 
+    amely alatt a huszár a tábla minden mezőjét pontosan <b>egyszer</b> érinti. Ha az utolsó mező megegyezik a kiinduló mezővel, a körút zárt, másképp a körút nyitott.
+    <br>A sakktábla bejárása huszárral matematikai probléma. Olyan algoritmus létrehozása, mely megkeresi ezt a bejárást, ismert számítástechnikai feladat. 
+    A huszárkörút problémája különböző méretű sakktáblákon fennáll, nemcsak a 8×8-ason, sőt a szabálytalan (nem téglalap) alakú táblákon is.
+    <br><br>Az alábbiakban látható egy 5x5-ös sakktábla nyitott körútú bejárásának egyik megoldása, melyhez C nyelvben írt forráskódot is találunk. 
+    Egy 5x5-ös táblán, nyitott körúttal a megoldások száma: .... . Ez a probléma több különböző algoritmussal is megoldható, mi backtracking-et használtuk, 
+    ami egy brute-force alapú algoritmus.</p>
+     <br>
+</div>
+
+<div class="smallContainer">
+    <button onclick="location.href='index.html'" type="button" class="example_b">feladatok</button>
     
- <!-- Button trigger modal -->
- <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
-    C kód</button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    
+    <div class="container3">
+        <!-- Button trigger modal -->
+    <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
+        C kód</button>
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Huszárvándorlás-probléma megoldása C nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Huszárvándorlás probléma megoldása C nyelvben</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -35,7 +49,7 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-// <b>C program a Huszárvándorlás problémára</b>
+//<b>C program a Huszárvándorlás problémára</b>
 #include &lt;stdio.h&gt;
 #define N 8
  
@@ -130,19 +144,35 @@ int main()
 <a href="https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/" target="_blank">Forrás</a> </p>
                 </code>
              </pre>
-        </div>
+            </div>
       </div>
     </div>
-  </div>
-
-
-
-    <p>Az első backtracking a 23. lépésnél kezdődik</p>
-
-    <div class="container2">  
+  </div>  
+</div>
         
-        <canvas id="canvas1_1" style="background: url(images/chessBoard.png)"></canvas>
+<div class="mellett">
+            <div class="container3">
+            <output id="proba1">Backtrackinggel szemléltetve</output>
+            </div>
     
+            <div class="container3">
+            <output id="proba1">Backtracking nélkül</output>    
+            </div>
+        </div>
+
+
+<div class="mellett">
+        <div class="container3">
+        <canvas id="canvas1_1" style="background: url(images/chessBoard.png)"></canvas>
+        </div>
+
+        <div class="container3">
+            <canvas id="canvas1_2" style="background: url(images/chessBoard.png)"></canvas>
+        </div>
+    </div>
+
+    <div class="mellett">
+        <div class="container3">
         <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
         <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
         <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
@@ -150,27 +180,60 @@ int main()
         <div class="example_b">
             <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
           </div>
-    
         </div>
+    
 
+          
 
-    <div class="container2">  
-        <div class="box">
-    <output id="proba1">A lépések leírása:</output><br>
-    <label id="label1">1. lépés: előre</label><br><br>
+            <div class="container3">
+            <input id="stepFrwd2" type="submit" class="example_b" name="button" value="előrelépés"/>
+            <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+            <input id="startAnim2" type="submit" class="example_b" name="button" value="start"/>
+            <input id="resetAnim2" type="submit" class="example_b" name="button" value="reset"/>
+            <div class="example_b">
+                <input type="range" min="1" max="10" value="3" class="slider" id="myRange2">
+              
+            </div>
+        </div>
+    </div> 
+    <p>Az első backtracking a 23. lépésnél kezdődik</p>
+    <p> <output id="proba1">Lépések:</output>
+     <label id="label1">1. lépés: előre</label></p>
 
-    <output id="pszeudo">Az algoritmus leírása:<br><br>Ha minden négyzetet meglátogattunk, akkor írjuk ki a megoldást
+            </div><!-- smallcontainer -->
+            
+    
+        <div class="smallContainer"><br>
+            <details>
+                <summary>
+    <b>Az algoritmus leírása:</b><br><br>
+                </summary>
+                <p>
+        Ha minden négyzetet meglátogattunk, akkor írjuk ki a megoldást
         <br>Máskülönben(else)
         <br><br>a) Adjuk hozzá a következő lépések egyikét a megoldási vektorhoz, és rekurzívan ellenőrizzük, hogy ez a lépés megoldáshoz vezet-e. (Egy huszár legfeljebb nyolc lépést tehet. Ebben a lépésben a 8 lépés közül választunk egyet).
         
         <br><br>b) Ha a fenti lépésben kiválasztott lépés nem vezet megoldáshoz, akkor távolítsuk el ezt a lépést a megoldási vektorból, és próbálkozzunk más alternatív lépésekkel.
         
-        <br><br>c) Ha egyik alternatíva sem működik, akkor adjuk vissza a false-t (A false visszaadása eltávolítja a rekurzióban korábban hozzáadott elemet, és ha a rekurzió kezdeti hívása false-t ad vissza, akkor "nincs megoldás").<br>
-</output>
-        </div>
-    </div>
+        <br><br>c) Ha egyik alternatíva sem működik, akkor adjuk vissza a false-t (A false visszaadása eltávolítja a rekurzióban korábban hozzáadott elemet, és ha a rekurzió kezdeti hívása false-t ad vissza, akkor "nincs megoldás").<br><br>
+                </p>
 
+                <div class="container3">
+                    <img src="images/KnightLepesek.png">
+                </div> <br>
+    </details>
+        </div>
+  
+
+        </div><!-- smallcontainer -->
+    </div> <!-- box02 -->
+</div> <!-- bigcointainer -->
+
+
+
+        
     <script src="javaScript/1_1.feladat.js"></script>
+    
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

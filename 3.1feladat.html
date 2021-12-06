@@ -7,10 +7,11 @@
     <title>Mgr munka</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/osszes.css">
-
+    <!-- <link rel="stylesheet" href="styles/3.feladat.css"> -->
 
 
 </head>
+<body onload="autoTest(true)">
     
     <div class="bigContainer">
  
@@ -25,12 +26,27 @@
         <br>
     </div>
 
-    <div class="smallContainer">
+    <div class="smallContainer"><br>
+    <p><b>A kód magyarázata</b><br><br>
+
+    <b>printsolution</b> → Ez a függvény csak a megoldási mátrixot nyomtatja ki.<br><br>
+
+    <b>solvemaze</b> → Ez a tényleges függvény, ahol a backtracking algoritmust implementáljuk. 
+    Először is ellenőrizzük, hogy a mi cellánk a célcella-e vagy sem, <b>if (r==SIZE-1) and (c==SIZE-1)</b>. 
+    Ha ez a célcella, akkor a rejtvényünk már megoldódott.<br><br>
+    Ha nem, akkor azt ellenőrizzük, hogy ez egy érvényes cella-e 
+    a mozgatáshoz vagy sem. Egy érvényes cellának a mátrixban kell lennie, azaz az indexeknek 
+    <b>0 to SIZE-1 r>=0 && c>=0 && r&lt;SIZE</b>, nem lehet blokkolva <b>maze >[r][c] == 0</b> és nem lehet az útvonalon <b>solution[r][c] == 0.</b><br><br> 
+    Ha ez egy érvényes lépés, akkor szabadon elvihetjük és a következő cellára léphetünk. Először a lefelé irányuló cellát 
+    próbáljuk ki <b>if(solveMaze(r+1, c)).</b> Ha ez nem ad megoldást, akkor a jobb oldali cellára lépünk, és hasonlóképpen a felfelé és 
+    a bal oldali cellára. Ha az összes cella nem ad megoldást, akkor elhagyjuk a <b>solution[r][c] = 0</b> cellát, és egy másik cellába megyünk.</p>
+<br>
+    </div>
 
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
-<div class="container3">
+
 <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
     C kód</button>
   
@@ -145,64 +161,73 @@ int main()
       </div>
     </div>
   </div>
-</div>
 
 
+  <div class="smallContainer"><br>
+  <label for="images">Pick a maze image:</label>
+      
+  <select name="images" id="images" onchange="loadImage()">
+    <option value="0">15 by 15 orthogonal maze</option>
+    <option value="1">20 by 20 orthogonal maze</option>
+    <option value="2">25 by 25 orthogonal maze</option>
+    <option value="3">30 by 30 orthogonal maze</option>
+    <option value="4">35 by 35 orthogonal maze</option>
+    <option value="5">40 by 20 orthogonal maze</option>
+  </select>
+
+  <input type="button" value="Traverse!" onclick="onTraverse()" class="traverse-button" id="traverse" >
+  <input type="button" value="pause" onclick="onPausee()" class="traverse-button" id="pause" >
+  <br>
+  <label for="speed" id="lblSpeed" style="margin-left: 15px;">Speed: <b>5</b></label>
+  <br>
+  <label style="font-size: smaller;">1</label>
+  <input type="range" min="1" max="10" value="5" id="speed" onchange="setSpeed(this.value);">
+  <label style="font-size: smaller;">10</label>
+  <br>
+  <br>
+  <br>
+
+  <div>
+  <canvas id="canvas"></canvas>
+  </div>
   
-    <div class="container3">
-        <canvas id="canvas2" style="background: url(images/ratInMaze2.png)"></canvas>
-        </div>
-    
-        <div class="container3">
-            <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-            <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
-            <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
-            <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
-            <div class="example_b">
-                <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
-              </div>
-            </div>
-            <div class="container3">
-            <p> <output id="proba1">Lépések:</output>
-             <label id="label1">1. lépés: előre</label></p>
-            </div>
-</div>
+<details>
+<summary>
+Read this for more information...
+</summary>
 
+<p>
+This is a follow-up to the <a href="https://codepen.io/ccodreanu/pen/mdPwOva" target="_blank">original maze traversal challenge</a>.
+</p>
 
-<div class="smallContainer"><br>
+<p>
+There, we just painted the exit path after finding it. Here, we're painting the traversal and decision-making process in real time.
+</p>
 
-        <details>
-            <summary>
-                 
-         <b>A kód magyarázata</b><br><br>
-             </summary>
-             <p>
+<p>
+You can see the backtracking mechanics live, as they happen. You can also adjust the animation speed, to make it easier to follow what's going on.
+</p>
 
-    <b>printsolution</b> → Ez a függvény csak a megoldási mátrixot nyomtatja ki.<br><br>
+<p>
+In a nutshell, this is the algorithm:
+</p>
 
-    <b>solvemaze</b> → Ez a tényleges függvény, ahol a backtracking algoritmust implementáljuk. 
-    Először is ellenőrizzük, hogy a mi cellánk a célcella-e vagy sem, <b>if (r==SIZE-1) and (c==SIZE-1)</b>. 
-    Ha ez a célcella, akkor a rejtvényünk már megoldódott.<br><br>
-    Ha nem, akkor azt ellenőrizzük, hogy ez egy érvényes cella-e 
-    a mozgatáshoz vagy sem. Egy érvényes cellának a mátrixban kell lennie, azaz az indexeknek 
-    <b>0 to SIZE-1 r>=0 && c>=0 && r&lt;SIZE</b>, nem lehet blokkolva <b>maze >[r][c] == 0</b> és nem lehet az útvonalon <b>solution[r][c] == 0.</b><br><br> 
-    Ha ez egy érvényes lépés, akkor szabadon elvihetjük és a következő cellára léphetünk. Először a lefelé irányuló cellát 
-    próbáljuk ki <b>if(solveMaze(r+1, c)).</b> Ha ez nem ad megoldást, akkor a jobb oldali cellára lépünk, és hasonlóképpen a felfelé és 
-    a bal oldali cellára. Ha az összes cella nem ad megoldást, akkor elhagyjuk a <b>solution[r][c] = 0</b> cellát, és egy másik cellába megyünk.</p>
-<br>
+<ul>
+<li>Crawl forward.</li>
+<li>If the wall to your left or right opens up, you've reached an intersection.</li>
+<li>At intersections, follow each option (left, right, forward).</li>
+<li>If any option leads to a dead-end (you hit a wall), then go back and try the remaining options.</li>
+<li>If you exhaust all options for an intersection, then go back to the one before, and resume the process.</li>
+<li>Eventually, you'll find your way out of the maze.</li>
+</ul>
 
-<div class="container3">
-    <img src="images/ratInMaze4.png">
-</div>
-<br>
 </details>
-    </div>
-
+</div>
 
     </div>
 </div>
 
-    <script src="javaScript/3.feladat.js"></script>
+    <script src="javaScript/3.1feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

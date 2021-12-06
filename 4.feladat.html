@@ -7,6 +7,7 @@
     <title>Mgr munka</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/osszes.css">
+    <link rel="stylesheet" href="styles/4.feladat.css">
 
 
 </head>
@@ -209,16 +210,36 @@ int main()
     </div>
   </div>
 
+  <div class="smallContainer"><br>
+  <main id="main">
+    <h1 class="title">4x4 Sudoku Solving With Simple Backtracking</h1>
+    <div class="grid">
+      <input  type="text"
+              class="cell"
+              v-for="(n, i) in board"
+              v-on:change="setValue($event, i)"
+              v-bind:value="getValue(i)"
+              v-bind:class="{'-current': currentCellIndex  === i}"
+              :key="i"/>
+    </div>
+    
+    <div class="controls">
+      <span class="delay control">
+        Delay: 
+        <input type="number"
+             min="50" max="1000" step="10" value="200"
+             v-model="delay"/>
+      </span>
+      <button class="button control" v-on:click="solve()">Solve</button>
+      <button class="button control" v-on:click="reset()">Reset</button>
+    </div>
+    
+    <div class="message">
+      {{message}}
+    </div>
+  </main>
+</div>
 
-  <canvas id="canvas4"></canvas>
-    <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-    <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
-    <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
-    <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
-
-    <div class="example_b">
-        <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
-      </div>
 
     </div>
 </div>

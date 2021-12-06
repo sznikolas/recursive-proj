@@ -113,15 +113,13 @@ const sleep = (delay) => new Promise((resolve) => setTimeout(resolve,delay))
     isAllowed = false;
 } */
 
-
+//Canvas1-hez
 document.getElementById('startAnim').onclick = function(){
     if(buttonState === "START"){isAllowed=true}
     if(buttonState === "STOP"){isAllowed=false}
     startAnim();
     change()
 }
-    
-
 change = function(){
     let elem = document.getElementById("startAnim");
     if (elem.value=="Stop") {elem.value = "Start";buttonState="START"}
