@@ -1,3 +1,12 @@
+//első canvas
+let canvas = document.getElementById('canvas4');
+let c = canvas.getContext('2d');
+canvas.width = 250;
+canvas.height  = 250;
+
+
+
+
 function wait(time) {
     return new Promise(resolve => {
       setTimeout(() => resolve("timeout!"), time);

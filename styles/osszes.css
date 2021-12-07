@@ -134,8 +134,38 @@ html,body{
     display: block;
     height: 100%;
     place-items: center;
-    background: rgb(41, 41, 41);
+    /* background: rgb(41, 41, 41); */
+    background: rgb(0, 0, 0);
   }
+
+
+  /* A sok feladatok oldalaknál a nagy container */
+.bigContainer .box02{
+  /*  width: calc(100% 10px);
+   height: calc(100% -10px); */
+   max-width: 1300px;
+   margin: 0 auto;
+   /* background: rgb(0, 0, 0); 
+   background: #2A2438;
+   background: #352F44;
+   background: #5C5470;
+   background: #DBD8E3; */
+   background: rgb(41, 41, 41);
+   border-radius: 20px;
+   padding: 20px;
+ 
+ }
+ 
+ /* A sok feladatok oldalaknál a kis container */
+ .smallContainer{
+   width: auto;
+   /* background: rgb(191, 194, 193); */
+   background: rgb(191, 194, 193);
+
+   border-radius: 20px;
+   margin: 20px;
+   
+ }
 
 
 /* Az oldalaknál a gombok kinezete*/
@@ -145,6 +175,7 @@ html,body{
 	text-decoration: none;
   text-align: center;
 	background: #093344;
+
 	padding: 8px;
 	border-radius: 10px;
 	display: inline-flex;
@@ -257,6 +288,7 @@ output{
   margin-left: 0px;
 }
 
+
 .mellett{
   display: flex;
   justify-content: space-around;
@@ -282,7 +314,7 @@ align-items: center;
 
 
 
-/*Az 1.1 feladatnál a kék container*/
+/*Az 1.1 feladatnál a kék container ami mar nincs*/
 .container2 .box{
   width: 850px;
   height: 500px;
@@ -298,24 +330,4 @@ align-items: center;
 .bigContainer{
   padding: 20px;
 
-}
-/* A sok feladatok oldalaknál a nagy container */
-.bigContainer .box02{
- /*  width: calc(100% 10px);
-  height: calc(100% -10px); */
-  max-width: 1300px;
-  margin: 0 auto;
-  background: rgb(0, 0, 0);
-  border-radius: 20px;
-  padding: 20px;
-
-}
-
-/* A sok feladatok oldalaknál a kis container */
-.smallContainer{
-  width: auto;
-  background: rgb(191, 194, 193);
-  border-radius: 20px;
-  margin: 20px;
-  
 }

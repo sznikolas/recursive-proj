@@ -55,7 +55,8 @@ let myAnim2;
 
 //canvas1
 function animate(){
-    c.fillStyle = 'rgb(62, 96, 150)';
+    //c.fillStyle = 'rgb(62, 96, 150)';
+    c.fillStyle =  '#093344';
 
 
     //0
@@ -432,7 +433,7 @@ animate();
 //canvas2
 function animate2(){
     c2.beginPath();
-    c2.fillStyle = "rgb(62, 96, 150)";
+    c2.fillStyle =  '#093344';
     c2.fillRect(alrdyX[alrdyCounter-1],alrdY[alrdyCounter-1],80, 80);
     c2.stroke();
     c2.closePath();

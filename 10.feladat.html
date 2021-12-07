@@ -15,7 +15,7 @@
  
     <div class="box02">
 
-    <h1>Beszúrásos rendezés - Insertion sort</h1><br>
+    <h1>Beszúrásos rendezés - Insertion sort</h1>
 
     <div class="smallContainer"><br>
     <p><b>Feladat leírása:</b> Legegyszerűbb formája az egyenes beszúrásos rendezési algoritmus egy tömb elemeinek sorba rendezésére. 
@@ -23,18 +23,12 @@
       nagyság szerint megillető helyre, és a nála nagyobbakat eggyel eltoljuk. </p><br>
     </div>
 
-    <div class="smallContainer"><br>
-      <p><b>Az algoritmus leírása:</b><br><br>
-      
-        Rekurzívan hívjuk meg a recursiveInsertionSort() függvényt az n-1 elemű tömb rendezéséhez az aktuális iterációhoz képest. 
-        Ezután ebbe a rendezett tömbbe, amelyet a függvény visszaad, beillesztjük az n-edik elemet a rendezett tömbben elfoglalt helyére.</p>
-         <br>
-        </div>
+    <div class="smallContainer">
 
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
-
+<div class="container3">
 <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
     C kód</button>
   
@@ -91,17 +85,45 @@ int main(){
       </div>
     </div>
   </div>
+  </div><!-- container3 -->
 
+  <div class="container3">
+  <canvas id="canvas10" style="background: url(images/nemtudom.png)"></canvas>
+  </div>
 
-  <canvas id="canvas10"></canvas>
+  <div class="container3">
     <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-    <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
+    <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
     <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
     <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
-
     <div class="example_b">
-        <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
-      </div>
+      <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
+    </div>
+  </div>
+
+  <div class="container3">
+    <p> <output id="proba1">Lépések:</output>
+      <label id="label1">1. lépés: előre</label></p>
+  </div>
+
+    </div> <!-- smallContainer -->
+
+
+      <div class="smallContainer"><br>
+        <details>
+           <summary>
+                
+        <b>A kód magyarázata</b><br><br>
+            </summary>
+      
+            <p>
+              Rekurzívan hívjuk meg a recursiveInsertionSort() függvényt az n-1 elemű tömb rendezéséhez az aktuális iterációhoz képest. 
+              Ezután ebbe a rendezett tömbbe, amelyet a függvény visszaad, beillesztjük az n-edik elemet a rendezett tömbben elfoglalt helyére.
+            </p><br>
+      
+          </details>
+        </div>
+
 
     </div>
   </div>

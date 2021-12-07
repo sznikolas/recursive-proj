@@ -16,7 +16,7 @@
  
         <div class="box02">
 
-    <h1>Szúdoku - Sudoku</h1><br>
+    <h1>Szúdoku - Sudoku</h1>
 
     <div class="smallContainer"><br>
     <p><b>Feladat leírása:</b> A sudoku egy 9x9-es mátrix, amely 1-től 9-ig terjedő számokkal van kitöltve oly módon, 
@@ -25,37 +25,11 @@
 <br>
 </div>
 
-<div class="smallContainer"><br>
-    <p><b>A kód magyarázata</b><br>
-        Kezdetben csak egy mátrixot készítünk a Sudoku számára, és a ki nem osztott celláit 0-val töltjük fel. 
-        Így a mátrix tartalmazza a Sudoku feladatot, és a 0 értékű cellák üres cellák.<br><br>
-        <b>print_sudoku()</b> → Ez csak egy függvény a mátrix kiíratására.<br><br>
-        <b>number_unassigned</b> → Ez a függvény megkeres egy üres cellát, és a 'row' és 'col' változókat az adott cella indexeivel teszi egyenlővé. 
-        C-ben mutatókat használtunk az ehhez a függvényhez átadott változók (row, col) értékének megváltoztatására (pass by reference). 
-        Tehát ez a függvény megmondja nekünk, hogy van-e ki nem osztott cella vagy nincs. És ha van ki nem osztott cella, 
-        akkor ez a függvény megadja a cella indexeit is.<br><br>
-        <b>is_safe(int n, int r, int c)</b> → Ez a függvény ellenőrzi, hogy az 'n' értéket betehetjük-e az (r, c) cellába vagy sem. 
-        Ezt úgy tesszük, hogy először azt ellenőrizzük, hogy az 'r' sorban van-e olyan cella, amelynek értéke 'n' vagy sem - if(mátrix[r][i] == n). 
-        Ezután ellenőrizzük, hogy a 'c' oszlopban van-e 'n' értékű cella vagy sem - if(mátrix[i][c] == n). 
-        Végül pedig ellenőrizzük az almátrixot. (r/3)*3 megadja az r sor kezdőindexét. Például, ha az 'r' értéke 2, akkor az almátrixban van, 
-        amely a (0, 0)-tól kezdődik. Hasonlóképpen, a kezdő oszlop értékét (c/3)*3 segítségével kapjuk meg. Így ha egy cella értéke (2,2), 
-        akkor ez a cella egy olyan almátrixban lesz, amely (0,0)-ból indul, és ezt az értéket (c/3)*3 és (r/3)*3 segítségével kapjuk meg. 
-        Miután megkaptuk a kezdőindexeket, könnyedén végig tudunk iterálni az almátrixon, hogy ellenőrizzük, hogy az "n" értéket elhelyezhetjük-e 
-        az almátrixban vagy sem.<br><br>
-        <b>solve_sudoku()</b> → Ez a tényleges függvény, amely megoldja a Sudokut, és visszalépést(backtracking) használ. Először a number_unassigned függvény 
-        segítségével ellenőrizzük, hogy van-e ki nem rendelt cella, és ha nincs ki nem rendelt cella, akkor a Sudoku megoldódott. 
-        number_unassigned függvény megadja az üres cellák indexeit is. Így ha van üres cella, akkor megpróbáljuk kitölteni ezt a cellát egy 
-        1 és 9 közötti értékkel. Az is_safe segítségével pedig ellenőrizni fogjuk, hogy egy adott értéket be tudunk-e tölteni az adott cellába vagy sem. 
-        Miután megtaláltuk az értéket, megpróbáljuk megoldani a Sudoku többi részét -> solve_sudoku. Ha ezzel az értékkel nem sikerül megoldani a többit, 
-        akkor visszatérünk, és megpróbálunk egy másik értéket erre a cellára mátrix[row][col]=0;. A ciklus megpróbálja a cella más értékeit is. 
-    </p>
-<br>
-</div>
-
+<div class="smallContainer">
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
-
+<div class="container3">
 <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
     C kód</button>
   
@@ -209,37 +183,61 @@ int main()
       </div>
     </div>
   </div>
+</div><!-- container3 -->
+  
+<div class="container3">
+    <canvas id="canvas4" style="background: url(images/nemtudom.png)"></canvas>
+    </div>
 
-  <div class="smallContainer"><br>
-  <main id="main">
-    <h1 class="title">4x4 Sudoku Solving With Simple Backtracking</h1>
-    <div class="grid">
-      <input  type="text"
-              class="cell"
-              v-for="(n, i) in board"
-              v-on:change="setValue($event, i)"
-              v-bind:value="getValue(i)"
-              v-bind:class="{'-current': currentCellIndex  === i}"
-              :key="i"/>
-    </div>
-    
-    <div class="controls">
-      <span class="delay control">
-        Delay: 
-        <input type="number"
-             min="50" max="1000" step="10" value="200"
-             v-model="delay"/>
-      </span>
-      <button class="button control" v-on:click="solve()">Solve</button>
-      <button class="button control" v-on:click="reset()">Reset</button>
-    </div>
-    
-    <div class="message">
-      {{message}}
-    </div>
-  </main>
+    <div class="container3">
+        <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
+        <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+        <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
+        <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
+        <div class="example_b">
+            <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
+          </div>
+        </div>
+        
+        <div class="container3">
+        <p> <output id="proba1">Lépések:</output>
+         <label id="label1">1. lépés: előre</label></p>
+        </div>
 </div>
 
+
+<div class="smallContainer"><br>
+    <details>
+       <summary>
+            
+    <b>A kód magyarázata</b><br><br>
+        </summary>
+        <p>
+            Kezdetben csak egy mátrixot készítünk a Sudoku számára, és a ki nem osztott celláit 0-val töltjük fel. 
+            Így a mátrix tartalmazza a Sudoku feladatot, és a 0 értékű cellák üres cellák.<br><br>
+            <b>print_sudoku()</b> → Ez csak egy függvény a mátrix kiíratására.<br><br>
+            <b>number_unassigned</b> → Ez a függvény megkeres egy üres cellát, és a 'row' és 'col' változókat az adott cella indexeivel teszi egyenlővé. 
+            C-ben mutatókat használtunk az ehhez a függvényhez átadott változók (row, col) értékének megváltoztatására (pass by reference). 
+            Tehát ez a függvény megmondja nekünk, hogy van-e ki nem osztott cella vagy nincs. És ha van ki nem osztott cella, 
+            akkor ez a függvény megadja a cella indexeit is.<br><br>
+            <b>is_safe(int n, int r, int c)</b> → Ez a függvény ellenőrzi, hogy az 'n' értéket betehetjük-e az (r, c) cellába vagy sem. 
+            Ezt úgy tesszük, hogy először azt ellenőrizzük, hogy az 'r' sorban van-e olyan cella, amelynek értéke 'n' vagy sem - if(mátrix[r][i] == n). 
+            Ezután ellenőrizzük, hogy a 'c' oszlopban van-e 'n' értékű cella vagy sem - if(mátrix[i][c] == n). 
+            Végül pedig ellenőrizzük az almátrixot. (r/3)*3 megadja az r sor kezdőindexét. Például, ha az 'r' értéke 2, akkor az almátrixban van, 
+            amely a (0, 0)-tól kezdődik. Hasonlóképpen, a kezdő oszlop értékét (c/3)*3 segítségével kapjuk meg. Így ha egy cella értéke (2,2), 
+            akkor ez a cella egy olyan almátrixban lesz, amely (0,0)-ból indul, és ezt az értéket (c/3)*3 és (r/3)*3 segítségével kapjuk meg. 
+            Miután megkaptuk a kezdőindexeket, könnyedén végig tudunk iterálni az almátrixon, hogy ellenőrizzük, hogy az "n" értéket elhelyezhetjük-e 
+            az almátrixban vagy sem.<br><br>
+            <b>solve_sudoku()</b> → Ez a tényleges függvény, amely megoldja a Sudokut, és visszalépést(backtracking) használ. Először a number_unassigned függvény 
+            segítségével ellenőrizzük, hogy van-e ki nem rendelt cella, és ha nincs ki nem rendelt cella, akkor a Sudoku megoldódott. 
+            number_unassigned függvény megadja az üres cellák indexeit is. Így ha van üres cella, akkor megpróbáljuk kitölteni ezt a cellát egy 
+            1 és 9 közötti értékkel. Az is_safe segítségével pedig ellenőrizni fogjuk, hogy egy adott értéket be tudunk-e tölteni az adott cellába vagy sem. 
+            Miután megtaláltuk az értéket, megpróbáljuk megoldani a Sudoku többi részét -> solve_sudoku. Ha ezzel az értékkel nem sikerül megoldani a többit, 
+            akkor visszatérünk, és megpróbálunk egy másik értéket erre a cellára mátrix[row][col]=0;. A ciklus megpróbálja a cella más értékeit is. 
+        </p>
+    <br>
+    </details>
+    </div>
 
     </div>
 </div>

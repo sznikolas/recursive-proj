@@ -1,7 +1,9 @@
+//első canvas
 let canvas = document.getElementById('canvas6');
 let c = canvas.getContext('2d');
-canvas.width = 720;
-canvas.height  = 720;
+canvas.width = 250;
+canvas.height  = 250;
+
 
 let corX = [0,90,180,270,450,630,540,630,540,360,  450,540,630,450,630,540,630,450,540,630,   450,540,360,450,540,360,270,450,630,540,   
         360,180,360,270,90,0,180,0,180,270,   360,180,0,90,270,180,90,0,90,270,   90,0,180,360,270,180,0,90,0,90,     270,360,450,630];
@@ -30,7 +32,7 @@ let isAllowed = false;
 const knight = new Image();
 knight.src = "images/knight7.png";
 let myAnim;
-function animate(){
+/* function animate(){
     //if(tombCounter >= xasd.length  && tombCounter >= yasd.length ){tombCounter = 0}
     c.beginPath();
     c.fillStyle = "rgba(255, 255, 0, .11)";
@@ -39,7 +41,7 @@ function animate(){
     c.closePath();
     c.drawImage(knight,corX[counter],corY[counter]);
     myAnim = requestAnimationFrame(animate); 
-}
+} */
 
 myAnim = requestAnimationFrame(animate);
 animate();

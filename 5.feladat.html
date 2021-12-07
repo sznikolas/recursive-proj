@@ -16,7 +16,7 @@
  
     <div class="box02">
     
-    <h1>Hanoi tornyai - Tower of Hanoi</h1><br>
+    <h1>Hanoi tornyai - Tower of Hanoi</h1>
 
     <div class="smallContainer"><br>
     <p><b>Feladat leírása:</b> A hanoi torony egy matematikai rejtvény. Háromrúdból és különböző méretű korongokból áll, amelyek bármelyik rúdra csúszhatnak. 
@@ -25,16 +25,11 @@
        <br>
       </div>
 
-      <div class="smallContainer"><br>
-        <p><b>Az algoritmus leírása:</b><br><br>
-          blabla</p>
-           <br>
-          </div>
-
-
+      <div class="smallContainer">
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
+<div class="container3">
 
 <button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
     C kód</button>
@@ -89,23 +84,60 @@ void towerOfHanoi(int num, char A_rod, char C_rod, char B_rod)
       </div>
     </div>
   </div>
+  </div><!-- container3 -->
+  
 
-  <div class="smallContainer"><br>
-  <div class="containerr">
     <div id="message"></div>
     <div id="towers">
        <ul class="tower" data-tower="0"></ul>
        <ul class="tower" data-tower="1"></ul>
        <ul class="tower" data-tower="2"></ul>
     </div>
-    <div id="buttons">
-       <div class="solve">Solve</div>
-       <div class="restart">Restart</div>
+<!--     <div id="buttons">
+       <div class="solve">start</div>
+       <div class="restart">reset</div>
+       <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
+       <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
+    </div> -->
+
+    <div class="container3">
+      <div id="buttons">
+      <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
+      <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+      <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
+      <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
+<!--       <div class="example_b">
+          <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
+        </div> -->
+      </div>
     </div>
- </div></div>
-    
+
+    <div class="container3">
+      <p> <output id="proba1">Lépések:</output>
+       <label id="label1">1. lépés: előre</label></p>
+      </div>
+
+ 
+</div>
+
+ <div class="smallContainer"><br>
+  <details>
+     <summary>
+          
+  <b>A kód magyarázata</b><br><br>
+      </summary>
+
+      <p>
+        blabla
+      </p><br>
+
+    </details>
+  </div>
+
+
     </div>
   </div>
+
     <script src="javaScript/5.feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -1,6 +1,6 @@
 class TowersOfHanoi {
     constructor(discs, towerEls, solveBtn, restartBtn) {
-      this.discs = discs;
+      this.discs = 4; //itt adom meg hány diszk legyen
       this.towerEls = towerEls;
       this.solveBtn = solveBtn;
       this.restartBtn = restartBtn;
@@ -12,7 +12,7 @@ class TowersOfHanoi {
     bindFunctions() {
           this.handleSolveFunc = this.handleSolve.bind(this);
           this.initGameFunc = this.initGame.bind(this);
-      this.handleDiscClickFunc = this.handleDiscClick.bind(this);
+      //this.handleDiscClickFunc = this.handleDiscClick.bind(this); klikkelhető legyen a diszk és rakni lehessen
     }
   
     initGame() {
@@ -27,7 +27,7 @@ class TowersOfHanoi {
   
       this.drawTowers();
       this.displayMessage(
-        "Move all the discs from the left tower to the right one at a time. A disc cannot be on top of a smaller disc. Have fun!"
+        " "
       );
     }
   
@@ -140,14 +140,14 @@ class TowersOfHanoi {
     async handleSolve() {
         this.voidButtons();
   
-      this.displayMessage("Solving...");
+      this.displayMessage("megoldás...");
       let solved;
   
       if (!this.moves) {
         solved = this.solve(this.discs, 0, 1, 2);
   
         solved.then(() => {
-              this.postWinCleanUp("Now wasn't that fun?");
+              this.postWinCleanUp("sikerült");
         });
       } else {
         solved = this.backtrack();
@@ -157,7 +157,7 @@ class TowersOfHanoi {
       async backtrack() {
       this.saveTowersOrder();
   
-      this.displayMessage("Solving...");
+      this.displayMessage("megoldás...");
       const solved = this.solve(this.discs, 0, 1, 2);
   
       solved.then(async (value) => {
@@ -182,7 +182,7 @@ class TowersOfHanoi {
   
     async solve(t, a, b, c) {
       if (t === 1) {
-        await this.animateMovingDiscs(a, c, 50);
+        await this.animateMovingDiscs(a, c, 250); //időt itt állítom be
       } else {
         await this.solve(t - 1, a, c, b);
         await this.solve(1, a, b, c);
@@ -295,7 +295,9 @@ class TowersOfHanoi {
   }
   
   const towers = document.querySelectorAll(".tower");
-  const solveBtn = document.querySelector(".solve");
-  const restartBtn = document.querySelector(".restart");
+/*   const solveBtn = document.querySelector(".solve");
+  const restartBtn = document.querySelector(".restart"); */
+  const solveBtn = document.querySelector('#startAnim');
+  const restartBtn = document.querySelector('#resetAnim');
   
   const toh = new TowersOfHanoi(5, towers, solveBtn, restartBtn);
