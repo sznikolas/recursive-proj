@@ -1,51 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mgr munka</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/osszes.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/osszes.css" />
+  </head>
+  <body>
+    <div class="bigContainer">
+      <div class="box02">
+        <h1>Gyorsrendezés - Quick sort</h1>
 
-
-</head>
-<body>
-    
-
-  <div class="bigContainer">
- 
-    <div class="box02">
-
-    <h1>Gyorsrendezés - Quick sort</h1>
-
-    <div class="smallContainer"><p><br> 
-    <p><b>Feladat leírása:</b> A Quicksort egy olyan rendezési algoritmus, amely az oszd meg és uralkodj megközelítésen alapul, ahol
-        Egy tömböt altömbökre osztunk egy pivot elem (a tömbből kiválasztott elem) kiválasztásával.</p><br>
-      </div>
-
-      <div class="smallContainer">
-    
-    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
-    
-<!-- Button trigger modal -->
-
-<div class="container3">
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
-    C kód</button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Gyorsrendezés megoldása C nyelvben</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="smallContainer">
+          <p><br /></p>
+          <p>
+            <b>Feladat leírása:</b> A Quicksort egy olyan rendezési algoritmus,
+            amely az oszd meg és uralkodj megközelítésen alapul, ahol Egy tömböt
+            altömbökre osztunk egy pivot elem (a tömbből kiválasztott elem)
+            kiválasztásával.
+          </p>
+          <br />
         </div>
-        <div class="modal-body">
-            <pre class="line-numbers">
+
+        <div class="smallContainer">
+          <button
+            onclick="location.href='index.html'"
+            type="button"
+            class="example_b"
+          >
+            feladatok
+          </button>
+
+          <!-- Button trigger modal -->
+
+          <div class="container3">
+            <button
+              type="button"
+              class="example_b"
+              data-toggle="modal"
+              data-target="#exampleModalScrollable"
+            >
+              C kód
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModalScrollable"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalScrollableTitle"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-scrollable modal-lg"
+                role="document"
+              >
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">
+                      Gyorsrendezés megoldása C nyelvben
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <pre class="line-numbers">
                 <code class="language-clike">
 //<b>C program a gyorsrendezés megoldására</b>
 
@@ -131,60 +164,104 @@ int main() {
 <a href="https://www.programiz.com/dsa/quick-sort" target="_blank">Forrás</a>
                 </code>
              </pre>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> <!-- container3 -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- container3 -->
 
-  <div class="container3">
-  <canvas id="canvas7" style="background: url(images/nemtudom.png)"></canvas>
-  </div>
+          <div class="container3">
+            <canvas
+              id="canvas7"
+              style="background: url(images/nemtudom.png)"
+            ></canvas>
+          </div>
 
-  <div class="container3">
-    <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-    <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
-    <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
-    <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
-    <div class="example_b">
-        <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
-      </div>
-    </div>
+          <div class="container3">
+            <input
+              id="stepFrwd"
+              type="submit"
+              class="example_b"
+              name="button"
+              value="előrelépés"
+            />
+            <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+            <input
+              id="startAnim"
+              type="submit"
+              class="example_b"
+              name="button"
+              value="start"
+            />
+            <input
+              id="resetAnim"
+              type="submit"
+              class="example_b"
+              name="button"
+              value="reset"
+            />
+            <div class="example_b">
+              <input
+                type="range"
+                min="1"
+                max="10"
+                value="3"
+                class="slider"
+                id="myRange"
+              />
+            </div>
+          </div>
 
-    <div class="container3">
-      <p> <output id="proba1">Lépések:</output>
-       <label id="label1">1. lépés: előre</label></p>
-      </div>
-
-    </div><!-- smallContainer-->
-
-
-      <div class="smallContainer"><br>
-        <details>
-           <summary>
-                
-        <b>A kód magyarázata</b><br><br>
-            </summary>
+          <div class="container3">
             <p>
-                A Quicksort egy olyan rendezési algoritmus, amely az oszd meg és uralkodj megközelítésen alapul, ahol<br><br>
-                1.)Egy tömböt altömbökre osztunk egy pivot elem (a tömbből kiválasztott elem) kiválasztásával.
-                A tömb felosztása során a pivot elemet úgy kell elhelyezni, hogy a pivotnál kisebb elemek a bal oldalon, a pivotnál nagyobb elemek pedig a pivot jobb oldalán maradjanak.<br><br>
-                2.)A bal és jobb oldali altömböket is ugyanezzel a módszerrel osztjuk fel rekurzívan. Ez a folyamat addig folytatódik, amíg minden altábla egyetlen elemet nem tartalmaz.<br><br>
-                3.)Ekkor az elemek már rendezettek. Végül az elemek egyesítésével egy rendezett tömb jön létre.
-            </p><br>
-      
+              <output id="proba1">Lépések:</output>
+              <label id="label1">1. lépés: előre</label>
+            </p>
+          </div>
+        </div>
+        <!-- smallContainer-->
+
+        <div class="smallContainer">
+          <br />
+          <details>
+            <summary><b>A kód magyarázata</b><br /><br /></summary>
+            <p>
+              A Quicksort egy olyan rendezési algoritmus, amely az oszd meg és
+              uralkodj megközelítésen alapul, ahol<br /><br />
+              1.)Egy tömböt altömbökre osztunk egy pivot elem (a tömbből
+              kiválasztott elem) kiválasztásával. A tömb felosztása során a
+              pivot elemet úgy kell elhelyezni, hogy a pivotnál kisebb elemek a
+              bal oldalon, a pivotnál nagyobb elemek pedig a pivot jobb oldalán
+              maradjanak.<br /><br />
+              2.)A bal és jobb oldali altömböket is ugyanezzel a módszerrel
+              osztjuk fel rekurzívan. Ez a folyamat addig folytatódik, amíg
+              minden altábla egyetlen elemet nem tartalmaz.<br /><br />
+              3.)Ekkor az elemek már rendezettek. Végül az elemek egyesítésével
+              egy rendezett tömb jön létre.
+            </p>
+            <br />
           </details>
         </div>
-
-        
+      </div>
     </div>
-  </div>
 
     <script src="javaScript/7.feladat.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -1,49 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mgr munka</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/osszes.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/osszes.css" />
+  </head>
+  <body>
+    <div class="bigContainer">
+      <div class="box02">
+        <h1>Beszúrásos rendezés - Insertion sort</h1>
 
-
-</head>
-<body>
-  <div class="bigContainer">
- 
-    <div class="box02">
-
-    <h1>Beszúrásos rendezés - Insertion sort</h1>
-
-    <div class="smallContainer"><br>
-    <p><b>Feladat leírása:</b> Legegyszerűbb formája az egyenes beszúrásos rendezési algoritmus egy tömb elemeinek sorba rendezésére. 
-      Az algoritmus k-adik lépése előtt az első k-1 elem már rendezett; a lépés során a k-adik elemet beszúrjuk az első k-1 elem közé az őt 
-      nagyság szerint megillető helyre, és a nála nagyobbakat eggyel eltoljuk. </p><br>
-    </div>
-
-    <div class="smallContainer">
-
-    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
-    
-<!-- Button trigger modal -->
-<div class="container3">
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
-    C kód</button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Beszúrásos rendezés megoldása C nyelvben</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="smallContainer">
+          <br />
+          <p>
+            <b>Feladat leírása:</b> Legegyszerűbb formája az egyenes beszúrásos
+            rendezési algoritmus egy tömb elemeinek sorba rendezésére. Az
+            algoritmus k-adik lépése előtt az első k-1 elem már rendezett; a
+            lépés során a k-adik elemet beszúrjuk az első k-1 elem közé az őt
+            nagyság szerint megillető helyre, és a nála nagyobbakat eggyel
+            eltoljuk.
+          </p>
+          <br />
         </div>
-        <div class="modal-body">
-            <pre class="line-numbers">
+
+        <div class="smallContainer">
+          <button
+            onclick="location.href='index.html'"
+            type="button"
+            class="example_b"
+          >
+            feladatok
+          </button>
+
+          <!-- Button trigger modal -->
+          <div class="container3">
+            <button
+              type="button"
+              class="example_b"
+              data-toggle="modal"
+              data-target="#exampleModalScrollable"
+            >
+              C kód
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModalScrollable"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalScrollableTitle"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-scrollable modal-lg"
+                role="document"
+              >
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">
+                      Beszúrásos rendezés megoldása C nyelvben
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <pre class="line-numbers">
                 <code class="language-clike">
 //<b>C program a beszúrásos rendezésre</b>
 
@@ -81,57 +117,96 @@ int main(){
 <a href="https://www.tutorialspoint.com/c-program-for-recursive-insertion-sort" target="_blank">Forrás</a>
                 </code>
              </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- container3 -->
+
+          <div class="container3">
+            <canvas
+              id="canvas10"
+              style="background: url(images/nemtudom.png)"
+            ></canvas>
+          </div>
+
+          <div class="container3">
+            <input
+              id="stepFrwd"
+              type="submit"
+              class="example_b"
+              name="button"
+              value="előrelépés"
+            />
+            <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+            <input
+              id="startAnim"
+              type="submit"
+              class="example_b"
+              name="button"
+              value="start"
+            />
+            <input
+              id="resetAnim"
+              type="submit"
+              class="example_b"
+              name="button"
+              value="reset"
+            />
+            <div class="example_b">
+              <input
+                type="range"
+                min="1"
+                max="10"
+                value="3"
+                class="slider"
+                id="myRange"
+              />
+            </div>
+          </div>
+
+          <div class="container3">
+            <p>
+              <output id="proba1">Lépések:</output>
+              <label id="label1">1. lépés: előre</label>
+            </p>
+          </div>
+        </div>
+        <!-- smallContainer -->
+
+        <div class="smallContainer">
+          <br />
+          <details>
+            <summary><b>A kód magyarázata</b><br /><br /></summary>
+
+            <p>
+              Rekurzívan hívjuk meg a recursiveInsertionSort() függvényt az n-1
+              elemű tömb rendezéséhez az aktuális iterációhoz képest. Ezután
+              ebbe a rendezett tömbbe, amelyet a függvény visszaad, beillesztjük
+              az n-edik elemet a rendezett tömbben elfoglalt helyére.
+            </p>
+            <br />
+          </details>
         </div>
       </div>
     </div>
-  </div>
-  </div><!-- container3 -->
-
-  <div class="container3">
-  <canvas id="canvas10" style="background: url(images/nemtudom.png)"></canvas>
-  </div>
-
-  <div class="container3">
-    <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-    <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
-    <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
-    <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
-    <div class="example_b">
-      <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
-    </div>
-  </div>
-
-  <div class="container3">
-    <p> <output id="proba1">Lépések:</output>
-      <label id="label1">1. lépés: előre</label></p>
-  </div>
-
-    </div> <!-- smallContainer -->
-
-
-      <div class="smallContainer"><br>
-        <details>
-           <summary>
-                
-        <b>A kód magyarázata</b><br><br>
-            </summary>
-      
-            <p>
-              Rekurzívan hívjuk meg a recursiveInsertionSort() függvényt az n-1 elemű tömb rendezéséhez az aktuális iterációhoz képest. 
-              Ezután ebbe a rendezett tömbbe, amelyet a függvény visszaad, beillesztjük az n-edik elemet a rendezett tömbben elfoglalt helyére.
-            </p><br>
-      
-          </details>
-        </div>
-
-
-    </div>
-  </div>
     <script src="javaScript/10.feladat.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

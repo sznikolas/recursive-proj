@@ -1,33 +1,31 @@
-*{
+* {
   margin: 5px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-::selection{
+::selection {
   background: #414042;
   color: rgb(128, 209, 241);
 }
-html,body{
+html,
+body {
   display: grid;
   height: 100%;
   place-items: center;
-/*   előző szín
+  /*   előző szín
   background: #aca9ad; */
   background: rgb(41, 41, 41);
- 
 }
-.container{
+.container {
   max-width: 1500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
-  
-  
 }
-.container .box{
+.container .box {
   /* boxok beallitasa */
   width: calc(20% - 10px);
   /* background: rgb(88, 89, 100); */
@@ -40,40 +38,38 @@ html,body{
   border-radius: 25px;
 }
 
-.container .box .image{
-/* kis kép a feladatrol */
+.container .box .image {
+  /* kis kép a feladatrol */
   margin: 0px;
   height: 170px;
   width: 160px;
-
-
 }
-.box .image img{
-/* kis kepek */
+.box .image img {
+  /* kis kepek */
   height: 100%;
   width: 100%;
   border-radius: 5%;
   object-fit: cover;
   border: 2px solid #fff;
 }
-.box p{
-/* a feladat alatt a szoveg */
+.box p {
+  /* a feladat alatt a szoveg */
   text-align: center;
   margin-top: 5px;
   font-size: 15px;
   font-weight: 700;
   color: whitesmoke;
 }
-.box .exercises{
-/* a feladat szoveg beallitasai */
+.box .exercises {
+  /* a feladat szoveg beallitasai */
   margin: 10px 0 3px 0;
   color: #f5d51e;
   font-size: 25px;
   font-weight: 600;
 }
 
-.btns{
-/* gombok beallitasai */
+.btns {
+  /* gombok beallitasai */
 
   margin-top: 10px;
   margin-bottom: 5px;
@@ -81,8 +77,8 @@ html,body{
   justify-content: space-between;
   width: 100%;
 }
-.btns button{
-/* gombok beallitasai */
+.btns button {
+  /* gombok beallitasai */
   background: #f5d51e;
   width: 100%;
   padding: 9px 0px;
@@ -95,35 +91,36 @@ html,body{
   color: #f5d51e;
   transition: all 0.3s linear;
 }
-.btns button:first-child{
-/* gombok beallitasai */
+.btns button:first-child {
+  /* gombok beallitasai */
   background: #093344;
   margin-right: 5px;
 }
-.btns button:last-child{
+.btns button:last-child {
   /* gombok beallitasai */
-    background: #093344;
-    margin-right: 5px;
-  }
+  background: #093344;
+  margin-right: 5px;
+}
 
 /* meretek igazitasa */
-@media (max-width:1045px){
-  .container .box{
+@media (max-width: 1045px) {
+  .container .box {
     width: calc(50% - 10px);
     margin-bottom: 20px;
   }
 }
-@media (max-width:710px){
-  .container .box{
+@media (max-width: 710px) {
+  .container .box {
     width: 100%;
   }
 }
 
-.footer{
+.footer {
   text-align: center;
   color: whitesmoke;
 }
 
-h1, h2{
+h1,
+h2 {
   color: whitesmoke;
 }

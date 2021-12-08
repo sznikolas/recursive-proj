@@ -36,8 +36,8 @@ let buttonState = "START";
 
 let isAllowed = false;
 
-const knight = new Image();
-knight.src = "images/Rat.png";
+const rat = new Image();
+rat.src = "images/Rat.png";
 
 //canvas1
 let myAnim;
@@ -45,28 +45,128 @@ let myAnim;
 
 //canvas1
 function animate(){
-    //c.fillStyle = 'rgb(62, 96, 150)';
+    c.fillStyle = '#093344';
 
 
     //0
     if (counter === 1) {
-        c.drawImage(knight,0,0);
+        c.drawImage(rat,0,0);
 
     };
     //1
     if (counter === 2) {
-        c.drawImage(knight,180,180);
+        c.clearRect(0,0,90,90);
+        c.drawImage(rat,0,90);
        // c.fillRect(5,5,80,80);
 
     };
 
     if (counter === 3) {
-        c.drawImage(knight,90,270);      
+        c.fillRect(5,95,80,80);
+        c.drawImage(rat,90,90);      
+    };
+
+    if (counter === 4) {
+        c.fillRect(95,95,80,80);
+        c.drawImage(rat,90,180);      
+
+    };
+
+    if (counter === 5) {
+        c.fillRect(95,185,80,80);
+        c.drawImage(rat,90,270);      
+
+    };
+
+    if (counter === 6) {
+        c.fillRect(95,275,80,80);
+        c.drawImage(rat,90,360);      
+
+    };
+
+    if (counter === 7) {
+        c.fillRect(95,365,80,80);
+        c.drawImage(rat,180,360);      
+
+    };
+
+    if (counter === 8) {
+        c.fillRect(185,365,80,80);
+        c.drawImage(rat,90,360);      
+
+    };
+
+    if (counter === 9) {
+        c.fillRect(95,365,80,80);
+        c.drawImage(rat,90,270);      
+
+    };
+
+    if (counter === 10) {
+        c.fillRect(95,275,80,80);
+        c.drawImage(rat,0,270);      
+
+    };
+
+    if (counter === 11) {
+        c.fillRect(5,275,80,80);
+        c.drawImage(rat,90,270);      
+
+    };
+
+    if (counter === 12) {
+        c.fillRect(95,275,80,80);
+        c.drawImage(rat,90,180);      
+
+    };
+
+    if (counter === 13) {
+        c.fillRect(95,185,80,80);
+        c.drawImage(rat,90,90);      
+
+    };
+
+    if (counter === 14) {
+        c.fillRect(95,95,80,80);
+        c.drawImage(rat,180,90);      
+
+    };
+
+    if (counter === 15) {
+        c.fillRect(185,95,80,80);
+        c.drawImage(rat,270,90);      
+
+    };
+
+    if (counter === 16) {
+        c.fillRect(275,95,80,80);
+        c.drawImage(rat,270,180);      
+
+    };
+
+    if (counter === 17) {
+        c.fillRect(275,185,80,80);
+        c.drawImage(rat,270,270);      
+
+    };
+
+    if (counter === 18) {
+        c.fillRect(275,275,80,80);
+        c.drawImage(rat,360,270);      
+
+    };
+
+    if (counter === 19) {
+        c.fillRect(365,275,80,80);
+        c.drawImage(rat,360,360);      
 
     };
 
 
-    //c.drawImage(knight,corX[counter],corY[counter]);
+
+
+
+    //c.drawImage(rat,corX[counter],corY[counter]);
     myAnim = requestAnimationFrame(animate); 
 }
 myAnim = requestAnimationFrame(animate);
@@ -76,11 +176,11 @@ animate();
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
-    szoveg.innerText = parapa[counter];   
+    //szoveg.innerText = parapa[counter];   
     counter++; 
-     if(counter >=34){
+/*      if(counter >=34){
         szoveg.innerText = parapa[counter]="35. lépés: Az N királynőt sikeresen lehelyeztük!";
-    } 
+    }  */
 }
 
 
@@ -88,10 +188,10 @@ document.getElementById('stepFrwd').onclick = function(){
 document.getElementById('resetAnim').onclick = function(){
     isAllowed = false;
     c.clearRect(0,0,canvas.width, canvas.height);
-    c.drawImage(knight,0,0);
+    c.drawImage(rat,0,0);
     counter = 1;
     //label resetelese
-    document.getElementById("label1").innerHTML = "1. lépés: előre";
+    //document.getElementById("label1").innerHTML = "1. lépés: előre";
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
     buttonState="START";  
@@ -108,20 +208,29 @@ const startAnim = async () => {
             
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                szoveg.innerText = parapa[counter];  
-                //c.drawImage(knight,corX[counter],corY[counter]);
+                //szoveg.innerText = parapa[counter];  
+                //c.drawImage(rat,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
             }
-            if(counter >=34){
+/*             if(counter >=34){
                 szoveg.innerText = parapa[counter]="35. lépés: Az N királynőt sikeresen lehelyeztük!";
-            }  
+            }  */ 
         }
     }
 // A várakozáshoz szükséges constans
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve,delay))   
 
 
+
+/*  visszalepesek..
+    document.getElementById('stepPrev').onclick = function(){
+    c.beginPath();  
+    c.clearRect(corX[counter],corY[counter],90, 90);
+    counter--;
+    //uj a sarga kockakhoz
+    alrdyCounter--;
+} */
 
 
 /* document.getElementById('stopBtn').onclick = function(){
