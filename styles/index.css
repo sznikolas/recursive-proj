@@ -3,20 +3,31 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+
 }
-::selection {
+/* ::selection {
   background: #414042;
   color: rgb(128, 209, 241);
-}
+} */
+
 html,
 body {
   display: grid;
   height: 100%;
+  width: 99.7%;
   place-items: center;
   /*   előző szín
   background: #aca9ad; */
   background: rgb(41, 41, 41);
 }
+
+/* 
+body {
+  background: rgb(41, 41, 41);
+  background-image: url("/images/hatterp6.png");
+  background-repeat: no-repeat; 
+} */
+
 .container {
   max-width: 1500px;
   display: flex;
@@ -24,6 +35,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
+  
 }
 .container .box {
   /* boxok beallitasa */
@@ -43,6 +55,7 @@ body {
   margin: 0px;
   height: 170px;
   width: 160px;
+  
 }
 .box .image img {
   /* kis kepek */

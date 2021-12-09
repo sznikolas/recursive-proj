@@ -160,6 +160,7 @@ body {
   width: auto;
   /* background: rgb(191, 194, 193); */
   background: rgb(191, 194, 193);
+  background: rgb(207, 198, 182);
 
   border-radius: 20px;
   margin: 20px;
@@ -315,3 +316,5 @@ label {
 .bigContainer {
   padding: 20px;
 }
+
+

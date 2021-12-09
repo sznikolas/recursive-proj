@@ -7,7 +7,6 @@
     <title>Mgr munka</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/osszes.css">
-    <link rel="stylesheet" href="styles/5.feladat.css">
 
 
 </head>
@@ -87,11 +86,8 @@ void towerOfHanoi(int num, char A_rod, char C_rod, char B_rod)
   </div><!-- container3 -->
   
 
-    <div id="message"></div>
-    <div id="towers">
-       <ul class="tower" data-tower="0"></ul>
-       <ul class="tower" data-tower="1"></ul>
-       <ul class="tower" data-tower="2"></ul>
+  <div class="container3">
+    <canvas id="canvas5" style="background: url(images/hanoiTornyok3.png)"></canvas>
     </div>
 <!--     <div id="buttons">
        <div class="solve">start</div>
@@ -106,9 +102,9 @@ void towerOfHanoi(int num, char A_rod, char C_rod, char B_rod)
       <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
       <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
       <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
-<!--       <div class="example_b">
+      <div class="example_b">
           <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
-        </div> -->
+        </div>
       </div>
     </div>
 
