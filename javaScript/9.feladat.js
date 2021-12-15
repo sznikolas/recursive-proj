@@ -15,9 +15,7 @@ let parapa = ["", "2. lépés: ", "3. lépés: ", "4. lépés: ","5. lépés: ",
 "32. lépés: ","33. lépés: ","34. lépés: ","35. lépés: ","36. lépés: ","37. lépés: ","38. lépés: A sorbarendezés sikeres"];
 
 let counter = 1;
-
 let buttonState = "START";
-
 let isAllowed = false;
 
 // int arr[] = { 3, 5, 8, 4, 1, 9, -2 };
@@ -29,6 +27,7 @@ const bubble5 = new Image();
 const bubble8 = new Image();
 const bubble9 = new Image();
 const bubble10 = new Image();
+
 
 const bubblee = new Image();
 
@@ -51,13 +50,14 @@ let myAnim;
 function animate(){
     //00
     if (counter === 1) {
+        
         c.drawImage(bubble10,80,80); 
         c.drawImage(bubble5,130,80);
         c.drawImage(bubble8,180,80);
         c.drawImage(bubble4,230,80);
         c.drawImage(bubble1,280,80);
         c.drawImage(bubble9,330,80);
-        c.drawImage(bubble3,380,80);
+        c.drawImage(bubble3,380,80); 
 
     
 

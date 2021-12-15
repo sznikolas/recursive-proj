@@ -31,17 +31,6 @@ Egy 8x8-as táblán, nyitott körúttal a megoldások száma: 19 591 828 170 979
  <br>
 </div>
 
-<div class="smallContainer"><p><br>
- <b>Az algoritmus leírása:</b><br><br>Ha minden négyzetet meglátogattunk, akkor írjuk ki a megoldást
- <br><br>Máskülönben(else)
- <br><br>Adjuk hozzá a következő lépések egyikét a megoldási vektorhoz, és rekurzívan ellenőrizzük, hogy ez a lépés megoldáshoz vezet-e. 
- (Egy huszár legfeljebb nyolc lépést tehet. Ebben a lépésben a 8 lépés közül választunk egyet).
- <br><br>Ha a fenti lépésben kiválasztott lépés nem vezet megoldáshoz, akkor távolítsuk el ezt a lépést a megoldási vektorból, 
- és próbálkozzunk más alternatív lépésekkel.
- <br><br>Ha egyik alternatíva sem működik, akkor adjuk vissza a false-t (A false visszaadása eltávolítja a rekurzióban korábban 
- hozzáadott elemet, és ha a rekurzió kezdeti hívása false-t ad vissza, akkor "nincs megoldás").</p>
- <br>
-</div>
 
 <div class="smallContainer">
     <button onclick="location.href='index.html'" type="button" class="example_b">feladatok</button>
@@ -173,7 +162,7 @@ int main()
 
     <div class="container3">
     <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-    <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/>
+    <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
     <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
     <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
     <div class="example_b">
@@ -181,7 +170,34 @@ int main()
       </div>
     </div>
 
+    
+
 </div>
+
+<div class="smallContainer"><br>
+    <details>
+        <summary>
+<b>Az algoritmus leírása:</b><br><br>
+        </summary>
+        <p>
+Ha minden négyzetet meglátogattunk, akkor írjuk ki a megoldást
+<br>Máskülönben(else)
+<br><br>a) Adjuk hozzá a következő lépések egyikét a megoldási vektorhoz, és rekurzívan ellenőrizzük, hogy ez a lépés megoldáshoz vezet-e. (Egy huszár legfeljebb nyolc irányba tehet lépést. Ebben a lépésben a 8 lépés közül választunk egyet).
+
+<br><br>b) Ha a fenti lépésben kiválasztott lépés nem vezet megoldáshoz, akkor távolítsuk el ezt a lépést a megoldási vektorból, és próbálkozzunk más alternatív lépésekkel.
+
+<br><br>c) Ha egyik alternatíva sem működik, akkor adjuk vissza a false-t (A false visszaadása eltávolítja a rekurzióban korábban hozzáadott elemet, és ha a rekurzió kezdeti hívása false-t ad vissza, akkor "nincs megoldás").<br><br>
+x -> oszlop<br>
+y -> sor
+        </p>
+
+        <div class="container3">
+            <img src="images/KnightLepesek2.png">
+        </div> <br>
+</details>
+</div>
+
+
 </div>
 </div>
 

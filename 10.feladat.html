@@ -1,212 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mgr munka</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="styles/osszes.css" />
-  </head>
-  <body>
-    <div class="bigContainer">
-      <div class="box02">
-        <h1>Beszúrásos rendezés - Insertion sort</h1>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/osszes.css">
 
-        <div class="smallContainer">
-          <br />
-          <p>
-            <b>Feladat leírása:</b> Legegyszerűbb formája az egyenes beszúrásos
-            rendezési algoritmus egy tömb elemeinek sorba rendezésére. Az
-            algoritmus k-adik lépése előtt az első k-1 elem már rendezett; a
-            lépés során a k-adik elemet beszúrjuk az első k-1 elem közé az őt
-            nagyság szerint megillető helyre, és a nála nagyobbakat eggyel
-            eltoljuk.
-          </p>
-          <br />
-        </div>
 
-        <div class="smallContainer">
-          <button
-            onclick="location.href='index.html'"
-            type="button"
-            class="example_b"
-          >
-            feladatok
+</head>
+<body>
+    
+  <div class="bigContainer">
+ 
+    <div class="box02">
+
+    <h1>Rúdvágás probléma - Rod cutting problem</h1>
+    <div class="smallContainer"><p><br> 
+    <p><b>Feladat leírása:</b> Adott egy n hüvelyk hosszúságú rúd és egy ártömb, amely tartalmazza az n-nél kisebb méretű darabok árait. 
+      Határozza meg a rúd feldarabolásával és a darabok eladásával elérhető maximális értéket. Például, ha a rúd hossza 8, 
+      és a különböző darabok értékei a következők, akkor a maximálisan elérhető érték 22 (két 2 és 6 hosszúságú darab feldarabolásával)
+        <br>length| 1 &emsp;  2  &emsp; 3 &emsp;  4&emsp;   5 &emsp;&ensp;  6 &emsp;&ensp;  7&emsp;&ensp;  8  
+<br>---------------------------------------------------------
+<br>price|&ensp; 1 &emsp;  5 &emsp;  8 &emsp;  9  &emsp;10 &emsp; 17&emsp;  17&emsp;  20 </p><br>
+</div>
+
+
+<div class="smallContainer">
+
+    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
+    
+<!-- Button trigger modal -->
+<div class="container3">
+<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
+    C kód</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Rúdvágás probléma megoldása C nyelvben</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
           </button>
-
-          <!-- Button trigger modal -->
-          <div class="container3">
-            <button
-              type="button"
-              class="example_b"
-              data-toggle="modal"
-              data-target="#exampleModalScrollable"
-            >
-              C kód
-            </button>
-
-            <!-- Modal -->
-            <div
-              class="modal fade"
-              id="exampleModalScrollable"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalScrollableTitle"
-              aria-hidden="true"
-            >
-              <div
-                class="modal-dialog modal-dialog-scrollable modal-lg"
-                role="document"
-              >
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">
-                      Beszúrásos rendezés megoldása C nyelvben
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <pre class="line-numbers">
+        </div>
+        <div class="modal-body">
+            <pre class="line-numbers">
                 <code class="language-clike">
-//<b>C program a beszúrásos rendezésre</b>
+//<b>C program a rúdvágás problémára</b>
 
 #include &lt;stdio.h&gt;
-
-//<b>Rekurzív függvény a beszúrásos rendezéshez</b>
-void recursiveInsertionSort(int arr[], int n){
-    if (n &lt;= 1)
-      return;
-    recursiveInsertionSort( arr, n-1 );
-    int nth = arr[n-1];
-    int j = n-2;
-    while (j &gt;= 0 &amp;&amp; arr[j] &gt; nth){
-      arr[j+1] = arr[j];
-      j--;
-    }
-    arr[j+1] = nth;
+#include &lt;stdlib.h&gt;
+  
+int max(int a, int b)
+{
+  return (a &gt; b) ? a : b;
 }
-//<b>main függvény</b>
-int main(){
-    //<b>a rendezetlen tömbb megadása</b>
-    int array[] = {34, 7, 12, 90, 51};
-    int n = sizeof(array)/sizeof(array[0]);
-    printf("Rendezetlen tömbb:\t");
-      for (int i=0; i &lt; n; i++)
-    printf("%d ",array[i]);
-
-      recursiveInsertionSort(array, n);
-    printf("\nRendezett tömb:\t");
-    for (int i=0; i &lt; n; i++)
-      printf("%d ",array[i]);
-    return 0;
+  
+//<b>Globális tömb a memoizálás céljából</b>
+int t[9][9];
+  
+/*<b>Egy rekurzív program, amely a memoizálás 
+segítségével valósítja meg a rúdvágási 
+problémát (Top-Down)</b>*/
+int un_kp(int price[], int length[],
+                      int Max_len, int n)
+{
+  
+    /*<b>a maximális ár nulla lesz, ha vagy 
+      a rúd hossza nulla, vagy az ár nulla</b>*/
+    if (n == 0 || Max_len == 0)
+    {
+        return 0;
+    }
+  
+    /*<b>Ha a rúd hossza kisebb, mint a maximális hossz, 
+      a Max_len figyelembe veszi.Most a nyereségtől 
+      függően a Max_len vagy elfogadja, vagy elveti.</b>*/
+    if (length[n - 1] &lt;= Max_len)
+    {
+        t[n][Max_len]
+            = max(price[n - 1]
+                      + un_kp(price, length,
+                              Max_len - length[n - 1], n),
+                  un_kp(price, length, Max_len, n - 1));
+    }
+  
+    /*<b>Ha a rúd hossza nagyobb, mint a megengedett méret,
+      Max_len, akkor nem vesszük figyelembe.</b>*/
+    else
+    {
+        t[n][Max_len]
+            = un_kp(price, length,
+                              Max_len, n - 1);
+    }
+  
+    /*<b>A Max_len a kapott maximális értéket adja vissza, 
+      Max_len, amely a Max_len oszlopban található.</b>*/
+    return t[n][Max_len];
+}
+  
+/*<b>program a fenti funkciók tesztelésére</b>*/
+int main()
+{
+    int price[] = { 1, 5, 8, 9, 10, 17, 17, 20 };
+    int n = sizeof(price) / sizeof(price[0]);
+    int length[n];
+    for (int i = 0; i &lt; n; i++)
+    {
+        length[i] = i + 1;
+    }
+    int Max_len = n;
+  
+    //<b>Függvény hívás</b>
+    printf("A maximális kapott érték %d \n",
+            un_kp(price, length, n, Max_len));
 }
 <br>
-<a href="https://www.tutorialspoint.com/c-program-for-recursive-insertion-sort" target="_blank">Forrás</a>
+<a href="https://www.geeksforgeeks.org/cutting-a-rod-dp-13/" target="_blank">Forrás</a>
                 </code>
              </pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- container3 -->
-
-          <div class="container3">
-            <canvas
-              id="canvas10"
-              style="background: url(images/nemtudom.png)"
-            ></canvas>
-          </div>
-
-          <div class="container3">
-            <input
-              id="stepFrwd"
-              type="submit"
-              class="example_b"
-              name="button"
-              value="előrelépés"
-            />
-            <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
-            <input
-              id="startAnim"
-              type="submit"
-              class="example_b"
-              name="button"
-              value="start"
-            />
-            <input
-              id="resetAnim"
-              type="submit"
-              class="example_b"
-              name="button"
-              value="reset"
-            />
-            <div class="example_b">
-              <input
-                type="range"
-                min="1"
-                max="10"
-                value="3"
-                class="slider"
-                id="myRange"
-              />
-            </div>
-          </div>
-
-          <div class="container3">
-            <p>
-              <output id="proba1">Lépések:</output>
-              <label id="label1">1. lépés: előre</label>
-            </p>
-          </div>
-        </div>
-        <!-- smallContainer -->
-
-        <div class="smallContainer">
-          <br />
-          <details>
-            <summary><b>A kód magyarázata</b><br /><br /></summary>
-
-            <p>
-              Rekurzívan hívjuk meg a recursiveInsertionSort() függvényt az n-1
-              elemű tömb rendezéséhez az aktuális iterációhoz képest. Ezután
-              ebbe a rendezett tömbbe, amelyet a függvény visszaad, beillesztjük
-              az n-edik elemet a rendezett tömbben elfoglalt helyére.
-            </p>
-            <br />
-          </details>
         </div>
       </div>
     </div>
+  </div>
+</div><!-- container3 -->
+
+    <div class="container3">
+    <canvas id="canvas10" style="background: url(images/nemtudom.png)"></canvas>
+    </div><!-- container3 -->
+
+    <div class="container3">
+    <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
+    <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+    <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
+    <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
+
+      <div class="example_b">
+        <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
+      </div>
+      </div><!-- container3 -->
+
+
+      <div class="container3">
+        <p> <output id="proba1">Lépések:</output>
+          <label id="label1">1. lépés: előre</label></p>
+      </div>
+
+    </div> <!-- smallContainer -->
+
+      <div class="smallContainer"><br>
+        <details>
+           <summary>
+                
+        <b>A kód magyarázata</b><br><br>
+            </summary>
+      
+            <p>
+              blabla
+            </p><br>
+      
+          </details>
+        </div>
+
+        
+    </div>
+  </div>
+
     <script src="javaScript/10.feladat.js"></script>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
 </html>
