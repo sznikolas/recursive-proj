@@ -6,30 +6,45 @@ canvas.height  = 450;
 
 let counter = 1;
 
-let parapa = ["", "2. lépés: ", "3. lépés: ", "4. lépés: ","5. lépés: ","6. lépés: ","7. lépés: ","8. lépés: ",
-"9. lépés: ","10. lépés: ","11. lépés: ","12. lépés: ","13. lépés: ","14. lépés: ","15. lépés: ","16. lépés: ","17. lépés: ",
-"18. lépés: ","19. lépés: ","20. lépés: ","21. lépés: ","22. lépés: ",
+let parapa = ["Tudunk lépni lefelé? -Igen",
 
-"23. lépés: ","24. lépés: ","25. lépés: ",
-"26. lépés: ",
-"27. lépés: ", "29. lépés: ", "30. lépés: ","31. lépés: ",
-"32. lépés: ","33. lépés: ","34. lépés: ","35. lépés: Az N királynőt sikeresen lehelyeztük!"];
+"lépés lefelé ", "Tudunk lépni lefelé? - Nem", 
 
+"Tudunk lépni jobbra? - Igen","lépés jobbra",
 
+"Tudunk lépni lefelé? - Igen","lépés lefelé ",
 
-/* //második canvas
-let canvas2 = document.getElementById('canvas1_2');
-let c2 = canvas2.getContext('2d');
-canvas2.width = 360;
-canvas2.height  = 360;
+"Tudunk lépni lefelé? - Igen","lépés lefelé ",
 
-let counter2 = 0;
-let alrdyCounter=0;
-let corX = [0,90,180,360,270,   90,180,0,90,270,    360,270,90,0,180,   360,270,90,0,180,   360,270,360,180,0];
-let corY = [0,180,360,270,90,   0,180,270,90,0,     180,360,270,90,0,   90,270,360,180,90,  0,180,360,270,360];
+"Tudunk lépni lefelé? - Igen","lépés lefelé ",
 
-let alrdyX = [0+5,90+5,180+5,360+5,270+5,   90+5,180+5,0+5,90+5,270+5,    360+5,270+5,90+5,0+5,180+5,   360+5,270+5,90+5,0+5,180+5,   360+5,270+5,360+5,180+5,]; 
-let alrdY = [0+5,180+5,360+5,270+5,90+5,   0+5,180+5,270+5,90+5,0+5,     180+5,360+5,270+5,90+5,0+5,   90+5,270+5,360+5,180+5,90+5,  0+5,180+5,360+5,270+5,]; */
+"Tudunk lépni lefelé? - Nem", "Tudunk lépni jobbra? - Igen", "lépés jobbra",
+
+"Tudunk lépni lefelé? - Nem", "Tudunk lépni jobbra? - Nem", "Tudunk lépni felfelé? - Nem", "Tudunk lépni balra? - Nem", "BACKTRACK",
+
+"Tudunk lépni felfelé? - Nem", "Tudunk lépni balra? - Nem", "BACKTRACK",
+
+"Tudunk lépni jobbra? - Nem", "Tudunk lépni felfelé? - Nem", "Tudunk lépni balra? - Igen", "lépés balra",
+
+"Tudunk lépni lefelé? - Nem", "Tudunk lépni jobbra? - Nem", "Tudunk lépni felfelé? - Nem", "Tudunk lépni balra? - Nem", "BACKTRACK",
+
+ "BACKTRACK",
+
+ "Tudunk lépni jobbra? - Nem", "Tudunk lépni felfelé? - Nem", "Tudunk lépni balra? - Nem", "BACKTRACK",
+
+"Tudunk lépni jobbra? - Igen", "lépés jobbra",
+
+ "Tudunk lépni lefelé? - Nem", "Tudunk lépni jobbra? - Igen", "lépés jobbra",
+
+ "Tudunk lépni lefelé? -Igen", "lépés lefelé ",
+
+ "Tudunk lépni lefelé? -Igen", "lépés lefelé ",
+
+ "Tudunk lépni lefelé? - Nem", "Tudunk lépni jobbra? - Igen", "lépés jobbra",
+
+ "Tudunk lépni lefelé? -Igen", "lépés lefelé ",
+
+ "Az egér sikeresen megtalálta a kijáratot!",];
 
 
 let buttonState = "START";
@@ -61,102 +76,110 @@ function animate(){
 
     };
 
-    if (counter === 3) {
+    if (counter === 5) {
         c.fillRect(5,95,80,80);
         c.drawImage(rat,90,90);      
     };
 
-    if (counter === 4) {
+    if (counter === 7) {
         c.fillRect(95,95,80,80);
         c.drawImage(rat,90,180);      
 
     };
 
-    if (counter === 5) {
+    if (counter === 9) {
+        
         c.fillRect(95,185,80,80);
         c.drawImage(rat,90,270);      
 
     };
 
-    if (counter === 6) {
+    if (counter === 11) {
         c.fillRect(95,275,80,80);
         c.drawImage(rat,90,360);      
 
     };
 
-    if (counter === 7) {
+    if (counter === 14) {
         c.fillRect(95,365,80,80);
         c.drawImage(rat,180,360);      
 
     };
 
-    if (counter === 8) {
+    if (counter === 19) {
+
+        c.fillStyle ='#593181';
         c.fillRect(185,365,80,80);
         c.drawImage(rat,90,360);      
 
     };
 
-    if (counter === 9) {
+    if (counter === 22) {
+        c.fillStyle ='#593181';
         c.fillRect(95,365,80,80);
         c.drawImage(rat,90,270);      
 
     };
 
-    if (counter === 10) {
+    if (counter === 26) {
+        c.fillStyle ='#593181';
         c.fillRect(95,275,80,80);
         c.drawImage(rat,0,270);      
 
     };
 
-    if (counter === 11) {
+    if (counter === 31) {
+        c.fillStyle ='#593181';
         c.fillRect(5,275,80,80);
         c.drawImage(rat,90,270);      
 
     };
 
-    if (counter === 12) {
+    if (counter === 32) {
+        c.fillStyle ='#593181';
         c.fillRect(95,275,80,80);
         c.drawImage(rat,90,180);      
 
     };
 
-    if (counter === 13) {
+    if (counter === 36) {
+        c.fillStyle ='#593181';
         c.fillRect(95,185,80,80);
         c.drawImage(rat,90,90);      
 
     };
 
-    if (counter === 14) {
+    if (counter === 38) {
         c.fillRect(95,95,80,80);
         c.drawImage(rat,180,90);      
 
     };
 
-    if (counter === 15) {
+    if (counter === 41) {
         c.fillRect(185,95,80,80);
         c.drawImage(rat,270,90);      
 
     };
 
-    if (counter === 16) {
+    if (counter === 43) {
         c.fillRect(275,95,80,80);
         c.drawImage(rat,270,180);      
 
     };
 
-    if (counter === 17) {
+    if (counter === 45) {
         c.fillRect(275,185,80,80);
         c.drawImage(rat,270,270);      
 
     };
 
-    if (counter === 18) {
+    if (counter === 48) {
         c.fillRect(275,275,80,80);
         c.drawImage(rat,360,270);      
 
     };
 
-    if (counter === 19) {
+    if (counter === 50) {
         c.fillRect(365,275,80,80);
         c.drawImage(rat,360,360);      
 
@@ -176,11 +199,11 @@ animate();
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
-    //szoveg.innerText = parapa[counter];   
+    szoveg.innerText = parapa[counter];   
     counter++; 
-/*      if(counter >=34){
-        szoveg.innerText = parapa[counter]="35. lépés: Az N királynőt sikeresen lehelyeztük!";
-    }  */
+     if(counter >=50){
+        szoveg.innerText = parapa[counter]= "Az egér sikeresen megtalálta a kijáratot!";
+    } 
 }
 
 
@@ -191,7 +214,7 @@ document.getElementById('resetAnim').onclick = function(){
     c.drawImage(rat,0,0);
     counter = 1;
     //label resetelese
-    //document.getElementById("label1").innerHTML = "1. lépés: előre";
+    document.getElementById("label1").innerHTML = "Tudunk lépni lefelé? - Igen";
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
     buttonState="START";  
@@ -203,19 +226,19 @@ document.getElementById('resetAnim').onclick = function(){
 const startAnim = async () => {
     // A lépések automatikus lejátszása várakozással (startAnim)
     let slider = document.getElementById('myRange');
-        for(var x = 0; x<=57; x++){
+        for(var x = 0; x<=51; x++){
  
             
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                //szoveg.innerText = parapa[counter];  
+                szoveg.innerText = parapa[counter];  
                 //c.drawImage(rat,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
             }
-/*             if(counter >=34){
+            if(counter >=51){
                 szoveg.innerText = parapa[counter]="35. lépés: Az N királynőt sikeresen lehelyeztük!";
-            }  */ 
+            }  
         }
     }
 // A várakozáshoz szükséges constans

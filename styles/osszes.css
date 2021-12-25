@@ -31,6 +31,30 @@
   right: 0;
 }
 
+
+#canvas1_3 {
+  border: 2px solid black;
+  background-color: #615d5d;
+  display: block;
+  position: relative;
+  top: 0px;
+  bottom: 0;
+  left: 10px;
+  right: 0;
+}
+
+#canvas1_4 {
+  border: 2px solid black;
+  background-color: #615d5d;
+  display: block;
+  position: relative;
+  top: 0px;
+  bottom: 0;
+  left: 10px;
+  right: 0;
+}
+
+
 #canvas2 {
   border: 2px solid black;
   background-color: #615d5d;
@@ -265,20 +289,51 @@ p {
 }
 
 /*Az 1.1 feladatnál az output*/
-output {
-  /* display: inline-flex; */
-  display: initial;
+Output {
+
   margin-left: 0px;
-  margin-top: 20px;
-  font-size: 17px;
+  margin-top: 0px;
+  font-size: 20px;
   font-weight: bolder;
 }
+
+.lepesek
+{
+  color: rgb(0, 0, 0);
+  display: block; 
+    margin: 0 auto;
+ 
+}
+.lepesekLeirasa{
+ /* display: inline-block;
+  color: #a30000;
+   max-width: 50%;
+  margin: 0 auto; */
+  
+  max-width: 650px;
+  margin-left: 0px;
+  margin-top: 0px;
+  font-size: 20px;
+}
+
+
+
+
+li {
+  color: rgb(0, 0, 0);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+
+
 /*Az 1.1 feladatnál a label*/
 label {
-  font-size: 18px;
-  font-weight: normal;
+  font-size: 28px;
+  font-weight: bold;
   color: #a30000;
-  margin-left: 0px;
+  margin-top: 5px;
+  
 }
 
 .mellett {
@@ -299,7 +354,7 @@ label {
 .container3 {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 /*Az 1.1 feladatnál a kék container ami mar nincs*/

@@ -152,7 +152,9 @@ int main()
     <div class="container3">
         <canvas id="canvas2" style="background: url(images/ratInMaze2_palya.png)"></canvas>
         </div>
-    
+        <output class="lepesek"style="display: block; width:100%; text-align:center;">Lépések:  
+            <label id="label1" class="lepesekLeirasa">Tudunk lépni lefelé? - Igen</label></output>  
+
         <div class="container3">
             <div id="buttons">
             <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
@@ -164,11 +166,16 @@ int main()
               </div>
             </div>
           </div>
-      
-          <div class="container3">
-            <p> <output id="proba1">Lépések:</output>
-             <label id="label1">1. lépés: előre</label></p>
-            </div>
+          <ul>  
+            <li>Ellenőrizzük az aktuális cellát, ha ez a célcella, akkor a rejtvény megoldódott.</li>
+            <li>Ha nem, akkor megpróbálunk lefelé haladni, és megnézzük, hogy a lefelé lévő cellába 
+                tudunk-e lépni vagy sem (ahhoz, hogy egy cellába léphessünk, annak üresnek kell lennie, és nem lehet már jelen az útvonalban).</li>
+            <li>Ha tudunk oda lépni, akkor folytatjuk a megtett utat a következő lefelé eső cellába.</li>
+            <li>Ha nem, akkor megpróbálunk a jobbra lévő cellába lépni. Ha pedig az blokkolt vagy foglalt, akkor felfelé fogunk mozogni.</li>
+            <li>Hasonlóképpen, ha szintén nem tudunk felfelé mozogni, akkor egyszerűen a bal oldali cellába megyünk.</li>
+            <li>Ha a négy mozgás (lefelé, jobbra, felfelé vagy balra) egyike sem lehetséges, akkor egyszerűen visszamegyünk, és megváltoztatjuk az aktuális pályánkat (backtracking).</li>
+            </ul> <br>
+    
 </div>
 
 

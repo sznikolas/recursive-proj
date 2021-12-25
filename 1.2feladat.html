@@ -20,10 +20,13 @@
     <b>Feladat leírása:</b> A huszárvándorlás-probléma, huszárkörút vagy sakktábla bejárása huszárral egy huszár lépéssorozata a sakktáblán, 
     amely alatt a huszár a tábla minden mezőjét pontosan <b>egyszer</b> érinti. Ha az utolsó mező megegyezik a kiinduló mezővel, a körút zárt, másképp a körút nyitott.
     <br>A sakktábla bejárása huszárral matematikai probléma. Olyan algoritmus létrehozása, mely megkeresi ezt a bejárást, ismert számítástechnikai feladat. 
-    A huszárkörút problémája különböző méretű sakktáblákon fennáll, nemcsak a 8×8-ason, sőt a szabálytalan (nem téglalap) alakú táblákon is.
-    <br><br>Az alábbiakban látható egy 5x5-ös sakktábla nyitott körútú bejárásának egyik megoldása, melyhez C nyelvben írt forráskódot is találunk. 
-    Egy 5x5-ös táblán, nyitott körúttal a megoldások száma: .... . Ez a probléma több különböző algoritmussal is megoldható, mi backtracking-et használtuk, 
-    ami egy brute-force alapú algoritmus.</p>
+    A huszárkörút problémája különböző méretű sakktáblákon fennáll, nemcsak a 8×8-ason, sőt a szabálytalan (nem téglalap) alakú táblákon is. Ez a probléma több különböző algoritmussal is megoldható, mi backtracking-et használtuk, 
+    ami egy brute-force alapú algoritmus.
+    <br><br>
+    Az alábbiakban találunk egy 3x3-as táblát, amiben nincs huszárkörút, viszont bemutatjuk a lépéseket és a BACKTRACKING-et a könnyebb megértés érdekében. 
+    Kisebb táblán könnyebben megérthető az algoritmus működése a backtracking és a rekurzió. Nagyobb táblán a backtracking miatt sokkal tovább tartana, azonban az algoritmus ezen is ugyanúgy keresi a huszárkörutat.<br>
+    A második animáció egy 5x5-ös sakktábla, amin egy nyitott körútú bejárást szemléltetünk BACKTRACKING nélkül, melyhez C nyelvben írt forráskódot is találunk. 
+    Egy 5x5-ös táblán, a megoldások száma 1728 féleképpen lehetséges, mi ezek közül az egyiket szemléltettük. </p>
      <br>
 </div>
 
@@ -151,27 +154,27 @@ int main()
         
 <div class="mellett">
             <div class="container3">
-            <output id="proba1">Backtrackinggel szemléltetve</output>
-            </div>
-    
-            <div class="container3">
-            <output id="proba1">Backtracking nélkül</output>    
-            </div>
+            <output id="proba1">3x3 backtrackinggel szemléltetve</output>
+            </div>          
         </div>
 
 
 <div class="mellett">
         <div class="container3">
-        <canvas id="canvas1_1" style="background: url(images/chessBoard.png)"></canvas>
+        <canvas id="canvas1_3" style="background: url(images/chessBoard2.png)"></canvas>
         </div>
 
-        <div class="container3">
-            <canvas id="canvas1_2" style="background: url(images/chessBoard.png)"></canvas>
-        </div>
+        
     </div>
 
-    <div class="mellett">
+    <!-- <div class="container3"></div> -->
+        <output class="lepesek"style="display: block; width:100%; text-align:center;">Lépések:  
+         <label id="label1" class="lepesekLeirasa">lépés 1 nem lehetséges, próbáljuk a következőt</label></output>  
+        
+        
+    
         <div class="container3">
+            <div id="buttons">
         <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
         <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
         <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
@@ -180,24 +183,41 @@ int main()
             <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
           </div>
         </div>
+        </div>       
     
 
-          
+    
+            <ul>  
+            <li>Minden pozícióban kipróbáljuk a lehetséges lépéseket, hogy találjunk egy érvényeset.</li>
+            <li>Ha találunk érvényes lépést, akkor a huszárt arra a pozícióra visszük.</li>
+            <li>Ha nem találunk ilyen érvényes lépést, akkor BACKTRACK, és megpróbálunk más érvényes lépést találni azok közül, amit még nem próbáltunk a 8 lépés közül.</li>
+            <li>PL.: Ha 1,2,3,4 lépést próbáltuk, akkor 5,6,7,8 közül próbálunk keresni.</li>
+            </ul> 
+        
+        
+    
 
-            <div class="container3">
-            <input id="stepFrwd2" type="submit" class="example_b" name="button" value="előrelépés"/>
-            <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
-            <input id="startAnim2" type="submit" class="example_b" name="button" value="start"/>
-            <input id="resetAnim2" type="submit" class="example_b" name="button" value="reset"/>
-            <div class="example_b">
-                <input type="range" min="1" max="10" value="3" class="slider" id="myRange2">
-              
-            </div>
+    <div class="container3">
+        <output id="proba1">5x5 backtracking megjelenítés nélkül</output>    
         </div>
-    </div> 
-    <p>Az első backtracking a 23. lépésnél kezdődik</p>
-    <p> <output id="proba1">Lépések:</output>
-     <label id="label1">1. lépés: előre</label></p>
+
+    <div class="container3">
+        <canvas id="canvas1_4" style="background: url(images/chessBoard.png)"></canvas>
+    </div>
+    
+    <div class="container3">
+        <div id="buttons">
+        <input id="stepFrwd2" type="submit" class="example_b" name="button" value="előrelépés"/>
+        <!-- <input id="stepPrev2" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+        <input id="startAnim2" type="submit" class="example_b" name="button" value="start"/>
+        <input id="resetAnim2" type="submit" class="example_b" name="button" value="reset"/>
+        <div class="example_b">
+            <input type="range" min="1" max="10" value="3" class="slider" id="myRange2">
+          
+        </div>
+    </div>
+</div>
+
 
             </div><!-- smallcontainer -->
             
@@ -233,7 +253,7 @@ int main()
 
 
         
-    <script src="javaScript/1_1.feladat.js"></script>
+    <script src="javaScript/1.2feladat.js"></script>
     
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
