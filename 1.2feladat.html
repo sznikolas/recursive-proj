@@ -168,7 +168,7 @@ int main()
     </div>
 
     <!-- <div class="container3"></div> -->
-        <output class="lepesek"style="display: block; width:100%; text-align:center;">Lépések:  
+        <output class="lepesek"style="display: block; width:100%; text-align:center;"> 
          <label id="label1" class="lepesekLeirasa">lépés 1 nem lehetséges, próbáljuk a következőt</label></output>  
         
         
@@ -185,19 +185,17 @@ int main()
         </div>
         </div>       
     
-
-    
             <ul>  
             <li>Minden pozícióban kipróbáljuk a lehetséges lépéseket, hogy találjunk egy érvényeset.</li>
             <li>Ha találunk érvényes lépést, akkor a huszárt arra a pozícióra visszük.</li>
             <li>Ha nem találunk ilyen érvényes lépést, akkor BACKTRACK, és megpróbálunk más érvényes lépést találni azok közül, amit még nem próbáltunk a 8 lépés közül.</li>
             <li>PL.: Ha 1,2,3,4 lépést próbáltuk, akkor 5,6,7,8 közül próbálunk keresni.</li>
             </ul> 
-        
+        <br>
         
     
 
-    <div class="container3">
+<!--     <div class="container3">
         <output id="proba1">5x5 backtracking megjelenítés nélkül</output>    
         </div>
 
@@ -208,7 +206,7 @@ int main()
     <div class="container3">
         <div id="buttons">
         <input id="stepFrwd2" type="submit" class="example_b" name="button" value="előrelépés"/>
-        <!-- <input id="stepPrev2" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+        <input id="stepPrev2" type="submit" class="example_b" name="button" value="visszalépés"/>
         <input id="startAnim2" type="submit" class="example_b" name="button" value="start"/>
         <input id="resetAnim2" type="submit" class="example_b" name="button" value="reset"/>
         <div class="example_b">
@@ -216,7 +214,7 @@ int main()
           
         </div>
     </div>
-</div>
+</div> -->
 
 
             </div><!-- smallcontainer -->
@@ -242,6 +240,36 @@ int main()
                 <div class="container3">
                     <img src="images/KnightLepesek2.png">
                 </div> <br>
+    </details>
+        </div>
+
+<!-- 5x5 megjelenites nelkul  -->
+        <div class="smallContainer"><br>
+            <details>
+                <summary>
+    <b>5x5 backtracking megjelenítés nélkül</b><br><br>
+                </summary>
+                <p>
+                    <div class="container3">
+                        <output id="proba1">5x5 backtracking megjelenítés nélkül</output>    
+                        </div>
+                
+                    <div class="container3">
+                        <canvas id="canvas1_4" style="background: url(images/chessBoard.png)"></canvas>
+                    </div>
+                    
+                    <div class="container3">
+                        <div id="buttons">
+                        <input id="stepFrwd2" type="submit" class="example_b" name="button" value="előrelépés"/>
+                        <!-- <input id="stepPrev2" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+                        <input id="startAnim2" type="submit" class="example_b" name="button" value="start"/>
+                        <input id="resetAnim2" type="submit" class="example_b" name="button" value="reset"/>
+                        <div class="example_b">
+                            <input type="range" min="1" max="10" value="3" class="slider" id="myRange2">
+                          
+                        </div>
+                    </div>
+                </div>
     </details>
         </div>
   
