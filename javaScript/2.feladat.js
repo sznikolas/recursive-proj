@@ -23,7 +23,7 @@ let parapa = ["", "Helyezzük a második királynőt a 2. sorba úgy, hogy ne tu
 "(3,0) nem lehetséges","(3,1) nem lehetséges","(3,2) nem lehetséges","(3,3) nem lehetséges",
 "A 4. sorba elhelyezés nem lehetséges, ezért BACKTRACK a 3. sorba.",
 
-"Helyezze a harmadik királynőt egy másik biztonságos cellába a 3. sorban.",
+"Helyezze a harmadik királynőt a 3.sor egy másik biztonságos cellájába.",
 "(2,2) nem lehetséges","(2,3) nem lehetséges",
 
 "A 3. sorba elhelyezés nem lehetséges, ezért BACKTRACK a 2. sorba.", 
