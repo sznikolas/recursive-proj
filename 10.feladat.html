@@ -7,28 +7,25 @@
     <title>Mgr munka</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/osszes.css">
+    
 
 
 </head>
 <body>
-    
-  <div class="bigContainer">
+    <div class="bigContainer">
  
-    <div class="box02">
+        <div class="box02">
 
-    <h1>Rúdvágás probléma - Rod cutting problem</h1>
-    <div class="smallContainer"><p><br> 
-    <p><b>Feladat leírása:</b> Adott egy n hüvelyk hosszúságú rúd és egy ártömb, amely tartalmazza az n-nél kisebb méretű darabok árait. 
-      Határozza meg a rúd feldarabolásával és a darabok eladásával elérhető maximális értéket. Például, ha a rúd hossza 8, 
-      és a különböző darabok értékei a következők, akkor a maximálisan elérhető érték 22 (két 2 és 6 hosszúságú darab feldarabolásával)
-        <br>length| 1 &emsp;  2  &emsp; 3 &emsp;  4&emsp;   5 &emsp;&ensp;  6 &emsp;&ensp;  7&emsp;&ensp;  8  
-<br>---------------------------------------------------------
-<br>price|&ensp; 1 &emsp;  5 &emsp;  8 &emsp;  9  &emsp;10 &emsp; 17&emsp;  17&emsp;  20 </p><br>
+    <h1>Szúdoku - Sudoku</h1>
+
+    <div class="smallContainer"><br>
+    <p><b>Feladat leírása:</b> A sudoku egy 9x9-es mátrix, amely 1-től 9-ig terjedő számokkal van kitöltve oly módon, 
+        hogy minden sorban, oszlopban és almátrixban (3x3) minden egyes számjegy 1-től 9-ig szerepel. Kapunk egy részben 
+        kitöltött 9x9-es mátrixot, és minden megmaradt cellát ki kell töltenünk benne.</p>
+<br>
 </div>
 
-
 <div class="smallContainer">
-
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
     
 <!-- Button trigger modal -->
@@ -41,7 +38,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Rúdvágás probléma megoldása C nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Szúdoku megoldása C nyelvben</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -49,77 +46,137 @@
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-//<b>C program a rúdvágás problémára</b>
+//<b>C program a Szúdoku megoldására</b>
 
 #include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-  
-int max(int a, int b)
+
+#define SIZE 9
+
+//<b>Sudoku probléma</b>
+int matrix[9][9] = {
+    {6,5,0,8,7,3,0,9,0},
+    {0,0,3,2,5,0,0,0,8},
+    {9,8,0,1,0,4,3,5,7},
+    {1,0,5,0,0,0,0,0,0},
+    {4,0,0,0,0,0,0,0,2},
+    {0,0,0,0,0,0,5,0,3},
+    {5,7,8,3,0,1,0,2,6},
+    {2,0,0,0,4,8,9,0,0},
+    {0,9,0,6,2,5,0,8,1}
+};
+
+//<b>Függvény a sudoku kiíratására</b>
+void print_sudoku()
 {
-  return (a &gt; b) ? a : b;
+    int i,j;
+    for(i=0;i&lt;SIZE;i++)
+    {
+        for(j=0;j&lt;SIZE;j++)
+        {
+            printf("%d\t",matrix[i][j]);
+        }
+        printf("\n\n");
+    }
 }
-  
-//<b>Globális tömb a memoizálás céljából</b>
-int t[9][9];
-  
-/*<b>Egy rekurzív program, amely a memoizálás 
-segítségével valósítja meg a rúdvágási 
-problémát (Top-Down)</b>*/
-int un_kp(int price[], int length[],
-                      int Max_len, int n)
+
+
+/*<b>funkció annak ellenőrzésére, hogy minden cella ki van-e jelölve vagy sem.
+Ha van nem hozzárendelt cella, akkor ez a függvény megváltoztatja a cellák értékeit
+(sorok és oszlopok értékeit) ennek megfelelően</b>*/
+int number_unassigned(int *row, int *col)
 {
-  
-    /*<b>a maximális ár nulla lesz, ha vagy 
-      a rúd hossza nulla, vagy az ár nulla</b>*/
-    if (n == 0 || Max_len == 0)
+    int num_unassign = 0;
+    int i,j;
+    for(i=0;i&lt;SIZE;i++)
     {
-        return 0;
+        for(j=0;j&lt;SIZE;j++)
+        {
+            //<b>a cella nem hozzárendelt</b>
+            if(matrix[i][j] == 0)
+            {
+                //<b>a sorok és oszlopok értékek megváltoztatása</b>
+                *row = i;
+                *col = j;
+                //<b>létezik egy vagy több nem hozzárendelt cella</b>
+                num_unassign = 1;
+                return num_unassign;
+            }
+        }
     }
-  
-    /*<b>Ha a rúd hossza kisebb, mint a maximális hossz, 
-      a Max_len figyelembe veszi.Most a nyereségtől 
-      függően a Max_len vagy elfogadja, vagy elveti.</b>*/
-    if (length[n - 1] &lt;= Max_len)
-    {
-        t[n][Max_len]
-            = max(price[n - 1]
-                      + un_kp(price, length,
-                              Max_len - length[n - 1], n),
-                  un_kp(price, length, Max_len, n - 1));
-    }
-  
-    /*<b>Ha a rúd hossza nagyobb, mint a megengedett méret,
-      Max_len, akkor nem vesszük figyelembe.</b>*/
-    else
-    {
-        t[n][Max_len]
-            = un_kp(price, length,
-                              Max_len, n - 1);
-    }
-  
-    /*<b>A Max_len a kapott maximális értéket adja vissza, 
-      Max_len, amely a Max_len oszlopban található.</b>*/
-    return t[n][Max_len];
+    return num_unassign;
 }
-  
-/*<b>program a fenti funkciók tesztelésére</b>*/
+
+/*<b>funkció, amely ellenőrzi, hogy tudunk-e tenni
+egy értéket egy adott cellába vagy sem</b>*/
+int is_safe(int n, int r, int c)
+{
+    int i,j;
+    //<b>sorok ellenőrzése</b>
+    for(i=0;i&lt;SIZE;i++)
+    {
+        //<b>van egy cella ugyanazzal az értékkel</b>
+        if(matrix[r][i] == n)
+            return 0;
+    }
+    //<b>oszlopok ellenőrzése</b>
+    for(i=0;i&lt;SIZE;i++)
+    {
+        //<b>van egy cella, amelynek értéke egyenlő i-vel</b>
+        if(matrix[i][c] == n)
+            return 0;
+    }
+    //<b>almátrix ellenőrzése</b>
+    int row_start = (r/3)*3;
+    int col_start = (c/3)*3;
+    for(i=row_start;i&lt;row_start+3;i++)
+    {
+        for(j=col_start;j&lt;col_start+3;j++)
+        {
+            if(matrix[i][j]==n)
+                return 0;
+        }
+    }
+    return 1;
+}
+
+//<b>függvény a sudoku megoldásához backtracking használatával</b>
+int solve_sudoku()
+{
+    int row;
+    int col;
+    //<b>ha minden cellát kiosztottunk, akkor a sudoku már megoldódott és</b>
+    //<b>hivatkozással adjuk át, mert a number_unassigned megváltoztatja a sor és az oszlop értékét.</b>
+    if(number_unassigned(&amp;row, &amp;col) == 0)
+        return 1;
+    int n,i;
+    //<b>1 és 9 közötti szám</b>
+    for(i=1;i&lt;=SIZE;i++)
+    {
+        //<b>hozzárendelhetjük i-t a cellához vagy sem</b>
+        //<b>a cella mátrix[row][col]</b>
+        if(is_safe(i, row, col))
+        {
+            matrix[row][col] = i;
+            //<b>backtracking</b>
+            if(solve_sudoku())
+                return 1;
+            //<b>ha nem tudunk ezzel a megoldással haladni rendezzük át a cellát</b>
+            matrix[row][col]=0;
+        }
+    }
+    return 0;
+}
+
 int main()
 {
-    int price[] = { 1, 5, 8, 9, 10, 17, 17, 20 };
-    int n = sizeof(price) / sizeof(price[0]);
-    int length[n];
-    for (int i = 0; i &lt; n; i++)
-    {
-        length[i] = i + 1;
-    }
-    int Max_len = n;
-  
-    //<b>Függvény hívás</b>
-    printf("A maximális kapott érték %d \n",
-            un_kp(price, length, n, Max_len));
+    if (solve_sudoku())
+        print_sudoku();
+    else
+        printf("Nincs megoldás\n");
+    return 0;
 }
 <br>
-<a href="https://www.geeksforgeeks.org/cutting-a-rod-dp-13/" target="_blank">Forrás</a>
+<a href="https://www.codesdope.com/blog/article/solving-sudoku-with-backtracking-c-java-and-python/" target="_blank">Forrás</a>
                 </code>
              </pre>
         </div>
@@ -127,55 +184,73 @@ int main()
     </div>
   </div>
 </div><!-- container3 -->
-
-    <div class="container3">
-    <canvas id="canvas10" style="background: url(images/nemtudom.png)"></canvas>
-    </div><!-- container3 -->
+  
+<div class="container3">
+    <canvas id="canvas5" style="background: url(images/nemtudom.png)"></canvas>
+    </div>
 
     <output class="lepesek" style="display: block; width:100%; height:30px; text-align:center;"> 
-      <label id="label1" class="lepesekLeirasa">lépés</label></output> 
+        <label id="label1" class="lepesekLeirasa">blabla</label></output> 
 
     <div class="container3">
-      <div id="buttons">
-    <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-    <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
-    <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
-    <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
-
-      <div class="example_b">
-        <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
-      </div>
+        <div id="buttons">
+        <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
+        <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+        <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
+        <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
+        <div class="example_b">
+            <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
+          </div>
+        </div>
     </div>
-      </div><!-- container3 -->
 
-      <ul>  
+    <ul>  
         <li>szöveg</li>
         <li>szöveg</li>
         <li>Hszöveg</li>
         <li>szöveg</li>
         </ul> 
     <br>
-
-    </div> <!-- smallContainer -->
-
-      <div class="smallContainer"><br>
-        <details>
-           <summary>
-                
-        <b>A kód magyarázata</b><br><br>
-            </summary>
-      
-            <p>
-              blabla
-            </p><br>
-      
-          </details>
-        </div>
-
         
-    </div>
-  </div>
+        
+</div>
 
+
+<div class="smallContainer"><br>
+    <details>
+       <summary>
+            
+    <b>A kód magyarázata</b><br><br>
+        </summary>
+        <p>
+            Kezdetben csak egy mátrixot készítünk a Sudoku számára, és a ki nem osztott celláit 0-val töltjük fel. 
+            Így a mátrix tartalmazza a Sudoku feladatot, és a 0 értékű cellák üres cellák.<br><br>
+            <b>print_sudoku()</b> → Ez csak egy függvény a mátrix kiíratására.<br><br>
+            <b>number_unassigned</b> → Ez a függvény megkeres egy üres cellát, és a 'row' és 'col' változókat az adott cella indexeivel teszi egyenlővé. 
+            C-ben mutatókat használtunk az ehhez a függvényhez átadott változók (row, col) értékének megváltoztatására (pass by reference). 
+            Tehát ez a függvény megmondja nekünk, hogy van-e ki nem osztott cella vagy nincs. És ha van ki nem osztott cella, 
+            akkor ez a függvény megadja a cella indexeit is.<br><br>
+            <b>is_safe(int n, int r, int c)</b> → Ez a függvény ellenőrzi, hogy az 'n' értéket betehetjük-e az (r, c) cellába vagy sem. 
+            Ezt úgy tesszük, hogy először azt ellenőrizzük, hogy az 'r' sorban van-e olyan cella, amelynek értéke 'n' vagy sem - if(mátrix[r][i] == n). 
+            Ezután ellenőrizzük, hogy a 'c' oszlopban van-e 'n' értékű cella vagy sem - if(mátrix[i][c] == n). 
+            Végül pedig ellenőrizzük az almátrixot. (r/3)*3 megadja az r sor kezdőindexét. Például, ha az 'r' értéke 2, akkor az almátrixban van, 
+            amely a (0, 0)-tól kezdődik. Hasonlóképpen, a kezdő oszlop értékét (c/3)*3 segítségével kapjuk meg. Így ha egy cella értéke (2,2), 
+            akkor ez a cella egy olyan almátrixban lesz, amely (0,0)-ból indul, és ezt az értéket (c/3)*3 és (r/3)*3 segítségével kapjuk meg. 
+            Miután megkaptuk a kezdőindexeket, könnyedén végig tudunk iterálni az almátrixon, hogy ellenőrizzük, hogy az "n" értéket elhelyezhetjük-e 
+            az almátrixban vagy sem.<br><br>
+            <b>solve_sudoku()</b> → Ez a tényleges függvény, amely megoldja a Sudokut, és visszalépést(backtracking) használ. Először a number_unassigned függvény 
+            segítségével ellenőrizzük, hogy van-e ki nem rendelt cella, és ha nincs ki nem rendelt cella, akkor a Sudoku megoldódott. 
+            number_unassigned függvény megadja az üres cellák indexeit is. Így ha van üres cella, akkor megpróbáljuk kitölteni ezt a cellát egy 
+            1 és 9 közötti értékkel. Az is_safe segítségével pedig ellenőrizni fogjuk, hogy egy adott értéket be tudunk-e tölteni az adott cellába vagy sem. 
+            Miután megtaláltuk az értéket, megpróbáljuk megoldani a Sudoku többi részét -> solve_sudoku. Ha ezzel az értékkel nem sikerül megoldani a többit, 
+            akkor visszatérünk, és megpróbálunk egy másik értéket erre a cellára mátrix[row][col]=0;. A ciklus megpróbálja a cella más értékeit is. 
+        </p>
+    <br>
+    </details>
+    </div>
+
+    </div>
+</div>
     <script src="javaScript/10.feladat.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

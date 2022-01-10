@@ -1,162 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mgr munka</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/osszes.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/osszes.css" />
+  </head>
+  <body>
+    <div class="bigContainer">
+      <div class="box02">
+        <h1>Beszúrásos rendezés - Insertion sort</h1>
 
-
-</head>
-<body>
-
-  <div class="bigContainer">
- 
-    <div class="box02">
-
-    <h1>Buborékrendezés - Bubble sort</h1>
-    <div class="smallContainer"><br>
-    <p><b>Feladat leírása:</b> A buborékrendezés (angolul: Bubble sort) egy naiv algoritmus, amellyel egy véges (nem feltétlenül numerikus) sorozat – 
-      vagy számítástechnikai szóhasználattal élve egy tömb – elemei sorba rendezhetők [(n-1)n]/2 összehasonlítás elvégzésével, 
-      ahol n a sorozat elemeinek számát jelenti.</p><br>
-    </div>
-
-      <div class="smallContainer">
-          
-    <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
-    
-<!-- Button trigger modal -->
-<div class="container3">
-<button type="button" class="example_b"  data-toggle="modal" data-target="#exampleModalScrollable">
-    C kód</button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Buborékrendezés megoldása C nyelvben</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="smallContainer">
+          <br />
+          <p>
+            <b>Feladat leírása:</b> Legegyszerűbb formája az egyenes beszúrásos
+            rendezési algoritmus egy tömb elemeinek sorba rendezésére. Az
+            algoritmus k-adik lépése előtt az első k-1 elem már rendezett; a
+            lépés során a k-adik elemet beszúrjuk az első k-1 elem közé az őt
+            nagyság szerint megillető helyre, és a nála nagyobbakat eggyel
+            eltoljuk.
+          </p>
+          <br />
         </div>
-        <div class="modal-body">
-            <pre class="line-numbers">
+
+        <div class="smallContainer">
+          <button
+            onclick="location.href='index.html'"
+            type="button"
+            class="example_b"
+          >
+            feladatok
+          </button>
+
+          <!-- Button trigger modal -->
+          <div class="container3">
+            <button
+              type="button"
+              class="example_b"
+              data-toggle="modal"
+              data-target="#exampleModalScrollable"
+            >
+              C kód
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModalScrollable"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalScrollableTitle"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-scrollable modal-lg"
+                role="document"
+              >
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">
+                      Beszúrásos rendezés megoldása C nyelvben
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <pre class="line-numbers">
                 <code class="language-clike">
-//<b>C program a buborékrendezés megoldására</b>
+//<b>C program a beszúrásos rendezésre</b>
 
 #include &lt;stdio.h&gt;
 
-//<b>Segédfüggvény értékek cseréjére egy tömb két indexében</b>
-void swap(int arr[], int i, int j)
-{
-    int temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-}
-  
-//<b>Funkció az `arr` tömb `n` elemének kiírására</b>
-void printArray(int arr[], int n)
-{
-    for (int i = 0; i &lt; n; i++) {
-        printf("%d ", arr[i]);
-        
+//<b>Rekurzív függvény a beszúrásos rendezéshez</b>
+void recursiveInsertionSort(int arr[], int n){
+    if (n &lt;= 1)
+      return;
+    recursiveInsertionSort( arr, n-1 );
+    int nth = arr[n-1];
+    int j = n-2;
+    while (j &gt;= 0 &amp;&amp; arr[j] &gt; nth){
+      arr[j+1] = arr[j];
+      j--;
     }
+    arr[j+1] = nth;
 }
-  
-//<b>Rekurzív függvény az `arr[i...n]` résztömbbön buborékrendezéshez</b>
-void bubbleSort(int arr[], int n)
-{
-    for (int i = 0; i &lt; n - 1; i++)
-    {
-        if (arr[i] &gt; arr[i + 1]) {
-            swap(arr, i, i + 1);
-        }
-    }
-  
-    if (n - 1 &gt; 1) {
-        bubbleSort(arr, n - 1);
-    }
-}
-  
-int main(void)
-{
-    //<b>Rendezetlen tömbb megadása</b>
-    int arr[] = { 3, 5, 8, 4, 1, 9, -2 };
-    printf("A rendezett tömbb: ",arr);
-    int n = sizeof(arr) / sizeof(arr[0]);
-  
-    bubbleSort(arr, n);
-    printArray(arr, n);
-  
+//<b>main függvény</b>
+int main(){
+    //<b>a rendezetlen tömbb megadása</b>
+    int array[] = {34, 7, 12, 90, 51};
+    int n = sizeof(array)/sizeof(array[0]);
+    printf("Rendezetlen tömbb:\t");
+      for (int i=0; i &lt; n; i++)
+    printf("%d ",array[i]);
+
+      recursiveInsertionSort(array, n);
+    printf("\nRendezett tömb:\t");
+    for (int i=0; i &lt; n; i++)
+      printf("%d ",array[i]);
     return 0;
 }
 <br>
-<a href="https://www.techiedelight.com/bubble-sort-iterative-recursive/" target="_blank">Forrás</a>
+<a href="https://www.tutorialspoint.com/c-program-for-recursive-insertion-sort" target="_blank">Forrás</a>
                 </code>
              </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- container3 -->
+
+          <div class="container3">
+            <canvas
+              id="canvas8"
+              style="background: url(images/nemtudom.png)"
+            ></canvas>
+          </div>
+
+          <output class="lepesek" style="display: block; width:100%; height:30px; text-align:center;"> 
+            <label id="label1" class="lepesekLeirasa">lépés</label></output> 
+
+          <div class="container3">
+            <div id="buttons">
+            <input
+              id="stepFrwd"
+              type="submit"
+              class="example_b"
+              name="button"
+              value="előrelépés"
+            />
+            <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+            <input
+              id="startAnim"
+              type="submit"
+              class="example_b"
+              name="button"
+              value="start"
+            />
+            <input
+              id="resetAnim"
+              type="submit"
+              class="example_b"
+              name="button"
+              value="reset"
+            />
+            <div class="example_b">
+              <input
+                type="range"
+                min="1"
+                max="10"
+                value="3"
+                class="slider"
+                id="myRange"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  </div><!-- container3 -->
 
-
-    <div class="container3">
-    <canvas id="canvas9" style="background: url(images/bubbleHatter.png)"></canvas>
-    </div>
-
-    <output class="lepesek" style="display: block; width:100%; height:30px; text-align:center;"> 
-      <label id="label1" class="lepesekLeirasa">lépés</label></output> 
-
-    <div class="container3">
-      <div id="buttons">
-    <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
-    <!-- <input id="stepPrev" type="submit" class="example_b" name="button" value="visszalépés"/> -->
-    <input id="startAnim" type="submit" class="example_b" name="button" value="start"/>
-    <input id="resetAnim" type="submit" class="example_b" name="button" value="reset"/>
-
-    <div class="example_b">
-        <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
-      </div>
-    </div>
-  </div>
-
-  <ul>  
-    <li>szöveg</li>
-    <li>szöveg</li>
-    <li>Hszöveg</li>
-    <li>szöveg</li>
-    </ul> 
-<br>
-
-
-    </div> <!-- smallContainer -->
-
-      <div class="smallContainer"><br>
-        <details>
-           <summary>
-                
-        <b>A kód magyarázata</b><br><br>
-            </summary>
+        <ul>  
+          <li>szöveg</li>
+          <li>szöveg</li>
+          <li>Hszöveg</li>
+          <li>szöveg</li>
+          </ul> 
+      <br>
       
+        </div>
+        <!-- smallContainer -->
+
+        <div class="smallContainer">
+          <br />
+          <details>
+            <summary><b>A kód magyarázata</b><br /><br /></summary>
+
             <p>
-              blabla
-            </p><br>
-      
+              Rekurzívan hívjuk meg a recursiveInsertionSort() függvényt az n-1
+              elemű tömb rendezéséhez az aktuális iterációhoz képest. Ezután
+              ebbe a rendezett tömbbe, amelyet a függvény visszaad, beillesztjük
+              az n-edik elemet a rendezett tömbben elfoglalt helyére.
+            </p>
+            <br />
           </details>
         </div>
-
-        
-</div>
-</div>
+      </div>
+    </div>
     <script src="javaScript/9.feladat.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

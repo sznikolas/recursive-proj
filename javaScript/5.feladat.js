@@ -1,137 +1,231 @@
 //első canvas
-let canvas = document.getElementById('canvas5');
+let canvas = document.getElementById('canvas10');
 let c = canvas.getContext('2d');
-canvas.width = 250;
-canvas.height  = 250;
+canvas.width = 300;
+canvas.height  = 450;
+
+let counter = 1;
+
+let parapa = ["", 
+"2. lépés: ", 
+"3. lépés: ", 
+"4. lépés: ",
+"5. lépés: ",
+"6. lépés: ",
+"7. lépés: ",
+"8. lépés: ",
+"9. lépés: ",
+"10. lépés: ",
+"11. lépés: ",
+"12. lépés: ",
+"13. lépés: ",
+"14. lépés: ",
+"15. lépés: ",
+"16. lépés: ",
+"17. lépés: ",
+
+"Az 5 faktoriális eredménye: 120!"];
+
+
+let buttonState = "START";
+
+let isAllowed = false;
+
+const faktorial1 = new Image();
+const faktorial2 = new Image();
+const faktorial3 = new Image();
+const faktorial4 = new Image();
+const faktorial5 = new Image();
+const faktorial6 = new Image();
+const faktorial7 = new Image();
+const faktorial8 = new Image();
+const faktorial9 = new Image();
+const faktorial10 = new Image();
+const faktorial11 = new Image();
+const faktorial12 = new Image();
+const faktorial13 = new Image();
 
 
 
 
-function wait(time) {
-    return new Promise(resolve => {
-      setTimeout(() => resolve("timeout!"), time);
-    });
-  };
-  
-  
-  const app = new Vue({
-    el: "#main",
-    data() {
-      return {
-        message: "Click the 'Solve' button!",
-        delay: 300,
-        currentCellIndex: -1,
-        board:  [1,0,0,0,
-                 0,2,0,0,
-                 0,0,3,0,
-                 0,0,0,4],
-      };
-    },
+
+faktorial1.src = "images/faktorial1.png";
+faktorial2.src = "images/faktorial2.png";
+faktorial3.src = "images/faktorial3.png";
+faktorial4.src = "images/faktorial4.png";
+faktorial5.src = "images/faktorial5.png";
+faktorial6.src = "images/faktorial6.png";
+faktorial7.src = "images/faktorial7.png";
+faktorial8.src = "images/faktorial8.png";
+faktorial9.src = "images/faktorial9.png";
+faktorial10.src = "images/faktorial10.png";
+faktorial11.src = "images/faktorial11.png";
+faktorial12.src = "images/faktorial12.png";
+faktorial13.src = "images/faktorial13.png";
+
+
+
+
+//canvas1
+let myAnim;
+
+
+//canvas1
+function animate(){
     
-    methods: {
-      /* NOTE: I'm using `setValue` and `getValue` instead of using `v-model` in the template, 
-        because I want to show '0's in the board as empty cells. There MIGHT be a better of
-        doing this.*/
+    if (counter === 1) {
+        c.drawImage(faktorial1,30,10);   
+    };
+
+
+    if (counter === 2) {
+        c.drawImage(faktorial2,30,95);   
+    };
+
+    if (counter === 3) {
+        c.drawImage(faktorial3,30,180);   
+    };
+
+
+    if (counter === 4) {
+        c.drawImage(faktorial4,30,265);   
+    };
+
+    if (counter === 5) {
+        c.drawImage(faktorial5,30,350);   
+    };
+
+
+    if (counter === 6) {
+        c.clearRect(30,350,240,75);
+    };
+
+    if (counter === 7) {
+        c.drawImage(faktorial6,30,265);   
+    };
+
+    if (counter === 8) {
+        c.drawImage(faktorial7,30,265);   
+    };
+
+    if (counter === 9) {
+        c.clearRect(30,265,240,75);
+    };
+
+    if (counter === 10) {
+        c.drawImage(faktorial8,30,180);   
+    };
+
+    if (counter === 11) {
+        c.drawImage(faktorial9,30,180);   
+    };
+
+    if (counter === 12) {
+        c.clearRect(30,180,240,75);
+    };
+
+
+
+    if (counter === 13) {
+        c.drawImage(faktorial10,30,95);   
+    };
+
+    if (counter === 14) {
+        c.drawImage(faktorial11,30,95);   
+    };
+
+    if (counter === 15) {
+        c.clearRect(30,95,240,75);
+    };
+
+
+    if (counter === 16) {
+        c.drawImage(faktorial12,30,10);   
+    };
+
+    if (counter === 17) {
+        c.drawImage(faktorial13,30,10);   
+    };
+
+
+
   
-      setValue(event, index) {
-        this.board[index] = parseInt(event.target.value) || 0;
-      },
-      
-      getValue(index) {
-        return this.board[index] === 0 ? "" : this.board[index];
-      },
-      
-      reset() {
-        this.message = "Click the 'Solve' button!";
-        this.currentCellIndex = -1;
-        this.board = [0,0,0,0,
-                      0,0,0,0,
-                      0,0,0,0,
-                      0,0,0,0];
-      },
-  
-      async solve() {
-        this.message = "Running...";
-        let result = await this.solveFrom(0);
-        
-        if (result)
-          this.message = "Game solved successfully!";
-        else
-          this.message = "Game couldn't be solved";  
-      },
-  
-      async solveFrom(index) {
-        this.currentCellIndex = index;
-        await wait(this.delay);
-  
-        if (index === 16)   return true;
-        else if (this.board[index] !== 0)  return await this.solveFrom(index + 1);
-        else {
-          let isSolved = false;
-          
-          for (let number of [1, 2, 3, 4]) {
-            if (this.isViable(index, number)) {
-              Vue.set(this.board, index, number); // this.board[index] = number;
-              isSolved = await this.solveFrom(index + 1);
-              if (isSolved) return true;
-            }
+
+
+
+    //c.drawImage(rat,corX[counter],corY[counter]);
+    myAnim = requestAnimationFrame(animate); 
+}
+myAnim = requestAnimationFrame(animate);
+animate();
+
+
+//Előrelépések 1-es canvason
+document.getElementById('stepFrwd').onclick = function(){
+    let szoveg = document.getElementById('label1');
+    szoveg.innerText = parapa[counter];   
+    counter++; 
+     if(counter >=18){
+        szoveg.innerText = parapa[counter]="Az 5 faktoriális eredménye: 120!";
+    }  
+}
+
+
+//Canvas 1 reset
+document.getElementById('resetAnim').onclick = function(){
+    isAllowed = false;
+    c.clearRect(0,0,canvas.width, canvas.height);
+    c.drawImage(faktorial1,30,10);   
+    counter = 1;
+    //label resetelese
+    document.getElementById("label1").innerHTML = "";
+    let idk = document.getElementById("startAnim");
+    idk.value = "Start"
+    buttonState="START";  
+}
+
+
+
+//canvas 1 lejatszas
+const startAnim = async () => {
+    // A lépések automatikus lejátszása várakozással (startAnim)
+    let slider = document.getElementById('myRange');
+        for(var x = 0; x<=17; x++){
+ 
             
-            Vue.set(this.board, index, 0); // this.board[index] = 0;
-            this.currentCellIndex = index;
-            await wait(this.delay);
-          }
-         
-          return false;
+            if(isAllowed){
+                let szoveg = document.getElementById('label1');
+                szoveg.innerText = parapa[counter];  
+                //c.drawImage(rat,corX[counter],corY[counter]);
+                counter++;
+                await sleep(1000/slider.value);       
+            }
+             if(counter >=18){
+                szoveg.innerText = parapa[counter]="Az 5 faktoriális eredménye: 120!";
+            } 
         }
-      },
-      
-      isViable(index, value) {
-        return  this.isViableRow(index, value) &&
-                this.isViableColumn(index, value) &&
-                this.isViableSquare(index, value);
-      },
-  
-      isViableRow(index, value) {
-        let i = this.rowNumber(index);
-        return !this.row(i).includes(value);
-      },
-  
-      isViableColumn(index, value) {
-        let j = this.columnNumber(index);
-        return !this.column(j).includes(value);
-      },
-      
-      isViableSquare(index, value) {
-        let k = this.squareNumber(index);
-        return !this.square(k).includes(value);
-      },
-      
-      row(i) {
-        let first = 4 * i, last = 4 * (i + 1);
-        return this.board.slice(first, last);
-      },
-      
-      column(j) {
-        return this.board.filter((_, index) => index % 4 === j);
-      },
-      
-      square(k) {
-        let topLeft = [0, 2,
-                       8, 10];
-        let corner = topLeft[k];
-        let indices = [corner, corner + 1, corner + 4, corner + 4 + 1];
-        return indices.map(index => this.board[index]);
-      },
-  
-      rowNumber(index) { return Math.floor(index / 4); },
-      
-      columnNumber(index) { return index % 4; },
-      
-      squareNumber(index) { 
-        let row = this.rowNumber(index),
-            column = this.columnNumber(index);
-        return 2 * Math.floor(row / 2) + Math.floor(column / 2);
-      }
     }
-  });
-  
+// A várakozáshoz szükséges constans
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve,delay))   
+
+
+//Canvas1-hez
+document.getElementById('startAnim').onclick = function(){
+    if(buttonState === "START"){isAllowed=true}
+    if(buttonState === "STOP"){isAllowed=false}
+    startAnim();
+    change()
+}
+change = function(){
+    let elem = document.getElementById("startAnim");
+    if (elem.value=="Stop") {elem.value = "Start";buttonState="START"}
+    else {elem.value = "Stop";buttonState="STOP"}
+}
+
+
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+})
+
+

@@ -13,7 +13,7 @@ let parapa = [
 "21. lépés: ", "22. lépés: ", "23. lépés: ", "24. lépés: ", "25. lépés: ",
 "26. lépés: ", "27. lépés: ", "28. lépés: ", "29. lépés: ", "30. lépés: ", 
 "31. lépés: ", "32. lépés: ", "33. lépés: ", "34. lépés: ", "35. lépés: ",
-"36. lépés: ", "37. lépés: A sorbarendezés sikeres "];
+"36. lépés: ", "A sorbarendezés sikeresen megtörtént!"];
 
 let counter = 1;
 let counterBack = 38;
@@ -386,14 +386,6 @@ function animate(){
 
     };
 
-
-
-
-    
-    
-
-
-
     myAnim = requestAnimationFrame(animate); 
 }
 
@@ -408,7 +400,7 @@ document.getElementById('stepFrwd').onclick = function(){
     szoveg.innerText = parapa[pszeudo]; 
     counter++; 
     if(pszeudo >=36){
-        szoveg.innerText = parapa[pszeudo]="37. lépés: A sorbarendezés sikeres";
+        szoveg.innerText = parapa[pszeudo]="A sorbarendezés sikeresen megtörtént!";
     } 
 
 }
@@ -454,7 +446,7 @@ const startAnim = async () => {
                 await sleep(1000/slider.value);       
             }
              if(pszeudo >=35){
-                szoveg.innerText = parapa[pszeudo]="37. lépés: A sorbarendezés sikeres";
+                szoveg.innerText = parapa[pszeudo]="A sorbarendezés sikeresen megtörtént!";
             } 
         }
     }

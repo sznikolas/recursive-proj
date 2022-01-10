@@ -2,17 +2,46 @@
 let canvas = document.getElementById('canvas6');
 let c = canvas.getContext('2d');
 canvas.width = 500;
-canvas.height  = 610;
+canvas.height  = 650;
 
 
-let parapa = ["", "2. lépés: ", "3. lépés: ", "4. lépés: ","5. lépés: ","6. lépés: ","7. lépés: ","8. lépés: ",
-"9. lépés: ","10. lépés: ","11. lépés: ","12. lépés: ","13. lépés: ","14. lépés: ","15. lépés: ","16. lépés: ","17. lépés: ",
-"18. lépés: ","19. lépés: ","20. lépés: ","21. lépés: ","22. lépés: ",
+let parapa = ["", 
+"Keressük meg a tömbök középpontját és osszuk két részre", 
+"Keressük meg a tömbök középpontját és osszuk két részre", 
 
-"23. lépés: ","24. lépés: ","25. lépés: ",
-"26. lépés: ",
-"27. lépés: ", "29. lépés: ", "30. lépés: ","31. lépés: ",
-"32. lépés: ","33. lépés: ","34. lépés: ","35. lépés: ","36. lépés: ","37. lépés: ","38. lépés: A sorbarendezés sikeres"];
+"Miután a tömböt a legkisebb egységekre osztottuk, az elemek összehasonlítása alapján megkezdődik az összefésülés",
+"8 > 7",
+"Rendezve összefésüljük",
+"Rendezve összefésüljük",
+"6 > 1",
+"Rendezve összefésüljük",
+"Rendezve összefésüljük",
+"0 < 9",
+"Rendezve összefésüljük",
+"Rendezve összefésüljük",
+"A  2-es egyedülálló elem, ezért változatlanul hagyjuk",
+
+"A tömb elemeinek összehasonlítása alapján megkezdődik az összefésülés",
+"7 > 1, rendezve összefésüljük",
+"7 > 6, rendezve összefésüljük",
+"7 < 8, rendezve összefésüljük",
+"Rendezve összefésüljük",
+
+
+"0 < 2, rendezve összefésüljük",
+"9 > 2, rendezve összefésüljük",
+"Rendezve összefésüljük",
+
+
+"A tömb elemeinek összehasonlítása alapján megkezdődik az összefésülés",
+"1 > 0, rendezve összefésüljük",
+"1 < 2, rendezve összefésüljük", 
+"6 > 2, rendezve összefésüljük", 
+"6 < 9, rendezve összefésüljük",
+"7 < 9, rendezve összefésüljük",
+"8 < 9, rendezve összefésüljük",
+"Rendezve összefésüljük",
+"A sorbarendezés sikeresen megtörtént!",];
 
 let counter = 1;
 let buttonState = "START";
@@ -57,20 +86,216 @@ function animate(){
     //00
     if (counter === 1) {
         
-        c.drawImage(quick8,80,80);
-        
-        c.drawImage(quick7,130,80);
-        c.drawImage(quick6,180,80);
+        c.drawImage(quick8,110,80);  
+        c.drawImage(quick7,150,80);
+        c.drawImage(quick6,190,80);
         c.drawImage(quick1,230,80);
-        c.drawImage(quick0,280,80);
-        c.drawImage(quick9,330,80);
-        c.drawImage(quick2,380,80);
+
+        c.drawImage(quick0,270,80);
+        c.drawImage(quick9,310,80);
+        c.drawImage(quick2,350,80);
+
+    };
+
+    if (counter === 2) {
+        
+        c.drawImage(quick8,90,160);  
+        c.drawImage(quick7,130,160);
+        c.drawImage(quick6,170,160);
+        c.drawImage(quick1,210,160);
+
+
+        c.drawImage(quick0,290,160);
+        c.drawImage(quick9,330,160);
+        c.drawImage(quick2,370,160);
+
+    };
+
+    if (counter === 3) {
+        
+        c.drawImage(quick8,40,240);  
+        c.drawImage(quick7,80,240);
+
+        c.drawImage(quick6,160,240);
+        c.drawImage(quick1,200,240);
+
+
+        c.drawImage(quick0,300,240);
+        c.drawImage(quick9,340,240);
+
+        c.drawImage(quick2,420,240);
+
+    };
+
+    if (counter === 4) {
+        
+        c.drawImage(quick8,35,320);
+        c.drawImage(quick7,85,320);
+
+        c.drawImage(quick6,155,320);
+        c.drawImage(quick1,205,320);
+
+        c.drawImage(quick0,295,320);
+        c.drawImage(quick9,345,320);
+
+        c.drawImage(quick2,420,320);
 
     };
 
 
-    
+    if (counter === 5) {    
+        c.drawImage(pointer1,45,300);
+        c.drawImage(pointer1,95,300);
+    };
 
+    if (counter === 6) {    
+        c.drawImage(quick7,40,400);
+        c.clearRect(95,300,20,20);
+    };
+
+    if (counter === 7) {
+        c.drawImage(quick8,80,400);
+        c.clearRect(45,300,20,20);
+    };
+
+
+
+    if (counter === 8) {    
+        c.drawImage(pointer1,165,300);
+        c.drawImage(pointer1,215,300);
+    };
+
+    if (counter === 9) {
+        c.drawImage(quick1,160,400);
+        c.clearRect(215,300,20,20);
+    };
+    if (counter === 10) {
+        c.drawImage(quick6,200,400);
+        c.clearRect(165,300,20,20);
+    };
+
+
+    if (counter === 11) {    
+        c.drawImage(pointer1,305,300);
+        c.drawImage(pointer1,355,300);
+    };
+
+    if (counter === 12) {
+        c.drawImage(quick0,300,400);
+        c.clearRect(305,300,20,20);
+
+    };
+    if (counter === 13) {
+        c.drawImage(quick9,340,400);
+        c.clearRect(355,300,20,20);
+    };
+
+    if (counter === 14) {
+        c.drawImage(quick2,420,400);
+    };
+
+
+
+
+
+    if (counter === 16) {    
+        c.drawImage(pointer1,170,380);
+        c.drawImage(pointer1,50,380);
+    };
+
+    if (counter === 17) {   
+        c.drawImage(quick1,90,480);
+        c.clearRect(170,380,20,20);
+        c.drawImage(pointer1,210,380);
+    };    
+
+    if (counter === 18) {
+        c.drawImage(quick6,130,480);
+        c.clearRect(210,380,20,20);
+        c.drawImage(pointer1,90,380);
+    };    
+    
+    if (counter === 19) {
+        c.drawImage(quick7,170,480);
+        c.clearRect(50,380,20,20);
+    };    
+    
+    if (counter === 20) {
+        c.drawImage(quick8,210,480);
+        c.clearRect(90,380,20,20);
+    };
+
+
+
+    
+    if (counter === 20) {    
+        c.drawImage(pointer1,310,380);
+        c.drawImage(pointer1,430,380);
+    };
+    
+    if (counter === 21) {
+        c.drawImage(quick0,290,480);
+        c.clearRect(310,380,20,20);
+        c.drawImage(pointer1,350,380);
+    };    
+    
+    if (counter === 22) {
+        c.drawImage(quick2,330,480);
+        c.clearRect(430,380,20,20);
+    };    
+    
+    if (counter === 23) {
+        c.drawImage(quick9,370,480);
+        c.clearRect(350,380,20,20);
+    };
+
+
+
+
+    if (counter === 24) {    
+        c.drawImage(pointer1,100,460);
+        c.drawImage(pointer1,300,460);
+    };
+
+    if (counter === 25) {   
+        c.drawImage(quick0,120,560);
+        c.clearRect(300,460,20,20);
+        c.drawImage(pointer1,340,460);
+    };
+
+    if (counter === 26) {
+        c.drawImage(quick1,160,560);
+        c.clearRect(100,460,20,20);
+        c.drawImage(pointer1,140,460);
+    };
+
+    if (counter === 27) {
+        c.drawImage(quick2,200,560);
+        c.clearRect(340,460,20,20);
+        c.drawImage(pointer1,380,460);
+    };
+
+    if (counter === 28) {
+        c.drawImage(quick6,240,560);
+        c.clearRect(140,460,20,20);
+        c.drawImage(pointer1,180,460);
+    };
+
+    if (counter === 29) {
+        c.drawImage(quick7,280,560);
+        c.clearRect(180,460,20,20);
+        c.drawImage(pointer1,220,460);
+    };
+
+    if (counter === 30) {
+        c.drawImage(quick8,320,560);
+        c.clearRect(220,460,20,20);
+    };
+
+    if (counter === 31) {
+        c.drawImage(quick9,360,560);
+        c.clearRect(380,460,20,20);
+    };
 
 
     myAnim = requestAnimationFrame(animate); 
@@ -86,8 +311,8 @@ document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
     szoveg.innerText = parapa[counter];   
     counter++; 
-     if(counter >=37){
-        szoveg.innerText = parapa[counter]="38. lépés: A sorbarendezés sikeres";
+     if(counter >=32){
+        szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
     }  
 }
 
@@ -103,17 +328,18 @@ document.getElementById('stepFrwd').onclick = function(){
 document.getElementById('resetAnim').onclick = function(){
     isAllowed = false;
     c.clearRect(0,0,canvas.width, canvas.height);
-        c.drawImage(quick8,80,80);  
-        c.drawImage(quick7,130,80);
-        c.drawImage(quick2,180,80);
-        c.drawImage(quick1,230,80);
-        c.drawImage(quick0,280,80);
-        c.drawImage(quick9,330,80);
-        c.drawImage(quick6,380,80);
+    c.drawImage(quick8,110,80);  
+    c.drawImage(quick7,150,80);
+    c.drawImage(quick6,190,80);
+    c.drawImage(quick1,230,80);
+
+    c.drawImage(quick0,270,80);
+    c.drawImage(quick9,310,80);
+    c.drawImage(quick2,350,80);
 
     counter = 1;
     //label resetelese
-    document.getElementById("label1").innerHTML = "1. lépés: előre";
+    document.getElementById("label1").innerHTML = "Keressük meg a tömb középpontját és osszuk két részre";
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
     buttonState="START";  
@@ -123,7 +349,7 @@ document.getElementById('resetAnim').onclick = function(){
 const startAnim = async () => {
     // A lépések automatikus lejátszása várakozással (startAnim)
     let slider = document.getElementById('myRange');
-        for(var x = 0; x<=37; x++){
+        for(var x = 0; x<=31; x++){
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
                 szoveg.innerText = parapa[counter];  
@@ -131,8 +357,8 @@ const startAnim = async () => {
                 counter++;
                 await sleep(1000/slider.value);       
             }
-             if(counter >=37){
-                szoveg.innerText = parapa[counter]="38. lépés: A sorbarendezés sikeres";
+             if(counter >=31){
+                szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
             } 
         }
     }
