@@ -71,7 +71,6 @@ bubblee.src = "images/bubblee.png";
 
 
 
-
 let myAnim;
 
 
@@ -106,7 +105,7 @@ function animate(){
 
     if (counter === 3) {
         c.clearRect(80,80,40,200);
-        c.clearRect(13,80,40,200);
+        c.clearRect(130,80,40,200);
         c.drawImage(bubble10,130,80); 
         c.drawImage(bubble5,80,80);
         
@@ -421,6 +420,10 @@ document.getElementById('startAnim').onclick = function(){
     startAnim();
     change()
 }
+
+/* document.getElementById('stepPrev').onclick = function(){
+    normalAnimation(bubble10,bubble5,80,80,130,80);
+} */
     
 
 change = function(){

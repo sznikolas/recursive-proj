@@ -6,14 +6,52 @@ canvas.height  = 610;
 
 
 let parapa = [
-"1. lépés: ", "2. lépés:asd ", "3. lépés: ", "4. lépés: ", "5. lépés: ",
-"6. lépés: ", "7. lépés: ", "8. lépés: ", "9. lépés: ", "10. lépés: ",
-"11. lépés: ", "12. lépés: ", "13. lépés: ", "14. lépés: ", "15. lépés: ",
-"16. lépés: ", "17. lépés: ", "18. lépés: ", "19. lépés: ", "20. lépés: ",
-"21. lépés: ", "22. lépés: ", "23. lépés: ", "24. lépés: ", "25. lépés: ",
-"26. lépés: ", "27. lépés: ", "28. lépés: ", "29. lépés: ", "30. lépés: ", 
-"31. lépés: ", "32. lépés: ", "33. lépés: ", "34. lépés: ", "35. lépés: ",
-"36. lépés: ", "A sorbarendezés sikeresen megtörtént!"];
+"Quicksort",
+"pivot -> utolsó elem, J = arr[0], I = arr[-1]", 
+"arr[J] > pivot, J++", 
+"arr[J] > pivot, J++", 
+"arr[J] > pivot, J++",
+"arr[J] < pivot, I++", 
+"arr[I] csere arr[J]", 
+"J++", 
+"arr[J] < pivot, I++", 
+"arr[I] csere arr[J]",
+"J++", 
+"arr[J] > pivot, J++", 
+"J = arr[high] ezért kilépünk a ciklusból", 
+"arr[I+1] csere pivot", 
+"A 2-es a helyére került",
+
+"quicksortot a bal felén", 
+"arr[J] <= arr[high-1]", 
+"arr[I+1] csere pivot", 
+"arr[I+1] csere pivot", 
+"A 0 a helyére került",
+"Az 1-es a helyére került", 
+
+
+"quicksortot a jobb felén", 
+"arr[J] > pivot, J++", 
+"arr[J] > pivot, J++", 
+"arr[J] > pivot, J++",
+"J = arr[high] ezért kilépünk a ciklusból", 
+"arr[I+1] csere pivot", 
+"A 6-os a helyére került", 
+
+
+"quicksortot a jobb felén", 
+"arr[J] < pivot, I++", 
+"arr[I] csere arr[J]", 
+"J++", 
+
+"arr[J] > pivot, J++", 
+"J = arr[high] ezért kilépünk a ciklusból", 
+"arr[I+1] csere pivot",
+"A 8-as a helyére került", 
+"A 7-es és a 9-es a helyére került", 
+
+
+"A sorbarendezés sikeresen megtörtént!"];
 
 let counter = 1;
 let counterBack = 38;
@@ -35,6 +73,8 @@ const pointer1 = new Image();
 const pointer2 = new Image();
 const csere = new Image();
 const pszeudoNyil = new Image();
+const I = new Image();
+const J = new Image();
 
 
 
@@ -51,6 +91,8 @@ pointer1.src = "images/pointer1.png";
 pointer2.src = "images/pointer2.png";
 csere.src = "images/csere.png";
 pszeudoNyil.src = "images/pszeudoNyil.png";
+I.src = "images/I.png";
+J.src = "images/J.png";
 
 
 
@@ -97,38 +139,48 @@ function animate(){
         
         c.drawImage(pszeudoNyil, 490,115);
 
+        c.drawImage(J,90,50);
+        c.drawImage(I,50,50);
+        c.clearRect(490,115,40,30);
+        c.drawImage(pszeudoNyil, 490,170);
+
     };
 
     if (counter === 3) {
         
-        c.drawImage(pointer2,90,40);
+        /* c.drawImage(J,90,50);
+        c.drawImage(I,40,50);
         c.clearRect(490,115,40,30);
-        c.drawImage(pszeudoNyil, 490,170);
+        c.drawImage(pszeudoNyil, 490,170); */
     };
 
     if (counter === 4) {
         
-        c.drawImage(pointer1,140,55);
-        c.clearRect(490,170,40,30);
+        c.drawImage(J,140,50);
+        c.clearRect(90,50,40,30);
         c.drawImage(pszeudoNyil, 490,230);
 
     };
     
     if (counter === 5) {
         c.clearRect(140,55,20,20);
-        c.drawImage(pointer1,190,55);
+        c.drawImage(J,190,50);
 
     };
 
     if (counter === 6) {
         c.clearRect(190,55,20,20);
-        c.drawImage(pointer1,240,55);
+        c.drawImage(J,240,50);
+
+        
 
     };
 
 
 
     if (counter === 7) {
+        c.drawImage(I,90,50);
+        c.clearRect(50,50,40,30);
 
         c.clearRect(490,230,40,30);//3
         c.drawImage(pszeudoNyil, 490,290);//4 
@@ -155,16 +207,17 @@ function animate(){
         c.drawImage(pszeudoNyil, 490,170);//2 
         c.drawImage(pszeudoNyil, 490,230);//3  
 
-        c.clearRect(90,40,20,40);
+        
         c.clearRect(240,55,20,20);
   
-        c.drawImage(pointer2,140,40);
-        c.drawImage(pointer1,290,55);  
+        
+        c.drawImage(J,290,50);  
 
     };
 
     if (counter === 10) {
-        
+        c.clearRect(90,40,20,40);
+        c.drawImage(I,140,50);
         c.drawImage(csere,220,25);
 
     };
@@ -178,15 +231,19 @@ function animate(){
 
     if (counter === 12) {
 
-        c.clearRect(140,40,20,40);
+        
         c.clearRect(290,55,20,20);
-
-        c.drawImage(pointer2,190,40);
-        c.drawImage(pointer1,340,55);  
+      
+        c.drawImage(J,340,50);  
 
     };
 
+
+
+
     if (counter === 13) {
+
+        
         
         c.clearRect(340,55,20,20);
 
@@ -199,6 +256,8 @@ function animate(){
     };
 
     if (counter === 15) {
+        c.clearRect(140,40,20,40);
+        
         c.clearRect(220,25,60,20);
         c.clearRect(340,55,20,20);
         c.drawImage(quick2,180,80);
@@ -228,7 +287,8 @@ function animate(){
 
     if (counter === 17) {
         
-        c.drawImage(pointer2,90,160);
+        c.drawImage(J,90,170);
+        c.drawImage(I,50,170);
 
         //c.drawImage(pointer2,240,160);
 
@@ -236,11 +296,22 @@ function animate(){
 
     if (counter === 18) {
         
-        c.drawImage(csere,100,140);
+        c.clearRect(90,170,20,30);
+        
 
     };
 
     if (counter === 19) {
+        c.drawImage(csere,100,140);
+        
+        
+
+    };
+
+    if (counter === 20) {
+
+        c.clearRect(50,170,20,30);
+
         c.clearRect(100,140,60,20);
         c.drawImage(quick1,130,200);
         c.drawImage(quick0,80,200); 
@@ -250,15 +321,15 @@ function animate(){
 
     };
 
-    if (counter === 20) {
+    if (counter === 21) {
         
         c.drawImage(quick1,130,320);
-        c.drawImage(pivot,120,280); 
+        //c.drawImage(pivot,120,280); 
        
 
     };
 
-    if (counter === 21) {
+    if (counter === 22) {
         
         c.drawImage(quick8,230,200);
         c.drawImage(quick7,280,200); 
@@ -268,40 +339,45 @@ function animate(){
 
     };
 
-    if (counter === 22) {
-        
-        c.drawImage(pointer2,240,160);
-       
-
-    };
-
     if (counter === 23) {
         
-        c.drawImage(pointer1,290,175);
+        c.drawImage(J,240,170);
+        c.drawImage(I,200,170);
        
 
     };
 
     if (counter === 24) {
-        c.clearRect(290,175,20,20);
-        c.drawImage(pointer1,340,175);
+
+        c.clearRect(240,170,20,30);
+        c.drawImage(J,290,170);
        
 
     };
 
     if (counter === 25) {
+        c.clearRect(290,175,20,20);
+        c.drawImage(J,340,170);
+       
+
+    };
+
+    if (counter === 26) {
         c.clearRect(340,175,20,20);
           
 
     };
 
-    if (counter === 26) {
+    if (counter === 27) {
         
         c.drawImage(csere,300,140);
 
     };
 
-    if (counter === 27) {
+    if (counter === 28) {
+
+        c.clearRect(200,170,20,30);
+
         c.clearRect(300,140,60,20);
         
         c.clearRect(370,160,60,40);
@@ -314,47 +390,68 @@ function animate(){
 
     };
 
-    if (counter === 28) {
+    if (counter === 29) {
         c.drawImage(quick7,280,320); 
         c.drawImage(quick9,330,320);
         c.drawImage(quick8,380,320); 
-          
-    };
-
-    if (counter === 29) {
-        
         c.drawImage(pivot,370,280);
-        
           
     };
 
     if (counter === 30) {
         
-        c.drawImage(pointer2,290,280);
+        
+        c.drawImage(J,290,290);
+        c.drawImage(I,250,290);
+        
           
     };
 
+
+
     if (counter === 31) {
-        
-        c.drawImage(pointer1,340,295);
+        c.clearRect(250,290,20,30);
+        c.drawImage(I,280,290);
+        c.drawImage(csere,320,260);
           
     };
 
     if (counter === 32) {
-        c.clearRect(340,295,20,20);
+        
+        c.clearRect(320,260,60,20);
         
           
     };
 
     if (counter === 33) {
     
-        c.drawImage(csere,320,260);
-
+        c.clearRect(290,290,20,30);
+        c.drawImage(J,340,290);
     };
 
     if (counter === 34) {
+        c.clearRect(340,290,20,30);
+        
+    }
+
+    if (counter === 35) {
+        c.drawImage(csere,320,260);
+        
      
+        
+ /*        c.clearRect(320,260,60,20);
+        c.clearRect(290,280,20,40);
+        c.clearRect(370,280,60,40);
+        c.drawImage(pivot,320,280);
+        c.drawImage(quick9,380,320);
+        c.drawImage(quick8,330,320);  */
+
+    };
+    if (counter === 36) {
+        c.clearRect(280,290,20,30);
+       
         c.clearRect(320,260,60,20);
+
         c.clearRect(290,280,20,40);
         c.clearRect(370,280,60,40);
         c.drawImage(pivot,320,280);
@@ -363,19 +460,20 @@ function animate(){
 
     };
 
-    if (counter === 35) {
+    if (counter === 37) {
+        c.clearRect(320,260,60,20);
         c.drawImage(quick7,280,440);
         c.drawImage(quick9,380,440); 
 
     };
-    if (counter === 36) {
+/*     if (counter === 39) {
         c.drawImage(pivot,270,400);
         c.drawImage(pivot,370,400); 
 
-    };
+    }; */
 
 
-    if (counter === 37) {
+    if (counter === 38) {
         c.drawImage(quick0,80,560);
         c.drawImage(quick1,130,560);
         c.drawImage(quick2,180,560);
@@ -399,7 +497,7 @@ document.getElementById('stepFrwd').onclick = function(){
     pszeudo++;
     szoveg.innerText = parapa[pszeudo]; 
     counter++; 
-    if(pszeudo >=36){
+    if(pszeudo >=38){
         szoveg.innerText = parapa[pszeudo]="A sorbarendezés sikeresen megtörtént!";
     } 
 
@@ -428,7 +526,7 @@ document.getElementById('resetAnim').onclick = function(){
     counter = 1;
     pszeudo=0
     //label resetelese
-    document.getElementById("label1").innerHTML = "1. lépés: ";
+    document.getElementById("label1").innerHTML = "Quicksort";
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
     buttonState="START";  
@@ -438,14 +536,14 @@ document.getElementById('resetAnim').onclick = function(){
 const startAnim = async () => {
     // A lépések automatikus lejátszása várakozással (startAnim)
     let slider = document.getElementById('myRange');
-        for(var x = 0; x<=35; x++){
+        for(var x = 0; x<=38; x++){
             if(isAllowed){
                 pszeudo++;           
                 szoveg.innerText = parapa[pszeudo];                 
                 counter++;
                 await sleep(1000/slider.value);       
             }
-             if(pszeudo >=35){
+             if(pszeudo >=38){
                 szoveg.innerText = parapa[pszeudo]="A sorbarendezés sikeresen megtörtént!";
             } 
         }

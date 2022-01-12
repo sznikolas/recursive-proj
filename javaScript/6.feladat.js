@@ -311,7 +311,7 @@ document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
     szoveg.innerText = parapa[counter];   
     counter++; 
-     if(counter >=32){
+     if(counter >=31){
         szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
     }  
 }
