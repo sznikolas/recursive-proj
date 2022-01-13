@@ -137,12 +137,12 @@ function animate(){
         
         c.drawImage(pivot,370,40);
         
-        c.drawImage(pszeudoNyil, 490,115);
+        
 
         c.drawImage(J,90,50);
         c.drawImage(I,50,50);
         c.clearRect(490,115,40,30);
-        c.drawImage(pszeudoNyil, 490,170);
+        
 
     };
 
@@ -158,7 +158,7 @@ function animate(){
         
         c.drawImage(J,140,50);
         c.clearRect(90,50,40,30);
-        c.drawImage(pszeudoNyil, 490,230);
+        
 
     };
     
@@ -183,7 +183,7 @@ function animate(){
         c.clearRect(50,50,40,30);
 
         c.clearRect(490,230,40,30);//3
-        c.drawImage(pszeudoNyil, 490,290);//4 
+        
 
         c.drawImage(csere,220,25);
 
@@ -204,8 +204,7 @@ function animate(){
 
     if (counter === 9) {
         c.clearRect(490,290,40,30);//4
-        c.drawImage(pszeudoNyil, 490,170);//2 
-        c.drawImage(pszeudoNyil, 490,230);//3  
+        
 
         
         c.clearRect(240,55,20,20);
