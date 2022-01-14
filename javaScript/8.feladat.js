@@ -5,41 +5,41 @@ canvas.width = 500;
 canvas.height  = 300;
 
 let parapa = ["", 
-"2. lépés: ", 
-"3. lépés: ", 
-"4. lépés: ",
-"5. lépés: ",
-"6. lépés: ",
-"7. lépés: ",
-"8. lépés: ",
-"9. lépés: ",
-"10. lépés: ",
-"11. lépés: ",
-"12. lépés: ",
-"13. lépés: ",
-"14. lépés: ",
-"15. lépés: ",
-"16. lépés: ",
-"17. lépés: ",
-"18. lépés: ",
-"19. lépés: ",
-"20. lépés: ",
-"21. lépés: ",
-"22. lépés: ",
-"23. lépés: ",
-"24. lépés: ",
-"25. lépés: ",
-"26. lépés: ",
-"27. lépés: ", 
-"29. lépés: ", 
-"30. lépés: ",
-"31. lépés: ",
-"32. lépés: ",
-"33. lépés: ",
-"34. lépés: ", 
-"35. lépés: ", 
-"36. lépés: ",
-"37. lépés: ",
+"10 > 5", 
+"csere", 
+"10 > 8 ",
+"csere",
+"10 > 4",
+"csere",
+"10 > 1",
+"csere",
+"10 > 9",
+"csere",
+"10 > 3",
+"csere, rekurzív függvényhívas (n-1)-re",
+"5 < 8, következő lépés",
+"8 > 4",
+"csere",
+"8 > 1",
+"csere",
+"8 < 9, következő lépés",
+"9 > 3",
+"csere, rekurzív függvényhívas (n-1)-re",
+"5 > 4",
+"csere",
+"5 > 1",
+"csere",
+"5 < 8, következő lépés",
+"8 > 3", 
+"csere, rekurzív függvényhívas (n-1)-re", 
+"4 > 1",
+"csere",
+"4 < 5, következő lépés",
+"5 > 3",
+"csere, rekurzív függvényhívas (n-1)-re", 
+"1 < 4, következő lépés", 
+"4 > 3",
+"csere, rekurzív függvényhívas (n-1)-re",
 "A sorbarendezés sikeresen megtörtént!"];
 
 let counter = 1;
@@ -55,6 +55,7 @@ const bubble5 = new Image();
 const bubble8 = new Image();
 const bubble9 = new Image();
 const bubble10 = new Image();
+const n = new Image();
 
 
 const bubblee = new Image();
@@ -68,6 +69,7 @@ bubble8.src = "images/bubble8.png";
 bubble9.src = "images/bubble9.png";
 bubble10.src = "images/bubble10.png";
 bubblee.src = "images/bubblee.png";
+n.src = "images/n.png";
 
 
 
@@ -86,7 +88,7 @@ function animate(){
         c.drawImage(bubble9,330,80);
         c.drawImage(bubble3,380,80); 
 
-    
+        c.drawImage(n,380,20); 
 
     };
 
@@ -175,6 +177,7 @@ function animate(){
     };
 
     if (counter === 13) {
+        
         c.clearRect(380,80,40,200);
         c.clearRect(330,80,40,200);
         c.drawImage(bubble10,380,80); 
@@ -183,6 +186,10 @@ function animate(){
     };
 
     if (counter === 14) {
+        c.clearRect(380,20,30,30);
+        c.drawImage(n,335,20); 
+
+
         c.clearRect(345,50,60,30);
         c.drawImage(bubblee,95,50);       
 
@@ -237,6 +244,9 @@ function animate(){
     };
 
     if (counter === 22) {
+        c.clearRect(335,20,30,30);
+        c.drawImage(n,285,20); 
+
         c.clearRect(295,50,60,30);
         c.drawImage(bubblee,95,50);    
 
@@ -285,6 +295,9 @@ function animate(){
     };
 
     if (counter === 29) {
+        c.clearRect(285,20,30,30);
+        c.drawImage(n,235,20); 
+
         c.clearRect(245,50,60,30);
         c.drawImage(bubblee,95,50);    
 
@@ -319,6 +332,9 @@ function animate(){
     };
 
     if (counter === 34) {
+        c.clearRect(235,20,30,30);
+        c.drawImage(n,185,20);
+
         c.clearRect(195,50,60,30);
         c.drawImage(bubblee,95,50);    
 
@@ -339,6 +355,9 @@ function animate(){
     };
 
     if (counter === 37) {
+        c.clearRect(185,20,30,30);
+        c.drawImage(n,135,20);
+        
         c.clearRect(145,50,60,30);
         c.drawImage(bubblee,95,50);    
 

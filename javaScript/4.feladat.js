@@ -6,7 +6,7 @@ canvas.height  = 300;
 
 let counter = 1;
 
-let parapa = ["", 
+let parapa = ["Hanoi tornyai", 
 "5. lemez mozgatása A-ról C-re nem lehetséges",
 "4. lemez mozgatása A-ról B-re nem lehetséges",
 "3. lemez mozgatása A-ról C-re nem lehetséges",

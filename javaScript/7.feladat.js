@@ -22,7 +22,7 @@ let parapa = [
 "arr[I+1] csere pivot", 
 "A 2-es a helyére került",
 
-"quicksortot a bal felén", 
+"quicksort a bal felén", 
 "arr[J] <= arr[high-1]", 
 "arr[I+1] csere pivot", 
 "arr[I+1] csere pivot", 
@@ -30,7 +30,7 @@ let parapa = [
 "Az 1-es a helyére került", 
 
 
-"quicksortot a jobb felén", 
+"quicksort a jobb felén", 
 "arr[J] > pivot, J++", 
 "arr[J] > pivot, J++", 
 "arr[J] > pivot, J++",
@@ -39,7 +39,7 @@ let parapa = [
 "A 6-os a helyére került", 
 
 
-"quicksortot a jobb felén", 
+"quicksort a jobb felén", 
 "arr[J] < pivot, I++", 
 "arr[I] csere arr[J]", 
 "J++", 
@@ -49,7 +49,6 @@ let parapa = [
 "arr[I+1] csere pivot",
 "A 8-as a helyére került", 
 "A 7-es és a 9-es a helyére került", 
-
 
 "A sorbarendezés sikeresen megtörtént!"];
 
@@ -535,18 +534,19 @@ document.getElementById('resetAnim').onclick = function(){
 const startAnim = async () => {
     // A lépések automatikus lejátszása várakozással (startAnim)
     let slider = document.getElementById('myRange');
-        for(var x = 0; x<=38; x++){
+        for(var x = 0; x<=36; x++){
             if(isAllowed){
                 pszeudo++;           
                 szoveg.innerText = parapa[pszeudo];                 
                 counter++;
                 await sleep(1000/slider.value);       
             }
-             if(pszeudo >=38){
+             if(pszeudo >=37){
                 szoveg.innerText = parapa[pszeudo]="A sorbarendezés sikeresen megtörtént!";
             } 
         }
     }
+
 // A várakozáshoz szükséges constans
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve,delay))
 /* document.getElementById('stopBtn').onclick = function(){
