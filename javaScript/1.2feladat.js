@@ -145,6 +145,7 @@ const Knight_05 = new Image();
 const Knight_06 = new Image();
 const Knight_07 = new Image();
 const Knight_08 = new Image();
+const pointr = new Image();
 
 Knight_01.src = "images/Knight_01.png";
 Knight_02.src = "images/Knight_02.png";
@@ -154,6 +155,7 @@ Knight_05.src = "images/Knight_05.png";
 Knight_06.src = "images/Knight_06.png";
 Knight_07.src = "images/Knight_07.png";
 Knight_08.src = "images/Knight_08.png";
+pointr.src = "images/pointr.png";
 
 //canvas1
 let myAnim;
@@ -169,106 +171,512 @@ function animate(){
     //0
     if (counter === 1) {
         c.drawImage(Knight_01,40,90);
+        c.drawImage(pointr,335,90);
+        
 
     };
     //1
     if (counter === 2) {
         c.drawImage(Knight_02,220,180);  
+        c.clearRect(335,90,30,30); 
+        c.drawImage(pointr,335,190);
 
+    };
+    if (counter === 3) {
+        c.clearRect(335,190,30,30); 
+        c.drawImage(pointr,335,90);
+    };
+
+    if (counter === 4) {
+        c.clearRect(335,90,30,30); 
+    c.drawImage(pointr,335,190);	
+    };
+
+    if (counter === 5) {
+        c.clearRect(335,190,30,30);  
+    c.drawImage(pointr,335,290);
+    };
+
+    if (counter === 6) {
+        c.clearRect(335,290,30,30); 
+    c.drawImage(pointr,335,390);
     };
 
     //2
     if (counter === 7) {
-        c.drawImage(Knight_03,40,270);
-        
 
+    c.clearRect(335,390,30,30);  
+    c.drawImage(pointr,530,90);
+    c.drawImage(Knight_03,40,270);
     };
 
+    if (counter === 8) {
+        c.clearRect(530,90,30,30); 
+        c.drawImage(pointr,335,90);
+
+    };
+    if (counter === 9) {   
+        c.clearRect(335,90,30,30); 
+        c.drawImage(pointr,335,190); 
+    };
+ 
     //3
     if (counter === 10) {
+        c.clearRect(335,190,30,30);  
+    c.drawImage(pointr,335,290);
         c.drawImage(Knight_04,130,90);
-        
+    };
 
+    if (counter === 11) {
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,90);
+    };
+    if (counter === 12) {
+        c.clearRect(335,90,30,30); 
+c.drawImage(pointr,335,190);
+        
+    };
+    if (counter === 13) {
+        c.clearRect(335,190,30,30);  
+c.drawImage(pointr,335,290);
+        
     };
 
     //4
     if (counter === 14) {
         c.drawImage(Knight_05,220,270);
+        c.clearRect(335,290,30,30); 
+c.drawImage(pointr,335,390);
         
     };
+
+    if (counter === 15) {
+        c.clearRect(335,390,30,30); 
+        c.drawImage(pointr,335,90);
+        
+    };
+    if (counter === 16) {
+        c.clearRect(335,90,30,30); 
+c.drawImage(pointr,335,190);
+        
+    };
+    if (counter === 17) {
+        c.clearRect(335,190,30,30);  
+c.drawImage(pointr,335,290);
+        
+    };
+    if (counter === 18) {
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,390);  
+        
+    };
+    if (counter === 19) {
+        c.clearRect(335,390,30,30);  
+c.drawImage(pointr,530,90);
+        
+    };
+    
 
     //5
     if (counter === 20) {
         c.drawImage(Knight_06,40,180);
+        c.clearRect(530,90,30,30);  
+c.drawImage(pointr,530,190);
         
     };
 
     //6
     if (counter === 21) {
+        c.clearRect(530,190,30,30);
+        c.drawImage(pointr,335,90);
         c.drawImage(Knight_07,220,90);
+        
+    };
+    if (counter === 22) {
+        
+        
+    };
+    if (counter === 23) {
+        c.clearRect(335,90,30,30); 
+c.drawImage(pointr,335,190);
+        
+    };
+    if (counter === 24) {
+        c.clearRect(335,190,30,30);  
+c.drawImage(pointr,335,290);
+        
+    };
+    if (counter === 25) {
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,390);  
+        
+    };
+    if (counter === 26) {
+        c.clearRect(335,390,30,30);  
+c.drawImage(pointr,530,90);
+        
+    };
+    if (counter === 27) {
+        c.clearRect(530,90,30,30);  
+c.drawImage(pointr,530,190);
         
     };
 
     //7
     if (counter === 28) {
         c.drawImage(Knight_08,130,270);
+        c.clearRect(530,190,30,30);  
+c.drawImage(pointr,530,290);
         
     };
 
+    if (counter === 29) {
+        c.clearRect(530,290,30,30);
+        c.drawImage(pointr,335,90);
+        
+    };
+    if (counter === 30) {
+        c.clearRect(335,90,30,30); 
+        c.drawImage(pointr,335,190);
+        
+    };
+    if (counter === 31) {
+        c.clearRect(335,190,30,30);  
+        c.drawImage(pointr,335,290);
+        
+    };
+    if (counter === 32) {
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,390);
+        
+    };
+    if (counter === 33) {
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90);
+        
+    };
+    if (counter === 34) {
+
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);
+        
+    };
+    if (counter === 35) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+        
+    };
+    if (counter === 36) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+        
+    };
+    if (counter === 37) {
+        c.clearRect(530,390,30,30); 
+        
+    };
+
+
     if (counter === 38) {
+        c.drawImage(pointr,530,390);
         c.clearRect(130,270,90,90);//(8)
     };
+
+    if (counter === 39) {
+        c.clearRect(530,390,30,30); 
+    };
     if (counter === 40) {
+        
         c.clearRect(220,90,90,90);//(7)
+        c.drawImage(pointr,335,190);
+        
+    };
+    if (counter === 41) {
+        
+        c.clearRect(335,190,30,30);  
+c.drawImage(pointr,335,290);
+        
+    };
+    if (counter === 42) {
+
+        c.clearRect(335,290,30,30); 
+c.drawImage(pointr,335,390);
+        
+    };
+    if (counter === 43) {
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90); 
+        
+        
+    };
+    if (counter === 44) {
+        
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);  
+        
+    };
+    if (counter === 45) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290); 
+        
+        
+    };
+    if (counter === 46) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390); 
+        
+        
+    };
+    if (counter === 47) {
+        
+        c.clearRect(530,390,30,30); 
         
     };
 
     if (counter === 48) {
+        c.drawImage(pointr,530,290);
         c.clearRect(40,180,90,90);//(6)
+     
+    };    
+    
+    if (counter === 49) {
+        c.clearRect(530,290,30,30);  
+c.drawImage(pointr,530,390);
+     
+    };
+    if (counter === 50) {
+        c.clearRect(530,390,30,30); 
      
     };
 
+
+
     if (counter === 51) {
         c.clearRect(220,270,90,90);//(5)
-        
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90);
     };
+
+    if (counter === 52) {
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);
+    
+    };
+    if (counter === 53) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+    
+    };
+    if (counter === 54) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+    
+    };
+    if (counter === 55) {
+        c.clearRect(530,390,30,30);
+    
+    };
+        
+    
     if (counter === 56) {
+        
         c.clearRect(130,90,90,90);//(4)
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,390);
         
     };
+    if (counter === 57) {
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90);	
+    };
+    if (counter === 58) {
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);
+    
+    };
+    if (counter === 59) {
+        c.clearRect(530,190,30,30);  
+c.drawImage(pointr,530,290);
+    
+    };
+    if (counter === 60) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+    
+    };
+    if (counter === 61) {
+        c.clearRect(530,390,30,30); 
+    
+    };
+
     if (counter === 62) {
         c.clearRect(40,270,90,90);//(3)
+        c.clearRect(530,90,30,30);  
+c.drawImage(pointr,530,190);
         
+    };
+    if (counter === 63) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+    
+    };
+    if (counter === 64) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+    
+    };
+    if (counter === 65) {
+        c.clearRect(530,390,30,30);
+    
     };
     if (counter === 66) {
         c.clearRect(220,180,90,90);//(2)
+        c.clearRect(335,190,30,30);  
+c.drawImage(pointr,335,290);
         
+    };
+    if (counter === 67) {
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,390);
+    
     };
 
     if (counter === 68) {
+        c.clearRect(335,390,30,30);
         c.drawImage(Knight_02,130,270); 
+        c.drawImage(pointr,335,90);
+    };
+
+    if (counter === 69) {
+        c.clearRect(335,90,30,30); 
+c.drawImage(pointr,335,190);
+    
+    };
+
+    if (counter === 70) {
+        c.clearRect(335,190,30,30);  
+        c.drawImage(pointr,335,290);
+    
     };
 
     if (counter === 71) {
+        c.clearRect(335,290,30,30); 
+    c.drawImage(pointr,335,390);
         
         c.drawImage(Knight_03,220,90); 
+        c.clearRect(335,390,30,30);
+        c.drawImage(pointr,335,90);
+    };
+    if (counter === 72) {
+        c.clearRect(335,90,30,30); 
+        c.drawImage(pointr,335,190);
+    };
+    if (counter === 73) {
+        c.clearRect(335,190,30,30);  
+        c.drawImage(pointr,335,290);
+    
+    };
+    if (counter === 74) {
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,390);
+    
+    };
+    if (counter === 75) {
+        
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90);
     };
     if (counter === 76) {
         
         c.drawImage(Knight_04,40,180); 
+        c.clearRect(530,90,30,30); 
+        c.drawImage(pointr,335,90);
     };
+    if (counter === 77) {
+        c.clearRect(335,90,30,30); 
+c.drawImage(pointr,335,190);
+    };
+
     if (counter === 78) {
-        
+        c.clearRect(335,190,30,30);
+        c.drawImage(pointr,335,90);
         c.drawImage(Knight_05,220,270); 
+    };
+    if (counter === 79) {
+        c.clearRect(335,90,30,30); 
+        c.drawImage(pointr,335,190);
+    
+    };
+    if (counter === 80) {
+        c.clearRect(335,190,30,30);  
+        c.drawImage(pointr,335,290);
+    
+    };
+    if (counter === 81) {
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,390);
+    
+    };
+    if (counter === 82) {
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90);
+    
+    };
+    if (counter === 83) {
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);
+    
+    };
+    if (counter === 84) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+    
+    };
+    if (counter === 85) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+    
     };
 
     if (counter === 86) {
-        
+        c.clearRect(530,390,30,30); 
+        c.drawImage(pointr,335,90);
         c.drawImage(Knight_06,130,90); 
+    };
+    if (counter === 87) {
+        c.clearRect(335,90,30,30); 
+        c.drawImage(pointr,335,190);
+    
+    };
+    if (counter === 88) {
+        c.clearRect(335,190,30,30);  
+        c.drawImage(pointr,335,290);
+    
+    };
+    if (counter === 89) {
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,390);
+    
+    };
+    if (counter === 90) {
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90);
+    
+    };
+    if (counter === 91) {
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);
+    
+    };
+    if (counter === 92) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+    
     };
 
     if (counter === 93) {
-        
+        c.clearRect(530,290,30,30); 
+        c.drawImage(pointr,335,90);
         c.drawImage(Knight_07,40,270); 
     };
 
@@ -276,15 +684,95 @@ function animate(){
         
         c.drawImage(Knight_08,220,180); 
     };
+    if (counter === 95) {
+        c.clearRect(335,90,30,30); 
+        c.drawImage(pointr,335,190);
+    
+    };
+    if (counter === 96) {
+        c.clearRect(335,190,30,30);  
+        c.drawImage(pointr,335,290);
+    
+    };
+    if (counter === 97) {
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,390);
+    
+    };
+    if (counter === 98) {
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90);
+    
+    };
+    if (counter === 99) {
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);
+    
+    };
+    if (counter === 100) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+    
+    };
+    if (counter === 101) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+    
+    };
+    if (counter === 102) {
+        c.clearRect(530,390,30,30); 
+    
+    };
 
     if (counter === 103) {
         
         c.clearRect(220,180,90,90);
+        c.clearRect(335,90,30,30); 
+        c.drawImage(pointr,335,190);
+    };
+    if (counter === 104) {
+        c.clearRect(335,190,30,30);  
+        c.drawImage(pointr,335,290);
+    
+    };
+    if (counter === 105) {
+        c.clearRect(335,290,30,30); 
+        c.drawImage(pointr,335,390);
+    
+    };
+    if (counter === 106) {
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90);
+    
+    };
+    if (counter === 107) {
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);
+    
+    };
+    if (counter === 108) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+    
+    };
+    if (counter === 109) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+    
+    };
+    if (counter === 110) {
+        c.clearRect(530,390,30,30); 
+        c.clearRect(40,270,90,90);
+    
     };
 
     if (counter === 111) {
-        
-        c.clearRect(40,270,90,90);
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390); 
+    };
+    if (counter === 112) {
+        c.clearRect(530,390,30,30);  
+    
     };
 
     if (counter === 113) {
@@ -295,21 +783,122 @@ function animate(){
     if (counter === 114) {
         
         c.clearRect(220,270,90,90);
+
+        c.clearRect(335,190,30,30);  
+        c.drawImage(pointr,335,290);
+    };
+    
+    if (counter === 115) {
+    c.clearRect(335,290,30,30); 
+    c.drawImage(pointr,335,390);
+    
+    };
+    if (counter === 116) {
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90);
+    
+    };
+    if (counter === 117) {
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);
+    
+    };
+    if (counter === 118) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+    
+    };
+    if (counter === 119) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+    
+    };
+    if (counter === 120) {
+        c.clearRect(530,390,30,30);
+    
     };
 
     if (counter === 121) {
         
         c.clearRect(40,180,90,90);
+        c.clearRect(530,90,30,30);  
+c.drawImage(pointr,530,190);
+    };
+    if (counter === 122) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+    
+    };
+    if (counter === 123) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+    
+    };
+    if (counter === 124) {
+        c.clearRect(530,390,30,30);
+    
     };
 
     if (counter === 125) {
         
         c.clearRect(220,90,90,90);
+        c.clearRect(335,290,30,30); 
+c.drawImage(pointr,335,390);
+    };
+    if (counter === 126) {
+        c.clearRect(335,390,30,30);  
+        c.drawImage(pointr,530,90);
+    
+    };
+    if (counter === 127) {
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);
+    
+    };
+    if (counter === 128) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+    
+    };
+    if (counter === 129) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+    
+    };
+    if (counter === 130) {
+        c.clearRect(530,390,30,30);
+    
     };
     if (counter === 131) {
         
         c.clearRect(130,270,90,90);
+        c.clearRect(335,390,30,30);  
+c.drawImage(pointr,530,90);
+
     };
+
+    if (counter === 132) {
+        c.clearRect(530,90,30,30);  
+        c.drawImage(pointr,530,190);
+
+    };
+    if (counter === 133) {
+        c.clearRect(530,190,30,30);  
+        c.drawImage(pointr,530,290);
+
+    };
+
+    if (counter === 134) {
+        c.clearRect(530,290,30,30);  
+        c.drawImage(pointr,530,390);
+
+    };
+    if (counter === 135) {
+        c.clearRect(530,390,30,30);  
+
+    };
+
+
 
     myAnim = requestAnimationFrame(animate); 
 }

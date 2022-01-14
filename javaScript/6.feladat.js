@@ -59,6 +59,9 @@ const pivot = new Image();
 const pointer1 = new Image();
 const pointer2 = new Image();
 const csere = new Image();
+const felosztas1 = new Image();
+const felosztas2 = new Image();
+const felosztas3 = new Image();
 
 
 
@@ -74,7 +77,9 @@ pivot.src = "images/pivot.png";
 pointer1.src = "images/pointer1.png";
 pointer2.src = "images/pointer2.png";
 csere.src = "images/csere.png";
-
+felosztas1.src = "images/felosztas1.png";
+felosztas2.src = "images/felosztas2.png";
+felosztas3.src = "images/felosztas3.png";
 
 
 
@@ -98,6 +103,7 @@ function animate(){
     };
 
     if (counter === 2) {
+        c.drawImage(felosztas1,102,120);
         
         c.drawImage(quick8,90,160);  
         c.drawImage(quick7,130,160);
@@ -112,6 +118,7 @@ function animate(){
     };
 
     if (counter === 3) {
+        c.drawImage(felosztas2,83,200);
         
         c.drawImage(quick8,40,240);  
         c.drawImage(quick7,80,240);
@@ -128,7 +135,8 @@ function animate(){
     };
 
     if (counter === 4) {
-        
+        c.drawImage(felosztas3,32,280);
+
         c.drawImage(quick8,35,320);
         c.drawImage(quick7,85,320);
 
