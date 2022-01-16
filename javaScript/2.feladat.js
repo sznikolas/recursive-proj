@@ -69,36 +69,60 @@ function animate(){
 
     };
     //1
+    if (counter === 2) {
+        c.drawImage(knight,90,180);
+       
+        };
+
+
     if (counter === 3) {
+        c.clearRect(90,180,90,90);
     c.drawImage(noQueen,90,180);
+    c.drawImage(knight,180,180);
    
     };
 
     if (counter === 4) {
-        c.drawImage(noQueen,180,180);     
+        c.clearRect(180,180,90,90);
+        c.drawImage(noQueen,180,180);  
+        c.drawImage(knight,270,180);   
 
     };
 
     if (counter === 5) {
         c.drawImage(knight,270,180);
+        
+
+    };
+    if (counter === 6) {
+        c.drawImage(knight,90,270); 
+        
 
     };
 
+
+    
     if (counter === 7) {
-        
+        c.clearRect(90,270,90,90);
         c.drawImage(noQueen,90,270);
+        c.drawImage(knight,180,270); 
     };
 
     if (counter === 8) {
+        c.clearRect(180,270,90,90);
         c.drawImage(noQueen,180,270);
+        c.drawImage(knight,270,270); 
 
     };
 
     if (counter === 9) {
+        c.clearRect(270,270,90,90);
         c.drawImage(noQueen,270,270);
+        c.drawImage(knight,360,270); 
     };
 
     if (counter === 10) {
+        c.clearRect(360,270,90,90);
         c.drawImage(noQueen,360,270);
 
     };
@@ -124,11 +148,14 @@ function animate(){
         c.clearRect(270,180,90,90);
         c.drawImage(knight,360,180);
         c.drawImage(noQueen,270,180);
+
+        c.drawImage(knight,90,270);  
     };
 
     if (counter === 15) {
-        
+        c.clearRect(90,270,90,90);
         c.drawImage(noQueen,90,270);
+        c.drawImage(knight,180,270);
     };
     
     if (counter === 16) {
@@ -137,38 +164,56 @@ function animate(){
 
     };
 
-    if (counter === 18) {      
+    if (counter === 17) {
+
+        c.drawImage(knight,90,360);  
+
+    };
+
+    if (counter === 18) {  
+        c.clearRect(90,360,90,90);    
         c.drawImage(noQueen,90,360);
+        c.drawImage(knight,180,360);  
     };
 
     if (counter === 19) {
+        c.clearRect(180,360,90,90); 
         c.drawImage(noQueen,180,360);
+        c.drawImage(knight,270,360);  
     };
 
     if (counter === 20) {
+        c.clearRect(270,360,90,90); 
         c.drawImage(noQueen,270,360);
+        c.drawImage(knight,360,360);  
     };
 
     if (counter === 21) {
+        c.clearRect(360,360,90,90); 
         c.drawImage(noQueen,360,360);
     };
 
     if (counter === 22) {
         
         c.clearRect(90,360,360,90);
+        
     
     };
 
-    if (counter === 23) {      
+    if (counter === 23) { 
+        c.drawImage(knight,270,270);     
         c.clearRect(180,270,90,90);
         c.drawImage(noQueen,180,270);
     };
 
     if (counter === 24) {
+        c.clearRect(270,270,90,90);
         c.drawImage(noQueen,270,270);
+        c.drawImage(knight,360,270);    
     };
 
     if (counter === 25) {
+        c.clearRect(360,270,90,90);
         c.drawImage(noQueen,360,270);
     };
 
@@ -193,38 +238,52 @@ function animate(){
     if (counter === 29) {    
         c.clearRect(90,90,90,90);
         c.drawImage(noQueen,90,90);
-    };
-
-    if (counter === 30) {    
         c.drawImage(knight,180,90);
     };
 
+    if (counter === 31) {    
+        c.drawImage(knight,90,180);
+    };
+
     if (counter === 32) {
+        c.clearRect(90,180,90,90);
         c.drawImage(noQueen,90,180);
+        c.drawImage(knight,180,180);
     };
 
     if (counter === 33) {
+        c.clearRect(180,180,90,90);
         c.drawImage(noQueen,180,180);
+        c.drawImage(knight,270,180);
     };
 
     if (counter === 34) {
+        c.clearRect(270,180,90,90);
         c.drawImage(noQueen,270,180);
+        c.drawImage(knight,360,180);
     };
 
     if (counter === 35) {
         c.drawImage(knight,360,180);
     };
 
-    if (counter === 37) {
+    if (counter === 36) {
         c.drawImage(knight,90,270);
+    };
+    if (counter === 38) {
+        c.drawImage(knight,90,360);
     };
 
     if (counter === 39) {
+        c.clearRect(90,360,90,90);
         c.drawImage(noQueen,90,360);
+        c.drawImage(knight,180,360);
     };
 
     if (counter === 40) {
-        c.drawImage(noQueen,180,360);     
+        c.clearRect(180,360,90,90);
+        c.drawImage(noQueen,180,360); 
+        c.drawImage(knight,270,360);    
     };
 
     if (counter === 41) {   

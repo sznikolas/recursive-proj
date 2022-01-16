@@ -249,6 +249,7 @@ function animate(){
 
     if (counter === 14) {
         
+        
         c.drawImage(csere,220,25);
 
     };
@@ -265,9 +266,12 @@ function animate(){
         c.clearRect(370,40,60,40);
         c.drawImage(pivot,170,40); 
 
+        c.drawImage(quick2,180,560);
+
     };
 
     if (counter === 16) {
+        
 
         c.drawImage(quick1,80,200);
         c.drawImage(quick0,130,200); 
@@ -317,12 +321,16 @@ function animate(){
         c.clearRect(120,160,60,40);
         c.drawImage(pivot,70,160); 
 
+        c.drawImage(quick0,80,560);
+
     };
 
     if (counter === 21) {
         
         c.drawImage(quick1,130,320);
         //c.drawImage(pivot,120,280); 
+        c.drawImage(quick1,130,560);
+        
        
 
     };
@@ -386,6 +394,8 @@ function animate(){
         c.clearRect(240,160,20,40);
         c.drawImage(pivot,220,160); 
 
+        c.drawImage(quick6,230,560);
+
     };
 
     if (counter === 29) {
@@ -416,6 +426,8 @@ function animate(){
 
     if (counter === 32) {
         
+
+
         c.clearRect(320,260,60,20);
         
           
@@ -446,6 +458,9 @@ function animate(){
 
     };
     if (counter === 36) {
+        c.drawImage(quick8,330,560);
+
+
         c.clearRect(280,290,20,30);
        
         c.clearRect(320,260,60,20);
@@ -462,6 +477,9 @@ function animate(){
         c.clearRect(320,260,60,20);
         c.drawImage(quick7,280,440);
         c.drawImage(quick9,380,440); 
+
+        c.drawImage(quick7,280,560);
+        c.drawImage(quick9,380,560);
 
     };
 /*     if (counter === 39) {

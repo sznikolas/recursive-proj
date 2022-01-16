@@ -1,36 +1,37 @@
 //első canvas
 let canvas = document.getElementById('canvas10');
 let c = canvas.getContext('2d');
-canvas.width = 300;
+canvas.width = 500;
 canvas.height  = 450;
 
 let counter = 1;
 
-let parapa = ["", 
-"2. lépés: ", 
-"3. lépés: ", 
-"4. lépés: ",
-"5. lépés: ",
-"6. lépés: ",
-"7. lépés: ",
-"8. lépés: ",
-"9. lépés: ",
-"10. lépés: ",
-"11. lépés: ",
-"12. lépés: ",
-"13. lépés: ",
-"14. lépés: ",
-"15. lépés: ",
-"16. lépés: ",
-"17. lépés: ",
+let parapa = ["faktoriális(7) megoldása", 
+"rekurzív függvényhívás fakt(7)", 
+"rekurzív függvényhívás fakt(6)", 
+"rekurzív függvényhívás fakt(5)",
+"rekurzív függvényhívás fakt(4)",
+"rekurzív függvényhívás fakt(3)",
+"rekurzív függvényhívás fakt(2)",
+"rekurzív függvényhívás fakt(1)",
+"elértük a base case-t",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatértünk a rekurzív hívásokból",
 
-"Az 5 faktoriális eredménye: 120!"];
+"A 7 faktoriális eredménye: 5040!"];
 
 
 let buttonState = "START";
 
 let isAllowed = false;
 
+const faktorial0 = new Image();
 const faktorial1 = new Image();
 const faktorial2 = new Image();
 const faktorial3 = new Image();
@@ -38,30 +39,33 @@ const faktorial4 = new Image();
 const faktorial5 = new Image();
 const faktorial6 = new Image();
 const faktorial7 = new Image();
-const faktorial8 = new Image();
+/* const faktorial8 = new Image();
 const faktorial9 = new Image();
 const faktorial10 = new Image();
 const faktorial11 = new Image();
 const faktorial12 = new Image();
-const faktorial13 = new Image();
+const faktorial13 = new Image(); */
 
 
 
 
 
-faktorial1.src = "images/faktorial1.png";
-faktorial2.src = "images/faktorial2.png";
-faktorial3.src = "images/faktorial3.png";
-faktorial4.src = "images/faktorial4.png";
-faktorial5.src = "images/faktorial5.png";
-faktorial6.src = "images/faktorial6.png";
-faktorial7.src = "images/faktorial7.png";
-faktorial8.src = "images/faktorial8.png";
+faktorial0.src = "images/faktorialis0.png";
+faktorial1.src = "images/faktorialis1.png";
+faktorial2.src = "images/faktorialis2.png";
+faktorial3.src = "images/faktorialis3.png";
+faktorial4.src = "images/faktorialis4.png";
+faktorial5.src = "images/faktorialis5.png";
+faktorial6.src = "images/faktorialis6.png";
+faktorial7.src = "images/faktorialis7.png";
+
+
+/* faktorial8.src = "images/faktorial8.png";
 faktorial9.src = "images/faktorial9.png";
 faktorial10.src = "images/faktorial10.png";
 faktorial11.src = "images/faktorial11.png";
 faktorial12.src = "images/faktorial12.png";
-faktorial13.src = "images/faktorial13.png";
+faktorial13.src = "images/faktorial13.png"; */
 
 
 
@@ -74,77 +78,327 @@ let myAnim;
 function animate(){
     
     if (counter === 1) {
-        c.drawImage(faktorial1,30,10);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+        c.drawImage(faktorial7,160,290);
+        c.font='normal 20px Lucida Console'; 
+        c.fillText("<-- top", 360,315);
+        c.fillText("fakt(7) = n x fakt(n - 1)", 100,425);  
+
+
     };
 
 
     if (counter === 2) {
-        c.drawImage(faktorial2,30,95);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+    
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+        
+        
+        c.fillText("n = 7", 90,275);
+        c.fillText("<-- top", 360,275);
+        c.fillText("fakt(6) = n x fakt(n - 1)", 100,425);  
+	    
     };
 
     if (counter === 3) {
-        c.drawImage(faktorial3,30,180);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+        //c.font='normal 20px Lucida Console'; 
+        
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+        
+    
+        c.fillText("<-- top", 360, 235);
+        c.fillText("fakt(5) = n x fakt(n - 1)", 100,425);  
+
     };
 
 
     if (counter === 4) {
-        c.drawImage(faktorial4,30,265);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+  
+        c.drawImage(faktorial4,160,170);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+        c.fillText("n = 5", 90, 195);
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+
+        c.fillText("<-- top", 360, 195);
+        c.fillText("fakt(4) = n x fakt(n - 1)", 100,425);  
+
     };
 
     if (counter === 5) {
-        c.drawImage(faktorial5,30,350);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+
+        c.drawImage(faktorial3,160,130);  
+        c.drawImage(faktorial4,160,170);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+
+        c.fillText("n = 4", 90, 155);
+        c.fillText("n = 5", 90, 195);
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+
+        c.fillText("<-- top", 360, 155);
+        c.fillText("fakt(3) = n x fakt(n - 1)", 100,425);  
+  
     };
 
 
     if (counter === 6) {
-        c.clearRect(30,350,240,75);
+        c.clearRect(0,0,canvas.height,canvas.width);
+
+        c.drawImage(faktorial2,160,90);  
+        c.drawImage(faktorial3,160,130);  
+        c.drawImage(faktorial4,160,170);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+        
+
+        c.fillText("n = 3", 90, 115);
+        c.fillText("n = 4", 90, 155);
+        c.fillText("n = 5", 90, 195);
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+
+        c.fillText("<-- top", 360, 115);
+        c.fillText("fakt(2) = n x fakt(n - 1)", 100,425);  
+
     };
 
     if (counter === 7) {
-        c.drawImage(faktorial6,30,265);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+
+        c.drawImage(faktorial1,160,50);  
+        c.drawImage(faktorial2,160,90);  
+        c.drawImage(faktorial3,160,130);  
+        c.drawImage(faktorial4,160,170);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+
+        c.fillText("n = 2", 90, 75);
+        c.fillText("n = 3", 90, 115);
+        c.fillText("n = 4", 90, 155);
+        c.fillText("n = 5", 90, 195);
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+
+        c.fillText("<-- top", 360, 75);
+        c.fillText("fakt(1) = n x fakt(n - 1)", 100,425);  
+
+        
     };
 
     if (counter === 8) {
-        c.drawImage(faktorial7,30,265);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+	c.drawImage(faktorial0,160,10);
+        c.drawImage(faktorial1,160,50);  
+        c.drawImage(faktorial2,160,90);  
+        c.drawImage(faktorial3,160,130);  
+        c.drawImage(faktorial4,160,170);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+
+        c.fillText("n = 1", 90, 35);
+        c.fillText("n = 2", 90, 75);
+        c.fillText("n = 3", 90, 115);
+        c.fillText("n = 4", 90, 155);
+        c.fillText("n = 5", 90, 195);
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+
+        c.fillText("<-- top", 360, 35);
+        c.fillText("fakt(0) = n x fakt(n - 1)", 100,425);  
+ 
     };
 
     if (counter === 9) {
-        c.clearRect(30,265,240,75);
+        c.clearRect(0,0,canvas.height,canvas.width);
+        c.drawImage(faktorial0,160,10);
+            c.drawImage(faktorial1,160,50);  
+            c.drawImage(faktorial2,160,90);  
+            c.drawImage(faktorial3,160,130);  
+            c.drawImage(faktorial4,160,170);
+            c.drawImage(faktorial5,160,210);
+            c.drawImage(faktorial6,160,250);
+            c.drawImage(faktorial7,160,290);
+    
+            c.fillText("n = 1", 90, 35);
+            c.fillText("n = 2", 90, 75);
+            c.fillText("n = 3", 90, 115);
+            c.fillText("n = 4", 90, 155);
+            c.fillText("n = 5", 90, 195);
+            c.fillText("n = 6", 90, 235);
+            c.fillText("n = 7", 90,275);
+    
+            c.fillText("<-- top", 360, 35);
+
+        c.fillText("n = fakt(0) = 0 x fakt(- 1) = 0", 75,395);  
+        c.fillText("base case reached", 150,425);
+ 
     };
 
     if (counter === 10) {
-        c.drawImage(faktorial8,30,180);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+        c.drawImage(faktorial0,160,10);
+            c.drawImage(faktorial1,160,50);  
+            c.drawImage(faktorial2,160,90);  
+            c.drawImage(faktorial3,160,130);  
+            c.drawImage(faktorial4,160,170);
+            c.drawImage(faktorial5,160,210);
+            c.drawImage(faktorial6,160,250);
+            c.drawImage(faktorial7,160,290);
+    
+            c.fillText("n = 1", 90, 35);
+            c.fillText("n = 2", 90, 75);
+            c.fillText("n = 3", 90, 115);
+            c.fillText("n = 4", 90, 155);
+            c.fillText("n = 5", 90, 195);
+            c.fillText("n = 6", 90, 235);
+            c.fillText("n = 7", 90,275);
+    
+            c.fillText("<-- top", 360, 35);
+
+        c.fillText("faktoriális(0) = 1", 150,395);  
+        c.fillText("return 1 x 1 = 1", 150,425);  
     };
 
     if (counter === 11) {
-        c.drawImage(faktorial9,30,180);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+
+        c.drawImage(faktorial1,160,50);  
+        c.drawImage(faktorial2,160,90);  
+        c.drawImage(faktorial3,160,130);  
+        c.drawImage(faktorial4,160,170);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+
+        c.fillText("n = 2", 90, 75);
+        c.fillText("n = 3", 90, 115);
+        c.fillText("n = 4", 90, 155);
+        c.fillText("n = 5", 90, 195);
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+
+        c.fillText("<-- top", 360, 75);
+        c.fillText("faktoriális(1) = 1", 150,395);  
+        c.fillText("return 2 x 1 = 2", 150,425);
     };
 
     if (counter === 12) {
-        c.clearRect(30,180,240,75);
+        c.clearRect(0,0,canvas.height,canvas.width);
+
+        c.drawImage(faktorial2,160,90);  
+        c.drawImage(faktorial3,160,130);  
+        c.drawImage(faktorial4,160,170);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+    
+
+        c.fillText("n = 3", 90, 115);
+        c.fillText("n = 4", 90, 155);
+        c.fillText("n = 5", 90, 195);
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+
+        c.fillText("<-- top", 360, 115);
+        c.fillText("faktoriális(2) = 2", 150,395);  
+        c.fillText("return 3 x 2 = 6", 150,425);
     };
 
 
 
     if (counter === 13) {
-        c.drawImage(faktorial10,30,95);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+
+        c.drawImage(faktorial3,160,130);  
+        c.drawImage(faktorial4,160,170);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+
+        c.fillText("n = 4", 90, 155);
+        c.fillText("n = 5", 90, 195);
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+
+        c.fillText("<-- top", 360, 155);
+        c.fillText("faktoriális(3) = 6", 150,395);  
+        c.fillText("return 4 x 6 = 24", 150,425);   
     };
 
     if (counter === 14) {
-        c.drawImage(faktorial11,30,95);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+  
+        c.drawImage(faktorial4,160,170);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+        c.fillText("n = 5", 90, 195);
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+
+        c.fillText("<-- top", 360, 195);
+        c.fillText("faktoriális(4) = 24", 150,395);  
+        c.fillText("return 5 x 24 = 120", 150,425);
     };
 
     if (counter === 15) {
-        c.clearRect(30,95,240,75);
+        c.clearRect(0,0,canvas.height,canvas.width);
+        c.drawImage(faktorial5,160,210);
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+     
+        
+        c.fillText("n = 6", 90, 235);
+        c.fillText("n = 7", 90,275);
+        
+    
+        c.fillText("<-- top", 360, 235);
+        c.fillText("faktoriális(5) = 120", 150,395);  
+        c.fillText("return 6 x 120 = 720", 150,425);
     };
 
 
     if (counter === 16) {
-        c.drawImage(faktorial12,30,10);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+    
+        c.drawImage(faktorial6,160,250);
+        c.drawImage(faktorial7,160,290);
+        
+        
+        c.fillText("n = 7", 90,275);
+        c.fillText("<-- top", 360,275); 
+        c.fillText("faktoriális(6) = 720", 150,395);  
+        c.fillText("return 7 x 720 = 5040", 150,425);
     };
 
     if (counter === 17) {
-        c.drawImage(faktorial13,30,10);   
+        c.clearRect(0,0,canvas.height,canvas.width);
+        c.drawImage(faktorial7,160,290);
+        
+        c.fillText("faktoriális(7) = 5040", 150,425);    
+    };
+
+    if (counter === 18) {
+        c.clearRect(0,0,canvas.height,canvas.width);
+         
+        c.fillText("faktoriális(7) = 5040", 150,425);
+
     };
 
 
@@ -166,7 +420,7 @@ document.getElementById('stepFrwd').onclick = function(){
     szoveg.innerText = parapa[counter];   
     counter++; 
      if(counter >=18){
-        szoveg.innerText = parapa[counter]="Az 5 faktoriális eredménye: 120!";
+        szoveg.innerText = parapa[counter]="A 7 faktoriális eredménye: 5040!";
     }  
 }
 
@@ -174,11 +428,14 @@ document.getElementById('stepFrwd').onclick = function(){
 //Canvas 1 reset
 document.getElementById('resetAnim').onclick = function(){
     isAllowed = false;
-    c.clearRect(0,0,canvas.width, canvas.height);
-    c.drawImage(faktorial1,30,10);   
+    c.clearRect(0,0,canvas.width, canvas.height); 
+        c.drawImage(faktorial7,160,290);
+        c.font='normal 20px Lucida Console'; 
+        c.fillText("<-- top", 360,315);
+
     counter = 1;
     //label resetelese
-    document.getElementById("label1").innerHTML = "";
+    document.getElementById("label1").innerHTML = "faktoriális(7) megoldása";
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
     buttonState="START";  

@@ -64,16 +64,16 @@ int main()
     towerOfHanoi(num, 'A', 'C', 'B');
     return 0;
 }
-void towerOfHanoi(int num, char A_rod, char C_rod, char B_rod)
+void towerOfHanoi(int num, char frompeg, char topeg, char auxpeg)
 {
     if (num == 1)
     {
-        printf("\n 1. lemez áthelyezése %c oszlopról %c oszlopra", A_rod, C_rod);
+        printf("\n 1. lemez áthelyezése %c oszlopról %c oszlopra", frompeg, topeg);
         return;
     }
-    towerOfHanoi(num - 1, A_rod, B_rod, C_rod);
-    printf("\n %d. lemez áthelyezése %c oszlopról %c oszlopra", num, A_rod, C_rod);
-    towerOfHanoi(num - 1, B_rod, C_rod, A_rod);
+    towerOfHanoi(num - 1, frompeg, auxpeg, topeg);
+    printf("\n %d. lemez áthelyezése %c oszlopról %c oszlopra", num, frompeg, topeg);
+    towerOfHanoi(num - 1, auxpeg, topeg, frompeg);
 }
 <br>
 <a href="https://www.sanfoundry.com/c-program-tower-of-hanoi-using-recursion/" target="_blank">Forrás</a>
