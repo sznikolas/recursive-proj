@@ -396,7 +396,7 @@ function animate(){
 
     if (counter === 18) {
         c.clearRect(0,0,canvas.height,canvas.width);
-         
+        c.drawImage(faktorial7,160,290);
         c.fillText("faktoriális(7) = 5040", 150,425);
 
     };

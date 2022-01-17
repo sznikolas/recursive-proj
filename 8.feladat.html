@@ -74,6 +74,8 @@ void bubbleSort(int arr[], int n)
         if (arr[i] &gt; arr[i + 1]) {
             swap(arr, i, i + 1);
         }
+        //animalashoz segitseg
+        //printf("%d \n", arr[i] );
     }
   
     if (n - 1 &gt; 1) {
@@ -84,7 +86,7 @@ void bubbleSort(int arr[], int n)
 int main(void)
 {
     //<b>Rendezetlen tömbb megadása</b>
-    int arr[] = { 3, 5, 8, 4, 1, 9, -2 };
+    int arr[] = { 10, 5, 8, 4, 1, 9, 3 };
     printf("A rendezett tömbb: ",arr);
     int n = sizeof(arr) / sizeof(arr[0]);
   

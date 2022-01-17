@@ -403,7 +403,7 @@ document.getElementById('resetAnim').onclick = function(){
 
     counter = 1;
     //label resetelese
-    document.getElementById("label1").innerHTML = "1. lépés: előre";
+    document.getElementById("label1").innerHTML = "Rekurzív bubblesort";
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
     buttonState="START";  
