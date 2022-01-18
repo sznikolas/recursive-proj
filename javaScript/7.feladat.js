@@ -5,8 +5,7 @@ canvas.width = 500;//900 a pszeudoval
 canvas.height  = 530;
 
 
-let parapa = [
-"Quicksort",
+let parapa = ["Quicksort",
 "partíció",
 "pivot -> utolsó elem, J = arr[0], I = arr[-1]", 
 "arr[J] > pivot, J++", 
@@ -22,52 +21,38 @@ let parapa = [
 "J = arr[high] ezért kilépünk a ciklusból", 
 "arr[I+1] csere pivot", 
 "A 2-es a helyére került",
-
-
 "quicksort", 
 "partíció",
-
-
 "arr[J] <= arr[high-1]", 
 "arr[I+1] csere pivot", 
 "arr[I+1] csere pivot", 
 "A 0 a helyére került",
-
 "quicksort", 
 "partíció size == 1, akkor sorted",
 "Az 1-es a helyére került", 
-
-
 "quicksort", 
 "partíció",
-
 "arr[J] > pivot, J++", 
 "arr[J] > pivot, J++", 
 "arr[J] > pivot, J++",
 "J = arr[high] ezért kilépünk a ciklusból", 
 "arr[I+1] csere pivot", 
 "A 6-os a helyére került", 
-
 "quicksort", 
 "partíció",
-
 "arr[J] < pivot, I++", 
 "arr[I] csere arr[J]", 
 "J++", 
-
 "arr[J] > pivot, J++", 
 "J = arr[high] ezért kilépünk a ciklusból", 
 "arr[I+1] csere pivot",
 "A 8-as a helyére került", 
-
 "quicksort", 
 "partíció size == 1, akkor sorted",
 "A 7-es a helyére került", 
-
 "quicksort", 
 "partíció size == 1, akkor sorted",
-"A 9-es a helyére került", 
-
+"A 9-es a helyére került",
 "A sorbarendezés sikeresen megtörtént!"];
 
 let counter = 1;
@@ -179,7 +164,7 @@ function animate(){
         c.clearRect(490,115,40,30);
     };
 
-    if (counter === 93) {
+    if (counter === 4) {
         
         /* c.drawImage(J,90,50);
         c.drawImage(I,40,50);
@@ -473,6 +458,10 @@ function animate(){
         c.drawImage(partition1,265,280);    
     };
 
+    if (counter === 44) {
+        
+    };
+
     if (counter === 45) {
         c.clearRect(265,280,60,40);
         c.drawImage(quick7,280,452);
@@ -482,6 +471,10 @@ function animate(){
     if (counter === 46) {
         c.drawImage(partition1,380,280);   
           
+    };
+
+    if (counter === 47) {
+        
     };
 
     if (counter === 48) {
@@ -501,8 +494,9 @@ animate();
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){  
     pszeudo++;
-    szoveg.innerText = parapa[pszeudo]; 
     counter++; 
+    szoveg.innerText = parapa[pszeudo]; 
+    
     if(pszeudo >=48){
         szoveg.innerText = parapa[pszeudo]="A sorbarendezés sikeresen megtörtént!";
     } 
@@ -528,9 +522,8 @@ document.getElementById('resetAnim').onclick = function(){
         c.drawImage(quick0,280,80);
         c.drawImage(quick9,330,80);
         c.drawImage(quick6,380,80);
-
     counter = 1;
-    pszeudo=0
+    pszeudo = 0;
     //label resetelese
     document.getElementById("label1").innerHTML = "Quicksort";
     let idk = document.getElementById("startAnim");
@@ -542,7 +535,7 @@ document.getElementById('resetAnim').onclick = function(){
 const startAnim = async () => {
     // A lépések automatikus lejátszása várakozással (startAnim)
     let slider = document.getElementById('myRange');
-        for(var x = 0; x<=48; x++){
+        for(var x = 0; x<=47; x++){
             if(isAllowed){
                 pszeudo++;           
                 szoveg.innerText = parapa[pszeudo];                 

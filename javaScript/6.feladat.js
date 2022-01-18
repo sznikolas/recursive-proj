@@ -44,7 +44,20 @@ let parapa = ["",
 "7 < 9, rendezve összefésüljük",
 "8 < 9, rendezve összefésüljük",
 "Rendezve összefésüljük",
-"A sorbarendezés sikeresen megtörtént!",];
+
+"1 > 0, rendezve összefésüljük",
+"1 < 2, rendezve összefésüljük", 
+"6 > 2, rendezve összefésüljük", 
+"6 < 9, rendezve összefésüljük",
+"7 < 9, rendezve összefésüljük",
+"8 < 9, rendezve összefésüljük",
+"7 < 9, rendezve összefésüljük",
+"8 < 9, rendezve összefésüljük",
+"adasdasdasdasd",
+"8 < 9, rendezve összefésüljük",
+
+
+"A sorbarendezés sikeresen megtörtént!"];
 
 let counter = 1;
 let buttonState = "START";
@@ -65,6 +78,8 @@ const csere = new Image();
 const felosztas1 = new Image();
 const felosztas2 = new Image();
 const felosztas3 = new Image();
+const felosztas4 = new Image();
+const felosztas5 = new Image();
 
 
 
@@ -83,6 +98,8 @@ csere.src = "images/csere.png";
 felosztas1.src = "images/felosztas1.png";
 felosztas2.src = "images/felosztas2.png";
 felosztas3.src = "images/felosztas3.png";
+felosztas4.src = "images/felosztas4.png";
+felosztas5.src = "images/felosztas5.png";
 
 
 
@@ -92,8 +109,7 @@ let myAnim;
 
 function animate(){
     //00
-    if (counter === 1) {
-        
+    if (counter === 1) {       
         c.drawImage(quick8,110,80);  
         c.drawImage(quick7,150,80);
         c.drawImage(quick6,190,80);
@@ -102,77 +118,36 @@ function animate(){
         c.drawImage(quick0,270,80);
         c.drawImage(quick9,310,80);
         c.drawImage(quick2,350,80);
-
     };
 
     if (counter === 2) {
-        c.drawImage(felosztas1,102,120);
-        
-
-
+        c.drawImage(felosztas1,100,125);
     };
 
-    if (counter === 3) {
-        
-        
+    if (counter === 3) { 
         c.drawImage(quick8,90,160);  
         c.drawImage(quick7,130,160);
         c.drawImage(quick6,170,160);
         c.drawImage(quick1,210,160);
-
-
-        c.drawImage(quick0,290,160);
-        c.drawImage(quick9,330,160);
-        c.drawImage(quick2,370,160);
-
     };
 
     if (counter === 4) {
         c.drawImage(felosztas2,83,200);
-        
-
     };
 
-    if (counter === 5) {
-       
-        
+    if (counter === 5) {  
         c.drawImage(quick8,40,240);  
         c.drawImage(quick7,80,240);
-
-        c.drawImage(quick6,160,240);
-        c.drawImage(quick1,200,240);
-
-
-        c.drawImage(quick0,300,240);
-        c.drawImage(quick9,340,240);
-
-        c.drawImage(quick2,420,240);
-
     };
 
     if (counter === 6) {
         c.drawImage(felosztas3,32,280);
-
-      
-
     };
 
     if (counter === 7) {
-        
-
         c.drawImage(quick8,35,320);
         c.drawImage(quick7,85,320);
-
-        c.drawImage(quick6,155,320);
-        c.drawImage(quick1,205,320);
-
-        c.drawImage(quick0,295,320);
-        c.drawImage(quick9,345,320);
-
-        c.drawImage(quick2,420,320);
-
     };
-
 
     if (counter === 8) {    
         c.drawImage(pointer1,45,300);
@@ -189,141 +164,176 @@ function animate(){
         c.clearRect(45,300,20,20);
     };
 
+    if (counter === 11) {
+        c.drawImage(quick6,160,240);
+        c.drawImage(quick1,200,240); 
+    };
 
+    if (counter === 12) {
+        c.drawImage(felosztas3,152,280);
+    };
 
-    if (counter === 11) {    
+    if (counter === 13) {
+        c.drawImage(quick6,155,320);
+        c.drawImage(quick1,205,320);
+    };
+
+    if (counter === 14) {    
         c.drawImage(pointer1,165,300);
         c.drawImage(pointer1,215,300);
     };
 
-    if (counter === 12) {
+    if (counter === 15) {
         c.drawImage(quick1,160,400);
         c.clearRect(215,300,20,20);
     };
-    if (counter === 13) {
+
+    if (counter === 16) {
         c.drawImage(quick6,200,400);
         c.clearRect(165,300,20,20);
     };
 
-
-    if (counter === 14) {    
-        c.drawImage(pointer1,305,300);
-        c.drawImage(pointer1,355,300);
-    };
-
-    if (counter === 15) {
-        c.drawImage(quick0,300,400);
-        c.clearRect(305,300,20,20);
-
-    };
-    if (counter === 16) {
-        c.drawImage(quick9,340,400);
-        c.clearRect(355,300,20,20);
-    };
-
-    if (counter === 17) {
-        c.drawImage(quick2,420,400);
-    };
-
-
-
-
-
-    if (counter === 19) {    
+    if (counter === 17) {    
         c.drawImage(pointer1,170,380);
         c.drawImage(pointer1,50,380);
     };
 
-    if (counter === 20) {   
+    if (counter === 18) {   
         c.drawImage(quick1,90,480);
         c.clearRect(170,380,20,20);
         c.drawImage(pointer1,210,380);
     };    
 
-    if (counter === 21) {
+    if (counter === 19) {
         c.drawImage(quick6,130,480);
         c.clearRect(210,380,20,20);
         c.drawImage(pointer1,90,380);
     };    
     
-    if (counter === 22) {
+    if (counter === 20) {
         c.drawImage(quick7,170,480);
         c.clearRect(50,380,20,20);
     };    
     
-    if (counter === 23) {
+    if (counter === 21) {
         c.drawImage(quick8,210,480);
         c.clearRect(90,380,20,20);
     };
 
+    if (counter === 22) {
+        c.drawImage(quick0,290,160);
+        c.drawImage(quick9,330,160);
+        c.drawImage(quick2,370,160);
+    };
 
+    if (counter === 23) {
+        c.drawImage(felosztas4,285,200);
+    };
 
-    
-    if (counter === 23) {    
+    if (counter === 24) {    
+        c.drawImage(quick0,300,240);
+        c.drawImage(quick9,340,240);
+    };
+
+    if (counter === 25) {    
+        c.drawImage(felosztas3,292,280);
+    };
+
+    if (counter === 26) {    
+        c.drawImage(quick0,295,320);
+        c.drawImage(quick9,345,320);
+    };
+
+    if (counter === 27) {    
+        c.drawImage(pointer1,305,300);
+        c.drawImage(pointer1,355,300);
+    };
+
+    if (counter === 28) {
+        c.drawImage(quick0,300,400);
+        c.clearRect(305,300,20,20);
+    };
+
+    if (counter === 29) {
+        c.drawImage(quick9,340,400);
+        c.clearRect(355,300,20,20);
+    };
+
+    if (counter === 30) {    
+      
+        c.drawImage(quick2,420,240);
+    };
+
+    if (counter === 31) {
+        c.drawImage(felosztas5,419,280);
+    };
+
+    if (counter === 32) {
+        c.drawImage(quick2,420,400);
+    };
+
+    if (counter === 33) {    
         c.drawImage(pointer1,310,380);
         c.drawImage(pointer1,430,380);
     };
     
-    if (counter === 24) {
+    if (counter === 34) {
         c.drawImage(quick0,290,480);
         c.clearRect(310,380,20,20);
         c.drawImage(pointer1,350,380);
     };    
     
-    if (counter === 25) {
+    if (counter === 35) {
         c.drawImage(quick2,330,480);
         c.clearRect(430,380,20,20);
     };    
     
-    if (counter === 26) {
+    if (counter === 36) {
         c.drawImage(quick9,370,480);
         c.clearRect(350,380,20,20);
     };
 
-
-
-
-    if (counter === 27) {    
+    if (counter === 37) {    
         c.drawImage(pointer1,100,460);
         c.drawImage(pointer1,300,460);
     };
 
-    if (counter === 28) {   
+    if (counter === 38) {   
         c.drawImage(quick0,120,560);
         c.clearRect(300,460,20,20);
         c.drawImage(pointer1,340,460);
     };
 
-    if (counter === 29) {
+    if (counter === 39) {
         c.drawImage(quick1,160,560);
         c.clearRect(100,460,20,20);
         c.drawImage(pointer1,140,460);
     };
 
-    if (counter === 30) {
+    if (counter === 40) {
         c.drawImage(quick2,200,560);
         c.clearRect(340,460,20,20);
         c.drawImage(pointer1,380,460);
     };
 
-    if (counter === 31) {
+    if (counter === 41) {
         c.drawImage(quick6,240,560);
         c.clearRect(140,460,20,20);
         c.drawImage(pointer1,180,460);
     };
 
-    if (counter === 32) {
+    if (counter === 42) {
         c.drawImage(quick7,280,560);
         c.clearRect(180,460,20,20);
         c.drawImage(pointer1,220,460);
     };
 
-    if (counter === 33) {
+    if (counter === 43) {
         c.drawImage(quick8,320,560);
         c.clearRect(220,460,20,20);
     };
 
-    if (counter === 34) {
+    if (counter === 44) {
         c.drawImage(quick9,360,560);
         c.clearRect(380,460,20,20);
     };
@@ -341,8 +351,9 @@ animate();
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
     szoveg.innerText = parapa[counter];   
+
     counter++; 
-     if(counter >=34){
+     if(counter >=44){
         szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
     }  
 }
@@ -380,7 +391,7 @@ document.getElementById('resetAnim').onclick = function(){
 const startAnim = async () => {
     // A lépések automatikus lejátszása várakozással (startAnim)
     let slider = document.getElementById('myRange');
-        for(var x = 0; x<=34; x++){
+        for(var x = 0; x<=43; x++){
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
                 szoveg.innerText = parapa[counter];  
@@ -388,7 +399,7 @@ const startAnim = async () => {
                 counter++;
                 await sleep(1000/slider.value);       
             }
-             if(counter >=34){
+             if(counter >=44){
                 szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
             } 
         }
