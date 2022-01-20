@@ -26,8 +26,8 @@
     <h1>N királynő probléma - N Queen Problem</h1>
     
     <div class="smallContainer"><br>
-    <p><b>Feladat leírása:</b> A nyolckirálynő-probléma egy sakkfeladvány, lényege a következő: hogyan illetve hányféleképpen lehet N királynőt (vezért) 
-    úgy elhelyezni egy n×n-as sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
+    <p><b>Feladat leírása:</b> Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan illetve hányféleképpen lehet N királynőt (vezért) 
+    úgy elhelyezni egy n×n-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
     Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
     <br>A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
     lehet lerakni n darab királynőt egy n×n-es táblán.</p>
@@ -176,10 +176,22 @@ int main()
     </div>
 
     <ul>  
-        <li>szöveg</li>
-        <li>szöveg</li>
-        <li>Hszöveg</li>
-        <li>szöveg</li>
+        <li> Kezdjük az első sorban, az első oszlopban</li>
+        <li> Ha az összes királynőt elhelyeztük, return: true</li>
+        
+            <li> Próbáljuk ki az aktuális sor összes oszlopát. 
+               Minden egyes kipróbált oszlopra a következőket végezzük.
+               <br> &emsp;&emsp;<b>a)</b> Ha a királynő biztonságosan elhelyezhető ebben az oszlopban 
+                   akkor jelöljük meg ezt a [sor, oszlop] helyet a 
+                   megoldás részeként, és rekurzívan ellenőrizzük, hogy a
+                   királynő ide helyezése megoldáshoz vezet-e.
+                   <br> <b>&emsp;&emsp;b)</b> Ha a királynő elhelyezése az [sor, oszlop] oszlopban
+                   megoldáshoz vezet, akkor return: true és megyünk a következő sorba
+                   <br> <b>&emsp;&emsp;c)</b> Ha a királynő elhelyezése nem vezet megoldáshoz, akkor
+                   töröljük a [sor, oszlop] hely jelölését (BACKTRACKING), és menjünk a következő
+                   <b>a)</b> lépéshez, hogy más oszlopokkal próbálkozzunk.</li>
+            <li>Ha az összes oszlopot kipróbáltuk, és semmi sem vált be,
+               adjuk vissza a false értéket a BACKTRACKING elindításához.</li>
         </ul> 
     <br>
      
@@ -214,6 +226,7 @@ Ha ez a függvény (a maradék királynő elhelyezésére) nem igaz, akkor csak 
 ezúttal a királynőt valamilyen más pozícióba helyezi.</p>
 
 </p>
+<br> <p>Az alább látható ábrán zölddel jelöltük azokat a pozíciókat, ahogyan a királynő lépni képes.</p>
 <div class="container3">
     <img src="images/nQueenLepesek.png">
 </div>
