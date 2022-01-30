@@ -20,7 +20,7 @@
     <div class="smallContainer"><br>
     <p><b>Feladat leírása:</b> A buborékrendezés (angolul: Bubble sort) egy naiv algoritmus, amellyel egy véges (nem feltétlenül numerikus) sorozat – 
       vagy számítástechnikai szóhasználattal élve egy tömb – elemei sorba rendezhetők [(n-1)n]/2 összehasonlítás elvégzésével, 
-      ahol n a sorozat elemeinek számát jelenti.</p><br>
+      ahol n a sorozat elemeinek számát jelenti. <br>A buborékrendező algoritmus rekurzívan is megvalósítható. Ez látható az alábbi feladatban.</p><br>
     </div>
 
       <div class="smallContainer">
@@ -127,10 +127,7 @@ int main(void)
   </div>
 
   <ul>  
-    <li>szöveg</li>
-    <li>szöveg</li>
-    <li>Hszöveg</li>
-    <li>szöveg</li>
+    <li>Amíg n-1 > 1 rekurzívan hívjuk a buborékrendezést az arr[i...n] résztömbbön n-1-ig.</li>
     </ul> 
 <br>
 
@@ -145,7 +142,7 @@ int main(void)
             </summary>
       
             <p>
-              blabla
+              int n = sizeof(arr) / sizeof(arr[0]); -> megkapni a tömb hosszát
             </p><br>
       
           </details>

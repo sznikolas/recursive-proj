@@ -220,7 +220,7 @@ function animate(){
         c.fillText("n = 7", 90,275);
 
         c.fillText("<-- top", 360, 35);
-        c.fillText("fakt(0) = n x fakt(n - 1)", 100,425);  
+        c.fillText("if n = 1 return 1", 150,425);  
  
     };
 
@@ -245,7 +245,7 @@ function animate(){
     
             c.fillText("<-- top", 360, 35);
 
-        c.fillText("n = fakt(0) = 0 x fakt(- 1) = 0", 75,395);  
+        //c.fillText("n = fakt(0) = 0 x fakt(- 1) = 0", 75,395);  
         c.fillText("base case reached", 150,425);
  
     };
@@ -400,18 +400,11 @@ function animate(){
         c.fillText("faktoriális(7) = 5040", 150,425);
 
     };
-
-
-
-  
-
-
-
-    //c.drawImage(rat,corX[counter],corY[counter]);
+    
     myAnim = requestAnimationFrame(animate); 
 }
 myAnim = requestAnimationFrame(animate);
-animate();
+//animate();
 
 
 //Előrelépések 1-es canvason
@@ -473,12 +466,12 @@ document.getElementById('startAnim').onclick = function(){
     startAnim();
     change()
 }
+
 change = function(){
     let elem = document.getElementById("startAnim");
     if (elem.value=="Stop") {elem.value = "Start";buttonState="START"}
     else {elem.value = "Stop";buttonState="STOP"}
 }
-
 
 
 $('#myModal').on('shown.bs.modal', function () {

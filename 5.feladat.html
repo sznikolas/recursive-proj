@@ -18,7 +18,7 @@
 
     <h1>Rekurzív faktoriális</h1>
     <div class="smallContainer"><p><br> 
-    <p><b>Feladat leírása:</b> blabla </p><br>
+    <p><b>Feladat leírása:</b>A matematikában egy n nemnegatív egész szám faktoriálisának az n-nél kisebb vagy egyenlő pozitív egész számok szorzatát nevezzük. Jelölése: n!, amit „n faktoriális”-nak vagy „n faktor”-nak olvasunk ki.</p><br>
 </div>
 
 
@@ -50,7 +50,7 @@ C kód:
 
 int factorial(int n) {
   //alapeset
-  if(n == 0) {
+  if(n &lt;= 1) {
       return 1;
   } else {
       return n * factorial(n-1);
@@ -94,10 +94,11 @@ int main() {
       </div><!-- container3 -->
 
       <ul>  
-        <li>szöveg</li>
-        <li>szöveg</li>
-        <li>Hszöveg</li>
-        <li>szöveg</li>
+        <li>Kezdetben a 7-es értéket adjuk meg argumentumként.
+          Ezután 6 kerül átadásra a factorial() függvénynek ugyanabból a függvényből (rekurzív hívás). 
+          Minden egyes rekurzív hívásnál az n argumentum értéke 1-gyel csökken.
+          Ha az n értéke kisebb, mint 1, akkor nincs rekurzív hívás, és a faktoriális végül visszakerül a main() függvénybe.   
+          </li>
         </ul> 
     <br>
 
@@ -111,7 +112,8 @@ int main() {
             </summary>
       
             <p>
-              blabla
+              0! = 1
+              1! = 1
             </p><br>
       
           </details>

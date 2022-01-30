@@ -1,91 +1,725 @@
 //első canvas
 let canvas = document.getElementById('canvas8');
 let c = canvas.getContext('2d');
-canvas.width = 250;
-canvas.height  = 250;
-
-let corX = [0,90,180,270,450,630,540,630,540,360,  450,540,630,450,630,540,630,450,540,630,   450,540,360,450,540,360,270,450,630,540,   
-        360,180,360,270,90,0,180,0,180,270,   360,180,0,90,270,180,90,0,90,270,   90,0,180,360,270,180,0,90,0,90,     270,360,450,630];
-    
-let corY = [0,180,360,540,630,540,360,180,0,90,   270,450,630,540,450,270,90,0,180,360,    450,630,540,360,540,450,270,180,270,90,    
-        0,90,180,0,90,270,180,90,0,180,   360,270,360,540,630,450,630,450,270,360,   450,630,540,630,450,630,540,360,180,0,   90,270,90,0];
+canvas.width = 550;
+canvas.height  = 350;
 
 let counter = 0;
-let alrdyX = [0];
-let alrdyY = [0];
 
+let parapa = ["asd", 
+"rekurzív függvényhívás fakt(7)", 
+"rekurzív függvényhívás fakt(6)", 
+"rekurzív függvényhívás fakt(5)",
+"rekurzív függvényhívás fakt(4)",
+"rekurzív függvényhívás fakt(3)",
+"rekurzív függvényhívás fakt(2)",
+"rekurzív függvényhívás fakt(1)",
+"elértük a base case-t",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatértünk a rekurzív hívásokból",
+"visszatértünk a rekurzív hívásokból",
 
-let tombCounter = 0;
-//let xasd = [0,90,180,270] ;
-//let yasd = [0,90,180,270] ;
+"A karakterláncot sikeresen megfordítottuk!"];
+
 let buttonState = "START";
-
-
-/* const player = {
-    width:90,
-    height:90,
- 
-}; */
-
 let isAllowed = false;
-const knight = new Image();
-knight.src = "images/knight7.png";
+
+/* const knight = new Image();
+knight.src = "images/knight7.png"; */
+
 let myAnim;
-/* function animate(){
-    //if(tombCounter >= xasd.length  && tombCounter >= yasd.length ){tombCounter = 0}
-    c.beginPath();
-    c.fillStyle = "rgba(255, 255, 0, .11)";
-    c.fillRect(corX[counter-1],corY[counter-1],90, 90);
-    c.stroke();
-    c.closePath();
-    c.drawImage(knight,corX[counter],corY[counter]);
+
+
+function animate(){
+
+    if (counter === 0) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.font='normal 30px Lucida Console'; 
+
+        c.fillStyle = "black";
+        c.fillText("r", 90,110);
+        c.fillText("e", 140,110);
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillText("i", 390,110);
+        c.fillText("ó", 438,110);
+
+    };
+
+    if (counter === 1) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.font='normal 30px Lucida Console'; 
+        c.fillStyle = "red";
+        c.fillText("L", 90,55);
+        c.fillText("▼", 90,75);
+
+        c.fillText("H", 440,55);  
+        c.fillText("▼", 440,75); 
+    
+        c.fillText("r", 90,110);
+        c.fillStyle = "black";
+        c.fillText("e", 140,110);
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillText("i", 390,110);
+        c.fillStyle = "red";
+        c.fillText("ó", 438,110);
+	    
+    };
+
+    if (counter === 2) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 90,55);
+        c.fillText("▼", 90,75);
+
+        c.fillText("H", 440,55);  
+        c.fillText("▼", 440,75); 
+    
+        c.fillText("r", 90,110);
+        c.fillStyle = "black";
+        c.fillText("e", 140,110);
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillText("i", 390,110);
+        c.fillStyle = "red";
+        c.fillText("ó", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("csere", 225,155);
+	    
+    };
+    
+    if (counter === 3) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 90,55);
+        c.fillText("▼", 90,75);
+
+        c.fillText("H", 440,55);  
+        c.fillText("▼", 440,75); 
+    
+        c.fillText("ó", 90,110);
+        c.fillStyle = "black";
+        c.fillText("e", 140,110);
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillText("i", 390,110);
+        c.fillStyle = "red";
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("csere", 225,155);
+
+        c.fillStyle = "red";
+        c.fillText("r", 440,255);
+        c.fillText("ó", 90,255);   
+    };
+
+    if (counter === 4) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 90,55);
+        c.fillText("▼", 90,75);
+
+        c.fillText("H", 440,55);  
+        c.fillText("▼", 440,75); 
+
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("e", 140,110);
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillText("i", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("L++, H--", 205,155);
+
+        c.fillText("r", 440,255);
+        c.fillText("ó", 90,255);
+    };
+
+
+    if (counter === 5) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 140,55);
+        c.fillText("▼", 140,75);
+
+        c.fillText("H", 390,55);  
+        c.fillText("▼", 390,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillStyle = "red";
+        c.fillText("e", 140,110);
+        c.fillStyle = "black";
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillStyle = "red";
+        c.fillText("i", 390,110);
+        c.fillStyle = "black";
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("L++, H--", 205,155);
+	    
+    };
+
+    if (counter === 6) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 140,55);
+        c.fillText("▼", 140,75);
+
+        c.fillText("H", 390,55);  
+        c.fillText("▼", 390,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillStyle = "red";
+        c.fillText("e", 140,110);
+        c.fillStyle = "black";
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillStyle = "red";
+        c.fillText("i", 390,110);
+        c.fillStyle = "black";
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("csere", 225,155);
+	    
+    };
+
+    if (counter === 7) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 140,55);
+        c.fillText("▼", 140,75);
+
+        c.fillText("H", 390,55);  
+        c.fillText("▼", 390,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillStyle = "red";
+        c.fillText("i", 140,110);
+        c.fillStyle = "black";
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillStyle = "red";
+        c.fillText("e", 390,110);
+        c.fillStyle = "black";
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("ó", 90,255);
+        c.fillStyle = "red";
+        c.fillText("e", 390,255);
+        c.fillText("i", 140,255);
+
+        c.fillStyle = "black";
+        c.fillText("csere", 225,155);
+	    
+    };
+
+    if (counter === 8) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 140,55);
+        c.fillText("▼", 140,75);
+
+        c.fillText("H", 390,55);  
+        c.fillText("▼", 390,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("L++, H--", 205,155);
+	    
+    };
+
+    if (counter === 9) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 190,55);
+        c.fillText("▼", 190,75);
+
+        c.fillText("H", 340,55);  
+        c.fillText("▼", 340,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillStyle = "red";
+        c.fillText("k", 190,110);
+        c.fillStyle = "black";
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillStyle = "red";
+        c.fillText("z", 340,110);
+        c.fillStyle = "black";
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("L++, H--", 205,155);
+	    
+    };
+
+    
+    if (counter === 10) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 190,55);
+        c.fillText("▼", 190,75);
+
+        c.fillText("H", 340,55);  
+        c.fillText("▼", 340,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillStyle = "red";
+        c.fillText("k", 190,110);
+        c.fillStyle = "black";
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillStyle = "red";
+        c.fillText("z", 340,110);
+        c.fillStyle = "black";
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("csere", 225,155);
+	    
+    };
+
+    if (counter === 11) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 190,55);
+        c.fillText("▼", 190,75);
+
+        c.fillText("H", 340,55);  
+        c.fillText("▼", 340,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillStyle = "red";
+        c.fillText("z", 190,110);
+        c.fillStyle = "black";
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillStyle = "red";
+        c.fillText("k", 340,110);
+        c.fillStyle = "black";
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+        c.fillStyle = "red";
+        c.fillText("k", 340,255);
+        c.fillText("z", 190,255);
+
+
+        c.fillStyle = "black";
+        c.fillText("csere", 225,155);
+	    
+    };
+
+    if (counter === 12) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 190,55);
+        c.fillText("▼", 190,75);
+
+        c.fillText("H", 340,55);  
+        c.fillText("▼", 340,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillText("z", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("k", 340,110);
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("k", 340,255);
+        c.fillText("z", 190,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("L++, H--", 205,155);
+	    
+    };
+
+    if (counter === 13) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 240,55);
+        c.fillText("▼", 240,75);
+
+        c.fillText("H", 290,55);  
+        c.fillText("▼", 290,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillText("z", 190,110);
+        c.fillStyle = "red";
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillStyle = "black";
+        c.fillText("k", 340,110);
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("k", 340,255);
+        c.fillText("z", 190,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("L++, H--", 205,155);
+	    
+    };
+
+    if (counter === 14) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 240,55);
+        c.fillText("▼", 240,75);
+
+        c.fillText("H", 290,55);  
+        c.fillText("▼", 290,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillText("z", 190,110);
+        c.fillStyle = "red";
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillStyle = "black";
+        c.fillText("k", 340,110);
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("k", 340,255);
+        c.fillText("z", 190,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("csere", 225,155);
+	    
+    };
+
+    if (counter === 15) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 240,55);
+        c.fillText("▼", 240,75);
+
+        c.fillText("H", 290,55);  
+        c.fillText("▼", 290,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillText("z", 190,110);
+        c.fillStyle = "red";
+        c.fillText("r", 240,110);
+        c.fillText("u", 290,110);
+        c.fillStyle = "black";
+        c.fillText("k", 340,110);
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("k", 340,255);
+        c.fillText("z", 190,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+        c.fillStyle = "red";
+        c.fillText("u", 290,255);
+        c.fillText("r", 240,255);
+
+
+        c.fillStyle = "black";
+        c.fillText("csere", 225,155);
+	    
+    };
+
+    if (counter === 16) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 240,55);
+        c.fillText("▼", 240,75);
+
+        c.fillText("H", 290,55);  
+        c.fillText("▼", 290,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillText("z", 190,110);
+        c.fillText("r", 240,110);
+        c.fillText("u", 290,110);
+        c.fillText("k", 340,110);
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("k", 340,255);
+        c.fillText("u", 290,255);
+        c.fillText("r", 240,255);
+        c.fillText("z", 190,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("L++, H--", 205,155);
+	    
+    };
+
+    if (counter === 17) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.fillStyle = "red";
+        c.fillText("L", 290,55);
+        c.fillText("▼", 290,75);
+
+        c.fillText("H", 240,55);  
+        c.fillText("▼", 240,75);
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillText("z", 190,110);
+        c.fillText("r", 240,110);
+        c.fillText("u", 290,110);
+        c.fillStyle = "black";
+        c.fillText("k", 340,110);
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("k", 340,255);
+        c.fillText("u", 290,255);
+        c.fillText("r", 240,255);
+        c.fillText("z", 190,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("base case: L < H", 130,155);
+	    
+    };
+
+    if (counter === 18) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+/*         c.fillStyle = "red";
+        c.fillText("L", 290,55);
+        c.fillText("▼", 290,75);
+
+        c.fillText("H", 240,55);  
+        c.fillText("▼", 240,75); */
+    
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillText("z", 190,110);
+        c.fillText("r", 240,110);
+        c.fillText("u", 290,110);
+        c.fillStyle = "black";
+        c.fillText("k", 340,110);
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("k", 340,255);
+        c.fillText("u", 290,255);
+        c.fillText("r", 240,255);
+        c.fillText("z", 190,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+
+        c.fillStyle = "black";
+        c.fillText("elértük a base case-t", 85,155);
+	    
+    };
+
+    if (counter === 19) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.font='normal 30px Lucida Console'; 
+        c.fillStyle = "black";
+        c.fillText("ó", 90,110);
+        c.fillText("i", 140,110);
+        c.fillText("z", 190,110);
+        c.fillText("r", 240,110);
+        c.fillText("u", 290,110);
+        c.fillText("k", 340,110);
+        c.fillText("e", 390,110);
+        c.fillText("r", 438,110);
+
+        c.fillStyle = "black";
+        c.fillText("r", 440,255);
+        c.fillText("e", 390,255);
+        c.fillText("k", 340,255);
+        c.fillText("u", 290,255);
+        c.fillText("r", 240,255);
+        c.fillText("z", 190,255);
+        c.fillText("i", 140,255);
+        c.fillText("ó", 90,255);
+
+        c.font='normal 20px Lucida Console'; 
+        c.fillText("a karakterláncot sikeresen megfordítottuk", 30,155);
+	    
+    };  
     myAnim = requestAnimationFrame(animate); 
-} */
+}
 
 myAnim = requestAnimationFrame(animate);
-animate();
 
+//Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
-    counter++;
-    myAnim = requestAnimationFrame(animate); 
+    let szoveg = document.getElementById('label1');
+    szoveg.innerText = parapa[counter];   
+    counter++; 
+     if(counter >=19){
+        szoveg.innerText = parapa[counter]="A karakterláncot sikeresen megfordítottuk!";
+    }  
 }
 
-document.getElementById('stepPrev').onclick = function(){
-    c.beginPath();  
-    c.clearRect(corX[counter],corY[counter],90, 90);
-    c.stroke();
-    c.closePath();
-    counter--;
-}
 
 document.getElementById('resetAnim').onclick = function(){
     isAllowed = false;
-    c.clearRect(0,0,canvas.width, canvas.height);
-    c.drawImage(knight,corX[0],corY[0]);
+    c.clearRect(0,0,canvas.width,canvas.height);
+        c.font='normal 30px Lucida Console'; 
+        c.fillStyle = "black";
+        c.fillText("r", 90,110);
+        c.fillText("e", 140,110);
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillText("i", 390,110);
+        c.fillText("ó", 438,110);
     counter = 0;
+    //label resetelese
+    document.getElementById("label1").innerHTML = "asd";
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
-    buttonState="START";  
+    buttonState="START";   
 }
 
+//canvas 1 lejatszas
 const startAnim = async () => {
     // A lépések automatikus lejátszása várakozással (startAnim)
     let slider = document.getElementById('myRange');
-        for(var x = 0; x<corX.length; x++){
+        for(var x = 0; x<=18; x++){
+ 
+            
             if(isAllowed){
-                c.drawImage(knight,corX[counter],corY[counter]);
+                let szoveg = document.getElementById('label1');
+                szoveg.innerText = parapa[counter];  
+                //c.drawImage(rat,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
-            }  
+            }
+             if(counter >=19){
+                szoveg.innerText = parapa[counter]="A karakterláncot sikeresen megfordítottuk!";
+            } 
         }
     }
-    
 // A várakozáshoz szükséges constans
-const sleep = (delay) => new Promise((resolve) => setTimeout(resolve,delay))
-
-/* document.getElementById('stopBtn').onclick = function(){
-    isAllowed = false;
-} */
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve,delay))   
 
 
 document.getElementById('startAnim').onclick = function(){
@@ -95,7 +729,6 @@ document.getElementById('startAnim').onclick = function(){
     change()
 }
     
-
 change = function(){
     let elem = document.getElementById("startAnim");
     if (elem.value=="Stop") {elem.value = "Start";buttonState="START"}

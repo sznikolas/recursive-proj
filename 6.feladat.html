@@ -174,10 +174,16 @@ int main()
 </div>
 
 <ul>  
-    <li>szöveg</li>
-    <li>szöveg</li>
-    <li>Hszöveg</li>
-    <li>szöveg</li>
+    <li>
+        1. Keressük meg a középső pontot, hogy a tömböt két részre osszuk:  <br>
+                middle m = l+ (r-l)/2<br><br>
+        2. Hívjuk a mergeSort programot az első felére:   <br>
+                call mergeSort(arr, l, m)<br><br>
+        3. Hívjuk a mergeSortot a második felére:<br>
+                call mergeSort(arr, m+1, r)<br><br>
+        4. Egyesítse a 2. és 3. lépésben rendezett két felet:<br>
+                call merge(arr, l, m, r)<br><br>
+        </li>
     </ul> 
 <br>
    

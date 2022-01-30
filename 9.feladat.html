@@ -16,17 +16,19 @@
   <body>
     <div class="bigContainer">
       <div class="box02">
-        <h1>Beszúrásos rendezés - Insertion sort</h1>
+        <h1>Reverse a string - Karakterlánc megfordítása</h1>
 
         <div class="smallContainer">
           <br />
           <p>
-            <b>Feladat leírása:</b> Legegyszerűbb formája az egyenes beszúrásos
-            rendezési algoritmus egy tömb elemeinek sorba rendezésére. Az
-            algoritmus k-adik lépése előtt az első k-1 elem már rendezett; a
-            lépés során a k-adik elemet beszúrjuk az első k-1 elem közé az őt
-            nagyság szerint megillető helyre, és a nála nagyobbakat eggyel
-            eltoljuk.
+            <b>Feladat leírása:</b>Írj egy rekurzív programot egy adott karakterlánc hatékony visszafordítására C nyelven. 
+            <br>Egy adott karakterláncot könnyen visszafordíthatunk a verem adatszerkezet segítségével. 
+            Az ötlet az, hogy a karakterlánc minden egyes karakterét egy verembe toljuk, majd elkezdjük feltölteni a bemeneti karakterláncot 
+            (a 0. indexről kezdve) a karakterek kiugrasztásával a veremből, amíg az ki nem ürül.
+            Ahogy az előző bejegyzésben láttuk, egy adott karakterláncot könnyen visszafordíthatunk egy verem adatszerkezet segítségével. 
+            Mivel a veremről van szó, könnyen átalakíthatjuk a kódot a hívási verem használatára.
+            Statikus változót használni nem ajánlott. Ezt a problémát statikus változó használata nélkül is könnyen megoldhatjuk.
+            A módszer időbonyolultsága O(n), és O(n) implicit helyet igényel a hívási veremhez, ahol n a bemeneti karakterlánc hossza.
           </p>
           <br />
         </div>
@@ -67,7 +69,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalScrollableTitle">
-                      Beszúrásos rendezés megoldása C nyelvben
+                      Egy karakterlánc megfordítása rekurzívan
                     </h5>
                     <button
                       type="button"
@@ -81,40 +83,39 @@
                   <div class="modal-body">
                     <pre class="line-numbers">
                 <code class="language-clike">
-//<b>C program a beszúrásos rendezésre</b>
+//<b>C program egy karakterlánc megfordítására</b>
 
 #include &lt;stdio.h&gt;
-
-//<b>Rekurzív függvény a beszúrásos rendezéshez</b>
-void recursiveInsertionSort(int arr[], int n){
-    if (n &lt;= 1)
-      return;
-    recursiveInsertionSort( arr, n-1 );
-    int nth = arr[n-1];
-    int j = n-2;
-    while (j &gt;= 0 &amp;&amp; arr[j] &gt; nth){
-      arr[j+1] = arr[j];
-      j--;
-    }
-    arr[j+1] = nth;
+#include &lt;string.h&gt;
+ 
+//<b>Függvény két adott karakter felcserélésére</b>
+void swap(char *x, char *y)
+{
+    char temp = *x;
+    *x = *y;
+    *y = temp;
 }
-//<b>main függvény</b>
-int main(){
-    //<b>a rendezetlen tömbb megadása</b>
-    int array[] = {34, 7, 12, 90, 51};
-    int n = sizeof(array)/sizeof(array[0]);
-    printf("Rendezetlen tömbb:\t");
-      for (int i=0; i &lt; n; i++)
-    printf("%d ",array[i]);
-
-      recursiveInsertionSort(array, n);
-    printf("\nRendezett tömb:\t");
-    for (int i=0; i &lt; n; i++)
-      printf("%d ",array[i]);
+ 
+//<b>Rekurzív függvény egy adott karakterlánc visszafordítására</b>
+void reverse(char str[], int l, int h)
+{
+    if (l &lt; h)
+    {
+        swap(&amp;str[l], &amp;str[h]);
+        reverse(str, l + 1, h - 1);
+    }
+}
+ 
+int main()
+{
+  //<b>A kívánt karakterlánc megadása</b>
+    char str[] = "rekurzio";
+    reverse(str, 0, strlen(str) - 1);
+    printf("A szó reverse: %s", str);
     return 0;
 }
 <br>
-<a href="https://www.tutorialspoint.com/c-program-for-recursive-insertion-sort" target="_blank">Forrás</a>
+<a href="https://www.techiedelight.com/reverse-a-string-using-recursion/" target="_blank">Forrás</a>
                 </code>
              </pre>
                   </div>
@@ -127,7 +128,7 @@ int main(){
           <div class="container3">
             <canvas
               id="canvas8"
-              style="background: url(images/nemtudom.png)"
+              style="background: url(images/stringReverseHatter.png)"
             ></canvas>
           </div>
 
@@ -174,7 +175,7 @@ int main(){
         <ul>  
           <li>szöveg</li>
           <li>szöveg</li>
-          <li>Hszöveg</li>
+          <li>szöveg</li>
           <li>szöveg</li>
           </ul> 
       <br>
@@ -188,10 +189,8 @@ int main(){
             <summary><b>A kód magyarázata</b><br /><br /></summary>
 
             <p>
-              Rekurzívan hívjuk meg a recursiveInsertionSort() függvényt az n-1
-              elemű tömb rendezéséhez az aktuális iterációhoz képest. Ezután
-              ebbe a rendezett tömbbe, amelyet a függvény visszaad, beillesztjük
-              az n-edik elemet a rendezett tömbben elfoglalt helyére.
+              Ide írni a cuccokat
+              több fajta megoldás is létezik erre
             </p>
             <br />
           </details>
