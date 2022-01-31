@@ -1,5 +1,5 @@
 //első canvas
-let canvas = document.getElementById('canvas7');
+let canvas = document.getElementById('canvas');
 let c = canvas.getContext('2d');
 canvas.width = 500;//900 a pszeudoval
 canvas.height  = 530;

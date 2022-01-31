@@ -1,5 +1,5 @@
 //első canvas
-let canvas = document.getElementById('canvas1_3');
+let canvas = document.getElementById('canvas');
 let c = canvas.getContext('2d');
 canvas.width = 760;
 canvas.height  = 470;
@@ -113,7 +113,7 @@ let parapa = ["", "lépés 2 lehetséges, helyezzük a (2)huszárt (1,2)-re",
 
 
 //második canvas
-let canvas2 = document.getElementById('canvas1_4');
+let canvas2 = document.getElementById('canvas1_2');
 let c2 = canvas2.getContext('2d');
 canvas2.width = 450;
 canvas2.height  = 450;

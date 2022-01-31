@@ -1,136 +1,122 @@
 //első canvas
-let canvas = document.getElementById('canvas5');
+let canvas = document.getElementById('canvas');
 let c = canvas.getContext('2d');
-canvas.width = 250;
-canvas.height  = 250;
+canvas.width = 550;
+canvas.height  = 550;
+
+let counter = 0;
+
+let parapa = ["asd", 
+"rekurzív függvényhívás fakt(7)", 
+"rekurzív függvényhívás fakt(6)", 
+"rekurzív függvényhívás fakt(5)",
+"rekurzív függvényhívás fakt(4)",
+"rekurzív függvényhívás fakt(3)",
+"rekurzív függvényhívás fakt(2)",
+"rekurzív függvényhívás fakt(1)",
+"elértük a base case-t",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatérés a rekurzív függvényből",
+"visszatértünk a rekurzív hívásokból",
+"visszatértünk a rekurzív hívásokból",
+
+"A karakterláncot sikeresen megfordítottuk!"];
+
+let buttonState = "START";
+let isAllowed = false;
+
+/* const knight = new Image();
+knight.src = "images/knight7.png"; */
+
+let myAnim;
 
 
+function animate(){
+
+    if (counter === 0) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.font='normal 30px Lucida Console'; 
+
+    };
+  
+    myAnim = requestAnimationFrame(animate); 
+};
+
+myAnim = requestAnimationFrame(animate);
+
+//Előrelépések 1-es canvason
+document.getElementById('stepFrwd').onclick = function(){
+    let szoveg = document.getElementById('label1');
+    szoveg.innerText = parapa[counter];   
+    counter++; 
+     if(counter >=19){
+        szoveg.innerText = parapa[counter]="A karakterláncot sikeresen megfordítottuk!";
+    }  
+}
 
 
-function wait(time) {
-    return new Promise(resolve => {
-      setTimeout(() => resolve("timeout!"), time);
-    });
-  };
-  
-  
-  const app = new Vue({
-    el: "#main",
-    data() {
-      return {
-        message: "Click the 'Solve' button!",
-        delay: 300,
-        currentCellIndex: -1,
-        board:  [1,0,0,0,
-                 0,2,0,0,
-                 0,0,3,0,
-                 0,0,0,4],
-      };
-    },
-    
-    methods: {
-      /* NOTE: I'm using `setValue` and `getValue` instead of using `v-model` in the template, 
-        because I want to show '0's in the board as empty cells. There MIGHT be a better of
-        doing this.*/
-  
-      setValue(event, index) {
-        this.board[index] = parseInt(event.target.value) || 0;
-      },
-      
-      getValue(index) {
-        return this.board[index] === 0 ? "" : this.board[index];
-      },
-      
-      reset() {
-        this.message = "Click the 'Solve' button!";
-        this.currentCellIndex = -1;
-        this.board = [0,0,0,0,
-                      0,0,0,0,
-                      0,0,0,0,
-                      0,0,0,0];
-      },
-  
-      async solve() {
-        this.message = "Running...";
-        let result = await this.solveFrom(0);
-        
-        if (result)
-          this.message = "Game solved successfully!";
-        else
-          this.message = "Game couldn't be solved";  
-      },
-  
-      async solveFrom(index) {
-        this.currentCellIndex = index;
-        await wait(this.delay);
-  
-        if (index === 16)   return true;
-        else if (this.board[index] !== 0)  return await this.solveFrom(index + 1);
-        else {
-          let isSolved = false;
-          
-          for (let number of [1, 2, 3, 4]) {
-            if (this.isViable(index, number)) {
-              Vue.set(this.board, index, number); // this.board[index] = number;
-              isSolved = await this.solveFrom(index + 1);
-              if (isSolved) return true;
-            }
+document.getElementById('resetAnim').onclick = function(){
+    isAllowed = false;
+    c.clearRect(0,0,canvas.width,canvas.height);
+        c.font='normal 30px Lucida Console'; 
+        c.fillStyle = "black";
+        c.fillText("r", 90,110);
+        c.fillText("e", 140,110);
+        c.fillText("k", 190,110);
+        c.fillText("u", 240,110);
+        c.fillText("r", 290,110);
+        c.fillText("z", 340,110);
+        c.fillText("i", 390,110);
+        c.fillText("ó", 438,110);
+    counter = 0;
+    //label resetelese
+    document.getElementById("label1").innerHTML = "asd";
+    let idk = document.getElementById("startAnim");
+    idk.value = "Start"
+    buttonState="START";   
+}
+
+//canvas 1 lejatszas
+const startAnim = async () => {
+    // A lépések automatikus lejátszása várakozással (startAnim)
+    let slider = document.getElementById('myRange');
+        for(var x = 0; x<=18; x++){
+ 
             
-            Vue.set(this.board, index, 0); // this.board[index] = 0;
-            this.currentCellIndex = index;
-            await wait(this.delay);
-          }
-         
-          return false;
+            if(isAllowed){
+                let szoveg = document.getElementById('label1');
+                szoveg.innerText = parapa[counter];  
+                //c.drawImage(rat,corX[counter],corY[counter]);
+                counter++;
+                await sleep(1000/slider.value);       
+            }
+             if(counter >=19){
+                szoveg.innerText = parapa[counter]="A karakterláncot sikeresen megfordítottuk!";
+            } 
         }
-      },
-      
-      isViable(index, value) {
-        return  this.isViableRow(index, value) &&
-                this.isViableColumn(index, value) &&
-                this.isViableSquare(index, value);
-      },
-  
-      isViableRow(index, value) {
-        let i = this.rowNumber(index);
-        return !this.row(i).includes(value);
-      },
-  
-      isViableColumn(index, value) {
-        let j = this.columnNumber(index);
-        return !this.column(j).includes(value);
-      },
-      
-      isViableSquare(index, value) {
-        let k = this.squareNumber(index);
-        return !this.square(k).includes(value);
-      },
-      
-      row(i) {
-        let first = 4 * i, last = 4 * (i + 1);
-        return this.board.slice(first, last);
-      },
-      
-      column(j) {
-        return this.board.filter((_, index) => index % 4 === j);
-      },
-      
-      square(k) {
-        let topLeft = [0, 2,
-                       8, 10];
-        let corner = topLeft[k];
-        let indices = [corner, corner + 1, corner + 4, corner + 4 + 1];
-        return indices.map(index => this.board[index]);
-      },
-  
-      rowNumber(index) { return Math.floor(index / 4); },
-      
-      columnNumber(index) { return index % 4; },
-      
-      squareNumber(index) { 
-        let row = this.rowNumber(index),
-            column = this.columnNumber(index);
-        return 2 * Math.floor(row / 2) + Math.floor(column / 2);
-      }
     }
-  });
+// A várakozáshoz szükséges constans
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve,delay))   
+
+
+document.getElementById('startAnim').onclick = function(){
+    if(buttonState === "START"){isAllowed=true}
+    if(buttonState === "STOP"){isAllowed=false}
+    startAnim();
+    change()
+}
+    
+change = function(){
+    let elem = document.getElementById("startAnim");
+    if (elem.value=="Stop") {elem.value = "Start";buttonState="START"}
+    else {elem.value = "Stop";buttonState="STOP"}
+}
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+})

@@ -1,5 +1,5 @@
 //első canvas
-let canvas = document.getElementById('canvas4');
+let canvas = document.getElementById('canvas');
 let c = canvas.getContext('2d');
 canvas.width = 565;
 canvas.height  = 300;
