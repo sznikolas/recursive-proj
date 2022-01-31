@@ -42,6 +42,20 @@ function animate(){
         c.clearRect(0,0,canvas.width,canvas.height);
         c.font='normal 30px Lucida Console'; 
 
+        c.fillStyle = "black";
+        c.fillText("hello", 90,110);
+       
+
+    };
+
+    if (counter === 1) {
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.font='normal 30px Lucida Console'; 
+
+        c.fillStyle = "black";
+        c.fillText("szudoku", 90,110);
+       
+
     };
   
     myAnim = requestAnimationFrame(animate); 
@@ -63,16 +77,7 @@ document.getElementById('stepFrwd').onclick = function(){
 document.getElementById('resetAnim').onclick = function(){
     isAllowed = false;
     c.clearRect(0,0,canvas.width,canvas.height);
-        c.font='normal 30px Lucida Console'; 
-        c.fillStyle = "black";
-        c.fillText("r", 90,110);
-        c.fillText("e", 140,110);
-        c.fillText("k", 190,110);
-        c.fillText("u", 240,110);
-        c.fillText("r", 290,110);
-        c.fillText("z", 340,110);
-        c.fillText("i", 390,110);
-        c.fillText("ó", 438,110);
+        
     counter = 0;
     //label resetelese
     document.getElementById("label1").innerHTML = "asd";
