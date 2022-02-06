@@ -1405,7 +1405,6 @@ document.getElementById('stepFrwd').onclick = function(){
     }  
 }
 
-
 document.getElementById('resetAnim').onclick = function(){
     isAllowed = false;
     c.clearRect(0,0,canvas.width,canvas.height);
