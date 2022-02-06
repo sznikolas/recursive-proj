@@ -1466,7 +1466,7 @@ const startAnim = async () => {
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
                 szoveg.innerText = parapa[counter];  
-                //c.drawImage(rat,corX[counter],corY[counter]);
+                
                 counter++;
                 await sleep(1000/slider.value);       
             }
