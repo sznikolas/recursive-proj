@@ -227,13 +227,22 @@ int main()
     <b>Az algoritmus leírása:</b><br><br>
                 </summary>
                 <p>
-        Ha minden négyzetet meglátogattunk, akkor írjuk ki a megoldást
+        Ha minden négyzetet meglátogattunk, akkor írjuk ki a megoldást<br>
         <br>Máskülönben(else)
-        <br><br>a) Adjuk hozzá a következő lépések egyikét a megoldási vektorhoz, és rekurzívan ellenőrizzük, hogy ez a lépés megoldáshoz vezet-e. (Egy huszár legfeljebb nyolc irányba tehet lépést. Ebben a lépésben a 8 lépés közül választunk egyet).
+        <br><br><b>&emsp;a)</b> Adjuk hozzá a következő lépések egyikét a megoldási vektorhoz, és rekurzívan ellenőrizzük, hogy ez a lépés megoldáshoz vezet-e. (Egy huszár 
+        legfeljebb nyolc irányba tehet lépést. Ebben a lépésben a 8 lépés közül választunk egyet).
         
-        <br><br>b) Ha a fenti lépésben kiválasztott lépés nem vezet megoldáshoz, akkor távolítsuk el ezt a lépést a megoldási vektorból, és próbálkozzunk más alternatív lépésekkel.
+        <br><br><b>&emsp;b)</b> Ha a fenti lépésben kiválasztott lépés nem vezet megoldáshoz, akkor távolítsuk el ezt a lépést a megoldási vektorból, és próbálkozzunk más 
+        alternatív lépésekkel.
         
-        <br><br>c) Ha egyik alternatíva sem működik, akkor adjuk vissza a false-t (A false visszaadása eltávolítja a rekurzióban korábban hozzáadott elemet, és ha a rekurzió kezdeti hívása false-t ad vissza, akkor "nincs megoldás").<br><br>
+        <br><br><b>&emsp;c)</b> Ha egyik alternatíva sem működik, akkor adjuk vissza a false-t (A false visszaadása eltávolítja a rekurzióban korábban hozzáadott elemet, 
+        és ha a rekurzió kezdeti hívása false-t ad vissza, akkor "nincs megoldás").<br><br>
+
+        <b>isSafe(int x, int y, int sol[N][N])</b> → <br><br>
+        <b>printSolution(int sol[N][N])</b> → <br><br>
+        <b>solveKT()</b> → <br><br>
+        <b>solveKTUtil(int x, int y, int movei, int sol[N][N],int xMove[N], int yMove[N])</b> → <br><br>
+        <br>
         x -> oszlop<br>
         y -> sor
                 </p>
