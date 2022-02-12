@@ -25,13 +25,35 @@
     
     <h1>N királynő probléma - N Queen Problem</h1>
     
-    <div class="smallContainer"><br>
-    <p><b>Feladat leírása:</b> Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan illetve hányféleképpen lehet N királynőt (vezért) 
-    úgy elhelyezni egy n×n-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
-    Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
-    <br>A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
-    lehet lerakni n darab királynőt egy n×n-es táblán.</p>
+    <div class="smallContainer">
+    <p> <br><br>
+        <b>Feladat:</b> Írjon programot, amely egy NxN-es sakktáblán N darab királynőt helyez el úgy, hogy egyetlen királynő se tudja leütni a másikat. A megoldást írassa ki és 
+        használjon rekurziót a megvalósításhoz.
+    
+    </p>
     <br>
+</div>
+<div class="smallContainer"><br>
+    <details>
+       <summary>
+            
+    <b>N királynő probléma</b><br><br>
+        </summary>
+    <p>    
+        <b>N királynő probléma</b><br><br>
+        &emsp;&emsp;Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan lehet N királynőt (vezért) 
+        úgy elhelyezni egy N×N-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
+        Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
+        <br><br>
+        &emsp;&emsp;A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
+        lehet lerakni n darab királynőt egy n×n-es táblán.<br><br>
+
+        &emsp;&emsp;Az alábbiakban egy 4x4-es táblát találunk, ahol 4 királynőt kell elhelyeznünk a szabályoknak megfelelően bemutatva a rekurziót és a backtracking-et.
+
+    </p> 
+<br>
+</details>
+
 </div>
 
 <div class="smallContainer">
@@ -57,96 +79,99 @@
                 <code class="language-clike">
 <b>// C program az N királynő problémára</b>
 
+#define N 4
+#include &lt;stdbool.h&gt;
 #include &lt;stdio.h&gt;
 
-<b>//A királynők száma</b>
-int N;
-
-<b>//Sakktábla</b>
-int board[100][100];
-
-<b>//Funkció annak ellenőrzésére, hogy a cellát megtámadták-e vagy sem</b>
-int is_attack(int i,int j)
+/*<b> Segédfüggvény a megoldás kiíratására</b> */
+void printSolution(int board[N][N])
 {
-    int k,l;
-    <b>//Ellenőrzés, hogy van-e királynő a sorban vagy oszlopban</b>
-    for(k=0;k&lt;N;k++)
-    {
-        if((board[i][k] == 1) || (board[k][j] == 1))
-            return 1;
-    }
-    <b>//Átlók ellenőrzése</b>
-    for(k=0;k&lt;N;k++)
-    {
-        for(l=0;l&lt;N;l++)
-        {
-            if(((k+l) == (i+j)) || ((k-l) == (i-j)))
-            {
-                if(board[k][l] == 1)
-                    return 1;
-            }
-        }
-    }
-    return 0;
-}
-
-int N_queen(int n)
-{
-    int i,j;
-    <b>//ha n=0, megoldást találtunk</b>
-    if(n==0)
-        return 1;
-    for(i=0;i&lt;N;i++)
-    {
-        for(j=0;j&lt;N;j++)
-        {
-            /*<b>Ellenőrzés, hogy elhelyezhetünk-e ide egy királynőt vagy sem,
-            ha a helyet megtámadják, akkor a királynő nem kerül elhelyezésre 
-            ,vagy már foglalt</b>*/
-            if((!is_attack(i,j)) &amp;&amp; (board[i][j]!=1))
-            {
-                board[i][j] = 1;
-                //<b>Rekurzió</b>
-                /*<b>A következő királynőt ezzel az 
-                    elrendezéssel tudjuk elhelyezni, vagy nem</b>*/
-                if(N_queen(n-1)==1)
-                {
-                    return 1;
-                }
-                board[i][j] = 0;
-            }
-        }
-    }
-    return 0;
-}
-
-int main()
-{
-    //<b>Az N értékének megadása</b>
-    printf("Adja meg az N értékét NxN sakktábla esetén\n");
-    scanf("%d",&amp;N);
-
-    int i,j;
-    //<b>Minden elem 0-ra állítása</b>
-    for(i=0;i&lt;N;i++)
-    {
-        for(j=0;j&lt;N;j++)
-        {
-            board[i][j]=0;
-        }
-    }
-    //<b>A függvény hívása</b>
-    N_queen(N);
-    //<b>A mátrix kiíratása</b>
-    for(i=0;i&lt;N;i++)
-    {
-        for(j=0;j&lt;N;j++)
-            printf("%d\t",board[i][j]);
+    for (int i = 0; i &lt; N; i++) {
+        for (int j = 0; j &lt; N; j++)
+            printf(" %d ", board[i][j]);
         printf("\n");
     }
 }
+
+/*<b> Függvény, amely ellenőrzi, hogy egy királynő elhelyezhető-e a táblán[sor][oszlop].</b> */
+bool isSafe(int board[N][N], int row, int col)
+{
+    int i, j;
+
+    /* <b>Ellenőrizze a sor bal oldalát</b> */
+    for (i = 0; i &lt; col; i++)
+        if (board[row][i])
+            return false;
+
+    /* <b>Bal oldali felső átló ellenőrzése </b>*/
+    for (i = row, j = col; i &gt;= 0 &amp;&amp; j &gt;= 0; i--, j--)
+        if (board[i][j])
+            return false;
+
+    /* <b>Bal oldali alsó átló ellenőrzése </b>*/
+    for (i = row, j = col; j &gt;= 0 &amp;&amp; i &lt; N; i++, j--)
+        if (board[i][j])
+            return false;
+
+    return true;
+}
+
+/* <b>Rekurzív függvény az N Queen probléma megoldására </b> */
+bool solveNQUtil(int board[N][N], int col)
+{
+    /*<b> base case: Ha minden királynőt elhelyeztünk, akkor true-t adunk vissza</b> */
+    if (col &gt;= N)
+        return true;
+
+    /* <b>Tekintsük ezt az oszlopot, és próbáljuk meg egyenként 
+        elhelyezni a királynőt az összes sorba</b> */
+    for (int i = 0; i &lt; N; i++) {
+        /*<b> Ellenőrizzük, hogy a királynő elhelyezhető-e a táblán[i][col]</b> */
+        if (isSafe(board, i, col)) {
+            /*<b> Helyezzük a királynőt a táblára[i][col]</b> */
+            board[i][col] = 1;
+
+            /*<b>a többi királynő elhelyezésének ismétlése - rekurzió</b> */
+            if (solveNQUtil(board, col + 1))
+                return true;
+
+            /*<b> Ha a királynőt elhelyezése a táblán[i][col] nem vezet megoldáshoz, 
+            akkor távolítsuk el a királynőt a tábláról[i][col]</b> */
+            board[i][col] = 0; //<b> BACKTRACK</b>
+        }
+    }
+
+    /*<b> Ha a királynő nem helyezhető el az oszlop 
+        valamelyik sorában, akkor false-t ad vissza</b> */
+    return false;
+}
+
+/*<b> Ez a függvény megoldja az N Queen problémát backtracking-et használva. 
+    A solveNQUtil() függvényt használjuk segítségül. </b>*/
+bool solveNQ()
+{
+    int board[N][N] = { { 0, 0, 0, 0 },
+                        { 0, 0, 0, 0 },
+                        { 0, 0, 0, 0 },
+                        { 0, 0, 0, 0 } };
+
+    if (solveNQUtil(board, 0) == false) {
+        printf("Nem létezik megoldás");
+        return false;
+    }
+
+    printSolution(board);
+    return true;
+}
+
+
+int main()
+{
+    solveNQ();
+    return 0;
+}
 <br>
-<a href="https://www.codesdope.com/blog/article/backtracking-explanation-and-n-queens-problem/" target="_blank">Forrás</a> 
+<a href="https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/" target="_blank">Forrás</a> 
                 </code>
              </pre>
         </div>
@@ -176,21 +201,21 @@ int main()
     </div>
 
     <ul>  
-        <li> Kezdjük az első sorban, az első oszlopban</li>
+        <li> Kezdjük a bal oszlopban</li>
         <li> Ha az összes királynőt elhelyeztük, return: true</li>
         
-            <li> Próbáljuk ki az aktuális sor összes oszlopát. 
-               Minden egyes kipróbált oszlopra a következőket végezzük.
-               <br> &emsp;&emsp;<b>a)</b> Ha a királynő biztonságosan elhelyezhető ebben az oszlopban 
+            <li> Próbáljuk ki az aktuális oszlop összes sorát. 
+               Minden egyes kipróbált sorra a következőket végezzük.
+               <br> &emsp;&emsp;<b>a)</b> Ha a királynő biztonságosan elhelyezhető ebben a sorban 
                    akkor jelöljük meg ezt a [sor, oszlop] helyet a 
                    megoldás részeként, és rekurzívan ellenőrizzük, hogy a
                    királynő ide helyezése megoldáshoz vezet-e.
-                   <br> <b>&emsp;&emsp;b)</b> Ha a királynő elhelyezése az [sor, oszlop] oszlopban
-                   megoldáshoz vezet, akkor return: true és megyünk a következő sorba
+                   <br> <b>&emsp;&emsp;b)</b> Ha a királynő elhelyezése a [sor, oszlop] cellában
+                   megoldáshoz vezet, akkor return: true és megyünk a következő oszlopba
                    <br> <b>&emsp;&emsp;c)</b> Ha a királynő elhelyezése nem vezet megoldáshoz, akkor
                    töröljük a [sor, oszlop] hely jelölését (BACKTRACKING), és menjünk a következő
-                   <b>a)</b> lépéshez, hogy más oszlopokkal próbálkozzunk.</li>
-            <li>Ha az összes oszlopot kipróbáltuk, és semmi sem vált be,
+                   <b>a)</b> lépéshez, hogy más sorokkal próbálkozzunk.</li>
+            <li>Ha az összes sort kipróbáltuk, és semmi sem vált be,
                adjuk vissza a false értéket a BACKTRACKING elindításához.</li>
         </ul> 
     <br>
@@ -206,31 +231,61 @@ int main()
     <details>
        <summary>
             
-    <b>A kód magyarázata</b><br><br>
+    <b>Az algoritmus leírása</b><br><br>
         </summary>
-    <p>    
-<b>is_attack(int i,int j)</b> → Ez egy olyan függvény, amely ellenőrzi, hogy az (i,j) cellát megtámadta-e valamelyik másik dáma vagy sem. 
-Csak azt ellenőrizzük, hogy az 'i' sorban vagy a 'j' oszlopban van-e másik királynő. Ezután azt ellenőrizzük, hogy van-e az (i,j) cella átlós 
-celláin bármilyen királynő vagy sem. Bármelyik (k,l) cella átlós lesz az (i,j) cellához képest, ha k+l egyenlő i+j-vel vagy k-l egyenlő i-j-vel.<br><br>
-
-<b>N_queen</b> → Ez az a függvény, ahol valójában a backtracking algoritmust valósítjuk meg.<br><br>
-
-<b>if(n==0)</b> → Ha nem maradt királynő, akkor ez azt jelenti, hogy az összes királynőt elhelyeztük, és megvan a megoldás.<br><br>
-
-<b>if(((!is_attack(i,j)) && (board[i][j]!=1))</b> → Csak azt ellenőrizzük, hogy a cellában van-e lehetőség királynő elhelyezésére vagy sem. 
-Az is_attack függvény ellenőrzi, hogy a cellát nem támadja-e más királynő, és a board[i][j]!=1 biztosítja, hogy a cellában nincs királynő. 
-Ha ezek a feltételek teljesülnek, akkor királynőt tehetünk a cellába - board[i][j] = 1.<br><br>
-
-<b>if(N_queen(n-1)==1)</b> → Most újra meghívjuk a függvényt, hogy elhelyezzük a maradék királynőket, és itt végezzük a visszalépést. 
-Ha ez a függvény (a maradék királynő elhelyezésére) nem igaz, akkor csak az aktuális lépésünket változtatjuk meg - board[i][j] = 0 és a ciklus 
-ezúttal a királynőt valamilyen más pozícióba helyezi.</p>
-
+    <p>  
+        <b>Függvények leírása:</b> <br><br>  
+<b>printSolution</b> → Segédfüggvény a megoldás kiíratására<br><br>
+<b>isSafe(int board[N][N], int row, int col)</b> → Függvény, amely ellenőrzi, hogy egy királynő elhelyezhető-e a táblán[sor][oszlop]. 
+Ellenőrízzük, hogy a cella bal oldalán az átlókban és a sorban van-e királynő elhelyezve, ami megtámadhatja a cellánkat.<br><br>
+<b>solveNQUtil(int board[N][N], int col)</b> → Rekurzív függvény az N Queen probléma megoldására. Itt van megadva a base case, a rekurzív függvényhívás
+és itt ellenőrizzük az isSafe segítségével, hogy elhelyezhetünk-e királynőt. Ha a királynő elhelyezése nem vezet megoldáshoz, akkor jön a backtracking. 
+<br><br>
+<b>solveNQ()</b> → Ez a függvény megoldja az N Queen problémát a solveNQUtil() függvény segítségével. False visszatérési értéket kapunk, ha a királynő nem helyezhető el, különben true-t kapunk vissza és kiírja a királynő 
+elhelyezkedését 1-es formában. Vegyük figyelembe, hogy több megoldás is létezhet, ez a 
+függvény csak az egyik lehetséges megoldást írja ki.<br><br>
 </p>
-<br> <p>Az alább látható ábrán zölddel jelöltük azokat a pozíciókat, ahogyan a királynő lépni képes.</p>
+
+
+<br> <p>
+    <b>A királynő lehetséges lépései:</b><br><br>
+    Az alább látható ábrán zölddel jelöltük azokat a pozíciókat, ahogyan a királynő lépni képes.</p>
 <div class="container3">
     <img src="images/nQueenLepesek.png">
 </div>
 <br>
+</details>
+
+</div>
+
+
+<div class="smallContainer"><br>
+    <details>
+       <summary>
+            
+    <b>4x4 - sorokat figyelembe véve</b><br><br>
+        </summary>
+        <p>
+            <div class="container3">
+                <output id="proba1">4x4 sorokat figyelembe véve</output>    
+                </div>
+        
+            <div class="container3">
+                <canvas id="canvas3" style="background: url(images/chessBoardNQueen3.png)"></canvas>
+            </div>
+            
+            <div class="container3">
+                <div id="buttons">
+                <input id="stepFrwd2" type="submit" class="example_b" name="button" value="előrelépés"/>
+                <!-- <input id="stepPrev2" type="submit" class="example_b" name="button" value="visszalépés"/> -->
+                <input id="startAnim2" type="submit" class="example_b" name="button" value="start"/>
+                <input id="resetAnim2" type="submit" class="example_b" name="button" value="reset"/>
+                <div class="example_b">
+                    <input type="range" min="1" max="10" value="3" class="slider" id="myRange2">
+                  
+                </div>
+            </div>
+        </div>
 </details>
 
 </div>
