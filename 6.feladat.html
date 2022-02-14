@@ -19,11 +19,34 @@
     <h1>Összefésülő rendezés - Merge sort</h1>
 
     <div class="smallContainer"><br> 
-    <p><b>Feladat leírása:</b> A QuickSorthoz hasonlóan a Merge Sort is egy oszd meg és uralkodj algoritmus. 
+    <p><b>Feladat:</b> A QuickSorthoz hasonlóan a Merge Sort is egy oszd meg és uralkodj algoritmus. 
         A bemeneti tömböt két felére osztja, meghívja magát a két felére, majd egyesíti a két rendezett felet. 
         A merge() függvényt a két fél összevonására használja. A merge(arr, l, m, m, r) egy kulcsfolyamat, amely feltételezi, hogy arr[l..m] és arr[m+1..r] rendezett, 
         és a két rendezett résztömböt egybeolvasztja.</p><br>
 </div>
+<div class="smallContainer"><br>
+    <details>
+       <summary>
+            
+    <b>Összefésülő rendezés</b><br><br>
+        </summary>
+    <p>    
+        <b>N királynő probléma</b><br><br>
+        &emsp;&emsp;Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan lehet N királynőt (vezért) 
+        úgy elhelyezni egy N×N-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
+        Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
+        <br><br>
+        &emsp;&emsp;A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
+        lehet lerakni n darab királynőt egy n×n-es táblán.<br><br>
+
+        &emsp;&emsp;Az alábbiakban egy 4x4-es táblát találunk, ahol 4 királynőt kell elhelyeznünk a szabályoknak megfelelően bemutatva a rekurziót és a backtracking-et.
+
+    </p> 
+<br>
+</details>
+
+</div>
+
 
 
       <div class="smallContainer">
@@ -176,13 +199,13 @@ int main()
 <ul>  
     <li>
         1. Keressük meg a középső pontot, hogy a tömböt két részre osszuk:  <br>
-                middle m = l+ (r-l)/2<br><br>
+                middle m = l+ (r-l)/2<br>
         2. Hívjuk a mergeSort programot az első felére:   <br>
-                call mergeSort(arr, l, m)<br><br>
+                call mergeSort(arr, l, m)<br>
         3. Hívjuk a mergeSortot a második felére:<br>
-                call mergeSort(arr, m+1, r)<br><br>
+                call mergeSort(arr, m+1, r)<br>
         4. Egyesítse a 2. és 3. lépésben rendezett két felet:<br>
-                call merge(arr, l, m, r)<br><br>
+                call merge(arr, l, m, r)<br>
         </li>
     </ul> 
 <br>
@@ -195,7 +218,7 @@ int main()
         <details>
            <summary>
                 
-        <b>A kód magyarázata</b><br><br>
+        <b>Az algoritmus leírása</b><br><br>
             </summary>
             <p> MergeSort(arr[], l, r)<br><br>
         Ha r > l<br><br>

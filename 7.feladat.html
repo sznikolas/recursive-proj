@@ -19,15 +19,38 @@
         <h1>Gyorsrendezés - Quick sort</h1>
 
         <div class="smallContainer">
-          <p><br /></p>
-          <p>
-            <b>Feladat leírása:</b> A Quicksort egy olyan rendezési algoritmus,
+          
+          <br><p>
+            <b>Feladat:</b> A Quicksort egy olyan rendezési algoritmus,
             amely az oszd meg és uralkodj megközelítésen alapul, ahol Egy tömböt
             altömbökre osztunk egy pivot elem (a tömbből kiválasztott elem)
             kiválasztásával.
-          </p>
-          <br />
+          </p><br>
         </div>
+        
+        <div class="smallContainer"><br>
+          <details>
+             <summary>
+                  
+          <b>Gyorsrendezés</b><br><br>
+              </summary>
+          <p>    
+              <b>N királynő probléma</b><br><br>
+              &emsp;&emsp;Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan lehet N királynőt (vezért) 
+              úgy elhelyezni egy N×N-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
+              Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
+              <br><br>
+              &emsp;&emsp;A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
+              lehet lerakni n darab királynőt egy n×n-es táblán.<br><br>
+      
+              &emsp;&emsp;Az alábbiakban egy 4x4-es táblát találunk, ahol 4 királynőt kell elhelyeznünk a szabályoknak megfelelően bemutatva a rekurziót és a backtracking-et.
+      
+          </p> 
+      <br>
+      </details>
+      
+      </div>
+
 
         <div class="smallContainer">
           <button
@@ -237,7 +260,8 @@ int main() {
         <div class="smallContainer">
           <br />
           <details>
-            <summary><b>A kód magyarázata</b><br /><br /></summary>
+            <summary><b>Az algoritmus leírása</b><br><br>
+            </summary>
             <p>
               A Quicksort egy olyan rendezési algoritmus, amely az oszd meg és
               uralkodj megközelítésen alapul, ahol<br /><br />

@@ -19,10 +19,33 @@
     <h1>Szúdoku - Sudoku</h1>
 
     <div class="smallContainer"><br>
-    <p><b>Feladat leírása:</b> A sudoku egy 9x9-es mátrix, amely 1-től 9-ig terjedő számokkal van kitöltve oly módon, 
+    <p><b>Feladat:</b> A sudoku egy 9x9-es mátrix, amely 1-től 9-ig terjedő számokkal van kitöltve oly módon, 
         hogy minden sorban, oszlopban és almátrixban (3x3) minden egyes számjegy 1-től 9-ig szerepel. Kapunk egy részben 
         kitöltött 9x9-es mátrixot, és minden megmaradt cellát ki kell töltenünk benne.</p>
 <br>
+</div>
+
+<div class="smallContainer"><br>
+    <details>
+       <summary>
+            
+    <b>Szúdoku</b><br><br>
+        </summary>
+    <p>    
+        <b>N királynő probléma</b><br><br>
+        &emsp;&emsp;Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan lehet N királynőt (vezért) 
+        úgy elhelyezni egy N×N-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
+        Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
+        <br><br>
+        &emsp;&emsp;A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
+        lehet lerakni n darab királynőt egy n×n-es táblán.<br><br>
+
+        &emsp;&emsp;Az alábbiakban egy 4x4-es táblát találunk, ahol 4 királynőt kell elhelyeznünk a szabályoknak megfelelően bemutatva a rekurziót és a backtracking-et.
+
+    </p> 
+<br>
+</details>
+
 </div>
 
 <div class="smallContainer">
@@ -220,7 +243,7 @@ int main()
     <details>
        <summary>
             
-    <b>A kód magyarázata</b><br><br>
+    <b>Az algoritmus leírása</b><br><br>
         </summary>
         <p>
             Kezdetben csak egy mátrixot készítünk a Sudoku számára, és a ki nem osztott celláit 0-val töltjük fel. 

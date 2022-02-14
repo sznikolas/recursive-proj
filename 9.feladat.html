@@ -19,9 +19,9 @@
         <h1>Reverse a string - Karakterlánc megfordítása</h1>
 
         <div class="smallContainer">
-          <br />
+          <br>
           <p>
-            <b>Feladat leírása:</b>Írj egy rekurzív programot egy adott karakterlánc hatékony visszafordítására C nyelven. 
+            <b>Feladat:</b> Írj egy rekurzív programot egy adott karakterlánc hatékony visszafordítására C nyelven. 
             <br>Egy adott karakterláncot könnyen visszafordíthatunk a verem adatszerkezet segítségével. 
             Az ötlet az, hogy a karakterlánc minden egyes karakterét egy verembe toljuk, majd elkezdjük feltölteni a bemeneti karakterláncot 
             (a 0. indexről kezdve) a karakterek kiugrasztásával a veremből, amíg az ki nem ürül.
@@ -30,8 +30,31 @@
             Statikus változót használni nem ajánlott. Ezt a problémát statikus változó használata nélkül is könnyen megoldhatjuk.
             A módszer időbonyolultsága O(n), és O(n) implicit helyet igényel a hívási veremhez, ahol n a bemeneti karakterlánc hossza.
           </p>
-          <br />
+          <br>
         </div>
+
+        <div class="smallContainer"><br>
+          <details>
+             <summary>
+                  
+          <b>Karakterlánc megfordítása</b><br><br>
+              </summary>
+          <p>    
+              <b>N királynő probléma</b><br><br>
+              &emsp;&emsp;Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan lehet N királynőt (vezért) 
+              úgy elhelyezni egy N×N-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
+              Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
+              <br><br>
+              &emsp;&emsp;A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
+              lehet lerakni n darab királynőt egy n×n-es táblán.<br><br>
+      
+              &emsp;&emsp;Az alábbiakban egy 4x4-es táblát találunk, ahol 4 királynőt kell elhelyeznünk a szabályoknak megfelelően bemutatva a rekurziót és a backtracking-et.
+      
+          </p> 
+      <br>
+      </details>
+      
+      </div>
 
         <div class="smallContainer">
           <button
@@ -186,7 +209,7 @@ int main()
         <div class="smallContainer">
           <br />
           <details>
-            <summary><b>A kód magyarázata</b><br /><br /></summary>
+            <summary><b>Az algoritmus leírása</b><br /><br /></summary>
 
             <p>
               Ide írni a cuccokat

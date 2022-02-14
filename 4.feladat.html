@@ -18,11 +18,32 @@
     <h1>Hanoi tornyai - Tower of Hanoi</h1>
 
     <div class="smallContainer"><br>
-    <p><b>Feladat leírása:</b> A hanoi torony egy matematikai rejtvény. Háromrúdból és különböző méretű korongokból áll, amelyek bármelyik rúdra csúszhatnak. 
-      A rejtvény úgy kezdődik, hogy a korongok méretük szerint növekvő sorrendben, rendezett halomban vannak az egyik rúdon, a legkisebb a tetején. Ugyanezt a halmazt kell
-       a harmadik rúdra is felrakni.</p>
+    <p><b>Feladat:</b> Írjon programot, ami a legkevesebb lépéssel áthelyezi a korongokat az A oszlopról a C oszlopra. Nagyobb korongot kisebb korongra tilos rakni. 
+      Lépésenként csak egy korongot lehet mozgatni. A megvalósításhoz használjon rekurziót.  </p>
        <br>
       </div>
+
+      <div class="smallContainer"><br>
+        <details>
+           <summary>
+                
+        <b>Hanoi tornyai</b><br><br>
+            </summary>
+        <p>    
+            <b>Hanoi tornyai</b><br><br>
+            &emsp;&emsp;A hanoi torony egy matematikai rejtvény. Három rúdból és különböző méretű korongokból áll, amelyek bármelyik rúdra csúszhatnak. 
+            A rejtvény úgy kezdődik, hogy a korongok méretük szerint növekvő sorrendben, rendezett halomban vannak az egyik rúdon, a legkisebb a tetején.
+            A játék szabályai szerint az első rúdról az utolsóra kell átrakni a 
+            korongokat minél kevesebb lépéssel úgy, hogy minden lépésben egy korongot lehet áttenni, nagyobb korong nem tehető kisebb korongra, és ehhez összesen három rúd 
+            áll rendelkezésre. 
+            Úgy is ismert, mint Brahma tornyai, vagy világvége feladvány. 
+            <br><br>
+ 
+        </p> 
+    <br>
+    </details>
+    
+    </div>
 
       <div class="smallContainer">
     <button onclick="location.href='index.html'" type="button" class="example_b" >feladatok</button>
@@ -112,16 +133,18 @@ void towerOfHanoi(int num, char frompeg, char topeg, char auxpeg)
     </div>
 
     <ul>  
-      <li>tower(disk, source, inter, dest)</li>
-
-      <li>IF disk is equal 1, THEN
-        <br> move disk from source to destination</li>
-        <li>ELSE
-        <br>tower(disk - 1, source, destination, intermediate)   // Step 1
-        <br> move disk from source to destination                 // Step 2
-        <br> tower(disk - 1, intermediate, source, destination)   // Step 3</li>
-           
-        <li>END</li>
+      <li>
+      tower(disk, source, dest, inter)<br>
+      &emsp;<b>IF</b> disk is equal 1,<b> THEN:</b>
+        <br>  &emsp;&emsp;move disk from source to dest<br>
+        &emsp;<b>ELSE:</b>
+        <br> &emsp;&emsp;tower(disk - 1, source, inter, dest)   <b>// 1. lépés</b>
+        <br>  &emsp;&emsp;move disk from source to dest  <b>// 2. lépés</b>
+        <br>  &emsp;&emsp;tower(disk - 1, inter, dest, source)  <b>// 3. lépés</b><br>
+        &emsp;<b>END</b><br></li>
+        <li>Vegyük észre, hogy a pszeudokód egy base case-t ad hozzá: Ha a lemez = 1, akkor ez a legkisebb lemez. 
+        Ebben az esetben nem kell aggódnunk a többi lemez miatt, így egyszerűen közvetlenül áthelyezhetjük a legkisebb lemezt. 
+        A többi esetben a háromlépéses rekurzív eljárást követjük.</li>
       </ul> 
   <br>
  
@@ -131,32 +154,58 @@ void towerOfHanoi(int num, char frompeg, char topeg, char auxpeg)
   <details>
      <summary>
           
-  <b>A kód magyarázata</b><br><br>
+  <b>Az algoritmus leírása</b><br><br>
       </summary>
 
       <p>
-        <p>
-          <b>towerOfHanoi(int, char, char, char);</b> → <br><br>
-          
-          A futtatásakor történő események szemléltetésének egy másik módja a hívásfa. Ez az összes hívás grafikus ábrázolása. 
+        
+          <b>Függvény leírása:</b> <br><br>  
+          <b>towerOfHanoi(disk, source, dest, inter)</b> → 
+          Van egy rekurzív függvényünk, amely paraméterként azt a lemezt veszi fel, 
+          amely a legnagyobb lemez a toronyban és amit mozgatni szeretnénk. 
+          Ezenkívül a  függvényünk három paramétert is elfogad, amelyek megadják, hogy a tornyot 
+          melyik rúdról kell áthelyezni (source), melyik rúdra kell áthelyezni (dest), 
+          és a 3. rudat, amelyet ideiglenesen használhatunk, hogy ez az áthelyezés megtörténhessen (inter).<br><br>
+
+          &emsp;A legfelső szinten a teljes tornyot szeretnénk áthelyezni, tehát az 5-ös és kisebb 
+          lemezeket szeretnénk az A rúdról a C rúdra áthelyezni. Ezt három alapvető lépésre bonthatjuk.<br><br>
+
+           
+            
+             &emsp;<b>1.)</b> A 4. és annál kisebb lemezek áthelyezése az A rúdról(forrás) a B rúdra(tartalék), 
+          a C rudat(cél) tartalékként használva. Hogyan csináljuk ezt? Rekurzív módon, 
+          ugyanezt az eljárást alkalmazva. Miután ezt befejeztük, az 5-nél kisebb 
+          lemezek mindegyike a B rúdra kerül. <br><br>
+
+          &emsp;<b>2.)</b> Most, hogy az összes kisebb lemez a tartalék rúdon van, az 5-ös lemezt áthelyezhetjük az 
+          A rúdról(forrás) a C rúdra(cél).<br><br>
+
+          &emsp;<b>3.)</b> Végül a 4-es és a kisebb lemezeket a B rúdról(tartalék) a C rúdra(cél) akarjuk áthelyezni. 
+          Ezt rekurzív módon, ismét ugyanezt az eljárást alkalmazva végezzük el. Miután befejeztük, az 
+          5. és kisebb lemezek mind a C rúdon(cél) lesznek.<br><br>
+        
+       
+          <br>
+          <b>Hívásfa</b><br><br>
+          &emsp;&emsp;A futtatásakor történő események szemléltetésének egy másik módja a hívásfa. Ez az összes hívás grafikus ábrázolása. 
           Az alább látható ábra egy bináris fagráfot tartalmaz, amit a korongok áthelyezésének könnyebb megértésére hoztunk létre. 
-          A START-ból indulva mélységi preorder bejárással járjuk be a gráfot egészen a STOP-ig, ahol a korongok áthelyezése már sikerült.
-          <br>
-          A hívásfában minden egyes függvényhívást csomópontnak nevezünk. 
+          A START-ból indulva hasonlóan járjuk be a gráfot, mint a mélységi preorder bejárás egészen a STOP-ig, ahol a korongok áthelyezése már sikerült.
+          <br><br>
+          &emsp;&emsp;A hívásfában minden egyes függvényhívást csomópontnak nevezünk. 
           A közvetlenül bármely n csomópont alatt összekapcsolt csomópontok az n függvényhívás által végrehajtott függvényhívásokat jelentik. 
-          A teteje alatt például 4(A,B) és 4(B,C) található, mivel ez az a két függvényhívás, amelyet a towerOfHanoi 5(A,C) végrehajt. 
+          A teteje alatt például 4(A, B) és 4(B, C) található, mivel ez az a két függvényhívás, amelyet a towerOfHanoi 5(A,C) végrehajt. 
           Alul sok olyan csomópont található, amelyek alatt nincs egyetlen csomópont sem összekapcsolva - ezek az alapeseteket képviselik.
-          <br>
-          Jelölés: szám(betű,betű)
+          <br><br>
+          <b>Jelölés:</b> korong száma(rúd jelölése, rúd jelölése) - 5(A, C)
           <br>
           A szám a korong számát jelöli, míg az első betű, hogy honnan, a második pedig, hogy hova helyezzük a lemezt.
         </p>
       <div class="container3">
         <img src="images/hanoiBejaras.png">
-    </div><br>
+    </div>
 
-      </p><br>
-
+     
+      <br>
     </details>
   </div>
 
