@@ -132,7 +132,7 @@ int solvemaze(int r, int c)
         //<b>lépjen balra</b>>
         if(solvemaze(r, c-1))
             return 1;
-        //<b>BACKTRACKING - VISSZALÉPÉS</b>>
+        //<b>BACKTRACKING - VISSZALÉPÉS</b>
         solution[r][c] = 0;
         return 0;
     }
@@ -142,7 +142,7 @@ int solvemaze(int r, int c)
 
 int main()
 {
-    //<b>a megoldási mátrix minden eleméT 0-ra</b>
+    //<b>a megoldási mátrix minden elemét 0-ra</b>
     int i,j;
     for(i=0; i&lt;SIZE; i++)
     {
@@ -220,7 +220,7 @@ int main()
     <b>0 to SIZE-1 r>=0 && c>=0 && r&lt;SIZE</b>, nem lehet blokkolva <b>maze[r][c] == 0</b> és nem lehet az útvonalon <b>solution[r][c] == 0.</b><br><br> 
     Ha ez egy érvényes lépés, akkor szabadon elvihetjük és a következő cellára léphetünk. Először a lefelé irányuló cellát 
     próbáljuk ki <b>if(solveMaze(r+1, c)).</b> Ha ez nem ad megoldást, akkor a jobb oldali cellára lépünk, és hasonlóképpen a felfelé és 
-    a bal oldali cellára. Ha az összes cella nem ad megoldást, akkor elhagyjuk a <b>solution[r][c] = 0</b> cellát, és egy másik cellába megyünk.</p>
+    a bal oldali cellára. Ha az összes cella nem ad megoldást, akkor elhagyjuk a <b>solution[r][c] = 0</b> cellát(backtracking) és egy másik cellába megyünk.</p>
 <br>
 <p>
 <b>Az egér lehetséges lépései:</b><br><br>

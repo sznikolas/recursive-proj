@@ -19,9 +19,7 @@
     <h1>Szúdoku - Sudoku</h1>
 
     <div class="smallContainer"><br>
-    <p><b>Feladat:</b> A sudoku egy 9x9-es mátrix, amely 1-től 9-ig terjedő számokkal van kitöltve oly módon, 
-        hogy minden sorban, oszlopban és almátrixban (3x3) minden egyes számjegy 1-től 9-ig szerepel. Kapunk egy részben 
-        kitöltött 9x9-es mátrixot, és minden megmaradt cellát ki kell töltenünk benne.</p>
+    <p><b>Feladat:</b> Írjon programot C nyelven a szúdoku logikai játék megoldására, ami figyelembe veszi a játékszabályokat. A program megoldásához használjunk rekurziót.</p>
 <br>
 </div>
 
@@ -32,15 +30,18 @@
     <b>Szúdoku</b><br><br>
         </summary>
     <p>    
-        <b>N királynő probléma</b><br><br>
-        &emsp;&emsp;Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan lehet N királynőt (vezért) 
-        úgy elhelyezni egy N×N-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
-        Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
+        <b>Szúdoku</b><br><br>
+        &emsp;&emsp;A sudoku egy 9x9-es mátrix, amely 1-től 9-ig terjedő számokkal van kitöltve oly módon, 
+        hogy minden sorban, oszlopban és almátrixban (3x3) minden egyes számjegy 1-től 9-ig szerepel. Kapunk egy részben 
+        kitöltött 9x9-es mátrixot, és minden megmaradt cellát ki kell töltenünk benne. 
+        Ha egy szám kétszer szerepel ugyanabban az oszlopban, sorban, vagy almátrixban, akkor a tábla kitöltése helytelen.
         <br><br>
-        &emsp;&emsp;A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
-        lehet lerakni n darab királynőt egy n×n-es táblán.<br><br>
+        &emsp;&emsp;A szúdoku legáltalánosabb változata egy 9x9-es táblázat, ami 9 darab 3x3-as altáblázatból áll. 
+        A táblázatot úgy kell kitöltenünk, hogy minden sorban, oszlopban és altáblában az 1-9 számok mindegyike pontosan egyszer forduljon elő. 
+        A megoldhatóság kedvéért a táblázat készítője általában előre kitölt pár cellát, hogy csak egy megoldás létezzen. 
+        A szúdokunak több fajtája is létezik, mi a legismertebbet használtuk.<br><br>
 
-        &emsp;&emsp;Az alábbiakban egy 4x4-es táblát találunk, ahol 4 királynőt kell elhelyeznünk a szabályoknak megfelelően bemutatva a rekurziót és a backtracking-et.
+        &emsp;&emsp;Az alábbiakban egy 9x9-es szúdokut láthatunk, amiben vannak már kitöltött cellák és ezen mutatjuk be a logikai játék rekurzív megoldását.
 
     </p> 
 <br>
@@ -75,7 +76,7 @@
 
 #define SIZE 9
 
-//<b>Sudoku probléma</b>
+//<b>Szúdoku probléma</b>
 int matrix[9][9] = {
     {0,6,0,0,0,2,0,0,5},
     {0,0,0,6,8,0,0,1,0},
@@ -103,8 +104,8 @@ void print_sudoku()
 }
 
 
-/*<b>funkció annak ellenőrzésére, hogy minden cella ki van-e jelölve vagy sem.
-Ha van nem hozzárendelt cella, akkor ez a függvény megváltoztatja a cellák értékeit
+/*<b>Függvény annak ellenőrzésére, hogy minden cellához van-e hozzárendelve érték vagy sem.
+Ha van üres cella, akkor ez a függvény megváltoztatja a cellák értékeit
 (sorok és oszlopok értékeit) ennek megfelelően</b>*/
 int number_unassigned(int *row, int *col)
 {
@@ -114,13 +115,13 @@ int number_unassigned(int *row, int *col)
     {
         for(j=0;j&lt;SIZE;j++)
         {
-            //<b>a cella nem hozzárendelt</b>
+            //<b>ha a cellához nincs érték hozzárendelve</b>
             if(matrix[i][j] == 0)
             {
-                //<b>a sorok és oszlopok értékek megváltoztatása</b>
+                //<b>a sorok és oszlopok értékeinek megváltoztatása</b>
                 *row = i;
                 *col = j;
-                //<b>létezik egy vagy több nem hozzárendelt cella</b>
+                //<b>létezik egy vagy több nem hozzárendelt értékű cella</b>
                 num_unassign = 1;
                 return num_unassign;
             }
@@ -129,8 +130,8 @@ int number_unassigned(int *row, int *col)
     return num_unassign;
 }
 
-/*<b>funkció, amely ellenőrzi, hogy tudunk-e tenni
-egy értéket egy adott cellába vagy sem</b>*/
+/*<b>függvény, amely ellenőrzi, hogy hozzá tudunk-e rendelni
+egy értéket biztonságosan egy adott cellához vagy sem</b>*/
 int is_safe(int n, int r, int c)
 {
     int i,j;
@@ -144,7 +145,7 @@ int is_safe(int n, int r, int c)
     //<b>oszlopok ellenőrzése</b>
     for(i=0;i&lt;SIZE;i++)
     {
-        //<b>van egy cella, amelynek értéke egyenlő i-vel</b>
+        //<b>ha van egy cella, amelynek értéke egyenlő i-vel</b>
         if(matrix[i][c] == n)
             return 0;
     }
@@ -167,23 +168,24 @@ int solve_sudoku()
 {
     int row;
     int col;
-    //<b>ha minden cellát kiosztottunk, akkor a sudoku már megoldódott és</b>
-    //<b>hivatkozással adjuk át, mert a number_unassigned megváltoztatja a sor és az oszlop értékét.</b>
+    //<b>ha minden cellának van értéke, akkor a sudoku már megoldódott</b>
+    /*<b>referenciakénti paraméterátadás -> a number_unassigned 
+        megváltoztatja a sor és az oszlop (cella) értékét</b>*/
     if(number_unassigned(&amp;row, &amp;col) == 0)
         return 1;
     int n,i;
     //<b>1 és 9 közötti szám</b>
     for(i=1;i&lt;=SIZE;i++)
     {
-        //<b>hozzárendelhetjük i-t a cellához vagy sem</b>
-        //<b>a cella mátrix[row][col]</b>
+        //<b>hozzárendelhetjük-e i értéket a cellához vagy sem</b>
+        //<b>a cella a mátrix[sor][oszlop]-al van megadva</b>
         if(is_safe(i, row, col))
         {
             matrix[row][col] = i;
             //<b>backtracking</b>
             if(solve_sudoku())
                 return 1;
-            //<b>ha nem tudunk ezzel a megoldással haladni rendezzük át a cellát</b>
+            //<b>ha nem tudunk ezzel az értékkel haladni, rendezzük át a cellaértékeket</b>
             matrix[row][col]=0;
         }
     }
@@ -228,10 +230,17 @@ int main()
     </div>
 
     <ul>  
-        <li><a href="https://cs.uwaterloo.ca/~bwbecker/sudoku/index.html"target="_blank">sudokus</a></li>
-        <li><a href="https://www.programiz.com/c-programming/online-compiler/"target="_blank">C-compiler</a></li>
-        <li>szöveg</li>
-        <li>szöveg</li>
+        <li>A visszalépés(backtracking) során először egy részmegoldással kezdünk, és ha ez a részmegoldás nem ad helyes végső választ, 
+        akkor egyszerűen visszatérünk és megváltoztatjuk a részmegoldásunk értékét. 
+        Hasonló módon fogjuk megoldani a Szúdokut is:</li>
+        <li>Ha nincsenek üres cellák, akkor a Szúdoku már meg van oldva. Ekkor egyszerűen true-t adunk vissza.</li>
+        <li>Ellenkező esetben az első üres cellát feltöltsük egy 1 és 9 közötti számjeggyel, 
+        úgy, hogy ne legyen konfliktus egyik sorban, oszlopban vagy a 3x3-as almátrixban sem.</li>
+        <li>Ezután megpróbáljuk kitölteni a többi üres cellát is, 
+            és ha ez sikeresen megtörténik, akkor true-t adunk vissza.</li>
+        <li> Ellenkező esetben visszatérünk(backtrack), és megváltoztatjuk azt a számjegyet, 
+            amellyel az előző cellát kitöltöttük és újra megpróbáljuk kitölteni a következő üres cellákat.
+            Ha nincs olyan számjegy, amelyik megfelelne az igénynek, akkor egyszerűen false-t adunk vissza, mivel nincs megoldása ennek a Szúdokunak.</li>  
         </ul> 
     <br>
         
@@ -247,26 +256,33 @@ int main()
         </summary>
         <p>
             Kezdetben csak egy mátrixot készítünk a Sudoku számára, és a ki nem osztott celláit 0-val töltjük fel. 
-            Így a mátrix tartalmazza a Sudoku feladatot, és a 0 értékű cellák üres cellák.<br><br>
+            Így a mátrix tartalmazza a Szúdoku feladatot, és a 0 értékű cellák az üres cellák, amikhez még nincsenek értékek rendelve.<br><br>
             <b>print_sudoku()</b> → Ez csak egy függvény a mátrix kiíratására.<br><br>
-            <b>number_unassigned</b> → Ez a függvény megkeres egy üres cellát, és a 'row' és 'col' változókat az adott cella indexeivel teszi egyenlővé. 
-            C-ben mutatókat használtunk az ehhez a függvényhez átadott változók (row, col) értékének megváltoztatására (pass by reference). 
-            Tehát ez a függvény megmondja nekünk, hogy van-e ki nem osztott cella vagy nincs. És ha van ki nem osztott cella, 
+            <b>number_unassigned</b> → Ez a függvény megkeres egy üres cellát, és a 'row' és 'col' változókat az adott cella indexeivel teszi egyenlővé.<br> 
+            &emsp;Ebben a C programban pointereket használtunk az ehhez a függvényhez átadott változók (row, col) értékének megváltoztatására (referenciakénti paraméterátadás). 
+            Tehát ez a függvény megmondja nekünk, hogy van-e olyan cella, amihez még nincs érték rendelve, vagy nincs. És ha van ki nem osztott cella, 
             akkor ez a függvény megadja a cella indexeit is.<br><br>
             <b>is_safe(int n, int r, int c)</b> → Ez a függvény ellenőrzi, hogy az 'n' értéket betehetjük-e az (r, c) cellába vagy sem. 
-            Ezt úgy tesszük, hogy először azt ellenőrizzük, hogy az 'r' sorban van-e olyan cella, amelynek értéke 'n' vagy sem - if(mátrix[r][i] == n). 
-            Ezután ellenőrizzük, hogy a 'c' oszlopban van-e 'n' értékű cella vagy sem - if(mátrix[i][c] == n). 
-            Végül pedig ellenőrizzük az almátrixot. (r/3)*3 megadja az r sor kezdőindexét. Például, ha az 'r' értéke 2, akkor az almátrixban van, 
-            amely a (0, 0)-tól kezdődik. Hasonlóképpen, a kezdő oszlop értékét (c/3)*3 segítségével kapjuk meg. Így ha egy cella értéke (2,2), 
-            akkor ez a cella egy olyan almátrixban lesz, amely (0,0)-ból indul, és ezt az értéket (c/3)*3 és (r/3)*3 segítségével kapjuk meg. 
-            Miután megkaptuk a kezdőindexeket, könnyedén végig tudunk iterálni az almátrixon, hogy ellenőrizzük, hogy az "n" értéket elhelyezhetjük-e 
+            Ezt úgy tesszük, hogy először azt ellenőrizzük, hogy az 'r' sorban van-e olyan cella, amelynek értéke 'n' vagy sem - <b>if(matrix[r][i] == n)</b>.<br> 
+            
+            &emsp;Ezután ellenőrizzük, hogy a 'c' oszlopban van-e 'n' értékű cella vagy sem - <b>if(matrix[i][c] == n)</b>.<br> 
+            
+            &emsp;Végül pedig ellenőrizzük az almátrixot. <b>(r/3)*3</b> megadja az r sor kezdőindexét. Például, ha az 'r' értéke 2, akkor abban az almátrixban van, 
+            amely a (0, 0)-tól kezdődik.<br> 
+            &emsp;Hasonlóképpen, a kezdő oszlop értékét <b>(c/3)*3</b> segítségével kapjuk meg. Így ha egy cella értéke (2,2), 
+            akkor ez a cella egy olyan almátrixban lesz, amely (0,0)-ból indul, és ezt az értéket <b>(c/3)*3</b> és <b>(r/3)*3</b> segítségével kapjuk meg.<br> 
+            
+            &emsp;Miután megkaptuk a kezdőindexeket, könnyedén végig tudunk iterálni az almátrixon, hogy ellenőrizzük, hogy az "n" értéket elhelyezhetjük-e 
             az almátrixban vagy sem.<br><br>
-            <b>solve_sudoku()</b> → Ez a tényleges függvény, amely megoldja a Sudokut, és visszalépést(backtracking) használ. Először a number_unassigned függvény 
-            segítségével ellenőrizzük, hogy van-e ki nem rendelt cella, és ha nincs ki nem rendelt cella, akkor a Sudoku megoldódott. 
-            number_unassigned függvény megadja az üres cellák indexeit is. Így ha van üres cella, akkor megpróbáljuk kitölteni ezt a cellát egy 
-            1 és 9 közötti értékkel. Az is_safe segítségével pedig ellenőrizni fogjuk, hogy egy adott értéket be tudunk-e tölteni az adott cellába vagy sem. 
-            Miután megtaláltuk az értéket, megpróbáljuk megoldani a Sudoku többi részét -> solve_sudoku. Ha ezzel az értékkel nem sikerül megoldani a többit, 
-            akkor visszatérünk, és megpróbálunk egy másik értéket erre a cellára mátrix[row][col]=0;. A ciklus megpróbálja a cella más értékeit is. 
+
+            <b>solve_sudoku()</b> → Ez a tényleges függvény, amely megoldja a Szúdokut, és visszalépést(backtracking) használ.<br> 
+            &emsp;Először a number_unassigned függvény 
+            segítségével ellenőrizzük, hogy van-e üres cella, és ha nincs üres cella, akkor a Szúdoku megoldódott.<br> 
+            &emsp;<b>number_unassigned</b> függvény megadja az üres cellák indexeit is. Így ha van üres cella, akkor megpróbáljuk kitölteni ezt a cellát egy 
+            1 és 9 közötti értékkel.<br> 
+            &emsp;Az <b>is_safe</b> függvény segítségével pedig ellenőrizni tudjuk, hogy egy adott értéket be tudunk-e tölteni az adott cellába vagy sem. 
+            Miután megtaláltuk az értéket, megpróbáljuk megoldani a Szúdoku többi részét is a <b>solve_sudoku</b> függvénnyel rekurzívan. Ha ezzel az értékkel nem sikerül megoldani a többit, 
+            akkor visszatérünk, és megpróbálunk egy másik értéket erre a cellára <b>mátrix[row][col]=0;</b>. A ciklus megpróbálja a cellát más értékekkel is. 
         </p>
     <br>
     </details>
