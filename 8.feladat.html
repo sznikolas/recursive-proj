@@ -18,9 +18,7 @@
 
     <h1>Buborékrendezés - Bubble sort</h1>
     <div class="smallContainer"><br>
-    <p><b>Feladat:</b> A buborékrendezés (angolul: Bubble sort) egy naiv algoritmus, amellyel egy véges (nem feltétlenül numerikus) sorozat – 
-      vagy számítástechnikai szóhasználattal élve egy tömb – elemei sorba rendezhetők [(n-1)n]/2 összehasonlítás elvégzésével, 
-      ahol n a sorozat elemeinek számát jelenti. <br>A buborékrendező algoritmus rekurzívan is megvalósítható. Ez látható az alábbi feladatban.</p><br>
+    <p><b>Feladat:</b> Írjon programot C nyelvben a buborékrendezés megvalósítására rekurzió segítségével.</p><br>
     </div>
 
     <div class="smallContainer"><br>
@@ -30,16 +28,18 @@
       <b>Buborékrendezés</b><br><br>
           </summary>
       <p>    
-          <b>N királynő probléma</b><br><br>
-          &emsp;&emsp;Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan lehet N királynőt (vezért) 
-          úgy elhelyezni egy N×N-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
-          Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
+          <b>Buborékrendezés - Bubble sort</b><br><br>
+          &emsp;&emsp;A buborékrendezés egy naiv algoritmus(könnyű megérteni és implementálni de nagy az erőforrásigénye - tár és időköltség), 
+          amellyel egy tömb elemei sorba rendezhetőek [(n-1)n]/2 összehasonlítás elvégzésével, 
+          ahol n a sorozat elemeinek számát jelenti. 
           <br><br>
-          &emsp;&emsp;A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
-          lehet lerakni n darab királynőt egy n×n-es táblán.<br><br>
+          &emsp;&emsp;Lényege, hogy két szomszédos elem összehasonlításánál mindig a nagyobb értékű kerüljön hátulra, ha növekvő sorrendbe rendezünk. 
+          Az algoritmus újra és újra végigjárja a tömböt, először a végéig, majd miután a legnagyobb elem a végére került, már csak az utolsó előtti elemig és így tovább.
+          A legnagyobb értékű elemek mindig a tömb végére kerülnek.<br><br>
   
-          &emsp;&emsp;Az alábbiakban egy 4x4-es táblát találunk, ahol 4 királynőt kell elhelyeznünk a szabályoknak megfelelően bemutatva a rekurziót és a backtracking-et.
-  
+          &emsp;&emsp;A buborékrendező algoritmus rekurzívan is megvalósítható, 
+          de általánosságban ez nem egy rekurzív rendezési algoritmus, mint a merge sort és a quick sort. 
+          Mi egy rekurzív megoldását mutatjuk be, hogy bizonyítsuk, hogy az általában nem rekurzióval megoldott algoritmusok megoldhatóak rekurzívan is. Ez látható az alábbiakban.
       </p> 
   <br>
   </details>
@@ -80,7 +80,7 @@ void swap(int arr[], int i, int j)
     arr[j] = temp;
 }
   
-//<b>Funkció az `arr` tömb `n` elemének kiírására</b>
+//<b>Funkció az arr tömb n elemének kiírására</b>
 void printArray(int arr[], int n)
 {
     for (int i = 0; i &lt; n; i++) {
@@ -89,7 +89,7 @@ void printArray(int arr[], int n)
     }
 }
   
-//<b>Rekurzív függvény az `arr[i...n]` résztömbbön buborékrendezéshez</b>
+//<b>Rekurzív függvény az arr[i...n] résztömbbön buborékrendezéshez</b>
 void bubbleSort(int arr[], int n)
 {
     for (int i = 0; i &lt; n - 1; i++)
@@ -97,7 +97,7 @@ void bubbleSort(int arr[], int n)
         if (arr[i] &gt; arr[i + 1]) {
             swap(arr, i, i + 1);
         }
-        //animalashoz segitseg
+        //animáláshoz segítség
         //printf("%d \n", arr[i] );
     }
   
@@ -163,16 +163,16 @@ int main(void)
                 
         <b>Az algoritmus leírása</b><br><br>
             </summary>
-      
             <p>
-              int n = sizeof(arr) / sizeof(arr[0]); -> megkapni a tömb hosszát
-              <br><br>
-        <b>swap(int arr[], int i, int j) </b> → <br><br>
-        <b>printArray(int arr[], int n) </b> → <br><br>
-        <b>bubbleSort(int arr[], int n) </b> → <br><br>
+        <b>swap(int arr[], int i, int j) </b> → Segédfüggvény az értékek felcserélésére egy tömb két indexében.<br><br>
+        <b>printArray(int arr[], int n) </b> → Függvény a rendezett tömb kiíratására.<br><br>
+        <b>bubbleSort(int arr[], int n) </b> → asd <br><br>
 
-            </p><br>
+        Megjegyzés:<br>
+        int n = sizeof(arr) / sizeof(arr[0]); -> megkapni a tömb hosszát
       
+            </p>
+            <br>
           </details>
         </div>
 

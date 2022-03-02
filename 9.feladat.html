@@ -21,14 +21,8 @@
         <div class="smallContainer">
           <br>
           <p>
-            <b>Feladat:</b> Írj egy rekurzív programot egy adott karakterlánc hatékony visszafordítására C nyelven. 
-            <br>Egy adott karakterláncot könnyen visszafordíthatunk a verem adatszerkezet segítségével. 
-            Az ötlet az, hogy a karakterlánc minden egyes karakterét egy verembe toljuk, majd elkezdjük feltölteni a bemeneti karakterláncot 
-            (a 0. indexről kezdve) a karakterek kiugrasztásával a veremből, amíg az ki nem ürül.
-            Ahogy az előző bejegyzésben láttuk, egy adott karakterláncot könnyen visszafordíthatunk egy verem adatszerkezet segítségével. 
-            Mivel a veremről van szó, könnyen átalakíthatjuk a kódot a hívási verem használatára.
-            Statikus változót használni nem ajánlott. Ezt a problémát statikus változó használata nélkül is könnyen megoldhatjuk.
-            A módszer időbonyolultsága O(n), és O(n) implicit helyet igényel a hívási veremhez, ahol n a bemeneti karakterlánc hossza.
+            <b>Feladat:</b> Írjon egy rekurzív programot egy adott karakterlánc hatékony visszafordítására C nyelven. 
+            <br>
           </p>
           <br>
         </div>
@@ -40,16 +34,18 @@
           <b>Karakterlánc megfordítása</b><br><br>
               </summary>
           <p>    
-              <b>N királynő probléma</b><br><br>
-              &emsp;&emsp;Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan lehet N királynőt (vezért) 
-              úgy elhelyezni egy N×N-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
-              Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
-              <br><br>
-              &emsp;&emsp;A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
-              lehet lerakni n darab királynőt egy n×n-es táblán.<br><br>
-      
-              &emsp;&emsp;Az alábbiakban egy 4x4-es táblát találunk, ahol 4 királynőt kell elhelyeznünk a szabályoknak megfelelően bemutatva a rekurziót és a backtracking-et.
-      
+              <b>Karakterlánc megfordítása - Reverse a string</b><br><br>
+              &emsp;&emsp;Egy karakterlánc megfordítására többféle lehetőségünk is van.<br><br>
+              &emsp;&emsp;Egy adott karakterláncot könnyen visszafordíthatunk a verem adatszerkezet segítségével. 
+              Az ötlet az, hogy a karakterlánc minden egyes karakterét egy verembe toljuk, majd elkezdjük feltölteni a bemeneti karakterláncot 
+              (a 0. indexről kezdve) a karakterek kiugrasztásával a veremből, amíg az ki nem ürül.<br><br>
+              &emsp;&emsp;Megoldható beépített metódusok használatával is, ami a C nyelven a strrev() függvény segítségével lehetséges.<br><br>
+              
+              &emsp;&emsp;Megoldható az általunk szemléletett rekurzív módon is, 
+              ahol a reverse függvény annyiszor hívja önmagát, amíg az alapfeltételt(base case) el nem érjük. 
+              Itt a string 0. elemétől és az utolsó elemétől kezdjük a betűk felcserélését és haladunk a string közepe felé,
+              amíg elérjük a megadott base case feltételt, ilyenkorra a karakterláncunk megfordítása sikeresen teljesül.<br><br>
+          
           </p> 
       <br>
       </details>
@@ -122,6 +118,7 @@ void swap(char *x, char *y)
 //<b>Rekurzív függvény egy adott karakterlánc visszafordítására</b>
 void reverse(char str[], int l, int h)
 {
+//<b>base case</b>
     if (l &lt; h)
     {
         swap(&amp;str[l], &amp;str[h]);
@@ -196,10 +193,11 @@ int main()
         </div>
 
         <ul>  
-          <li>szöveg</li>
-          <li>szöveg</li>
-          <li>szöveg</li>
-          <li>szöveg</li>
+          <li>Hívjuk meg a rekurzív reverse függvényt a megadott karakterláncunkra.</li>
+          <li>base caseünk: l &lt; h</li>
+          <li>ha (l &lt; h)</li>
+          <li>akkor cseréljük fel az l indexnél lévő karaktert és a h indexnél lévő karaktert, majd növeljük az l indexét egyel és csökkentsük a h indexét 1-el. 
+            Ha elértük a base case-t a karakterláncunkat sikeresen megfordítottuk. </li>
           </ul> 
       <br>
       
@@ -212,13 +210,12 @@ int main()
             <summary><b>Az algoritmus leírása</b><br /><br /></summary>
 
             <p>
-              Ide írni a cuccokat
-              több fajta megoldás is létezik erre
-              <br><br>
-        <b>swap(char *x, char *y) </b> → <br><br>
-        <b>reverse(char str[], int l, int h) </b> → <br><br>
+              <b>Függvények leírása:</b> <br><br>  
+        <b>swap(char *x, char *y) </b> → Ez egy egyszerű függvény, aminek segítségével feltudunk cserélni két karaktert.<br><br>
+        <b>reverse(char str[], int l, int h) </b> → Ez a rekurzív függvényünk, ami addig hívja önmagát, míg el nem érjük a megadott base case feltételt.
+        Ezt úgy érjük el, hogy a swap függvényt alkalmazzuk a karakterláncunk első és utolsó karakterére, haladva a karakterláncunk közepe felé, míg elérjük az alapfeltételt.
             </p>
-            <br />
+            <br>
           </details>
         </div>
       </div>

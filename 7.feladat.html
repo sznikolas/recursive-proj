@@ -21,10 +21,7 @@
         <div class="smallContainer">
           
           <br><p>
-            <b>Feladat:</b> A Quicksort egy olyan rendezési algoritmus,
-            amely az oszd meg és uralkodj megközelítésen alapul, ahol Egy tömböt
-            altömbökre osztunk egy pivot elem (a tömbből kiválasztott elem)
-            kiválasztásával.
+            <b>Feladat:</b> Írjon programot C nyelvben a gyorsrendezés megvalósítására rekurzió segítségével.
           </p><br>
         </div>
         
@@ -35,16 +32,22 @@
           <b>Gyorsrendezés</b><br><br>
               </summary>
           <p>    
-              <b>N királynő probléma</b><br><br>
-              &emsp;&emsp;Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan lehet N királynőt (vezért) 
-              úgy elhelyezni egy N×N-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
-              Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
-              <br><br>
-              &emsp;&emsp;A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
-              lehet lerakni n darab királynőt egy n×n-es táblán.<br><br>
-      
-              &emsp;&emsp;Az alábbiakban egy 4x4-es táblát találunk, ahol 4 királynőt kell elhelyeznünk a szabályoknak megfelelően bemutatva a rekurziót és a backtracking-et.
-      
+              <b>Gyorsrendezés - Quick sort</b><br><br>
+              &emsp;&emsp;A Quicksort egy olyan rendezési algoritmus,
+              amely az oszd meg és uralkodj megközelítésen alapul(hasonlóan a merge sorthoz), ahol egy tömböt
+              altömbökre osztunk egy vezérelem(pivot)
+              kiválasztásával, majd ezeket a részeket az algoritmus rekurzív hívásával rendezi.<br><br>
+
+              &emsp;&emsp;A quicksortnak számos különböző változata létezik, amelyek különböző módon választják ki a pivotot: <br> 
+              &emsp;&emsp;&emsp;&emsp;- mindig az első elemet választjuk pivotnak <br>
+              &emsp;&emsp;&emsp;&emsp;- mindig az utolsó elemet választjuk pivotnak <br> 
+              &emsp;&emsp;&emsp;&emsp;- egy véletlenszerű elemet választunk pivotnak <br>
+              &emsp;&emsp;&emsp;&emsp;- a mediánt választjuk pivotnak.<br><br>
+
+              &emsp;&emsp;A quicksort kulcsfolyamata a partiton függvény. A particionálás célja, hogy egy adott tömb pivotját a 
+              megfelelő helyre helyezzük a tömbbön belül úgy, hogy a pivotnál kisebb elemek a pivot bal oldalára, míg a nagyobbak a jobb oldalára kerülnek.<br><br>  
+             
+              &emsp;&emsp;Az alábbiakban egy olyan gyorsrendező algoritmust szemléltetünk, ahol a pivot mindig a tömb utolsó eleme lesz.
           </p> 
       <br>
       </details>
@@ -242,14 +245,18 @@ int main() {
         </div>
 
         <ul>  
-          <li>A Quicksort egy olyan rendezési algoritmus, amely az oszd meg és uralkodj megközelítésen alapul, ahol
+          <li>A Quicksort egy olyan rendezési algoritmus, amely az oszd meg és uralkodj megközelítésen alapul, ahol</li>
 
-            Egy tömböt altömbökre osztunk egy pivot elem (a tömbből kiválasztott elem) kiválasztásával.
+          <li>Egy tömböt altömbökre osztunk egy pivot elem (a tömbből kiválasztott elem) kiválasztásával.</li>
             
-            A tömb felosztása során a pivot elemet úgy kell elhelyezni, hogy a pivotnál kisebb elemek a bal oldalon, a pivotnál nagyobb elemek pedig a pivot jobb oldalán maradjanak.
-            A bal és jobb oldali altömböket is ugyanezzel a módszerrel osztjuk fel. Ez a folyamat addig folytatódik, amíg minden altábla egyetlen elemet nem tartalmaz.
-            Ekkor az elemek már rendezettek. Végül az elemek egyesítésével egy rendezett tömb jön létre.
-            </li>
+          <li>A tömb felosztása során a pivot elemet úgy kell elhelyezni, hogy a pivotnál kisebb elemek a bal oldalon, 
+            a pivotnál nagyobb elemek pedig a pivot jobb oldalán maradjanak.</li>
+
+            <li>A bal és jobb oldali altömböket is ugyanezzel a módszerrel osztjuk fel.</li>
+
+            <li>Ez a folyamat addig folytatódik, amíg minden altábla egyetlen elemet nem tartalmaz.
+            Ekkor az elemek már rendezettek. Végül az elemek egyesítésével egy rendezett tömb jön létre.</li>
+            
           </ul> 
       <br>
 
@@ -263,23 +270,13 @@ int main() {
             <summary><b>Az algoritmus leírása</b><br><br>
             </summary>
             <p>
-              A Quicksort egy olyan rendezési algoritmus, amely az oszd meg és
-              uralkodj megközelítésen alapul, ahol<br /><br />
-              1.)Egy tömböt altömbökre osztunk egy pivot elem (a tömbből
-              kiválasztott elem) kiválasztásával. A tömb felosztása során a
-              pivot elemet úgy kell elhelyezni, hogy a pivotnál kisebb elemek a
-              bal oldalon, a pivotnál nagyobb elemek pedig a pivot jobb oldalán
-              maradjanak.<br /><br />
-              2.)A bal és jobb oldali altömböket is ugyanezzel a módszerrel
-              osztjuk fel rekurzívan. Ez a folyamat addig folytatódik, amíg
-              minden altábla egyetlen elemet nem tartalmaz.<br /><br />
-              3.)Ekkor az elemek már rendezettek. Végül az elemek egyesítésével
-              egy rendezett tömb jön létre.
-              <br><br>
+              <b>Függvények leírása:</b> <br><br>  
+
+
         <b>swap(int *a, int *b) </b> → <br><br>
         <b>partition(int array[], int low, int high) </b> → <br><br>
         <b>quickSort(int array[], int low, int high) </b> → <br><br>
-        <b>printArray(int array[], int size) </b> → <br><br>
+        <b>printArray(int array[], int size) </b> → 
 
             </p>
             <br/>
