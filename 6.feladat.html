@@ -19,10 +19,7 @@
     <h1>Összefésülő rendezés - Merge sort</h1>
 
     <div class="smallContainer"><br> 
-    <p><b>Feladat:</b> A QuickSorthoz hasonlóan a Merge Sort is egy oszd meg és uralkodj algoritmus. 
-        A bemeneti tömböt két felére osztja, meghívja magát a két felére, majd egyesíti a két rendezett felet. 
-        A merge() függvényt a két fél összevonására használja. A merge(arr, l, m, m, r) egy kulcsfolyamat, amely feltételezi, hogy arr[l..m] és arr[m+1..r] rendezett, 
-        és a két rendezett résztömböt egybeolvasztja.</p><br>
+    <p><b>Feladat:</b> Írjon programot C nyelvben az összefésülő rendezés megvalósítására rekurzió segítségével.</p><br>
 </div>
 <div class="smallContainer"><br>
     <details>
@@ -31,15 +28,16 @@
     <b>Összefésülő rendezés</b><br><br>
         </summary>
     <p>    
-        <b>N királynő probléma</b><br><br>
-        &emsp;&emsp;Az N királynő-probléma egy sakkfeladvány, lényege a következő: hogyan lehet N királynőt (vezért) 
-        úgy elhelyezni egy N×N-es sakktáblán, hogy a sakk szabályai szerint ne üssék egymást. 
-        Ehhez a királynő/vezér lépési lehetőségeinek ismeretében az kell, hogy ne legyen két bábu azonos sorban, oszlopban vagy átlóban.
+        <b>Merge sort - Összefésülő rendezés</b><br><br>
+        &emsp;&emsp;Az összefésülő rendezés egy rekurzív algoritmus, amely az oszd meg és uralkodj elven működik. 
+        A bemeneti rendezetlen tömböt n részre osztja, meghívva önmagát az n résztömbre rekurzívan, 
+        amíg a tömbök méretei 1 eleműek nem lesznek(az egy elemű tömböt rendezettnek tekintjük), 
+        majd ismételten összefésüli a résztömböket nagyobb rendezett résztömböket hozva létre, míg végül csak egy rendezett tömb marad.
         <br><br>
-        &emsp;&emsp;A nyolckirálynő-probléma egy példa az ennél általánosabb „n királynő problémára”, ami azt a kérdést veti fel, hányféleképpen 
-        lehet lerakni n darab királynőt egy n×n-es táblán.<br><br>
+        
 
-        &emsp;&emsp;Az alábbiakban egy 4x4-es táblát találunk, ahol 4 királynőt kell elhelyeznünk a szabályoknak megfelelően bemutatva a rekurziót és a backtracking-et.
+        &emsp;&emsp;Az alábbiakban egy 7 elemű tömböt találunk, 
+        amit felosztunk a rekurzív függvényhívás segítségével 1 elemű tömbökre, majd rendezve összefésüljük őket megkapva a már rendezett bemeneti tömböt.
 
     </p> 
 <br>
@@ -198,15 +196,20 @@ int main()
 
 <ul>  
     <li>
-        1. Keressük meg a középső pontot, hogy a tömböt két részre osszuk:  <br>
-                middle m = l+ (r-l)/2<br>
-        2. Hívjuk a mergeSort programot az első felére:   <br>
-                call mergeSort(arr, l, m)<br>
-        3. Hívjuk a mergeSortot a második felére:<br>
-                call mergeSort(arr, m+1, r)<br>
-        4. Egyesítse a 2. és 3. lépésben rendezett két felet:<br>
-                call merge(arr, l, m, r)<br>
-        </li>
+        MergeSort(arr[], l, r)<br>
+        Ha r > l<br></li>
+            <li><b>1.)</b> Keressük meg a középső pontot, hogy a tömböt két részre osszuk:  <br>
+            middle m = l + (r - l) / 2<br></li>
+            <li><b>2.)</b>  Hívjuk a mergeSort függvényt a tömb első felére:   <br>
+            call mergeSort(arr, l, m)<br></li>
+            <li><b>3.)</b>  Hívjuk a mergeSort függvényt a tömb második felére:<br>
+            call mergeSort(arr, m+1, r)<br></li>
+            <li>A résztömböket rekurzívan két részre osztjuk addig, amíg a mérete 1 nem lesz. 
+                Amint a méret 1 lesz, az egyesítési folyamatok működésbe lépnek, és elkezdik a tömbök összefésülését rendezetten, 
+                amíg az egész bemeneti tömb össze nem áll.</li>
+            <li><b>4.)</b>  Egyesítse a 2. és 3. lépésben rendezett két felet:<br>
+            call merge(arr, l, m, r)<br></li>
+        
     </ul> 
 <br>
    
@@ -220,25 +223,12 @@ int main()
                 
         <b>Az algoritmus leírása</b><br><br>
             </summary>
-            <p> MergeSort(arr[], l, r)<br><br>
-        Ha r > l<br><br>
-             1. Keressük meg a középső pontot, hogy a tömböt két részre osszuk:  <br>
-                     middle m = l+ (r-l)/2<br><br>
-             2. Hívjuk a mergeSort programot az első felére:   <br>
-                     call mergeSort(arr, l, m)<br><br>
-             3. Hívjuk a mergeSortot a második felére:<br>
-                     call mergeSort(arr, m+1, r)<br><br>
-             4. Egyesítse a 2. és 3. lépésben rendezett két felet:<br>
-                     call merge(arr, l, m, r)<br><br>
-                     
-                     
-        A tömböt rekurzívan két részre osztjuk addig, amíg a mérete 1 nem lesz. 
-        Amint a méret 1 lesz, az egyesítési folyamatok működésbe lépnek, és elkezdik a tömbök összeolvasztását, 
-        amíg a teljes tömb össze nem áll.
-        <br><br>
-        <b>merge(int arr[], int l, int m, int r)</b> → <br><br>
-        <b>mergeSort(int arr[], int l, int r)</b> → <br><br>
-        <b>printArray(int A[], int size)</b> → <br><br>
+            <p>                   
+            <b>Függvények leírása:</b> <br><br>  
+
+        <b>merge()</b> → függvény, ami a két rendezett résztömb összefésülésére szolgál <br><br>
+        <b>mergeSort()</b> → függvény, ami rekurzívan hívja önmagát, a tömb felosztására addig, amíg a tömb mérete eléri az 1-et<br><br>
+        <b>printArray()</b> → Ez a függvény csak a rendezett tömb kiírására szolgál.<br><br>
         </p><br>
         </details>
 </div>
