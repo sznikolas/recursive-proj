@@ -177,15 +177,16 @@ int solve_sudoku()
     //<b>1 és 9 közötti szám</b>
     for(i=1;i&lt;=SIZE;i++)
     {
-        //<b>hozzárendelhetjük-e i értéket a cellához vagy sem</b>
+        //<b>hozzárendelhetjük-e i értéket a cellához vagy sem - rekurzio</b>
         //<b>a cella a mátrix[sor][oszlop]-al van megadva</b>
         if(is_safe(i, row, col))
         {
             matrix[row][col] = i;
-            //<b>backtracking</b>
+            //<b>rekurzio</b>
             if(solve_sudoku())
                 return 1;
-            //<b>ha nem tudunk ezzel az értékkel haladni, rendezzük át a cellaértékeket</b>
+            /*<b>backtracking - ha nem tudunk ezzel az értékkel haladni, 
+                rendezzük át a cellaértékeket</b>*/
             matrix[row][col]=0;
         }
     }
@@ -236,7 +237,7 @@ int main()
         <li>Ha nincsenek üres cellák, akkor a Szúdoku már meg van oldva. Ekkor egyszerűen true-t adunk vissza.</li>
         <li>Ellenkező esetben az első üres cellát feltöltsük egy 1 és 9 közötti számjeggyel, 
         úgy, hogy ne legyen konfliktus egyik sorban, oszlopban vagy a 3x3-as almátrixban sem.</li>
-        <li>Ezután megpróbáljuk kitölteni a többi üres cellát is, 
+        <li>Ezután megpróbáljuk kitölteni a többi üres cellát is(itt történik a rekurzió), 
             és ha ez sikeresen megtörténik, akkor true-t adunk vissza.</li>
         <li> Ellenkező esetben visszatérünk(backtrack), és megváltoztatjuk azt a számjegyet, 
             amellyel az előző cellát kitöltöttük és újra megpróbáljuk kitölteni a következő üres cellákat.
