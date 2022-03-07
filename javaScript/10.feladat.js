@@ -7,13 +7,59 @@ canvas.height  = 540;
 let counter = 0;
 
 let parapa = [
-"1. lepes", "2. lepes", "3. lepes", "4. lepes", "5. lepes", "6. lepes", "7. lepes", "8. lepes", "9. lepes", "10. lepes", 
-"11. lepes", "12. lepes", "13. lepes", "14. lepes", "15. lepes", "16. lepes", "17. lepes", "18. lepes", "19. lepes", "20. lepes", 
-"21. lepes", "22. lepes", "23. lepes", "24. lepes", "25. lepes", "26. lepes", "27. lepes", "28. lepes", "29. lepes", "30. lepes", 
-"31. lepes", "32. lepes", "33. lepes", "34. lepes", "35. lepes", "36. lepes", "37. lepes", "38. lepes", "39. lepes", "40. lepes", 
-"41. lepes", "42. lepes", "43. lepes", "44. lepes", "45. lepes", "46. lepes", "47. lepes", "48. lepes", "49. lepes", "50. lepes", 
-"51. lepes", "52. lepes",
-"53. A szudokút sikeresen megoldottuk!"];
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"ehhez a cellához nem tudunk a szabályoknak megfelelő számot rendelni", 
+"visszalépünk annyit, amíg megtudjuk változtatni a szabályoknak megfelelően a cella értékét", 
+"a második szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"ehhez a cellához nem tudunk a szabályoknak megfelelő számot rendelni", 
+"visszalépünk annyit, amíg megtudjuk változtatni a szabályoknak megfelelően a cella értékét", 
+"a második szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"ehhez a cellához nem tudunk a szabályoknak megfelelő számot rendelni", 
+"visszalépünk annyit, amíg megtudjuk változtatni a szabályoknak megfelelően a cella értékét", 
+"a második szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"ehhez a cellához nem tudunk a szabályoknak megfelelő számot rendelni", 
+"visszalépünk annyit, amíg megtudjuk változtatni a szabályoknak megfelelően a cella értékét", 
+"a második szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"ehhez a cellához nem tudunk a szabályoknak megfelelő számot rendelni", 
+"visszalépünk annyit, amíg megtudjuk változtatni a szabályoknak megfelelően a cella értékét", 
+"a második szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
+"az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát",
+"A szudokút sikeresen megoldottuk!"];
 
 let buttonState = "START";
 let isAllowed = false;
@@ -1620,7 +1666,7 @@ document.getElementById('resetAnim').onclick = function(){
         
     counter = 0;
     //label resetelese
-    document.getElementById("label1").innerHTML = "oldjuk meg";
+    document.getElementById("label1").innerHTML = "keressük meg az első üres cellát";
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
     buttonState="START";   

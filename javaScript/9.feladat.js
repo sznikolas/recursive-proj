@@ -6,24 +6,28 @@ canvas.height  = 350;
 
 let counter = 0;
 
-let parapa = ["asd", 
-"rekurzív függvényhívás fakt(7)", 
-"rekurzív függvényhívás fakt(6)", 
-"rekurzív függvényhívás fakt(5)",
-"rekurzív függvényhívás fakt(4)",
-"rekurzív függvényhívás fakt(3)",
-"rekurzív függvényhívás fakt(2)",
-"rekurzív függvényhívás fakt(1)",
+let parapa = ["L < H, ezért felcseréljük őket", 
+"csere", 
+"R és Ó cseréje megtörtént", 
+"hívjuk a revere függvényt (L+1)-re és (H-1)-re",
+
+"L < H, ezért felcseréljük őket",
+"csere",
+"E és I cseréje megtörtént",
+"hívjuk a revere függvényt (L+1)-re és (H-1)-re",
+
+"L < H, ezért felcseréljük őket",
+"csere",
+"K és Z cseréje megtörtént",
+"hívjuk a revere függvényt (L+1)-re és (H-1)-re",
+
+"L < H, ezért felcseréljük őket",
+"csere",
+"U és R cseréje megtörtént",
+"hívjuk a revere függvényt (L+1)-re és (H-1)-re",
+
+"L > H ezért nincs több csere",
 "elértük a base case-t",
-"visszatérés a rekurzív függvényből",
-"visszatérés a rekurzív függvényből",
-"visszatérés a rekurzív függvényből",
-"visszatérés a rekurzív függvényből",
-"visszatérés a rekurzív függvényből",
-"visszatérés a rekurzív függvényből",
-"visszatérés a rekurzív függvényből",
-"visszatértünk a rekurzív hívásokból",
-"visszatértünk a rekurzív hívásokból",
 
 "A karakterláncot sikeresen megfordítottuk!"];
 
@@ -673,7 +677,7 @@ document.getElementById('stepFrwd').onclick = function(){
     szoveg.innerText = parapa[counter];   
     counter++; 
      if(counter >=19){
-        szoveg.innerText = parapa[counter]="A karakterláncot sikeresen megfordítottuk!";
+        szoveg.innerText = parapa[counter]="a karakterláncot sikeresen megfordítottuk!";
     }  
 }
 
@@ -693,7 +697,7 @@ document.getElementById('resetAnim').onclick = function(){
         c.fillText("ó", 438,110);
     counter = 0;
     //label resetelese
-    document.getElementById("label1").innerHTML = "asd";
+    document.getElementById("label1").innerHTML = "hívjuk a reverse függvényt a megadott string-re";
     let idk = document.getElementById("startAnim");
     idk.value = "Start"
     buttonState="START";   

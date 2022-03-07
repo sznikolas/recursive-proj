@@ -7,55 +7,60 @@ canvas.height  = 650;
 
 let parapa = ["", 
 "m = l + (r - l) / 2", 
-"Keressük meg a tömbök középpontját és osszuk két részre", 
+"Keressük meg a résztömb középpontját és osszuk két részre", 
 "m = l + (r - l) / 2", 
-"Keressük meg a tömbök középpontját és osszuk két részre", 
+"Keressük meg a résztömb középpontját és osszuk két részre", 
 "m = l + (r - l) / 2", 
 
-"Miután a tömböt a legkisebb egységekre osztottuk, az elemek összehasonlítása alapján megkezdődik az összefésülés",
+"Miután a résztömböt a legkisebb egységekre osztottuk, az elemek összehasonlítása alapján megkezdődik az összefésülés",
 "8 > 7",
 "Rendezve összefésüljük",
 "Rendezve összefésüljük",
+
+"Keressük meg a résztömb középpontját és osszuk két részre",
+"m = l + (r - l) / 2",
+"Miután a résztömböt a legkisebb egységekre osztottuk, az elemek összehasonlítása alapján megkezdődik az összefésülés",  
 "6 > 1",
 "Rendezve összefésüljük",
 "Rendezve összefésüljük",
+
+
+"Rendezve összefésüljük a bal oldalt: 7 > 1",
+"7 > 6",
+"7 < 8",
+"8",
+"A tömb bal oldalát sikeresen rendeztük",
+
+
+
+"Jobb oldal: keressük meg a résztömb középpontját és osszuk két részre",
+"m = l + (r - l) / 2",
+"Keressük meg a résztömb középpontját és osszuk két részre",
+"m = l + (r - l) / 2",
+"Miután a résztömböt a legkisebb egységekre osztottuk, az elemek összehasonlítása alapján megkezdődik az összefésülés",
 "0 < 9",
 "Rendezve összefésüljük",
 "Rendezve összefésüljük",
-"A  2-es egyedülálló elem, ezért változatlanul hagyjuk",
 
-"A tömb elemeinek összehasonlítása alapján megkezdődik az összefésülés",
-"7 > 1, rendezve összefésüljük",
-"7 > 6, rendezve összefésüljük",
-"7 < 8, rendezve összefésüljük",
-"Rendezve összefésüljük",
+"Keressük meg a résztömb középpontját és osszuk két részre",
+"m = l + (r - l) / 2",
+"A 2-es egyedülálló elem",
 
-
-"0 < 2, rendezve összefésüljük",
-"9 > 2, rendezve összefésüljük",
-"Rendezve összefésüljük",
+"A résztömb elemeinek összehasonlítása alapján megkezdődik az összefésülés",
+"Rendezve összefésüljük a jobb oldalt: 0 < 2",
+"9 > 2",
+"9",
+"A tömb jobb oldalát sikeresen rendeztük",
 
 
-"A tömb elemeinek összehasonlítása alapján megkezdődik az összefésülés",
+"A tömb jobb és bal oldal elemeinek összehasonlítása alapján megkezdődik az összefésülés",
 "1 > 0, rendezve összefésüljük",
 "1 < 2, rendezve összefésüljük", 
 "6 > 2, rendezve összefésüljük", 
 "6 < 9, rendezve összefésüljük",
 "7 < 9, rendezve összefésüljük",
 "8 < 9, rendezve összefésüljük",
-"Rendezve összefésüljük",
-
-"1 > 0, rendezve összefésüljük",
-"1 < 2, rendezve összefésüljük", 
-"6 > 2, rendezve összefésüljük", 
-"6 < 9, rendezve összefésüljük",
-"7 < 9, rendezve összefésüljük",
-"8 < 9, rendezve összefésüljük",
-"7 < 9, rendezve összefésüljük",
-"8 < 9, rendezve összefésüljük",
-"adasdasdasdasd",
-"8 < 9, rendezve összefésüljük",
-
+"9, rendezve összefésüljük",
 
 "A sorbarendezés sikeresen megtörtént!"];
 
@@ -293,47 +298,55 @@ function animate(){
         c.clearRect(350,380,20,20);
     };
 
-    if (counter === 37) {    
+    if (counter === 37) {
+        
+    };
+
+    if (counter === 38) {
+        
+    };
+
+    if (counter === 39) {    
         c.drawImage(pointer1,100,460);
         c.drawImage(pointer1,300,460);
     };
 
-    if (counter === 38) {   
+    if (counter === 40) {   
         c.drawImage(quick0,120,560);
         c.clearRect(300,460,20,20);
         c.drawImage(pointer1,340,460);
     };
 
-    if (counter === 39) {
+    if (counter === 41) {
         c.drawImage(quick1,160,560);
         c.clearRect(100,460,20,20);
         c.drawImage(pointer1,140,460);
     };
 
-    if (counter === 40) {
+    if (counter === 42) {
         c.drawImage(quick2,200,560);
         c.clearRect(340,460,20,20);
         c.drawImage(pointer1,380,460);
     };
 
-    if (counter === 41) {
+    if (counter === 43) {
         c.drawImage(quick6,240,560);
         c.clearRect(140,460,20,20);
         c.drawImage(pointer1,180,460);
     };
 
-    if (counter === 42) {
+    if (counter === 44) {
         c.drawImage(quick7,280,560);
         c.clearRect(180,460,20,20);
         c.drawImage(pointer1,220,460);
     };
 
-    if (counter === 43) {
+    if (counter === 45) {
         c.drawImage(quick8,320,560);
         c.clearRect(220,460,20,20);
     };
 
-    if (counter === 44) {
+    if (counter === 46) {
         c.drawImage(quick9,360,560);
         c.clearRect(380,460,20,20);
     };
@@ -353,7 +366,7 @@ document.getElementById('stepFrwd').onclick = function(){
     szoveg.innerText = parapa[counter];   
 
     counter++; 
-     if(counter >=44){
+     if(counter >=46){
         szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
     }  
 }
@@ -391,7 +404,7 @@ document.getElementById('resetAnim').onclick = function(){
 const startAnim = async () => {
     // A lépések automatikus lejátszása várakozással (startAnim)
     let slider = document.getElementById('myRange');
-        for(var x = 0; x<=43; x++){
+        for(var x = 0; x<=45; x++){
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
                 szoveg.innerText = parapa[counter];  
@@ -399,7 +412,7 @@ const startAnim = async () => {
                 counter++;
                 await sleep(1000/slider.value);       
             }
-             if(counter >=44){
+             if(counter >=46){
                 szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
             } 
         }
