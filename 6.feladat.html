@@ -91,7 +91,7 @@ void merge(int arr[], int l, int m, int r)
     for (j = 0; j &lt; n2; j++)
         R[j] = arr[m + 1 + j];
 
-    //<b>Az ideiglenes tömbök összemergelése az arr[l..r] tömbbel</b>
+    //<b>Az ideiglenes tömbök összemergelése vissza az arr[l..r] tömbbe</b>
     i = 0; //<b>Az első résztömb kezdeti indexe</b>
     j = 0; //<b>A második résztömb kezdeti indexe</b>
     k = l; //<b>Az összefésült résztömb kezdeti indexe</b>
@@ -122,8 +122,8 @@ void merge(int arr[], int l, int m, int r)
     }
 }
 
-/*<b>l a bal oldali index és r a rendezni kívánt
-    arr résztömb jobb oldali indexe</b>*/
+/*<b>l a bal oldali indexét és r a jobb oldali indexét jelöli 
+    a rendezni kívánt arr résztömbnek</b>*/
 void mergeSort(int arr[], int l, int r)
 {
     if (l &lt; r) {
@@ -226,8 +226,11 @@ int main()
             <p>                   
             <b>Függvények leírása:</b> <br><br>  
 
-        <b>merge()</b> → függvény, ami a két rendezett résztömb összefésülésére szolgál <br><br>
-        <b>mergeSort()</b> → függvény, ami rekurzívan hívja önmagát, a tömb felosztására addig, amíg a tömb mérete eléri az 1-et<br><br>
+        <b>merge()</b> → függvény, ami a résztömböket rendezve összefésüli. Ideiglenes tömböket hoz létre, amiben a résztömbök értékei tárolva vannak, 
+        majd az ideiglenes résztömböket összefésüli az eredeti tömbbe és az utolsó fennmaradó elemeket, amik megmaradtak az összehasonlításoknál beilleszti a tömb végére
+        így megkapva a rendezett tömböt. <br><br>
+        <b>mergeSort()</b> → függvény, ami rekurzívan hívja önmagát a tömb felosztására addig, amíg a tömb mérete (l &lt; r), 
+        azaz a tömb 1 elemű nem lesz, majd meghívja a merge függvényt az elemek rendezett összefésülésére<br><br>
         <b>printArray()</b> → Ez a függvény csak a rendezett tömb kiírására szolgál.
         </p><br>
         </details>

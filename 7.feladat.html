@@ -123,7 +123,7 @@ int partition(int array[], int low, int high) {
   //<b>válassza ki a jobb szélső elemet pivotként</b>
   int pivot = array[high];
   
-  //<b>mutató a nagyobb elemre</b>
+  //<b>mutató a nagyobb elemhez</b>
   int i = (low - 1);
 
   /*<b>a tömb minden egyes elemén végigmegyünk, 
@@ -150,9 +150,9 @@ int partition(int array[], int low, int high) {
 void quickSort(int array[], int low, int high) {
   if (low &lt; high) {
     
-    //<b>keressük meg azt a pivot elemet, amely</b>
-    //<b>a pivotnál kisebb elemek és a pivottól balra helyezkednek el</b>
-    //<b>a pivotnál nagyobb elemek és a pivottól jobbra helyezkednek el</b>
+    //<b>keressük meg azt a pivot elemet, ahol</b>
+    //<b>a pivotnál kisebb elemek a pivot bal oldalán helyezkednek el</b>
+    //<b>és a pivotnál nagyobb elemek a pivot jobb oldalán helyezkednek el</b>
     int pi = partition(array, low, high);
     
     //<b>rekurzív hívás a pivot bal oldalán</b>
@@ -252,7 +252,7 @@ int main() {
           <li>A tömb felosztása során a pivot elemet úgy kell elhelyezni, hogy a pivotnál kisebb elemek a bal oldalon, 
             a pivotnál nagyobb elemek pedig a pivot jobb oldalán maradjanak.</li>
 
-            <li>A bal és jobb oldali altömböket is ugyanezzel a módszerrel osztjuk fel.</li>
+            <li>A bal és jobb oldali altömböket(partíciókat) is ugyanezzel a módszerrel osztjuk fel(a pivot mindig a legutolsó elem lesz).</li>
 
             <li>Ez a folyamat addig folytatódik, amíg minden altábla egyetlen elemet nem tartalmaz.
             Ekkor az elemek már rendezettek. Végül az elemek egyesítésével egy rendezett tömb jön létre.</li>
@@ -273,10 +273,13 @@ int main() {
               <b>Függvények leírása:</b> <br><br>  
 
 
-        <b>swap(int *a, int *b) </b> → <br><br>
-        <b>partition(int array[], int low, int high) </b> → <br><br>
-        <b>quickSort(int array[], int low, int high) </b> → <br><br>
-        <b>printArray(int array[], int size) </b> → 
+        <b>swap() </b> → Függvény az elemek cseréjéhez.<br><br>
+        <b>partition() </b> → Ez a függvény kiválasztja a pivotot, majd az elemeket rendezi úgy, hogy a kisebbek a pivot bal oldalára, 
+        a nagyobbak pedig a jobb oldalára kerüljenek.<br><br>
+        <b>quickSort() </b> → Ez a függvény rekurzívan hívja önmagát a partíciókra, ami a pivot jobb és bal oldalán találhatóak
+        és rendezi a tömbböt addig, míg (low &lt; high), azaz egy eleműek nem
+        lesznek a partíciók. Miután ezt elértük a tömbbünk rendezett lesz.<br><br>
+        <b>printArray() </b> → Ez a függvény csak a tömb kiírására szolgál.
 
             </p>
             <br/>

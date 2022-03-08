@@ -156,8 +156,8 @@ int main()
 </div>
 
 <div class="smallContainer">
-  <h2>33. feladat: </h2>
-  <div class="p2"><b></b> Írjon programot C programozási nyelvben, amely rekurzió segítségével </div>
+  <h2>33. feladat: Számsorozat reverse</h2>
+  <div class="p2"><b></b> Írjon programot C programozási nyelvben, amely rekurzió segítségével megfordít egy adott számsorozatot.</div>
   
   <!-- Button trigger modal -->
   
@@ -169,7 +169,7 @@ int main()
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Cím</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Számsorozat reverse</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -177,10 +177,35 @@ int main()
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-  C kód:
-  valami?
+C kód:
+
+// C program egy szám számjegyeinek visszafordítására
+#include &lt;stdio.h&gt;;
+ 
+/* Rekurzív függvény a num számjegyeinek visszafordítására*/
+int reversDigits(int num)
+{
+    static int rev_num = 0;
+    static int base_pos = 1;
+    if (num &gt; 0) {
+        reversDigits(num / 10);
+        rev_num += (num % 10) * base_pos;
+        base_pos *= 10;
+    }
+    return rev_num;
+}
+ 
+/*Vezérlőprogram a reversDigits teszteléséhez*/
+int main()
+{
+    int num = 459851662;
+    printf("A megadott szám reverse: %d", reversDigits(num));
+ 
+    getchar();
+    return 0;
+}
   <br>
-  <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-20.php" target="_blank">Forrás</a>
+  <a href="https://www.geeksforgeeks.org/write-a-program-to-reverse-digits-of-a-number/" target="_blank">Forrás</a>
                 </code>
              </pre>
         </div>
@@ -190,8 +215,8 @@ int main()
   </div>
 
 <div class="smallContainer">
-  <h2>34. feladat: </h2>
-  <div class="p2"><b></b> Írjon programot C programozási nyelvben, amely rekurzió segítségével </div>
+  <h2>34. feladat: Bináris fa bejárása spirális sorrendben</h2>
+  <div class="p2"><b></b> Írjon programot C programozási nyelvben, amely egy fa spirális sorrendben történő bejárását kiírja. Használjon rekurziót!</div>
   
   <!-- Button trigger modal -->
   
@@ -210,11 +235,112 @@ int main()
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-  C kód:
-  valami?
+C kód:
   
-  <br>
-  <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-20.php" target="_blank">Forrás</a>
+// C program rekurzív szintbejárással spirális formában
+#include &lt;stdbool.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+ 
+   /* A bináris fa csomópontjainak adatai: pointer a bal oldali gyermekre 
+   és egy pointer a jobb oldali gyermekre */
+struct node {
+    int data;
+    struct node* left;
+    struct node* right;
+};
+ 
+/* Függvény prototípusok */
+void printGivenLevel(struct node* root, int level, int ltr);
+int height(struct node* node);
+struct node* newNode(int data);
+ 
+/* Függvény egy fa spirális bejárásának kiírására*/
+void printSpiral(struct node* root)
+{
+    int h = height(root);
+    int i;
+ 
+    /*ltr -&gt; Left to Right. Ha ez a változó be van állítva,
+      akkor az adott szinten balról jobbra haladunk. */
+    bool ltr = false;
+    for (i = 1; i &lt;= h; i++) {
+        printGivenLevel(root, i, ltr);
+ 
+    /*Fordított ltr, hogy a következő szintet ellenkező sorrendben járja be*/
+        ltr = !ltr;
+    }
+}
+ 
+/* A csomópontok kiíratása az adott szinten */
+void printGivenLevel(struct node* root, int level, int ltr)
+{
+    if (root == NULL)
+        return;
+    if (level == 1)
+        printf("%d ", root-&gt;data);
+    else if (level &gt; 1) {
+        if (ltr) {
+            printGivenLevel(root-&gt;left, level - 1, ltr);
+            printGivenLevel(root-&gt;right, level - 1, ltr);
+        }
+        else {
+            printGivenLevel(root-&gt;right, level - 1, ltr);
+            printGivenLevel(root-&gt;left, level - 1, ltr);
+        }
+    }
+}
+ 
+/*  A fa "magasságának" kiszámítása - a csomópontok száma 
+    a gyökércsomóponttól a legtávolabbi levélcsomópontig 
+    vezető leghosszabb út mentén.*/
+int height(struct node* node)
+{
+    if (node == NULL)
+        return 0;
+    else {
+        /* kiszámítja az egyes részfák magasságát */
+        int lheight = height(node-&gt;left);
+        int rheight = height(node-&gt;right);
+ 
+        /* használja a nagyobbat*/
+        if (lheight &gt; rheight)
+            return (lheight + 1);
+        else
+            return (rheight + 1);
+    }
+}
+ 
+/*  Segédfüggvény, amely új csomópontot rendel ki a megadott adatokkal 
+    és NULL bal és jobb pointerekkel.  */
+struct node* newNode(int data)
+{
+    struct node* node = (struct node*)
+        malloc(sizeof(struct node));
+    node-&gt;data = data;
+    node-&gt;left = NULL;
+    node-&gt;right = NULL;
+ 
+    return (node);
+}
+ 
+/* Vezérprogram a teszteléshez*/
+int main()
+{
+    struct node* root = newNode(1);
+    root-&gt;left = newNode(2);
+    root-&gt;right = newNode(3);
+    root-&gt;left-&gt;left = newNode(7);
+    root-&gt;left-&gt;right = newNode(6);
+    root-&gt;right-&gt;left = newNode(5);
+    root-&gt;right-&gt;right = newNode(4);
+    printf("Spirális bejárása a megadott bináris fának: \n");
+    printSpiral(root);
+ 
+    return 0;
+}
+ <br>
+  <a href="https://www.geeksforgeeks.org/level-order-traversal-in-spiral-form/" target="_blank">Forrás</a>
                 </code>
               </pre>
         </div>
@@ -224,20 +350,20 @@ int main()
   </div>
 
 <div class="smallContainer">
-  <h2>35. feladat: </h2>
-  <div class="p2"><b></b> Írjon programot C programozási nyelvben, amely rekurzió segítségével </div>
+  <h2>35. feladat: Josephus-probléma</h2>
+  <div class="p2"><b></b> Írjon programot C programozási nyelvben, amely rekurzió segítségével megoldja a Josephus-problémát.</div>
   
   <!-- Button trigger modal -->
   
   <button type="button" class="example_c"  data-toggle="modal" data-target="#exampleModalScrollable5">
-    C kód</button>
+  C kód</button>
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModalScrollable5" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Cím?</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Josephus-probléma</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -245,10 +371,28 @@ int main()
         <div class="modal-body">
             <pre class="line-numbers">
                 <code class="language-clike">
-  C kód:
-  valami?
+C kód:
+
+#include <stdio.h>
+
+int josephus(int n, int k)
+{
+    if (n == 1) //base case
+        return 1;
+    else
+        return (josephus(n - 1, k) + k - 1) % n + 1; //rekurzió
+}
+  
+// tesztelés
+int main()
+{
+    int n = 14;
+    int k = 2;
+    printf("A biztonságos hely: %d", josephus(n, k));
+    return 0;
+}
   <br>
-  <a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-20.php" target="_blank">Forrás</a>
+  <a href="https://www.geeksforgeeks.org/josephus-problem-set-1-a-on-solution/" target="_blank">Forrás</a>
                 </code>
               </pre>
         </div>

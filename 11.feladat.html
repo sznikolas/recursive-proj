@@ -218,8 +218,8 @@ void ArrayElement(int arr1[], int st, int l)
 
 
 <div class="smallContainer">
-  <h2>14. feladat: Egy n szám számjegyeinek megszámlálása</h2>
-  <div class="p2"> Írjon programot C programozási nyelvben egy adott szám számjegyeinek megszámlálására rekurzió segítségével.</div>
+  <h2>14. feladat: Egy adott n méretű tömb r elemének összes lehetséges kombinációjának kiírása</h2>
+  <div class="p2"> Írjon programot C programozási nyelvben egy adott n méretű tömb r elemének összes lehetséges kombinációjának kiírása rekurzió segítségével.</div>
 
   <!-- Button trigger modal -->
   
@@ -231,7 +231,7 @@ void ArrayElement(int arr1[], int st, int l)
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Egy n szám számjegyeinek megszámlálása C programozási nyelvben</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">N méretű tömb r elemének összes kombinációja</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -241,37 +241,61 @@ void ArrayElement(int arr1[], int st, int l)
                 <code class="language-clike">
 C kód:
 
-#include&lt;stdio.h&gt;
-
-int noOfDigits(int n1);
+// Program az összes r méretű kombináció kiíratására egy n méretű tömbben
+#include &lt;stdio.h&gt;
+void combinationUtil(int arr[], int data[], int start, int end,
+                     int index, int r);
+ 
+/* A fő függvény, amely kiírja az összes r méretű kombinációt
+    az n méretű arr[]-ban. Ez a függvény elsősorban 
+    a combinationUtil() függvényt használja */
+void printCombination(int arr[], int n, int r)
+{
+    // Egy ideiglenes tömb az összes kombináció egyenkénti tárolására
+    int data[r];
+ 
+    // Az összes kombináció kiírása az ideiglenes 'data[]' tömb segítségével
+    combinationUtil(arr, data, 0, n-1, 0, r);
+}
+ 
+/* arr[]  ---&gt; Bemeneti tömb
+   data[] ---&gt; Ideiglenes tömb az aktuális kombináció tárolására
+   start &amp; end ---&gt; Kezdő és vég indexek az arr[] tömbben
+   index  ---&gt; Aktuális index a data[] tömbben
+   r ---&gt; A kiíratandó kombináció mérete  */
+void combinationUtil(int arr[], int data[], int start, int end,
+                     int index, int r)
+{
+    // Az aktuális kombináció készen áll a kiíratásra, írja ki
+    if (index == r)
+    {
+        for (int j=0; j&lt;r; j++)
+            printf("%d ", data[j]);
+        printf("\n");
+        return;
+    }
+ 
+    /* Cserélje ki az indexet az összes lehetséges elemre. Az "end-i+1 &gt;= r-index" 
+    feltétel biztosítja, hogy az indexnél lévő egyik elem 
+    beillesztése kombinációt eredményezzen a 
+    fennmaradó pozíciókban lévő többi elemmel. */
+    for (int i=start; i&lt;=end &amp;&amp; end-i+1 &gt;= r-index; i++)
+    {
+        data[index] = arr[i];
+        combinationUtil(arr, data, i+1, end, index+1, r);
+    }
+}
+ 
+// tesztelés és bemenet megadása
 int main()
 {
-  int n1,ctr;
-    printf("\n\n számolja meg egy adott szám számjegyeit :\n");
-    printf("-----------------------------------------\n");
-    printf(" Adjon meg egy számot : ");
-    scanf("%d",&amp;n1);
-
-    ctr = noOfDigits(n1);
-
-    printf(" A számjegyek száma a következő :  %d \n\n",ctr);
-    return 0;
-}
-
-int noOfDigits(int n1)
-{
-    static int ctr=0;
-
-      if(n1!=0)
-      {
-          ctr++;
-          noOfDigits(n1/10);
-    }
-
-    return ctr;
+    int arr[] = {1, 2, 3, 4, 5, 9, 8};
+    int r = 4;
+    int n = sizeof(arr)/sizeof(arr[0]);
+    printCombination(arr, n, r);
 }
 <br>
-<a href="https://www.w3resource.com/c-programming-exercises/recursion/c-recursion-exercise-5.php" target="_blank">Forrás</a>
+<a href="https://www.geeksforgeeks.org/print-all-possible-combinations-of-r-elements-in-a-given-array-of-size-n/" target="_blank">Forrás</a>
                 </code>
              </pre>
         </div>
