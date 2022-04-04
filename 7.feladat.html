@@ -4,13 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mgr munka</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+    <link rel="icon" type="image/x-icon" href="/images/icon.png">
+    <title>Mgr. munka</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/osszes.css" />
   </head>
   <body>
@@ -45,7 +41,7 @@
               &emsp;&emsp;&emsp;&emsp;- a mediánt választjuk pivotnak.<br><br>
 
               &emsp;&emsp;A quicksort kulcsfolyamata a partiton függvény. A particionálás célja, hogy egy adott tömb pivotját a 
-              megfelelő helyre helyezzük a tömbbön belül úgy, hogy a pivotnál kisebb elemek a pivot bal oldalára, míg a nagyobbak a jobb oldalára kerülnek.<br><br>  
+              megfelelő helyre helyezzük a tömbön belül úgy, hogy a pivotnál kisebb elemek a pivot bal oldalára, míg a nagyobbak a jobb oldalára kerülnek.<br><br>  
              
               &emsp;&emsp;Az alábbiakban egy olyan gyorsrendező algoritmust szemléltetünk, ahol a pivot mindig a tömb utolsó eleme lesz.
           </p> 
@@ -252,7 +248,7 @@ int main() {
           <li>A tömb felosztása során a pivot elemet úgy kell elhelyezni, hogy a pivotnál kisebb elemek a bal oldalon, 
             a pivotnál nagyobb elemek pedig a pivot jobb oldalán maradjanak.</li>
 
-            <li>A bal és jobb oldali altömböket(partíciókat) is ugyanezzel a módszerrel osztjuk fel(a pivot mindig a legutolsó elem lesz).</li>
+            <li>A bal és jobb oldali altömböket is ugyanezzel a módszerrel osztjuk fel (a pivot mindig a legutolsó elem lesz).</li>
 
             <li>Ez a folyamat addig folytatódik, amíg minden altábla egyetlen elemet nem tartalmaz.
             Ekkor az elemek már rendezettek. Végül az elemek egyesítésével egy rendezett tömb jön létre.</li>
@@ -277,8 +273,8 @@ int main() {
         <b>partition() </b> → Ez a függvény kiválasztja a pivotot, majd az elemeket rendezi úgy, hogy a kisebbek a pivot bal oldalára, 
         a nagyobbak pedig a jobb oldalára kerüljenek.<br><br>
         <b>quickSort() </b> → Ez a függvény rekurzívan hívja önmagát a partíciókra, ami a pivot jobb és bal oldalán találhatóak
-        és rendezi a tömbböt addig, míg (low &lt; high), azaz egy eleműek nem
-        lesznek a partíciók. Miután ezt elértük a tömbbünk rendezett lesz.<br><br>
+        és rendezi a tömböt addig, míg (low &lt; high), azaz egy eleműek nem
+        lesznek a partíciók. Miután ezt elértük a tömbünk rendezett lesz.<br><br>
         <b>printArray() </b> → Ez a függvény csak a tömb kiírására szolgál.
 
             </p>

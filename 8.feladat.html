@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mgr munka</title>
+    <link rel="icon" type="image/x-icon" href="/images/icon.png">
+    <title>Mgr. munka</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/osszes.css">
 
@@ -29,7 +30,7 @@
           </summary>
       <p>    
           <b>Buborékrendezés - Bubble sort</b><br><br>
-          &emsp;&emsp;A buborékrendezés egy naiv algoritmus(könnyű megérteni és implementálni de nagy az erőforrásigénye - tár és időköltség), 
+          &emsp;&emsp;A buborékrendezés egy naiv algoritmus (könnyű megérteni és implementálni de nagy az erőforrásigénye - tár és időköltség), 
           amellyel egy tömb elemei sorba rendezhetőek [(n-1)n]/2 összehasonlítás elvégzésével, 
           ahol n a sorozat elemeinek számát jelenti. 
           <br><br>
@@ -150,7 +151,7 @@ int main(void)
   </div>
 
   <ul>  
-    <li>Amíg n-1 > 1, addig rekurzívan hívjuk a buborékrendezést az arr[i...n] résztömbbön n-1-ig.</li>
+    <li>Amíg n-1 > 1, addig rekurzívan hívjuk a buborékrendezést az arr[i...n] résztömbön n-1-ig.</li>
     <li>Miután elértük a base case-t, a tömbünk rendezve lesz.</li>
     </ul> 
 <br>
@@ -167,11 +168,11 @@ int main(void)
             <p>
         <b>swap(int arr[], int i, int j) </b> → Segédfüggvény az értékek felcserélésére egy tömb két indexében.<br><br>
         <b>printArray(int arr[], int n) </b> → Függvény a rendezett tömb kiíratására.<br><br>
-        <b>bubbleSort(int arr[], int n) </b> → Tartalamaz egy ciklust, mely segítségével végigiterálunk a megadott tömbön, először a tömb végéig, 
+        <b>bubbleSort(int arr[], int n) </b> → Tartalmaz egy ciklust, mely segítségével végig iterálunk a megadott tömbön, először a tömb végéig, 
         majd az (n-1) miatt már csak az utolsó előtti elemig és így tovább csökkentve az n értékét. 
         Erre az összehasonlítás és a swap függvény miatt van szükségünk, így a legnagyobb értékű elem kerül a legvégére.
         Ezután látható a rekurzív függvényhívás, ami az n. elemig iterál végig a tömbön, de az n. elem minden rekurzív hívás után egyel csökken, 
-        míg el nem érjük a base case-t, ami az esetünben (n - 1) > 1. Miután az n &lt;= 1, akkor a tömbünk már rendezett.<br><br>
+        míg el nem érjük a base case-t, ami az esetünkben (n - 1) > 1. Miután az n &lt;= 1, akkor a tömbünk már rendezett.<br><br>
 
         Megjegyzés:<br>
         int n = sizeof(arr) / sizeof(arr[0]) - ezzel kapjuk meg a tömb hosszát

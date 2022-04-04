@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mgr munka</title>
+    <link rel="icon" type="image/x-icon" href="/images/icon.png">
+    <title>Mgr. munka</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/osszes.css">
     
@@ -31,7 +32,7 @@
         </summary>
     <p>    
         <b>Szúdoku</b><br><br>
-        &emsp;&emsp;A sudoku egy 9x9-es mátrix, amely 1-től 9-ig terjedő számokkal van kitöltve oly módon, 
+        &emsp;&emsp;A szúdoku egy 9x9-es mátrix, amely 1-től 9-ig terjedő számokkal van kitöltve oly módon, 
         hogy minden sorban, oszlopban és almátrixban (3x3) minden egyes számjegy 1-től 9-ig szerepel. Kapunk egy részben 
         kitöltött 9x9-es mátrixot, és minden megmaradt cellát ki kell töltenünk benne. 
         Ha egy szám kétszer szerepel ugyanabban az oszlopban, sorban, vagy almátrixban, akkor a tábla kitöltése helytelen.
@@ -237,7 +238,7 @@ int main()
         <li>Ha nincsenek üres cellák, akkor a Szúdoku már meg van oldva. Ekkor egyszerűen true-t adunk vissza.</li>
         <li>Ellenkező esetben az első üres cellát feltöltsük egy 1 és 9 közötti számjeggyel, 
         úgy, hogy ne legyen konfliktus egyik sorban, oszlopban vagy a 3x3-as almátrixban sem.</li>
-        <li>Ezután megpróbáljuk kitölteni a többi üres cellát is(itt történik a rekurzió), 
+        <li>Ezután megpróbáljuk kitölteni a többi üres cellát is (itt történik a rekurzió), 
             és ha ez sikeresen megtörténik, akkor true-t adunk vissza.</li>
         <li> Ellenkező esetben visszatérünk(backtrack), és megváltoztatjuk azt a számjegyet, 
             amellyel az előző cellát kitöltöttük és újra megpróbáljuk kitölteni a következő üres cellákat.
@@ -256,7 +257,7 @@ int main()
     <b>Az algoritmus leírása</b><br><br>
         </summary>
         <p>
-            Kezdetben csak egy mátrixot készítünk a Sudoku számára, és a ki nem osztott celláit 0-val töltjük fel. 
+            Kezdetben csak egy mátrixot készítünk a Szúdoku számára, és a ki nem osztott celláit 0-val töltjük fel. 
             Így a mátrix tartalmazza a Szúdoku feladatot, és a 0 értékű cellák az üres cellák, amikhez még nincsenek értékek rendelve.<br><br>
             <b>print_sudoku()</b> → Ez csak egy függvény a mátrix kiíratására.<br><br>
             <b>number_unassigned</b> → Ez a függvény megkeres egy üres cellát, és a 'row' és 'col' változókat az adott cella indexeivel teszi egyenlővé.<br> 
@@ -283,7 +284,7 @@ int main()
             1 és 9 közötti értékkel.<br> 
             &emsp;Az <b>is_safe</b> függvény segítségével pedig ellenőrizni tudjuk, hogy egy adott értéket be tudunk-e tölteni az adott cellába vagy sem. 
             Miután megtaláltuk az értéket, megpróbáljuk megoldani a Szúdoku többi részét is a <b>solve_sudoku</b> függvénnyel rekurzívan. Ha ezzel az értékkel nem sikerül megoldani a többit, 
-            akkor visszatérünk, és megpróbálunk egy másik értéket erre a cellára <b>mátrix[row][col]=0;</b>. A ciklus megpróbálja a cellát más értékekkel is. 
+            akkor visszatérünk, és megpróbálunk egy másik értéket erre a cellára <b>mátrix[row][col]=0</b>. A ciklus megpróbálja a cellát más értékekkel is. 
         </p>
     <br>
     </details>
