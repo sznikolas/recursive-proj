@@ -32,14 +32,15 @@
         <p>
             <b>Huszárvándorlás probléma</b> <br><br>&emsp;&emsp;A huszárvándorlás-probléma, huszárkörút vagy sakktábla bejárása huszárral egy huszár lépéssorozata a sakktáblán, 
             amely alatt a huszár a tábla minden mezőjét pontosan <b>egyszer</b> érinti. Ha az utolsó mező megegyezik a kiinduló mezővel, a körút zárt, másképp a körút nyitott.
-            <br>
+            <br><br>
             &emsp;&emsp;A sakktábla bejárása huszárral matematikai probléma. Olyan algoritmus létrehozása, mely megkeresi ezt a bejárást, ismert számítástechnikai feladat. 
-            A huszárkörút problémája különböző méretű sakktáblákon fennáll, nemcsak a 8×8-ason, sőt a szabálytalan (nem téglalap) alakú táblákon is. Ez a probléma több különböző algoritmussal is megoldható, mi backtracking-et használtuk, 
-            ami egy brute-force alapú algoritmus.
+            A huszárkörút problémája különböző méretű sakktáblákon fennáll, nemcsak a 8×8-ason, sőt a szabálytalan (nem téglalap) alakú táblákon is. 
+            Ez a probléma több különböző algoritmussal is megoldható, mi backtracking-et használtuk.
             <br><br>
             &emsp;&emsp;Az alábbiakban találunk egy 3x3-as táblát, amin bemutatjuk a <b>rekurzív</b> algoritmus működését <b>backtracking</b> segítségével. 
-            Kisebb táblán is ugyanúgy megérthető az algoritmus működése, a nagyobb táblán a backtracking miatt az időtartam drasztikusan tovább tartana, azonban az algoritmus ugyanúgy 
-            működik a kisebb táblákon, mint a nagyobbakon. Ezen a 3x3-as táblán nincs huszárkörút, az 5x5-ös táblán azonban már van. <br><br>
+            Kisebb táblán is ugyanúgy megérthető az algoritmus működése, mint nagyobb táblák esetében. A nagyobb táblán a backtracking miatt az időtartam drasztikusan tovább tartana, 
+            azonban az algoritmus ugyanúgy 
+            működik a kisebb táblákon, mint a nagyobbakon. Ezen a 3x3-as táblán nincs huszárkörút, az 5x5-ös táblán azonban már van nyitott körút. <br><br>
             &emsp;&emsp;Az 5x5-ös sakktáblán egy nyitott körútú bejárást szemléltetünk, viszont a <b>backtracking</b> lépések bemutatása nélkül.
             Egy 5x5-ös táblán, a megoldások száma 1728 féleképpen lehetséges, mi ezek közül az egyiket szemléltettük.<br><br>
             &emsp;&emsp;6x6-os tábla lehetséges megoldásainak száma: 6 637 920<br>
@@ -180,9 +181,7 @@ int main()
 <div class="mellett">
         <div class="container3">
         <canvas id="canvas" style="background: url(images/chessBoard3.png)"></canvas>
-        </div>
-
-        
+        </div>   
     </div>
 
     <!-- <div class="container3"></div> -->
@@ -190,8 +189,6 @@ int main()
          <output class="lepesek" style="display: block; width:100%; height:30px; text-align:center;"> 
             <label id="label1" class="lepesekLeirasa">lépés 1 nem lehetséges, próbáljuk a következőt</label></output> 
         
-        
-    
         <div class="container3">
             <div id="buttons">
         <input id="stepFrwd" type="submit" class="example_b" name="button" value="előrelépés"/>
@@ -205,7 +202,7 @@ int main()
         </div>       
     
             <ul>  
-            <li>Minden pozícióban kipróbáljuk a lehetséges lépéseket, hogy találjunk egy érvényeset.</li>
+            <li>Minden pozícióban kipróbáljuk a lehetséges lépéseket (8 db), hogy találjunk egy érvényeset.</li>
             <li>Ha találunk érvényes lépést, akkor a huszárt arra a pozícióra visszük.</li>
             <li>Ha nem találunk ilyen érvényes lépést, akkor BACKTRACK, és megpróbálunk más érvényes lépést találni azok közül, amit még nem próbáltunk a 8 lépés közül.</li>
             <li>PL.: Ha 1,2,3,4 lépést próbáltuk, akkor 5,6,7,8 közül próbálunk keresni.</li>
@@ -256,16 +253,17 @@ int main()
         
         <br><br><b>&emsp;c)</b> Ha egyik alternatíva sem működik, akkor adjuk vissza a false értéket (A false visszaadása eltávolítja a rekurzióban korábban hozzáadott elemet, 
         és ha a rekurzió kezdeti hívása is false-t ad vissza, akkor "nincs megoldás").<br><br><br>
-                    <b>Függvények leírása:</b> <br><br>
-        <b>isSafe(int x, int y, int sol[N][N])</b> → Segédfüggvény annak ellenőrzésére, hogy x,y érvényes indexek-e az N*N sakktáblához.<br><br>
-        <b>printSolution(int sol[N][N])</b> → Segédfüggvény a sol[N][N] megoldási mátrix kiírására.<br><br>
-        <b>solveKT()</b> → Ez a függvény a Huszárvándorlás problémát oldja meg Backtracking segítségével. 
-        A solveKTUtil() függvényt is használja a probléma megoldására. 
+                    
+        <b>Függvények leírása:</b> <br><br>
+        <b>isSafe</b> → Segédfüggvény annak ellenőrzésére, hogy x,y érvényes indexek-e az N*N sakktáblához.<br><br>
+        <b>printSolution</b> → Segédfüggvény a sol[N][N] megoldási mátrix kiírására.<br><br>
+        <b>solveKT</b> → Ez a függvény a Huszárvándorlás problémát oldja meg Backtracking segítségével. 
+        A solveKTUtil függvényt is használja a probléma megoldására. 
         Hamis értéket ad vissza, ha nincs lehetőség teljes túrára, ellenkező esetben igazat ad vissza,
         és kiírja a túrát. Felhívjuk a figyelmet arra, hogy több megoldás is létezhet, 
         ez a függvény csak az egyik megvalósítható megoldást írja ki. <br><br>
-        <b>solveKTUtil(int x, int y, int movei, int sol[N][N],int xMove[N], int yMove[N])</b> → Rekurzív segédfüggvény a Huszárvándorlás probléma megoldására, 
-        ami kipróbálja az összes lehetséges lépést az aktuális koordinátáról. Itt van megírva a rekurzív függvényhívás és a backtracking is. <br><br>
+        <b>solveKTUtil</b> → Rekurzív segédfüggvény a Huszárvándorlás probléma megoldására, 
+        ami kipróbálja az összes lehetséges lépést az aktuális koordinátáról.<br><br>
         <br>
         
                 </p>
@@ -314,13 +312,9 @@ int main()
         </div><!-- smallcontainer -->
     </div> <!-- box02 -->
 </div> <!-- bigcointainer -->
-
-
-
-        
+  
     <script src="javaScript/1.feladat.js"></script>
     
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

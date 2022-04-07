@@ -104,7 +104,6 @@
                     <pre class="line-numbers">
                 <code class="language-clike">
 //<b>C program egy karakterlánc megfordítására</b>
-
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
  
@@ -195,10 +194,9 @@ int main()
 
         <ul>  
           <li>Hívjuk meg a rekurzív reverse függvényt a megadott karakterláncunkra.</li>
-          <li>base caseünk: l &lt; h</li>
-          <li>ha (l &lt; h)</li>
-          <li>akkor cseréljük fel az l indexnél lévő karaktert és a h indexnél lévő karaktert, majd növeljük az l indexét egyel és csökkentsük a h indexét 1-gyel. 
-            Ha elértük a base case-t a karakterláncunkat sikeresen megfordítottuk. </li>
+          <li>Megállási feltétel: l &lt; h, ami ha (l &lt; h), akkor cseréljük fel az l indexnél lévő karaktert 
+            és a h indexnél lévő karaktert, majd növeljük az l indexét egyel és csökkentsük a h indexét 1-gyel. 
+            Ha elértük a megállási feltételt a karakterláncunkat sikeresen megfordítottuk.</li>
           </ul> 
       <br>
       
@@ -211,10 +209,13 @@ int main()
             <summary><b>Az algoritmus leírása</b><br /><br /></summary>
 
             <p>
-              <b>Függvények leírása:</b> <br><br>  
-        <b>swap(char *x, char *y) </b> → Ez egy egyszerű függvény, aminek segítségével feltudunk cserélni két karaktert.<br><br>
-        <b>reverse(char str[], int l, int h) </b> → Ez a rekurzív függvényünk, ami addig hívja önmagát, míg el nem érjük a megadott base case feltételt.
-        Ezt úgy érjük el, hogy a swap függvényt alkalmazzuk a karakterláncunk első és utolsó karakterére, haladva a karakterláncunk közepe felé, míg elérjük az alapfeltételt.
+              <b>Függvények leírása:</b> <br><br> 
+
+        <b>swap</b> → Ez egy egyszerű függvény, aminek segítségével feltudunk cserélni két karaktert.<br><br>
+
+        <b>reverse</b> → Ez a rekurzív függvényünk, ami addig hívja önmagát, míg el nem érjük a megadott base case feltételt.
+        Ezt úgy érjük el, hogy a swap függvényt alkalmazzuk a karakterláncunk első és utolsó karakterére, 
+        haladva a karakterláncunk közepe felé, míg elérjük az alapfeltételt.
             </p>
             <br>
           </details>

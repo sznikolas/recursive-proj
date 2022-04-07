@@ -72,7 +72,6 @@
             <pre class="line-numbers">
                 <code class="language-clike">
 //<b>C program a Szúdoku megoldására</b>
-
 #include &lt;stdio.h&gt;
 
 #define SIZE 9
@@ -232,17 +231,15 @@ int main()
     </div>
 
     <ul>  
-        <li>A visszalépés(backtracking) során először egy részmegoldással kezdünk, és ha ez a részmegoldás nem ad helyes végső választ, 
-        akkor egyszerűen visszatérünk és megváltoztatjuk a részmegoldásunk értékét. 
-        Hasonló módon fogjuk megoldani a Szúdokut is:</li>
         <li>Ha nincsenek üres cellák, akkor a Szúdoku már meg van oldva. Ekkor egyszerűen true-t adunk vissza.</li>
-        <li>Ellenkező esetben az első üres cellát feltöltsük egy 1 és 9 közötti számjeggyel, 
-        úgy, hogy ne legyen konfliktus egyik sorban, oszlopban vagy a 3x3-as almátrixban sem.</li>
+        <li>Ellenkező esetben az első üres cellát kitöltjük egy 1 és 9 közötti számjeggyel, 
+            úgy, hogy ne legyen konfliktus egyik sorban, oszlopban vagy a 3x3-as almátrixban sem.</li>
         <li>Ezután megpróbáljuk kitölteni a többi üres cellát is (itt történik a rekurzió), 
             és ha ez sikeresen megtörténik, akkor true-t adunk vissza.</li>
-        <li> Ellenkező esetben visszatérünk(backtrack), és megváltoztatjuk azt a számjegyet, 
-            amellyel az előző cellát kitöltöttük és újra megpróbáljuk kitölteni a következő üres cellákat.
-            Ha nincs olyan számjegy, amelyik megfelelne az igénynek, akkor egyszerűen false-t adunk vissza, mivel nincs megoldása ennek a Szúdokunak.</li>  
+        <li>Ellenkező esetben, ha egy számjegy rossz helyre került, akkor ismét üresnek jelöljük a cellát és visszalépünk(backtrack), 
+            megváltoztatva azt a számjegyet, amellyel az előző cellát kitöltöttük, majd folytatjuk. 
+            Ha nincs olyan számjegy, amelyik megfelelne az igényeknek, akkor egyszerűen false-t adunk vissza, 
+            mivel nincs megoldása a Szúdokunak.</li>  
         </ul> 
     <br>
         
@@ -257,34 +254,16 @@ int main()
     <b>Az algoritmus leírása</b><br><br>
         </summary>
         <p>
-            Kezdetben csak egy mátrixot készítünk a Szúdoku számára, és a ki nem osztott celláit 0-val töltjük fel. 
-            Így a mátrix tartalmazza a Szúdoku feladatot, és a 0 értékű cellák az üres cellák, amikhez még nincsenek értékek rendelve.<br><br>
-            <b>print_sudoku()</b> → Ez csak egy függvény a mátrix kiíratására.<br><br>
-            <b>number_unassigned</b> → Ez a függvény megkeres egy üres cellát, és a 'row' és 'col' változókat az adott cella indexeivel teszi egyenlővé.<br> 
-            &emsp;Ebben a C programban pointereket használtunk az ehhez a függvényhez átadott változók (row, col) értékének megváltoztatására (referenciakénti paraméterátadás). 
-            Tehát ez a függvény megmondja nekünk, hogy van-e olyan cella, amihez még nincs érték rendelve, vagy nincs. És ha van ki nem osztott cella, 
-            akkor ez a függvény megadja a cella indexeit is.<br><br>
-            <b>is_safe(int n, int r, int c)</b> → Ez a függvény ellenőrzi, hogy az 'n' értéket betehetjük-e az (r, c) cellába vagy sem. 
-            Ezt úgy tesszük, hogy először azt ellenőrizzük, hogy az 'r' sorban van-e olyan cella, amelynek értéke 'n' vagy sem - <b>if(matrix[r][i] == n)</b>.<br> 
-            
-            &emsp;Ezután ellenőrizzük, hogy a 'c' oszlopban van-e 'n' értékű cella vagy sem - <b>if(matrix[i][c] == n)</b>.<br> 
-            
-            &emsp;Végül pedig ellenőrizzük az almátrixot. <b>(r/3)*3</b> megadja az r sor kezdőindexét. Például, ha az 'r' értéke 2, akkor abban az almátrixban van, 
-            amely a (0, 0)-tól kezdődik.<br> 
-            &emsp;Hasonlóképpen, a kezdő oszlop értékét <b>(c/3)*3</b> segítségével kapjuk meg. Így ha egy cella értéke (2,2), 
-            akkor ez a cella egy olyan almátrixban lesz, amely (0,0)-ból indul, és ezt az értéket <b>(c/3)*3</b> és <b>(r/3)*3</b> segítségével kapjuk meg.<br> 
-            
-            &emsp;Miután megkaptuk a kezdőindexeket, könnyedén végig tudunk iterálni az almátrixon, hogy ellenőrizzük, hogy az "n" értéket elhelyezhetjük-e 
-            az almátrixban vagy sem.<br><br>
+           
+            <b>print_sudoku</b> → Ez csak egy függvény a mátrix kiíratására.<br><br>
 
-            <b>solve_sudoku()</b> → Ez a tényleges függvény, amely megoldja a Szúdokut, és visszalépést(backtracking) használ.<br> 
-            &emsp;Először a number_unassigned függvény 
-            segítségével ellenőrizzük, hogy van-e üres cella, és ha nincs üres cella, akkor a Szúdoku megoldódott.<br> 
-            &emsp;<b>number_unassigned</b> függvény megadja az üres cellák indexeit is. Így ha van üres cella, akkor megpróbáljuk kitölteni ezt a cellát egy 
-            1 és 9 közötti értékkel.<br> 
-            &emsp;Az <b>is_safe</b> függvény segítségével pedig ellenőrizni tudjuk, hogy egy adott értéket be tudunk-e tölteni az adott cellába vagy sem. 
-            Miután megtaláltuk az értéket, megpróbáljuk megoldani a Szúdoku többi részét is a <b>solve_sudoku</b> függvénnyel rekurzívan. Ha ezzel az értékkel nem sikerül megoldani a többit, 
-            akkor visszatérünk, és megpróbálunk egy másik értéket erre a cellára <b>mátrix[row][col]=0</b>. A ciklus megpróbálja a cellát más értékekkel is. 
+            <b>number_unassigned</b> → Ez a függvény megkeres egy üres cellát, ha van ki nem osztott cella, akkor ez a függvény megadja a cella indexeit is.<br><br>
+
+            <b>is_safe</b> → Ez a függvény ellenőrzi, hogy az 'n' értéket betehetjük-e az üres cellába vagy sem. Ellenőrzi a sort, oszlopot és almátrixot is.<br><br>
+
+            <b>solve_sudoku</b> → Ez a tényleges függvény, amely megoldja a Szúdokut, és visszalépést(backtracking) használ. 
+            Miután találtunk egy megfelelőnek tűnő értéket, megpróbáljuk megoldani a Szúdoku többi részét is. 
+            Ha ezzel az értékkel nem sikerül megoldani a szúdokut, akkor visszatérünk, és megpróbálunk egy másik értéket a cellába helyezni. 
         </p>
     <br>
     </details>

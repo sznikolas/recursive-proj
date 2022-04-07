@@ -70,7 +70,6 @@
             <pre class="line-numbers">
                 <code class="language-clike">
 //<b>C program a összefésülő rendezés megoldására</b>
-
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
@@ -196,21 +195,14 @@ int main()
 </div>
 
 <ul>  
-    <li>
-        MergeSort(arr[], l, r)<br>
-        Ha r > l<br></li>
-            <li><b>1.)</b> Keressük meg a középső pontot, hogy a tömböt két részre osszuk:  <br>
-            middle m = l + (r - l) / 2<br></li>
-            <li><b>2.)</b>  Hívjuk a mergeSort függvényt a tömb első felére:   <br>
-            call mergeSort(arr, l, m)<br></li>
-            <li><b>3.)</b>  Hívjuk a mergeSort függvényt a tömb második felére:<br>
-            call mergeSort(arr, m+1, r)<br></li>
+    <li>Ha r > l, keressük meg a középső pontot, hogy a tömböt két részre osszuk:<br></li>
+
+            <li>Hívjuk a mergeSort függvényt a tömb első felére<br></li>
+            <li>Hívjuk a mergeSort függvényt a tömb második felére<br></li>
+
             <li>A résztömböket rekurzívan két részre osztjuk addig, amíg a mérete 1 nem lesz. 
-                Amint a méret 1 lesz, az egyesítési folyamatok működésbe lépnek, és elkezdik a tömbök összefésülését rendezetten, 
-                amíg az egész bemeneti tömb össze nem áll.</li>
-            <li><b>4.)</b>  Egyesítse a 2. és 3. lépésben rendezett két felet:<br>
-            call merge(arr, l, m, r)<br></li>
-        
+                Amint a méret 1 lesz, az egyesítési folyamatok működésbe lépnek, 
+                és elkezdik a tömbök összefésülését rendezetten.</li>   
     </ul> 
 <br>
    
@@ -227,12 +219,12 @@ int main()
             <p>                   
             <b>Függvények leírása:</b> <br><br>  
 
-        <b>merge()</b> → függvény, ami a résztömböket rendezve összefésüli. Ideiglenes tömböket hoz létre, amiben a résztömbök értékei tárolva vannak, 
-        majd az ideiglenes résztömböket összefésüli az eredeti tömbbe és az utolsó fennmaradó elemeket, amik megmaradtak az összehasonlításoknál beilleszti a tömb végére
-        így megkapva a rendezett tömböt. <br><br>
-        <b>mergeSort()</b> → függvény, ami rekurzívan hívja önmagát a tömb felosztására addig, amíg a tömb mérete (l &lt; r), 
-        azaz a tömb 1 elemű nem lesz, majd meghívja a merge függvényt az elemek rendezett összefésülésére<br><br>
-        <b>printArray()</b> → Ez a függvény csak a rendezett tömb kiírására szolgál.
+        <b>merge</b> → ideiglenes tömböket hoz létre, amiben a résztömbök értékei tárolva vannak, majd az ideiglenes résztömböket összefésüli rendezetten. <br><br>
+
+        <b>mergeSort</b> → függvény, ami rekurzívan hívja önmagát a tömb felosztására addig, amíg a tömb mérete (l &lt; r), 
+        azaz a tömb 1 elemű nem lesz, majd hívja a merge függvényt az elemek összefésülésére.<br><br>
+
+        <b>printArray</b> → Ez a függvény csak a rendezett tömb kiírására szolgál.
         </p><br>
         </details>
 </div>

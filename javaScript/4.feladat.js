@@ -6,7 +6,7 @@ canvas.height  = 300;
 
 let counter = 1;
 
-let parapa = ["Hanoi tornyai", 
+let taskComments = ["Hanoi tornyai", 
 "5. lemez mozgatása A-ról C-re nem lehetséges",
 "4. lemez mozgatása A-ról B-re nem lehetséges",
 "3. lemez mozgatása A-ról C-re nem lehetséges",
@@ -346,10 +346,10 @@ animate();
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
-    szoveg.innerText = parapa[counter];   
+    szoveg.innerText = taskComments[counter];   
     counter++; 
      if(counter >=74){
-        szoveg.innerText = parapa[counter]="A lemezek áthelyezése sikeresen megtörtént!";
+        szoveg.innerText = taskComments[counter]="A lemezek áthelyezése sikeresen megtörtént!";
     }  
 }
 
@@ -382,13 +382,13 @@ const startAnim = async () => {
             
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                szoveg.innerText = parapa[counter];  
+                szoveg.innerText = taskComments[counter];  
                 //c.drawImage(rat,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
             }
              if(counter >=74){
-                szoveg.innerText = parapa[counter]="A lemezek áthelyezése sikeresen megtörtént!";
+                szoveg.innerText = taskComments[counter]="A lemezek áthelyezése sikeresen megtörtént!";
             } 
         }
     }

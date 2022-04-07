@@ -6,7 +6,7 @@ canvas.height  = 450;
 
 let counter = 1;
 
-let parapa = ["Tudunk lépni lefelé? -Igen",
+let taskComments = ["Tudunk lépni lefelé? -Igen",
 
 "lépés lefelé ", "Tudunk lépni lefelé? - Nem", 
 
@@ -199,10 +199,10 @@ animate();
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
-    szoveg.innerText = parapa[counter];   
+    szoveg.innerText = taskComments[counter];   
     counter++; 
      if(counter >=50){
-        szoveg.innerText = parapa[counter]= "Az egér sikeresen megtalálta a kijáratot!";
+        szoveg.innerText = taskComments[counter]= "Az egér sikeresen megtalálta a kijáratot!";
     } 
 }
 
@@ -231,13 +231,13 @@ const startAnim = async () => {
             
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                szoveg.innerText = parapa[counter];  
+                szoveg.innerText = taskComments[counter];  
                 //c.drawImage(rat,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
             }
             if(counter >=51){
-                szoveg.innerText = parapa[counter]="35. lépés: Az N királynőt sikeresen lehelyeztük!";
+                szoveg.innerText = taskComments[counter]="35. lépés: Az N királynőt sikeresen lehelyeztük!";
             }  
         }
     }

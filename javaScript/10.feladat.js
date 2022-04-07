@@ -6,7 +6,7 @@ canvas.height  = 540;
 
 let counter = 0;
 
-let parapa = [
+let taskComments = [
 "az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
 "az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
 "az első  szabályoknak megfelelő számot rendeljük a cellához, majd keressük meg a következő üres cellát", 
@@ -1603,7 +1603,6 @@ if (counter === 53) {
 
     myAnim = requestAnimationFrame(animate); 
 };
-
 myAnim = requestAnimationFrame(animate);
 
 //Előrelépések 1-es canvason
@@ -1612,51 +1611,10 @@ document.getElementById('stepFrwd').onclick = function(){
     /* if (counter < 53) {
     c.clearRect(0,0,canvas.width,canvas.height);
     } */
-
-    /* if (counter < 53) {
-    c.clearRect(245,200,40,40);
-    c.clearRect(345,200,40,40);
-    c.clearRect(395,200,40,40);
-
-    c.clearRect(100,250,40,40);
-    c.clearRect(200,250,40,40);
-    c.clearRect(300,250,40,40);
-    c.clearRect(400,250,40,40);
-
-    c.clearRect(100,300,40,40);
-    c.clearRect(150,300,40,40);
-    c.clearRect(250,300,40,40);
-    c.clearRect(300,300,40,40);
-    c.clearRect(350,300,40,40);
-    c.clearRect(400,300,40,40);
-    c.clearRect(450,300,40,40);
-
-    c.clearRect(50,350,40,40);
-    c.clearRect(100,350,40,40);
-    c.clearRect(150,350,40,40);
-    c.clearRect(200,350,40,40);
-    c.clearRect(250,350,40,40);
-    c.clearRect(300,350,40,40);
-    c.clearRect(400,350,40,40);
-
-    c.clearRect(50,400,40,40);
-    c.clearRect(150,400,40,40);
-    c.clearRect(200,400,40,40);
-    c.clearRect(350,400,40,40);
-    c.clearRect(400,400,40,40);
-    c.clearRect(450,400,40,40);
-
-    c.clearRect(100,450,40,40);
-    c.clearRect(150,450,40,40);
-    c.clearRect(250,450,40,40);
-    c.clearRect(300,450,40,40);
-    c.clearRect(350,450,40,40);
-    c.clearRect(450,450,40,40);
-    }; */
-    szoveg.innerText = parapa[counter];   
+    szoveg.innerText = taskComments[counter];   
     counter++; 
      if(counter >=53){
-        szoveg.innerText = parapa[counter]="A szudokút sikeresen megoldottuk!";
+        szoveg.innerText = taskComments[counter]="A szudokút sikeresen megoldottuk!";
     }  
 }
 
@@ -1677,55 +1635,16 @@ const startAnim = async () => {
     // A lépések automatikus lejátszása várakozással (startAnim)
     let slider = document.getElementById('myRange');
         for(var x = 0; x<=52; x++){
-    
-  /*   c.clearRect(245,200,40,40);
-    c.clearRect(345,200,40,40);
-    c.clearRect(395,200,40,40);
-
-    c.clearRect(100,250,40,40);
-    c.clearRect(200,250,40,40);
-    c.clearRect(300,250,40,40);
-    c.clearRect(400,250,40,40);
-
-    c.clearRect(100,300,40,40);
-    c.clearRect(150,300,40,40);
-    c.clearRect(250,300,40,40);
-    c.clearRect(300,300,40,40);
-    c.clearRect(350,300,40,40);
-    c.clearRect(400,300,40,40);
-    c.clearRect(450,300,40,40);
-
-    c.clearRect(50,350,40,40);
-    c.clearRect(100,350,40,40);
-    c.clearRect(150,350,40,40);
-    c.clearRect(200,350,40,40);
-    c.clearRect(250,350,40,40);
-    c.clearRect(300,350,40,40);
-    c.clearRect(400,350,40,40);
-
-    c.clearRect(50,400,40,40);
-    c.clearRect(150,400,40,40);
-    c.clearRect(200,400,40,40);
-    c.clearRect(350,400,40,40);
-    c.clearRect(400,400,40,40);
-    c.clearRect(450,400,40,40);
-
-    c.clearRect(100,450,40,40);
-    c.clearRect(150,450,40,40);
-    c.clearRect(250,450,40,40);
-    c.clearRect(300,450,40,40);
-    c.clearRect(350,450,40,40);
-    c.clearRect(450,450,40,40); */
-            
+          
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                szoveg.innerText = parapa[counter];  
+                szoveg.innerText = taskComments[counter];  
                 
                 counter++;
                 await sleep(1000/slider.value);       
             }
              if(counter >=53){
-                szoveg.innerText = parapa[counter]="A szudokút sikeresen megoldottuk!";
+                szoveg.innerText = taskComments[counter]="A szudokút sikeresen megoldottuk!";
             } 
         }
     }

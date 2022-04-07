@@ -31,7 +31,7 @@
               <b>Gyorsrendezés - Quick sort</b><br><br>
               &emsp;&emsp;A Quicksort egy olyan rendezési algoritmus,
               amely az oszd meg és uralkodj megközelítésen alapul(hasonlóan a merge sorthoz), ahol egy tömböt
-              altömbökre osztunk egy vezérelem(pivot)
+              partíciókra osztunk egy vezérelem(pivot)
               kiválasztásával, majd ezeket a részeket az algoritmus rekurzív hívásával rendezi.<br><br>
 
               &emsp;&emsp;A quicksortnak számos különböző változata létezik, amelyek különböző módon választják ki a pivotot: <br> 
@@ -43,7 +43,8 @@
               &emsp;&emsp;A quicksort kulcsfolyamata a partiton függvény. A particionálás célja, hogy egy adott tömb pivotját a 
               megfelelő helyre helyezzük a tömbön belül úgy, hogy a pivotnál kisebb elemek a pivot bal oldalára, míg a nagyobbak a jobb oldalára kerülnek.<br><br>  
              
-              &emsp;&emsp;Az alábbiakban egy olyan gyorsrendező algoritmust szemléltetünk, ahol a pivot mindig a tömb utolsó eleme lesz.
+              &emsp;&emsp;Az alábbiakban egy olyan gyorsrendező algoritmust szemléltetünk, ahol a pivot mindig a tömb utolsó eleme lesz. 
+              Ebben a feladatban nincsenek új altömbök létrehozva, csak az animációban így könnyebben el tudjuk képzelni az algoritmus működését.
           </p> 
       <br>
       </details>
@@ -103,7 +104,6 @@
                     <pre class="line-numbers">
                 <code class="language-clike">
 //<b>C program a gyorsrendezés megoldására</b>
-
 #include &lt;stdio.h&gt;
 
 //<b>függvény az elemek cseréjéhez</b>
@@ -241,17 +241,14 @@ int main() {
         </div>
 
         <ul>  
-          <li>A Quicksort egy olyan rendezési algoritmus, amely az oszd meg és uralkodj megközelítésen alapul, ahol</li>
-
-          <li>Egy tömböt altömbökre osztunk egy pivot elem (a tömbből kiválasztott elem) kiválasztásával.</li>
+          <li>Egy tömböt részekre osztunk egy pivot elem (a tömbből kiválasztott elem) kiválasztásával.</li>
             
-          <li>A tömb felosztása során a pivot elemet úgy kell elhelyezni, hogy a pivotnál kisebb elemek a bal oldalon, 
-            a pivotnál nagyobb elemek pedig a pivot jobb oldalán maradjanak.</li>
+          <li>A tömb particionálása során a pivotnál kisebb elemek a bal oldalra, 
+            a pivotnál nagyobb elemek pedig a pivot jobb oldalára kerülnek</li>
 
-            <li>A bal és jobb oldali altömböket is ugyanezzel a módszerrel osztjuk fel (a pivot mindig a legutolsó elem lesz).</li>
+            <li>A bal és jobb oldali részeket is ugyanezzel a módszerrel osztjuk fel (a pivot a mi esetünkben mindig a legutolsó elem).</li>
 
-            <li>Ez a folyamat addig folytatódik, amíg minden altábla egyetlen elemet nem tartalmaz.
-            Ekkor az elemek már rendezettek. Végül az elemek egyesítésével egy rendezett tömb jön létre.</li>
+            <li>Ez a folyamat addig folytatódik, amíg minden felosztott rész egyetlen elemet nem tartalmaz. Ekkor az elemek már rendezettek. </li>
             
           </ul> 
       <br>
@@ -269,13 +266,15 @@ int main() {
               <b>Függvények leírása:</b> <br><br>  
 
 
-        <b>swap() </b> → Függvény az elemek cseréjéhez.<br><br>
-        <b>partition() </b> → Ez a függvény kiválasztja a pivotot, majd az elemeket rendezi úgy, hogy a kisebbek a pivot bal oldalára, 
+        <b>swap</b> → Függvény az elemek cseréjéhez.<br><br>
+
+        <b>partition</b> → Ez a függvény kiválasztja a vezérelemet, majd az elemeket rendezi úgy, hogy a kisebbek a pivot bal oldalára, 
         a nagyobbak pedig a jobb oldalára kerüljenek.<br><br>
-        <b>quickSort() </b> → Ez a függvény rekurzívan hívja önmagát a partíciókra, ami a pivot jobb és bal oldalán találhatóak
-        és rendezi a tömböt addig, míg (low &lt; high), azaz egy eleműek nem
-        lesznek a partíciók. Miután ezt elértük a tömbünk rendezett lesz.<br><br>
-        <b>printArray() </b> → Ez a függvény csak a tömb kiírására szolgál.
+
+        <b>quickSort</b> → Ez a függvény rekurzívan hívja önmagát a pivot jobb és bal oldalán míg (low &lt; high), 
+        azaz egy eleműek nem lesznek a partíciók. Miután ezt elértük a tömbünk rendezett lesz.<br><br>
+
+        <b>printArray</b> → Ez a függvény csak a tömb kiírására szolgál.
 
             </p>
             <br/>

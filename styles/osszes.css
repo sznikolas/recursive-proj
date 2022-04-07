@@ -30,6 +30,7 @@
   left: 10px;
   right: 0;
 }
+
 #canvas3 {
   
   background-color: #615d5d;
@@ -56,11 +57,6 @@ body {
    height: calc(100% -10px); */
   max-width: 1300px;
   margin: 0 auto;
-  /* background: rgb(0, 0, 0); 
-   background: #2A2438;
-   background: #352F44;
-   background: #5C5470;
-   background: #DBD8E3; */
   background: rgb(41, 41, 41);
   border-radius: 20px;
   padding: 20px;
@@ -69,7 +65,6 @@ body {
 /* A sok feladatok oldalaknál a kis container */
 .smallContainer {
   width: auto;
-  /* background: rgb(191, 194, 193); */
   background: rgb(191, 194, 193);
   background: rgb(207, 198, 182);
 
@@ -84,7 +79,6 @@ body {
   text-decoration: none;
   text-align: center;
   background: #093344;
-
   padding: 8px;
   border-radius: 10px;
   display: inline-flex;
@@ -92,7 +86,6 @@ body {
   margin-bottom: 10px;
   margin-top: 10px;
   margin-right: -10px;
-
   /* border: none; */
   transition: all 0.4s ease 0s;
 }
@@ -100,6 +93,7 @@ body {
 .example_b:hover {
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.4s ease 0s;
 }
@@ -114,20 +108,18 @@ body {
   padding: 8px;
   border-radius: 10px;
   margin-bottom: 10px;
-
   margin: 0px;
   position: relative;
-
   left: 50%;
   -ms-transform: translate(-50% -50%);
   transform: translate(-60%, -15%);
-
   transition: all 0.4s ease 0s;
 }
 
 .example_c:hover {
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.4s ease 0s;
 }
@@ -177,7 +169,6 @@ p {
 
 /*Az 1.1 feladatnál az output*/
 Output {
-
   margin-left: 0px;
   margin-top: 0px;
   font-size: 20px;
@@ -192,11 +183,6 @@ Output {
  
 }
 .lepesekLeirasa{
- /* display: inline-block;
-  color: #a30000;
-   max-width: 50%;
-  margin: 0 auto; */
-  
   max-width: 650px;
   margin-left: 0px;
   margin-top: 0px;
@@ -204,15 +190,11 @@ Output {
 }
 
 
-
-
 li {
   color: rgb(0, 0, 0);
   max-width: 650px;
   margin: 0 auto;
 }
-
-
 
 /*Az 1.1 feladatnál a label*/
 label {

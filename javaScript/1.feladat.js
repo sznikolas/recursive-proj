@@ -6,7 +6,7 @@ canvas.height  = 470;
 
 let counter = 1;
 
-let parapa = ["", "lépés 2 lehetséges, helyezzük a (2)huszárt (1,2)-re", 
+let taskComments = ["", "lépés 2 lehetséges, helyezzük a (2)huszárt (1,2)-re", 
 "lépés 1 nem lehetséges, próbáljuk a következőt",
 "lépés 2 nem lehetséges, próbáljuk a következőt","lépés 3 nem lehetséges, próbáljuk a következőt","lépés 4 nem lehetséges, próbáljuk a következőt",
 "lépés 5 lehetséges, helyezzük a (3)huszárt (2,0)-ra",
@@ -925,10 +925,10 @@ animate2();
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
-    szoveg.innerText = parapa[counter];   
+    szoveg.innerText = taskComments[counter];   
     counter++; 
     if(counter >=136){
-        szoveg.innerText = parapa[counter]="Ebben a 3x3-as táblában nincs huszárral bejárható út!";
+        szoveg.innerText = taskComments[counter]="Ebben a 3x3-as táblában nincs huszárral bejárható út!";
     }
 }
 
@@ -936,8 +936,7 @@ document.getElementById('stepFrwd').onclick = function(){
 document.getElementById('stepFrwd2').onclick = function(){
     counter2++; 
     alrdyCounter++;
-    myAnim2 = requestAnimationFrame(animate2);
-    
+    myAnim2 = requestAnimationFrame(animate2); 
 }
 
 
@@ -977,13 +976,13 @@ const startAnim = async () => {
             
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                szoveg.innerText = parapa[counter];  
+                szoveg.innerText = taskComments[counter];  
                 //c.drawImage(knight,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
             }
             if(counter >=136){
-                szoveg.innerText = parapa[counter]="Ebben a 3x3-as táblában nincs huszárral bejárható út!";
+                szoveg.innerText = taskComments[counter]="Ebben a 3x3-as táblában nincs huszárral bejárható út!";
             }  
         }
     }
@@ -1045,6 +1044,7 @@ change2 = function(){
     else {elem2.value = "Stop";buttonState2="STOP"}
 }
 
+//modalhoz szukseges
 $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
 })

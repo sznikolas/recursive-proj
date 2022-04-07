@@ -35,7 +35,7 @@
             </summary>
         <p>    
             <b>Egér az útvesztőben</b><br><br>
-            &emsp;&emsp;A labirintus egy 2D-s mátrix, amelyben egyes cellák blokkolva vannak (piros cellák vagy 1-esek). Az egyik cella a forráscella(start), 
+            &emsp;&emsp;A labirintus egy 2D-s mátrix, amelyben egyes cellák blokkolva vannak (piros cellák). Az egyik cella a forráscella (start), 
             ahonnan indulnunk kell. Egy másik pedig a célcella(destination), ahová el kell jutnunk. Meg kell találnunk az utat a forrástól a célállomásig 
             anélkül, hogy a blokkolt cellák egyikébe sem lépnénk be.<br><br>
     
@@ -69,7 +69,6 @@
             <pre class="line-numbers">
                 <code class="language-clike">
 // <b>C program az egér az útvesztőben megoldására</b>
-
 #include &lt;stdio.h&gt;
 
 #define SIZE 5
@@ -213,15 +212,15 @@ int main()
                 <b>Függvények leírása:</b> <br><br>  
     <b>printsolution</b> → Ez a függvény csak a megoldási mátrixot írja ki.<br><br>
 
-    <b>solvemaze</b> → Ez a tényleges függvény, ahol a backtracking algoritmust implementáljuk. 
-    Először is ellenőrizzük, hogy a mi cellánk a célcella-e vagy sem, <b>if (r==SIZE-1) and (c==SIZE-1)</b>. 
-    Ha ez a célcella, akkor a rejtvényünk már megoldódott.<br><br>
-    Ha nem, akkor azt ellenőrizzük, hogy ez egy érvényes cella-e 
-    a mozgatáshoz vagy sem. Egy érvényes cellának a mátrixban kell lennie, azaz az indexeknek 
-    <b>0 to SIZE-1 r>=0 && c>=0 && r&lt;SIZE</b>, nem lehet blokkolva <b>maze[r][c] == 0</b> és nem lehet az útvonalon <b>solution[r][c] == 0.</b><br><br> 
-    Ha ez egy érvényes lépés, akkor szabadon elvihetjük és a következő cellára léphetünk. Először a lefelé irányuló cellát 
-    próbáljuk ki <b>if(solveMaze(r+1, c)).</b> Ha ez nem ad megoldást, akkor a jobb oldali cellára lépünk, és hasonlóképpen a felfelé és 
-    a bal oldali cellára. Ha az összes cella nem ad megoldást, akkor elhagyjuk a <b>solution[r][c] = 0</b> cellát(backtracking) és egy másik cellába megyünk.</p>
+    <b>solvemaze</b> → Ez a tényleges függvény, ahol a backtracking algoritmust implementáljuk. Először is ellenőrizzük, 
+    hogy a mi cellánk a célcella-e vagy sem. Ha ez a célcella, akkor a rejtvényünk már megoldódott.<br><br>
+
+    Ha nem, akkor azt ellenőrizzük, hogy ez egy érvényes cella-e a mozgatáshoz vagy sem (mátrixban kell lennie, 
+    nem lehet blokkolva és nem lehet az útvonalon).<br><br> 
+
+    Ha ez egy érvényes lépés, akkor szabadon léphetünk a következő cellára. Először a lefelé irányuló cellát próbáljuk ki. 
+    Ha ez nem ad megoldást, akkor a jobb oldali cellára lépünk, és hasonlóképpen a felfelé és a bal oldali cellára. 
+    Ha az összes cella nem ad megoldást, akkor elhagyjuk a cellát(backtracking) és egy másik cella irányába vesszük utunkat.</p>
 <br>
 <p>
 <b>Az egér lehetséges lépései:</b><br><br>

@@ -6,7 +6,7 @@ canvas.height  = 350;
 
 let counter = 0;
 
-let parapa = ["L < H, ezért felcseréljük őket", 
+let taskComments = ["L < H, ezért felcseréljük őket", 
 "csere", 
 "R és Ó cseréje megtörtént", 
 "hívjuk a revere függvényt (L+1)-re és (H-1)-re",
@@ -33,9 +33,6 @@ let parapa = ["L < H, ezért felcseréljük őket",
 
 let buttonState = "START";
 let isAllowed = false;
-
-/* const knight = new Image();
-knight.src = "images/knight7.png"; */
 
 let myAnim;
 
@@ -668,16 +665,15 @@ function animate(){
     };  
     myAnim = requestAnimationFrame(animate); 
 }
-
 myAnim = requestAnimationFrame(animate);
 
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
-    szoveg.innerText = parapa[counter];   
+    szoveg.innerText = taskComments[counter];   
     counter++; 
      if(counter >=19){
-        szoveg.innerText = parapa[counter]="a karakterláncot sikeresen megfordítottuk!";
+        szoveg.innerText = taskComments[counter]="a karakterláncot sikeresen megfordítottuk!";
     }  
 }
 
@@ -712,13 +708,13 @@ const startAnim = async () => {
             
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                szoveg.innerText = parapa[counter];  
+                szoveg.innerText = taskComments[counter];  
                 //c.drawImage(rat,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
             }
              if(counter >=19){
-                szoveg.innerText = parapa[counter]="A karakterláncot sikeresen megfordítottuk!";
+                szoveg.innerText = taskComments[counter]="A karakterláncot sikeresen megfordítottuk!";
             } 
         }
     }

@@ -6,7 +6,7 @@ canvas.height  = 450;
 
 let counter = 1;
 
-let parapa = ["faktoriális(7) megoldása", 
+let taskComments = ["faktoriális(7) megoldása", 
 "rekurzív függvényhívás fakt(7)", 
 "rekurzív függvényhívás fakt(6)", 
 "rekurzív függvényhívás fakt(5)",
@@ -39,15 +39,6 @@ const faktorial4 = new Image();
 const faktorial5 = new Image();
 const faktorial6 = new Image();
 const faktorial7 = new Image();
-/* const faktorial8 = new Image();
-const faktorial9 = new Image();
-const faktorial10 = new Image();
-const faktorial11 = new Image();
-const faktorial12 = new Image();
-const faktorial13 = new Image(); */
-
-
-
 
 
 faktorial0.src = "images/faktorialis0.png";
@@ -58,16 +49,6 @@ faktorial4.src = "images/faktorialis4.png";
 faktorial5.src = "images/faktorialis5.png";
 faktorial6.src = "images/faktorialis6.png";
 faktorial7.src = "images/faktorialis7.png";
-
-
-/* faktorial8.src = "images/faktorial8.png";
-faktorial9.src = "images/faktorial9.png";
-faktorial10.src = "images/faktorial10.png";
-faktorial11.src = "images/faktorial11.png";
-faktorial12.src = "images/faktorial12.png";
-faktorial13.src = "images/faktorial13.png"; */
-
-
 
 
 //canvas1
@@ -410,10 +391,10 @@ myAnim = requestAnimationFrame(animate);
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
-    szoveg.innerText = parapa[counter];   
+    szoveg.innerText = taskComments[counter];   
     counter++; 
      if(counter >=18){
-        szoveg.innerText = parapa[counter]="A 7 faktoriális eredménye: 5040!";
+        szoveg.innerText = taskComments[counter]="A 7 faktoriális eredménye: 5040!";
     }  
 }
 
@@ -445,13 +426,13 @@ const startAnim = async () => {
             
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                szoveg.innerText = parapa[counter];  
+                szoveg.innerText = taskComments[counter];  
                 //c.drawImage(rat,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
             }
              if(counter >=18){
-                szoveg.innerText = parapa[counter]="Az 5 faktoriális eredménye: 120!";
+                szoveg.innerText = taskComments[counter]="Az 5 faktoriális eredménye: 120!";
             } 
         }
     }

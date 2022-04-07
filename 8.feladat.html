@@ -70,7 +70,6 @@
             <pre class="line-numbers">
                 <code class="language-clike">
 //<b>C program a buborékrendezés megoldására</b>
-
 #include &lt;stdio.h&gt;
 
 //<b>Segédfüggvény értékek cseréjére egy tömb két indexében</b>
@@ -166,13 +165,15 @@ int main(void)
         <b>Az algoritmus leírása</b><br><br>
             </summary>
             <p>
-        <b>swap(int arr[], int i, int j) </b> → Segédfüggvény az értékek felcserélésére egy tömb két indexében.<br><br>
-        <b>printArray(int arr[], int n) </b> → Függvény a rendezett tömb kiíratására.<br><br>
-        <b>bubbleSort(int arr[], int n) </b> → Tartalmaz egy ciklust, mely segítségével végig iterálunk a megadott tömbön, először a tömb végéig, 
+        <b>swap</b> → Segédfüggvény az értékek felcserélésére.<br><br>
+
+        <b>printArray</b> → Függvény a rendezett tömb kiíratására.<br><br>
+
+        <b>bubbleSort</b> → Tartalmaz egy ciklust, mely segítségével végig iterálunk a megadott tömbön, először a tömb végéig, 
         majd az (n-1) miatt már csak az utolsó előtti elemig és így tovább csökkentve az n értékét. 
-        Erre az összehasonlítás és a swap függvény miatt van szükségünk, így a legnagyobb értékű elem kerül a legvégére.
-        Ezután látható a rekurzív függvényhívás, ami az n. elemig iterál végig a tömbön, de az n. elem minden rekurzív hívás után egyel csökken, 
-        míg el nem érjük a base case-t, ami az esetünkben (n - 1) > 1. Miután az n &lt;= 1, akkor a tömbünk már rendezett.<br><br>
+        Erre az összehasonlítás és a swap függvény miatt van szükségünk, így a legnagyobb értékű elem kerül a legvégére. 
+        Az n minden rekurzív hívás után egyel csökken, míg el nem érjük a leállási feltételt. Miután az n &lt;= 1, 
+        a tömbünk már rendezett.<br><br>
 
         Megjegyzés:<br>
         int n = sizeof(arr) / sizeof(arr[0]) - ezzel kapjuk meg a tömb hosszát

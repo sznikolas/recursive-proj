@@ -13,7 +13,7 @@ canvas3.height  = 500;
 let counter = 1;
 let counter2 = 1;
 
-let parapa = ["", "Helyezzük a második királynőt a 2. oszlopba úgy, hogy ne tudja megtámadni őt az első oszlopban lévő királynő.", 
+let taskComments = ["", "Helyezzük a második királynőt a 2. oszlopba úgy, hogy ne tudja megtámadni őt az első oszlopban lévő királynő.", 
 "(0,1) nem lehetséges","(1,1) nem lehetséges","(2,1) lehetséges",
 
 "Helyezzük a harmadik királynőt a 3. oszlopba úgy, hogy ne tudja megtámadni őt az első két oszlopban lévő királynő.",
@@ -616,10 +616,10 @@ change2 = function(){
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
-    szoveg.innerText = parapa[counter];   
+    szoveg.innerText = taskComments[counter];   
     counter++; 
      if(counter >=41){
-        szoveg.innerText = parapa[counter]="A 4 királynő lehelyezése sikeresen megtörtént!";
+        szoveg.innerText = taskComments[counter]="A 4 királynő lehelyezése sikeresen megtörtént!";
     } 
 }
 
@@ -644,13 +644,13 @@ const startAnim = async () => {
         for(var x = 0; x<=42; x++){        
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                szoveg.innerText = parapa[counter];  
+                szoveg.innerText = taskComments[counter];  
                 //c.drawImage(knight,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
             }
             if(counter >=42){
-                szoveg.innerText = parapa[counter]="A 4 királynő lehelyezése sikeresen megtörtént!";
+                szoveg.innerText = taskComments[counter]="A 4 királynő lehelyezése sikeresen megtörtént!";
             }  
         }
     }

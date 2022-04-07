@@ -4,7 +4,7 @@ let c = canvas.getContext('2d');
 canvas.width = 500;
 canvas.height  = 300;
 
-let parapa = ["", 
+let taskComments = ["", 
 "10 > 5", 
 "csere", 
 "10 > 8 ",
@@ -374,10 +374,10 @@ animate();
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
-    szoveg.innerText = parapa[counter];   
+    szoveg.innerText = taskComments[counter];   
     counter++; 
      if(counter >=37){
-        szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
+        szoveg.innerText = taskComments[counter]="A sorbarendezés sikeresen megtörtént!";
     }  
 }
 
@@ -416,13 +416,13 @@ const startAnim = async () => {
         for(var x = 0; x<=37; x++){
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                szoveg.innerText = parapa[counter];  
+                szoveg.innerText = taskComments[counter];  
                 //c.drawImage(rat,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
             }
              if(counter >=37){
-                szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
+                szoveg.innerText = taskComments[counter]="A sorbarendezés sikeresen megtörtént!";
             } 
         }
     }

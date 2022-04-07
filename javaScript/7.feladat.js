@@ -5,7 +5,7 @@ canvas.width = 500;//900 a pszeudoval
 canvas.height  = 530;
 
 
-let parapa = ["Quicksort",
+let taskComments = ["Quicksort",
 "partíció",
 "pivot -> utolsó elem, J = arr[0], I = arr[-1]", 
 "arr[J] > pivot, J++", 
@@ -495,10 +495,10 @@ animate();
 document.getElementById('stepFrwd').onclick = function(){  
     pszeudo++;
     counter++; 
-    szoveg.innerText = parapa[pszeudo]; 
+    szoveg.innerText = taskComments[pszeudo]; 
     
     if(pszeudo >=48){
-        szoveg.innerText = parapa[pszeudo]="A sorbarendezés sikeresen megtörtént!";
+        szoveg.innerText = taskComments[pszeudo]="A sorbarendezés sikeresen megtörtént!";
     } 
 
 }
@@ -508,7 +508,7 @@ document.getElementById('stepFrwd').onclick = function(){
     counter--;  
     counterBack--;  
     pszeudo--;
-    szoveg.innerText = parapa[pszeudo]; 
+    szoveg.innerText = taskComments[pszeudo]; 
      
 } */
 
@@ -538,12 +538,12 @@ const startAnim = async () => {
         for(var x = 0; x<=47; x++){
             if(isAllowed){
                 pszeudo++;           
-                szoveg.innerText = parapa[pszeudo];                 
+                szoveg.innerText = taskComments[pszeudo];                 
                 counter++;
                 await sleep(1000/slider.value);       
             }
              if(pszeudo >=48){
-                szoveg.innerText = parapa[pszeudo]="A sorbarendezés sikeresen megtörtént!";
+                szoveg.innerText = taskComments[pszeudo]="A sorbarendezés sikeresen megtörtént!";
             } 
         }
     }

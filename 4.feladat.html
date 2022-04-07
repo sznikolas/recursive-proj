@@ -33,7 +33,7 @@
         <p>    
             <b>Hanoi tornyai</b><br><br>
             &emsp;&emsp;A hanoi torony egy matematikai rejtvény. Három rúdból és különböző méretű lemezekből áll, amelyek bármelyik rúdra csúszhatnak. 
-            A rejtvény úgy kezdődik, hogy a lemezek méretük szerint növekvő sorrendben, rendezett halomban vannak az egyik rúdon, a legkisebb a tetején.
+            A rejtvény úgy kezdődik, hogy a lemezek méretük szerint növekvő sorrendben, rendezett halomban vannak az egyik rúdon.
             A játék szabályai szerint az első rúdról az utolsóra kell átrakni a 
             lemezeket minél kevesebb lépéssel úgy, hogy minden lépésben egy lemezt lehet áttenni, nagyobb lemez nem tehető kisebb lemezre, és ehhez összesen három rúd 
             áll rendelkezésre. 
@@ -69,7 +69,6 @@
             <pre class="line-numbers">
                 <code class="language-clike">
 //<b>C program a Hanoi tornyok megoldására</b>
-
 #include &lt;stdio.h&gt;
 
 void towerOfHanoi(int, char, char, char);
@@ -171,12 +170,8 @@ void towerOfHanoi(int num, char frompeg, char topeg, char auxpeg)
           &emsp;A legfelső szinten a teljes tornyot szeretnénk áthelyezni, tehát az 5-ös és kisebb 
           lemezeket szeretnénk az A rúdról a C rúdra áthelyezni. Ezt három alapvető lépésre bonthatjuk.<br><br>
 
-           
-            
-             &emsp;<b>1.)</b> A 4. és annál kisebb lemezek áthelyezése az A rúdról(forrás) a B rúdra(tartalék), 
-          a C rudat(cél) tartalékként használva. Hogyan csináljuk ezt? Rekurzív módon, 
-          ugyanezt az eljárást alkalmazva. Miután ezt befejeztük, az 5-nél kisebb 
-          lemezek mindegyike a B rúdra kerül. <br><br>
+          &emsp;<b>1.)</b> A 4. és annál kisebb lemezek áthelyezése az A rúdról(forrás) a B rúdra(tartalék), a C rudat(cél) tartalékként használva. 
+          Miután ezt befejeztük, az 5-nél kisebb lemezek mindegyike a B rúdra került. <br><br>
 
           &emsp;<b>2.)</b> Most, hogy az összes kisebb lemez a tartalék rúdon van, az 5-ös lemezt áthelyezhetjük az 
           A rúdról(forrás) a C rúdra(cél).<br><br>

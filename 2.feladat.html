@@ -71,7 +71,6 @@
             <pre class="line-numbers">
                 <code class="language-clike">
 <b>// C program az N királynő problémára</b>
-
 #define N 4
 #include &lt;stdbool.h&gt;
 #include &lt;stdio.h&gt;
@@ -198,9 +197,7 @@ int main()
     </div>
 
     <ul>  
-        <li> Kezdjük a bal oszlopban</li>
-        <li> Ha az összes királynőt elhelyeztük, return: true</li>
-        
+        <li>Kezdjük a bal oszlop első sorában. Ha col >= N a megoldás megvan, különben:</li>
             <li> Próbáljuk ki az aktuális oszlop összes sorát. 
                Minden egyes kipróbált sorra a következőket végezzük.
                <br> &emsp;&emsp;<b>a)</b> Ha a királynő biztonságosan elhelyezhető ebben a sorban 
@@ -213,14 +210,10 @@ int main()
                    töröljük a [sor, oszlop] hely jelölését (BACKTRACKING), és menjünk a következő
                    <b>a)</b> lépéshez, hogy más sorokkal próbálkozzunk.</li>
             <li>Ha az összes sort kipróbáltuk, és semmi sem vált be,
-               adjuk vissza a false értéket a BACKTRACKING elindításához.</li>
+               adjuk vissza a false értéket a visszalépés(backtracking) elindításához.</li>
         </ul> 
     <br>
      
-
-  
-
-
 </div><!-- smallcontainer -->
 
 
@@ -233,14 +226,16 @@ int main()
     <p>  
         <b>Függvények leírása:</b> <br><br>  
 <b>printSolution</b> → Segédfüggvény a megoldás kiíratására<br><br>
-<b>isSafe(int board[N][N], int row, int col)</b> → Függvény, amely ellenőrzi, hogy egy királynő elhelyezhető-e a táblán[sor][oszlop]. 
-Ellenőrízzük, hogy a cella bal oldalán az átlókban és a sorban van-e királynő elhelyezve, ami megtámadhatja a cellánkat.<br><br>
-<b>solveNQUtil(int board[N][N], int col)</b> → Rekurzív függvény az N Queen probléma megoldására. Itt van megadva a base case, a rekurzív függvényhívás
-és itt ellenőrizzük az isSafe segítségével, hogy elhelyezhetünk-e királynőt. Ha a királynő elhelyezése nem vezet megoldáshoz, akkor jön a backtracking. 
+
+<b>isSafe</b> → Függvény, amely ellenőrzi, hogy egy királynő elhelyezhető-e a táblán. Ellenőrizzük, hogy a cella bal oldalán az átlókban és a sorban van-e királynő.<br><br>
+
+<b>solveNQUtil</b> → Rekurzív függvény az N Queen probléma megoldására. Itt van megadva a leállási feltétel, a rekurzív függvényhívás és itt hívjuk az isSafe függvényt is, 
+hogy elhelyezhetünk-e királynőt. Ha a királynő elhelyezése nem vezet megoldáshoz, akkor jön a visszalépés.
 <br><br>
-<b>solveNQ()</b> → Ez a függvény megoldja az N Queen problémát a solveNQUtil() függvény segítségével. False visszatérési értéket kapunk, ha a királynő nem helyezhető el, különben true-t kapunk vissza és kiírja a királynő 
-elhelyezkedését 1-es formában. Vegyük figyelembe, hogy több megoldás is létezhet, ez a 
-függvény csak az egyik lehetséges megoldást írja ki.<br><br>
+
+<b>solveNQ</b> → Ez a függvény megoldja az N Queen problémát a solveNQUtil segítségével. Vegyük figyelembe, hogy több megoldás is létezhet, 
+ez a függvény csak az egyik lehetséges megoldást írja ki.<br><br>
+
 </p>
 
 

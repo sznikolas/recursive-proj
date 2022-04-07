@@ -5,7 +5,7 @@ canvas.width = 500;
 canvas.height  = 650;
 
 
-let parapa = ["", 
+let taskComments = ["", 
 "m = l + (r - l) / 2", 
 "Keressük meg a résztömb középpontját és osszuk két részre", 
 "m = l + (r - l) / 2", 
@@ -87,8 +87,6 @@ const felosztas4 = new Image();
 const felosztas5 = new Image();
 
 
-
-
 quick0.src = "images/quick0.png";
 quick1.src = "images/quick1.png";
 quick2.src = "images/quick2.png";
@@ -105,8 +103,6 @@ felosztas2.src = "images/felosztas2.png";
 felosztas3.src = "images/felosztas3.png";
 felosztas4.src = "images/felosztas4.png";
 felosztas5.src = "images/felosztas5.png";
-
-
 
 
 let myAnim;
@@ -356,18 +352,17 @@ function animate(){
 }
 
 myAnim = requestAnimationFrame(animate);
-animate();
-
+//animate();
 
 
 //Előrelépések 1-es canvason
 document.getElementById('stepFrwd').onclick = function(){
     let szoveg = document.getElementById('label1');
-    szoveg.innerText = parapa[counter];   
+    szoveg.innerText = taskComments[counter];   
 
     counter++; 
      if(counter >=46){
-        szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
+        szoveg.innerText = taskComments[counter]="A sorbarendezés sikeresen megtörtént!";
     }  
 }
 
@@ -407,13 +402,13 @@ const startAnim = async () => {
         for(var x = 0; x<=45; x++){
             if(isAllowed){
                 let szoveg = document.getElementById('label1');
-                szoveg.innerText = parapa[counter];  
+                szoveg.innerText = taskComments[counter];  
                 //c.drawImage(rat,corX[counter],corY[counter]);
                 counter++;
                 await sleep(1000/slider.value);       
             }
              if(counter >=46){
-                szoveg.innerText = parapa[counter]="A sorbarendezés sikeresen megtörtént!";
+                szoveg.innerText = taskComments[counter]="A sorbarendezés sikeresen megtörtént!";
             } 
         }
     }
