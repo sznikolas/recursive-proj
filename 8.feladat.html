@@ -36,7 +36,9 @@
           <br><br>
           &emsp;&emsp;Lényege, hogy két szomszédos elem összehasonlításánál mindig a nagyobb értékű kerüljön hátulra, ha növekvő sorrendbe rendezünk. 
           Az algoritmus újra és újra végigjárja a tömböt, először a végéig, majd miután a legnagyobb elem a végére került, már csak az utolsó előtti elemig és így tovább.
-          A legnagyobb értékű elemek mindig a tömb végére kerülnek.<br><br>
+          A legnagyobb értékű elemek mindig a tömb végére kerülnek.
+          <!-- <a href="https://www.techiedelight.com/bubble-sort-iterative-recursive/" target="_blank">Forrás</a> -->
+          <br><br>
   
           &emsp;&emsp;A buborékrendező algoritmus rekurzívan is megvalósítható, 
           de általánosságban ez nem egy rekurzív rendezési algoritmus, mint a merge sort és a quick sort. 
@@ -173,7 +175,9 @@ int main(void)
         majd az (n-1) miatt már csak az utolsó előtti elemig és így tovább csökkentve az n értékét. 
         Erre az összehasonlítás és a swap függvény miatt van szükségünk, így a legnagyobb értékű elem kerül a legvégére. 
         Az n minden rekurzív hívás után egyel csökken, míg el nem érjük a leállási feltételt. Miután az n &lt;= 1, 
-        a tömbünk már rendezett.<br><br>
+        a tömbünk már rendezett.
+        <!-- <a href="https://www.techiedelight.com/bubble-sort-iterative-recursive/" target="_blank">Forrás</a> -->
+        <br><br>
 
         Megjegyzés:<br>
         int n = sizeof(arr) / sizeof(arr[0]) - ezzel kapjuk meg a tömb hosszát
