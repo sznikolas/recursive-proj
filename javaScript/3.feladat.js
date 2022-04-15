@@ -237,7 +237,7 @@ const startAnim = async () => {
                 await sleep(1000/slider.value);       
             }
             if(counter >=51){
-                szoveg.innerText = taskComments[counter]="35. lépés: Az N királynőt sikeresen lehelyeztük!";
+                szoveg.innerText = taskComments[counter]="Az egér sikeresen megtalálta a kijáratot!";
             }  
         }
     }
