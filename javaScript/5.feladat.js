@@ -432,7 +432,7 @@ const startAnim = async () => {
                 await sleep(1000/slider.value);       
             }
              if(counter >=18){
-                szoveg.innerText = taskComments[counter]="Az 5 faktoriális eredménye: 120!";
+                szoveg.innerText = taskComments[counter]="A 7 faktoriális eredménye: 5040!";
             } 
         }
     }

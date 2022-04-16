@@ -673,7 +673,7 @@ document.getElementById('stepFrwd').onclick = function(){
     szoveg.innerText = taskComments[counter];   
     counter++; 
      if(counter >=19){
-        szoveg.innerText = taskComments[counter]="a karakterláncot sikeresen megfordítottuk!";
+        szoveg.innerText = taskComments[counter]="A karakterláncot sikeresen megfordítottuk!";
     }  
 }
 

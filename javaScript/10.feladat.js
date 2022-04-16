@@ -1614,7 +1614,7 @@ document.getElementById('stepFrwd').onclick = function(){
     szoveg.innerText = taskComments[counter];   
     counter++; 
      if(counter >=53){
-        szoveg.innerText = taskComments[counter]="A szudokút sikeresen megoldottuk!";
+        szoveg.innerText = taskComments[counter]="A szúdokut sikeresen megoldottuk!";
     }  
 }
 
@@ -1644,7 +1644,7 @@ const startAnim = async () => {
                 await sleep(1000/slider.value);       
             }
              if(counter >=53){
-                szoveg.innerText = taskComments[counter]="A szudokút sikeresen megoldottuk!";
+                szoveg.innerText = taskComments[counter]="A szúdokut sikeresen megoldottuk!";
             } 
         }
     }
