@@ -1,4 +1,6 @@
-# sznikolas.github.io
+Recrusion and backtracking
 
-A szerző feladata egy olyan feladatgyűjtemény létrehozása, amely rekurzív algoritmusokkal megoldható programozási feladatokat tartalmaz (minimum 30 feladat). A feladatgyűjteménynek tartalmaznia kell mindegyik feladat megoldását is C programozási nyelven. 
-A szakdolgozat gyakorlati részében a szerző feladata néhány olyan algoritmus-animáció létrehozása, amelyek segítségével a diákok könnyebben megérthetik a kiválasztott feladat megoldását (minimum 10 animáció). Az animációknak tartalmazniuk kell legalább az animáció elindítására, megállítására és az algoritmus lépésenkénti lejátszására szolgáló vezérlőgombokat. Az animációk létrehozására a szerző tetszőleges fejlesztőkörnyezetet használhat.
+In this project we can see how recursion (and backtracking) work trough some exercises like Knight's tour, N Queen problem, Rat in a Maze, Hanoi towers, Factorial, Merge Sort, Quick Sort, Bubble sort, Sudoku. 
+Besides these we can find some exercises without visualization what we can try to solve alone, but the result are everywhere indicated.This work maybe can help you better understand how's work the recursion in the programming field. 
+
+For the preparation we used vanilla javascript, HTML and CSS.
